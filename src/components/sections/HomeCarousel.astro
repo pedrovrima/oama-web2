@@ -1,0 +1,216 @@
+---
+export interface Slide {
+  title: string;
+  subtitle: string;
+  image: string;
+  link: string;
+  bg: string;
+}
+
+interface Props {
+  slides: Slide[];
+  intervalMs?: number;
+  id?: string;
+}
+
+const {
+  slides = [],
+  intervalMs = 6000,
+  id = "home-carousel",
+} = Astro.props as Props;
+---
+
+{
+  slides.length > 0 && (
+    <section class="  py-8 focus:outline-none" aria-label="Destaques">
+      <div
+        class="relative overflow-hidden   shadow-2xl text-white min-h-[420px] md:min-h-[460px]"
+        data-carousel
+        data-interval={intervalMs}
+        id={id}
+        aria-roledescription="carousel"
+      >
+        {slides.map((slide, index) => (
+          <article
+            class:list={{
+              "absolute inset-0 flex h-full flex-col justify-center gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-12 md:py-14 transition-opacity duration-500 ease-out opacity-0 pointer-events-none": true,
+              "opacity-100 pointer-events-auto": index === 0,
+            }}
+            style={`background:${slide.bg};`}
+            data-slide
+            data-active={index === 0 ? "true" : "false"}
+            aria-hidden={index === 0 ? "false" : "true"}
+          >
+            <div class="mx-auto max-w-4xl">
+              <div class="max-w-xl space-y-4 text-center md:text-left">
+                <h3 class="text-2xl font-extrabold uppercase leading-tight md:text-3xl font-oswald">
+                  {slide.title}
+                </h3>
+                <p class="text-sm font-semibold leading-relaxed text-white/90 md:text-base font-montserrat">
+                  {slide.subtitle}
+                </p>
+              </div>
+
+              <a
+                href={slide.link}
+                class="group relative block w-full max-w-[420px] shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-white/10 rounded-2xl"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  loading="lazy"
+                  class="h-full w-full rounded-2xl object-cover shadow-xl transition duration-200 group-hover:scale-[1.01]"
+                />
+              </a>
+            </div>
+          </article>
+        ))}
+
+        {slides.length > 1 && (
+          <>
+            <button
+              type="button"
+              data-prev
+              class="group absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/10 text-2xl font-semibold text-white shadow-md backdrop-blur transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:left-5"
+              aria-label="Slide anterior"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              data-next
+              class="group absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/10 text-2xl font-semibold text-white shadow-md backdrop-blur transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:right-5"
+              aria-label="Próximo slide"
+            >
+              ›
+            </button>
+
+            <div
+              class="pointer-events-none absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 md:bottom-6"
+              aria-hidden="true"
+            >
+              {slides.map((_, index) => (
+                <button
+                  type="button"
+                  data-dot
+                  data-active={index === 0 ? "true" : "false"}
+                  class="pointer-events-auto h-2.5 w-2.5 rounded-full border border-white/60 bg-white/40 transition duration-200 data-[active=true]:border-white data-[active=true]:bg-white"
+                  aria-label={`Ir para o slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  )
+}
+
+<script type="module">
+  (() => {
+    const carousels = Array.from(document.querySelectorAll("[data-carousel]"));
+
+    carousels.forEach((carousel) => {
+      if (carousel.dataset.ready === "true") return;
+      carousel.dataset.ready = "true";
+
+      const slides = Array.from(carousel.querySelectorAll("[data-slide]"));
+      const dots = Array.from(carousel.querySelectorAll("[data-dot]"));
+      const prevBtn = carousel.querySelector("[data-prev]");
+      const nextBtn = carousel.querySelector("[data-next]");
+      const intervalMs =
+        Number.parseInt(carousel.dataset.interval || "") || 6000;
+
+      if (!slides.length) return;
+
+      let current = slides.findIndex((el) => el.dataset.active === "true") ?? 0;
+      if (current < 0) current = 0;
+
+      let timer;
+
+      const setActive = (index) => {
+        if (!slides.length) return;
+        const nextIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, idx) => {
+          const isActive = idx === nextIndex;
+          slide.dataset.active = isActive ? "true" : "false";
+          slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+          slide.classList.toggle("opacity-100", isActive);
+          slide.classList.toggle("pointer-events-auto", isActive);
+          slide.classList.toggle("pointer-events-none", !isActive);
+        });
+
+        dots.forEach((dot, idx) => {
+          const isActive = idx === nextIndex;
+          dot.dataset.active = isActive ? "true" : "false";
+          dot.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        current = nextIndex;
+      };
+
+      const next = () => setActive(current + 1);
+      const prev = () => setActive(current - 1);
+
+      const stop = () => {
+        if (timer !== undefined) {
+          window.clearInterval(timer);
+        }
+        timer = undefined;
+      };
+
+      const start = () => {
+        if (slides.length <= 1) return;
+        stop();
+        timer = window.setInterval(next, intervalMs);
+      };
+
+      prevBtn?.addEventListener("click", () => {
+        prev();
+        start();
+      });
+      nextBtn?.addEventListener("click", () => {
+        next();
+        start();
+      });
+      dots.forEach((dot, idx) =>
+        dot.addEventListener("click", () => {
+          setActive(idx);
+          start();
+        })
+      );
+
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+      carousel.addEventListener("focusin", stop);
+      carousel.addEventListener("focusout", start);
+
+      carousel.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          prev();
+          start();
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          next();
+          start();
+        }
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          stop();
+        } else {
+          start();
+        }
+      });
+
+      setActive(current);
+      start();
+    });
+  })();
+</script>

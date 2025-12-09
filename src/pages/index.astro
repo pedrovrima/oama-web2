@@ -5,6 +5,28 @@ import H2 from "../components/Typography/h2";
 import heroMain from "../assets/index-hero.jpg";
 import WaveSeparator from "../components/sections/waveSeparator.astro";
 import WaveSeparator2 from "../components/sections/waveSeparator2.astro";
+import HomeCarousel from "../components/sections/HomeCarousel.astro";
+
+const carouselSlides = [
+  {
+    title: "Consumo e conservação da juçara",
+    subtitle:
+      "Agricultores, observadores de aves, pesquisadores e você. Todos precisamos desta palmeira.",
+    image:
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
+    link: "https://example.com/jucara",
+    bg: "#8b75b2",
+  },
+  {
+    title: "Monitoramento da avifauna",
+    subtitle:
+      "Os dados coletados no presente são ferramentas para prevermos e explicarmos eventos futuros.",
+    image:
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    link: "https://example.com/avifauna",
+    bg: "#4ca2da",
+  },
+];
 ---
 
 <BaseLayout title="OAMa — Conservação com ciência" navVariant="overlay">
@@ -380,6 +402,9 @@ import WaveSeparator2 from "../components/sections/waveSeparator2.astro";
           </div>
         </div>
       </div>
+    </section>
+    <section class="bg-oama-cream">
+      <HomeCarousel slides={carouselSlides} intervalMs={6500} client:load />
     </section>
   </main>
 </BaseLayout>
