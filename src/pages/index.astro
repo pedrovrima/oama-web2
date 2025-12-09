@@ -1,16 +1,385 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import H2 from "../components/Typography/h2";
+import heroMain from "../assets/index-hero.jpg";
+import WaveSeparator from "../components/sections/waveSeparator.astro";
+import WaveSeparator2 from "../components/sections/waveSeparator2.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="OAMa — Conservação com ciência" navVariant="overlay">
+  <main class="font-montserrat">
+    <!-- FULL-BLEED HERO -->
+    <section class="relative min-h-screen w-full overflow-hidden">
+      <!-- Background image -->
+      <Image
+        src={heroMain}
+        alt="Ave sendo solta durante atividade do OAMa"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+
+      <!-- Optional subtle vignette for text readability -->
+      <div class="absolute inset-0 bg-black/10"></div>
+
+      <!-- Text block (bottom-left, like your layout) -->
+      <div class="relative z-10 flex min-h-screen items-end">
+        <div class="mx-auto w-full max-w-6xl px-6 pb-14">
+          <div class="max-w-lg">
+            <h1
+              class="text-4xl font-extrabold uppercase text-white drop-shadow md:text-5xl font-oswald leading-14"
+            >
+              Conservação<br />com ciência
+            </h1>
+            <p
+              class="mt-4 text-lg font-semibold text-white/95 drop-shadow font-montserrat"
+            >
+              Gerando dados e engajamento para a conservação das aves da Mata
+              Atlântica
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thin mustard bar (if you want that edge like your mock) -->
+      <div class="absolute bottom-0 left-0 right-0 h-2 bg-oama-yellow"></div>
+    </section>
+
+    <!-- NEXT SECTION: move your right-side logo/text block here -->
+    <section class="bg-[#DFB553] mx-auto pt-30">
+      <div class="mx-auto max-w-4xl px-4 py-10">
+        <div class="">
+          <!-- Your OAMa logo + text card -->
+          <div
+            class="text-sm leading-relaxed text-oama-ink mb-11 font-montserrat"
+          >
+            <div class="flex items-start gap-4 mb-2">
+              <img
+                src="/brand/logo-round.png"
+                alt="Logo do OAMa"
+                class="h-[200px] w-auto"
+              />
+
+              <p class="mt-2 text-[18px] leading-[25px]">
+                <span class="font-extrabold uppercase">
+                  O Observatório de Aves da Mantiqueira (OAMa)
+                </span>
+
+                é uma organização independente e sem fins lucrativos que tem
+                como missão construir pontes entre ciência, sociedade e
+                natureza, por meio de educação, conscientização e pesquisa para
+                preservar a biodiversidade. Desde 2018, nossa equipe atua em
+                três frentes: Comunicação científica, Capacitações técnicas, e
+                Pesquisa e monitoramento da avifauna. Nossas áreas de atuação
+                convergem na conservação da biodiversidade.
+              </p>
+            </div>
+            <p class="mt-2 text-[18px] leading-[25px]">
+              Utilizamos o processo científico como método transversal em nossas
+              áreas de atuação. Entendemos a ciência como uma ferramenta
+              necessária e poderosa, e que deve ser utilizada com a ciência de
+              vivermos em constante transformação, inovação, e mudanças de
+              paradigmas. Reforçamos uma visão crítica, questionadora e aberta a
+              novas visões ao pensar e fazer ciência.
+            </p>
+          </div>
+
+          <div class="mt-10 mb-30">
+            <H2>Missão</H2>
+            <p class="mx-auto mt-4 text-base font-semibold leading-relaxed">
+              <span class="">
+                Nossa missão é construir pontes entre ciência, sociedade e
+                natureza, por meio de educação, conscientização e pesquisa para
+                preservar a biodiversidade.
+              </span>
+            </p>
+
+            <div
+              class="mt-10 grid gap-10 text-oama-ink md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
+            >
+              <div>
+                <div class="grid grid-cols-7 grid-rows-3 gap-4 gap-y-2">
+                  <img
+                    src="/home/ods/ODS 13.png"
+                    alt="Missão 1"
+                    class="object-cover col-span-3 row-span-3 h-full w-full"
+                  />
+                  <img
+                    src="/home/ods/ODS 15.png"
+                    alt="Missão 1"
+                    class="object-cover col-span-3 row-span-3 h-full w-full"
+                  />
+
+                  <img
+                    src="/home/ods/ODS 4.png"
+                    alt="Missão 1"
+                    class="object-cover col-span-1 row-span-1 h-full w-full"
+                  />
+                  <img
+                    src="/home/ods/ODS 11.png"
+                    alt="Missão 1"
+                    class="object-cover col-span-1 row-span-1 h-full w-full"
+                  />
+                  <img
+                    src="/home/ods/ODS 12.png"
+                    alt="Missão 1"
+                    class="object-cover col-span-1 row-span-1 h-full w-full"
+                  />
+                </div>
+              </div>
+
+              <p
+                class="text-sm leading-relaxed md:text-base text-oama-ink font-semibold h-full"
+              >
+                Como uma instituição comprometida com a Década da ONU para a
+                Restauração de Ecossistemas (2021-2030), os programas e projetos
+                do OAMa contemplam nove Objetivos de Desenvolvimento
+                Sustentável.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel placeholder -->
+        <!-- <section
+          class="flex flex-col justify-between rounded-3xl bg-white shadow-lg"
+        >
+          <div class="p-6">
+            <p
+              class="text-[11px] font-extrabold uppercase tracking-[0.28em] text-oama-ink/70"
+            >
+              Capacitação profissional
+            </p>
+            <p class="mt-2 text-sm text-oama-ink">
+              Espaço reservado para o carrossel. Vamos implementar depois com
+              React island.
+            </p>
+
+            <div class="mt-6 h-[220px] w-full rounded-2xl bg-neutral-100"></div>
+          </div>
+
+          <div
+            class="flex items-center justify-between border-t border-neutral-200 px-6 py-6 text-xs text-neutral-500"
+          >
+            <span>Carrossel placeholder</span>
+            <div class="flex gap-2">
+              <span
+                class="flex h-8 w-8 items-center justify-center rounded-full border"
+                >‹</span
+              >
+              <span
+                class="flex h-8 w-8 items-center justify-center rounded-full border"
+                >›</span
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+    </section> -->
+
+        <!-- STATS -->
+        <section>
+          <div class="mx-auto max-w-6xl px-4 py-12 text-white">
+            <div class="text-center">
+              <H2>Nossas ações em números</H2>
+            </div>
+            <p
+              class="mt-2 text-[18px] text-white/90 font-montserrat text-center w"
+            >
+              Os resultados e impactos do OAMa
+            </p>
+          </div>
+
+          <div
+            class="mt-5 grid gap-6 text-center text-xs font-semibold md:grid-cols-5 text-white font-montserrat"
+          >
+            <div class="flex flex-col items-center justify-center">
+              <img
+                src="home/acoes/pessoas.png"
+                alt="Pessoas"
+                class="h-[70px]"
+              />
+              <span class="text-[48px] font-extrabold font-oswald">+700</span><p
+                class="text-oama-ink text-[14px]"
+              >
+                Participantes em ações educativas
+              </p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <img
+                src="home/acoes/panfletos.png"
+                alt="Materiais"
+                class="h-[70px]"
+              />
+              <span class="text-[48px] font-extrabold font-oswald">+8200</span
+              ><p class="text-oama-ink text-[14px]">
+                Materiais educativos distribuídos
+              </p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <img src="home/acoes/pena.png" alt="Alunos" class="h-[70px]" />
+              <span class="text-[48px] font-extrabold font-oswald">+480</span><p
+                class="text-oama-ink text-[14px]"
+              >
+                Alunos em cursos e treinamentos
+              </p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <img src="home/acoes/calendar.png" alt="Anos" class="h-[70px]" />
+              <span class="text-[48px] font-extrabold font-oswald">+6</span><p
+                class="text-oama-ink text-[14px]"
+              >
+                Anos de monitoramento ativo
+              </p>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <img src="home/acoes/ave.png" alt="Aves" class="h-[70px]" />
+              <span class="text-[48px] font-extrabold font-oswald">+160</span><p
+                class="text-oama-ink text-[14px]"
+              >
+                Espécies de aves estudadas
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- SUPPORT CARD -->
+    <section class="bg-[#DFB553]">
+      <div class="mx-auto max-w-4xl px-4 py-12">
+        <div
+          class="rounded-3xl bg-oama-cream p-6 shadow-lg relative h-max-[200px] h-[250px]"
+        >
+          <div
+            class="grid items-center gap-6 md:grid-cols-[1fr_250px] relative h-full"
+          >
+            <div class="h-full flex flex-col justify-between items-start">
+              <p
+                class="text-[30px] font-extrabold uppercase text-oama-ink font-oswald"
+              >
+                Toda ajuda faz a diferença
+              </p>
+              <p class="mt-2 text-[18px] text-oama-ink font-montserrat mb-4">
+                Doações e filiações são a força motora que dá vida ao OAMa.
+                Junte-se ao bando em defesa das aves brasileiras!
+              </p>
+
+              <a
+                href="/apoie"
+                class="rounded-full bg-[#eab231] px-6 py-3 text-xs font-extrabold uppercase tracking-[0.2em] text-white shadow hover:brightness-95 w-max"
+              >
+                Doar agora
+              </a>
+            </div>
+          </div>
+          <img
+            src="/home/card-doe.png"
+            alt="Support"
+            class="absolute right-0 bottom-0 w-[300px] h-auto"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="bg-[#DFB553] w-full">
+      <div class="">
+        <WaveSeparator height={100} />
+      </div>
+    </section>
+    <section class="bg-oama-cream w-full">
+      <WaveSeparator2 />
+    </section>
+    <section class="bg-oama-cream w-full">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="flex flex-row items-center justify-center mb-6">
+          <img
+            src="/brand/bird.png"
+            alt="Nossas Áreas de Atuação"
+            class="w-auto h-[89px]"
+          />
+          <h2
+            class="text-2xl font-extrabold uppercase text-oama-ink font-oswald text-center mb-6"
+          >
+            Nossas Áreas <br /> de Atuação
+          </h2>
+        </div>
+
+        <div class="grid w-full grid-cols-1 gap-1 text-white md:grid-cols-3">
+          <div
+            class="flex flex-col items-center justify-between gap-2 bg-[#DFB553] px-3 py-6 text-center font-montserrat"
+          >
+            <div class="flex flex-col items-center justify-center gap-4">
+              <img
+                src="/home/atuacao/pc.png"
+                alt="Pesquisa"
+                class="w-auto h-[100px]"
+              />
+              <h3 class="text-2xl uppercase font-oswald">Pesquisa</h3>
+            </div>
+            <p class="mt-2 text-base leading-relaxed">
+              A ciência é o pilar central de nossa organização, pois acreditamos
+              que ações de conservação da biodiversidade devem ser tomadas com
+              base no conhecimento científico.
+            </p>
+            <a
+              href="#"
+              class="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-oama-ink underline-offset-8 hover:decoration-white hover:text-white hover:underline"
+            >
+              Saiba mais
+            </a>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-between gap-2 bg-[#4ca2da] px-3 py-6 text-center font-montserrat"
+          >
+            <div class="flex flex-col items-center justify-center gap-4">
+              <img
+                src="/home/atuacao/megafone.png"
+                alt="Comunicação Científica"
+                class="w-auto h-[100px]"
+              />
+              <h3 class="text-2xl uppercase font-oswald">
+                Comunicação Científica
+              </h3>
+            </div>
+            <p class="mt-2 text-base leading-relaxed">
+              Visamos sensibilizar pessoas à nossa causa e disseminar
+              conhecimento sobre a natureza. Adequamos a linguagem da Ciência ao
+              público geral e também ao público especializado.
+            </p>
+            <a
+              href="#"
+              class="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-oama-ink underline-offset-8 hover:decoration-white hover:text-white hover:underline"
+            >
+              Saiba mais
+            </a>
+          </div>
+
+          <div
+            class="flex flex-col items-center justify-between gap-2 bg-[#DFB553] px-3 py-6 text-center font-montserrat"
+          >
+            <div class="flex flex-col items-center justify-center gap-4">
+              <img
+                src="/home/atuacao/feather.png"
+                alt="Capacitações"
+                class="w-auto h-[100px]"
+              />
+              <h3 class="text-2xl uppercase font-oswald">Capacitações</h3>
+            </div>
+            <p class="mt-2 text-base font-montserrat">
+              Promover capacitação de excelência é uma forma de contribuir para
+              o desenvolvimento de ciência de qualidade no Brasil, prezando pelo
+              bem-estar animal e dados coletados.
+            </p>
+            <a
+              href="#"
+              class="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-oama-ink underline-offset-8 hover:decoration-white hover:text-white hover:underline"
+            >
+              Saiba mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

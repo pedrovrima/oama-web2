@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "tailwindcss";
+
+/* Oswald */
+@import "@fontsource/oswald/300.css";
+@import "@fontsource/oswald/400.css";
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/700.css";
+
+/* Montserrat */
+@import "@fontsource/montserrat/300.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+
+/* Tailwind v4 theme tokens (CSS-first) */
+@theme {
+  --font-oswald: "Oswald", system-ui, sans-serif;
+  --font-montserrat: "Montserrat", system-ui, sans-serif;
+}
+
+/* Simple utility classes (zero ambiguity) */
+.font-oswald {
+  font-family: var(--font-oswald);
+}
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+@theme {
+  --color-oama-yellow: #e9b130;
+  --color-oama-cream: #fbf5e6;
+  --color-oama-ink: #1e1702;
+  --color-oama-blue: #98c1da;
+
+  /* optional accents you used in mockups */
+  --color-oama-red: #cf3c3c;
+  --color-oama-green: #22844c;
+  --color-oama-purple: #8c78ab;
+  --color-oama-orange: #eb753c;
+}

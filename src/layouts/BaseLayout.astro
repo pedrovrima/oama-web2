@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import Nav from "../components/nav/Nav.astro";
+
+interface Props {
+  title?: string;
+  navVariant?: "default" | "overlay";
+}
+
+const { title = "OAMa", navVariant = "default" } = Astro.props;
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-oama-cream text-oama-ink">
+    <Nav variant={navVariant} />
+    <slot />
+  </body>
+</html>

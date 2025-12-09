@@ -1,0 +1,51 @@
+---
+const {
+  variant = "default", // "default" | "overlay"
+} = Astro.props;
+
+const links = [
+  { href: "/", label: "Sobre" },
+  { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
+  { href: "/programas-e-projetos", label: "Programas e Projetos" },
+  { href: "/servicos", label: "Prestação de Serviços" },
+  { href: "/realizacoes", label: "Realizações" },
+  { href: "/loja", label: "Loja" },
+];
+
+const base = "z-40 w-full";
+
+const styles =
+  variant === "overlay"
+    ? "absolute top-0 left-0 right-0 bg-white/90 backdrop-blur"
+    : "sticky top-0 bg-white/90 shadow-sm backdrop-blur";
+---
+
+<header class={`${base} ${styles}`}>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/logo-oama.svg" alt="OAMa" class="h-9 w-auto" />
+    </a>
+
+    <nav
+      class="hidden items-center gap-6 text-xs font-semibold text-oama-ink/80 md:flex"
+    >
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="border-b-2 border-transparent pb-1 transition hover:border-oama-yellow hover:text-oama-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="/apoie"
+      class="rounded-full bg-oama-yellow px-4 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-oama-ink shadow-sm hover:brightness-95"
+    >
+      Apoie
+    </a>
+  </div>
+</header>
