@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroQuemSomos from "../components/sections/sobre/HeroQuemSomos.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+import PlanoDeVoo from "../components/sections/sobre/PlanoDeVoo.astro";
+---
+
+<BaseLayout title="Sobre — OAMa" navVariant="overlay">
+  <main class="font-montserrat">
+    <HeroQuemSomos />
+    <WaveDark topColor="#dfb553" bottomColor="#fff9ea" />
+    <PlanoDeVoo />
+  </main>
+</BaseLayout>
