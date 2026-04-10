@@ -1,0 +1,200 @@
+---
+// Footer — blue section + yellow bar
+---
+
+<footer>
+  <!-- Blue section -->
+  <div class="relative w-full overflow-hidden" style="background: #5ba4d9;">
+
+    <!-- Bird illustration with radial gradient overlay (absolutely positioned, right side) -->
+    <!-- Bird head aligns with donation title (~45px from section top).
+         Bird image canvas: head starts at ~10% from top, body center at ~55%.
+         With top: -25px and height 720px → head at ~47px from section top.
+         Gradient center at ~40% height of overlay = body mid. -->
+    <div
+      class="pointer-events-none absolute right-0 top-0 h-full hidden md:block"
+      style="width: 58%;"
+      aria-hidden="true"
+    >
+      <img
+        src="/brand/bird.png"
+        alt=""
+        class="absolute right-0 w-full"
+        style="top: -25px; height: 720px; object-fit: contain; object-position: top right;"
+        loading="lazy"
+      />
+      <!-- Horizontal linear gradient: solid blue on left, slight opacity on right -->
+      <div
+        class="absolute inset-0"
+        style="background: linear-gradient(to left, #5ba4d9 25%, rgba(91,164,217,0.75) 50%, rgba(91,164,217,0.2) 80%, rgba(91,164,217,0.05) 100%);"
+      ></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative mx-auto max-w-4xl px-4 py-[45px]">
+
+      <!-- Donate CTA -->
+      <div class="flex flex-col gap-3 max-w-[420px]">
+        <h2 class="font-oswald font-bold text-white" style="font-size: 30px; line-height: 35px;">
+          NOS AJUDE A CONSTRUIR PONTES
+        </h2>
+        <p class="font-montserrat font-semibold text-white" style="font-size: 18px; line-height: 25px;">
+          Sua doação viabiliza nossas ações de comunicação e divulgação científica!
+        </p>
+        <a
+          href="#doe"
+          class="mt-2 inline-flex items-center justify-center w-fit rounded-full font-montserrat font-semibold text-white hover:brightness-110 transition"
+          style="background: #eab231; font-size: 18px; line-height: 25px; height: 44px; padding: 0 32px; border-radius: 25px;"
+        >
+          Doar agora
+        </a>
+      </div>
+
+      <!-- Newsletter CTA -->
+      <div class="flex flex-col gap-3 mt-[100px]" style="max-width: 480px;">
+        <h2 class="font-oswald font-bold text-white" style="font-size: 30px; line-height: 35px;">
+          ASSINE A NEWSLETTER
+        </h2>
+        <p class="font-montserrat font-semibold text-white" style="font-size: 18px; line-height: 25px;">
+          Seja o primeiro a saber das próximas atividades do OAMa
+        </p>
+
+        <form class="flex flex-col gap-2 mt-2" onsubmit="return false;" aria-label="Newsletter">
+          <!-- Name field -->
+          <input
+            type="text"
+            name="name"
+            placeholder="Seu Nome: Saíra-amarela"
+            class="font-montserrat text-white/90 placeholder-white/70 focus:outline-none"
+            style="background: #eab231; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px; width: 346px; max-width: 100%;"
+          />
+          <!-- Email + submit row -->
+          <div class="flex flex-col md:flex-row gap-2">
+            <input
+              type="email"
+              name="email"
+              placeholder="Seu Email: passarinho@oama.eco.br"
+              class="font-montserrat text-white/90 placeholder-white/70 focus:outline-none w-full md:w-[346px]"
+              style="background: #eab231; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px;"
+            />
+            <button
+              type="submit"
+              class="font-montserrat font-semibold hover:brightness-95 transition w-full md:w-[123px]"
+              style="background: #ffffff; color: #e9b130; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px;"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Wave transition: blue → cream → light yellow → #eab231 -->
+  <div class="relative w-full overflow-hidden leading-[0]" style="background: #5ba4d9;">
+    <svg
+      viewBox="0 0 1440 220"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      class="block w-full"
+      style="height: 160px;"
+    >
+      <!-- Cream wave -->
+      <path d="M0,70 C260,22 540,52 810,28 C1080,4 1280,48 1440,60 L1440,220 L0,220 Z" fill="#fbf5e6" />
+      <!-- Light yellow wave -->
+      <path d="M0,118 C200,92 460,132 740,106 C1020,80 1260,116 1440,98 L1440,220 L0,220 Z" fill="#f0c84a" />
+      <!-- Bottom yellow wave -->
+      <path d="M0,165 C240,144 460,172 720,154 C985,136 1215,168 1440,152 L1440,220 L0,220 Z" fill="#eab231" />
+    </svg>
+  </div>
+
+  <!-- Yellow content section: nav + contact + social -->
+  <div class="w-full" style="background: #eab231;">
+    <div class="mx-auto max-w-4xl px-4 py-8">
+
+      <!-- Nav row -->
+      <nav aria-label="Rodapé" class="mb-6">
+        <ul class="flex flex-col gap-3 md:flex-row md:flex-wrap md:gap-x-8 md:gap-y-2">
+          {[
+            { label: "Sobre", href: "/sobre" },
+            { label: "Áreas de Atuação", href: "/areas" },
+            { label: "Programas e Projetos", href: "/projetos" },
+            { label: "Prestação de Serviços", href: "/servicos" },
+            { label: "Realizações", href: "/realizacoes" },
+            { label: "Loja", href: "/loja" },
+          ].map(({ label, href }) => (
+            <li>
+              <a
+                href={href}
+                class="font-montserrat font-semibold text-white hover:text-white/80 transition"
+                style="font-size: 18px; line-height: 20px;"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Contact + social row -->
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+        <!-- Contact -->
+        <address class="not-italic">
+          <p class="font-montserrat text-white" style="font-size: 16px; line-height: 25px;">
+            <strong>Observatório de Aves da Mantiqueira</strong><br />
+            contato@oama.eco.br | +55 24 99962-7394<br />
+            Resende - RJ<br />
+            CNPJ: 35.713.512/0001-80
+          </p>
+        </address>
+
+        <!-- Social icons -->
+        <div class="flex items-center gap-3">
+          <a href="#" aria-label="Instagram" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.516 2.497 5.783 2.225 7.15 2.163 8.416 2.105 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.333.014 7.053.072 5.775.131 4.602.425 3.635 1.392 2.668 2.359 2.374 3.532 2.315 4.81 2.257 6.09 2.243 6.498 2.243 12c0 5.502.014 5.91.072 7.19.059 1.278.353 2.451 1.32 3.418.967.967 2.14 1.261 3.418 1.32C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.278-.059 2.451-.353 3.418-1.32.967-.967 1.261-2.14 1.32-3.418.058-1.28.072-1.688.072-7.19 0-5.502-.014-5.91-.072-7.19-.059-1.278-.353-2.451-1.32-3.418C19.398.425 18.225.131 16.947.072 15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter / X" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="text-white/80 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Yellow bottom bar -->
+  <div class="w-full flex items-center justify-center" style="background: #eab231; height: 147px;">
+    <img
+      src="/brand/logo-round.png"
+      alt="OAMa"
+      class="h-20 w-auto"
+      loading="lazy"
+    />
+  </div>
+</footer>

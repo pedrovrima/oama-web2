@@ -1,0 +1,56 @@
+---
+import { getMidiaItems, urlFor } from "../../utils/sanity";
+import CardSection from "./CardSection.astro";
+
+const FALLBACK = [
+  {
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=480&h=474&fit=crop",
+    label: "G1",
+    title: "Projeto monitora aves da Mantiqueira há mais de 6 anos",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=480&h=474&fit=crop",
+    label: "National Geographic",
+    title: "As aves sentinelas da Mata Atlântica",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=480&h=474&fit=crop",
+    label: "BBC Brasil",
+    title: "Ciência cidadã ajuda a mapear espécies ameaçadas",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&h=474&fit=crop",
+    label: "Globo Rural",
+    title: "Conservação da juçara une agricultores e pesquisadores",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=480&h=474&fit=crop",
+    label: "Folha de S.Paulo",
+    title: "Monitoramento de aves revela impacto das mudanças climáticas",
+    href: "#",
+  },
+];
+
+const items = await getMidiaItems();
+
+const cards = items.length > 0
+  ? items.map((item) => ({
+      image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
+      label: item.label,
+      title: item.title,
+      href: item.link ?? "#",
+    }))
+  : FALLBACK;
+---
+
+<CardSection
+  sectionTitle="OAMa na Mídia"
+  subtitle="Acompanhe nosso trabalho"
+  bg="#dfb553"
+  id="midia-section"
+  cards={cards}
+/>

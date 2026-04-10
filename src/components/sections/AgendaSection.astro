@@ -1,0 +1,55 @@
+---
+import { getAgendaItems, urlFor } from "../../utils/sanity";
+import CardSection from "./CardSection.astro";
+
+const FALLBACK = [
+  {
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&h=474&fit=crop",
+    label: "Junho",
+    title: "Congresso Avistar 2025",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=480&h=474&fit=crop",
+    label: "Setembro",
+    title: "III Festival de Aves e Natureza de Resende",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=480&h=474&fit=crop",
+    label: "Setembro",
+    title: "XXIX Congresso Brasileiro de Ornitologia",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=480&h=474&fit=crop",
+    label: "Outubro",
+    title: "IV Curso Teórico Básico de Anilhamento",
+    href: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=480&h=474&fit=crop",
+    label: "Novembro",
+    title: "II FUNdraising Field Trip — Viagem de Arrecadação de Fundos",
+    href: "#",
+  },
+];
+
+const items = await getAgendaItems();
+
+const cards = items.length > 0
+  ? items.map((item) => ({
+      image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
+      label: item.label,
+      title: item.title,
+      href: item.link ?? "#",
+    }))
+  : FALLBACK;
+---
+
+<CardSection
+  sectionTitle="Agenda 2025"
+  bg="#dfb553"
+  id="agenda-section"
+  cards={cards}
+/>

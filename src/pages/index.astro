@@ -6,33 +6,16 @@ import heroMain from "../assets/index-hero.jpg";
 import WaveSeparator from "../components/sections/waveSeparator.astro";
 import WaveSeparator2 from "../components/sections/waveSeparator2.astro";
 import HomeCarousel from "../components/sections/HomeCarousel.astro";
-
-const carouselSlides = [
-  {
-    title: "Consumo e conservação da juçara",
-    subtitle:
-      "Agricultores, observadores de aves, pesquisadores e você. Todos precisamos desta palmeira.",
-    image:
-      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
-    link: "https://example.com/jucara",
-    bg: "#8b75b2",
-  },
-  {
-    title: "Monitoramento da avifauna",
-    subtitle:
-      "Os dados coletados no presente são ferramentas para prevermos e explicarmos eventos futuros.",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
-    link: "https://example.com/avifauna",
-    bg: "#4ca2da",
-  },
-];
+import AgendaSection from "../components/sections/AgendaSection.astro";
+import MidiaSection from "../components/sections/MidiaSection.astro";
+import ProgramsCarousel from "../components/sections/ProgramsCarousel.astro";
+import WaveTransition from "../components/sections/WaveTransition.astro";
 ---
 
 <BaseLayout title="OAMa — Conservação com ciência" navVariant="overlay">
   <main class="font-montserrat">
     <!-- FULL-BLEED HERO -->
-    <section class="relative min-h-screen w-full overflow-hidden">
+    <section class="relative h-[640px] md:min-h-screen md:h-auto w-full overflow-hidden">
       <!-- Background image -->
       <Image
         src={heroMain}
@@ -44,17 +27,17 @@ const carouselSlides = [
       <!-- Optional subtle vignette for text readability -->
       <div class="absolute inset-0 bg-black/10"></div>
 
-      <!-- Text block (bottom-left, like your layout) -->
-      <div class="relative z-10 flex min-h-screen items-end">
-        <div class="mx-auto w-full max-w-6xl px-6 pb-14">
+      <!-- Text block (bottom-left) -->
+      <div class="relative z-10 flex h-full md:min-h-screen items-end">
+        <div class="mx-auto w-full max-w-6xl px-6 pb-10 md:pb-14">
           <div class="max-w-lg">
             <h1
-              class="text-4xl font-extrabold uppercase text-white drop-shadow md:text-5xl font-oswald leading-14"
+              class="text-[30px] leading-[35px] font-extrabold uppercase text-white drop-shadow md:text-5xl md:leading-14 font-oswald"
             >
               Conservação<br />com ciência
             </h1>
             <p
-              class="mt-4 text-lg font-semibold text-white/95 drop-shadow font-montserrat"
+              class="mt-3 text-[18px] leading-[20px] font-semibold text-white/95 drop-shadow font-montserrat md:text-lg md:leading-normal md:mt-4"
             >
               Gerando dados e engajamento para a conservação das aves da Mata
               Atlântica
@@ -68,21 +51,21 @@ const carouselSlides = [
     </section>
 
     <!-- NEXT SECTION: move your right-side logo/text block here -->
-    <section class="bg-[#DFB553] mx-auto pt-30">
-      <div class="mx-auto max-w-4xl px-4 py-10">
+    <section class="bg-[#DFB553] mx-auto">
+      <div class="mx-auto max-w-4xl px-4 py-12">
         <div class="">
           <!-- Your OAMa logo + text card -->
           <div
-            class="text-sm leading-relaxed text-oama-ink mb-11 font-montserrat"
+            class="text-oama-ink mb-11 font-montserrat"
           >
-            <div class="flex items-start gap-4 mb-2">
+            <div class="flex flex-col items-center md:flex-row md:items-start gap-4 mb-2">
               <img
                 src="/brand/logo-round.png"
                 alt="Logo do OAMa"
-                class="h-[200px] w-auto"
+                class="h-[155px] md:h-[200px] w-auto shrink-0"
               />
 
-              <p class="mt-2 text-[18px] leading-[25px]">
+              <p class="mt-2 text-[16px] leading-[24px] text-justify md:text-[18px] md:leading-[25px] md:text-left">
                 <span class="font-extrabold uppercase">
                   O Observatório de Aves da Mantiqueira (OAMa)
                 </span>
@@ -96,7 +79,16 @@ const carouselSlides = [
                 convergem na conservação da biodiversidade.
               </p>
             </div>
-            <p class="mt-2 text-[18px] leading-[25px]">
+
+            {/* Mobile: "Clique aqui para saber mais..." link */}
+            <a
+              href="/missao"
+              class="block md:hidden mt-3 text-[16px] leading-[24px] font-bold text-oama-ink font-montserrat"
+            >
+              Clique aqui para saber mais...
+            </a>
+
+            <p class="hidden md:block mt-2 text-[18px] leading-[25px]">
               Utilizamos o processo científico como método transversal em nossas
               áreas de atuação. Entendemos a ciência como uma ferramenta
               necessária e poderosa, e que deve ser utilizada com a ciência de
@@ -106,7 +98,7 @@ const carouselSlides = [
             </p>
           </div>
 
-          <div class="mt-10 mb-30">
+          <div class="hidden md:block mt-10 mb-8">
             <H2>Missão</H2>
             <p class="mx-auto mt-4 text-base font-semibold leading-relaxed">
               <span class="">
@@ -161,6 +153,7 @@ const carouselSlides = [
             </div>
           </div>
         </div>
+      </div>
 
         <!-- Carousel placeholder -->
         <!-- <section
@@ -199,21 +192,21 @@ const carouselSlides = [
       </div>
     </section> -->
 
+        <ProgramsCarousel />
+
         <!-- STATS -->
         <section>
-          <div class="mx-auto max-w-6xl px-4 py-12 text-white">
+          <div class="mx-auto max-w-4xl px-4 pt-12 pb-12">
             <div class="text-center">
               <H2>Nossas ações em números</H2>
             </div>
             <p
-              class="mt-2 text-[18px] text-white/90 font-montserrat text-center w"
+              class="mt-2 text-[18px] text-white/90 font-montserrat text-center"
             >
               Os resultados e impactos do OAMa
             </p>
-          </div>
-
           <div
-            class="mt-5 grid gap-6 text-center text-xs font-semibold md:grid-cols-5 text-white font-montserrat"
+            class="mt-8 grid grid-cols-2 gap-6 text-center text-xs font-semibold md:grid-cols-5 text-white font-montserrat"
           >
             <div class="flex flex-col items-center justify-center">
               <img
@@ -254,7 +247,7 @@ const carouselSlides = [
                 Anos de monitoramento ativo
               </p>
             </div>
-            <div class="flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1">
               <img src="home/acoes/ave.png" alt="Aves" class="h-[70px]" />
               <span class="text-[48px] font-extrabold font-oswald">+160</span><p
                 class="text-oama-ink text-[14px]"
@@ -263,43 +256,50 @@ const carouselSlides = [
               </p>
             </div>
           </div>
+          </div>
         </section>
-      </div>
     </section>
 
     <!-- SUPPORT CARD -->
     <section class="bg-[#DFB553]">
-      <div class="mx-auto max-w-4xl px-4 py-12">
+      <div class="mx-auto max-w-4xl px-[14px] md:px-4 py-12">
         <div
-          class="rounded-3xl bg-oama-cream p-6 shadow-lg relative h-max-[200px] h-[250px]"
+          class="rounded-3xl bg-oama-cream shadow-lg overflow-hidden relative h-auto md:h-[250px]"
         >
-          <div
-            class="grid items-center gap-6 md:grid-cols-[1fr_250px] relative h-full"
-          >
-            <div class="h-full flex flex-col justify-between items-start">
+          <!-- Mobile: bird image full-bleed at top -->
+          <img
+            src="/home/card-doe-mobile.png"
+            alt="Support"
+            class="block md:hidden w-full object-cover"
+          />
+
+          <!-- Content area -->
+          <div class="relative p-6 h-full md:flex md:items-center">
+            <div class="flex flex-col gap-5 md:gap-4 md:h-full md:justify-between md:py-2">
               <p
-                class="text-[30px] font-extrabold uppercase text-oama-ink font-oswald"
+                class="text-[30px] font-extrabold uppercase text-oama-ink font-oswald leading-[35px]"
               >
                 Toda ajuda faz a diferença
               </p>
-              <p class="mt-2 text-[18px] text-oama-ink font-montserrat mb-4">
+              <p class="text-[18px] leading-[25px] text-oama-ink font-montserrat font-semibold">
                 Doações e filiações são a força motora que dá vida ao OAMa.
                 Junte-se ao bando em defesa das aves brasileiras!
               </p>
-
               <a
                 href="/apoie"
-                class="rounded-full bg-[#eab231] px-6 py-3 text-xs font-extrabold uppercase tracking-[0.2em] text-white shadow hover:brightness-95 w-max"
+                class="flex items-center justify-center rounded-full bg-[#eab231] text-sm font-extrabold uppercase tracking-[0.15em] text-white shadow hover:brightness-95 mt-4 md:mt-0 w-[166px] h-[44px]"
               >
                 Doar agora
               </a>
             </div>
+
+            <!-- Desktop: bird image absolute bottom-right -->
+            <img
+              src="/home/card-doe.png"
+              alt="Support"
+              class="hidden md:block absolute right-0 bottom-0 w-[300px] h-auto"
+            />
           </div>
-          <img
-            src="/home/card-doe.png"
-            alt="Support"
-            class="absolute right-0 bottom-0 w-[300px] h-auto"
-          />
         </div>
       </div>
     </section>
@@ -311,7 +311,7 @@ const carouselSlides = [
     <section class="bg-oama-cream w-full">
       <WaveSeparator2 />
     </section>
-    <section class="bg-oama-cream w-full">
+    <section class="bg-oama-cream w-full py-12">
       <div class="max-w-4xl mx-auto px-4">
         <div class="flex flex-row items-center justify-center mb-6">
           <img
@@ -403,8 +403,14 @@ const carouselSlides = [
         </div>
       </div>
     </section>
-    <section class="bg-oama-cream">
-      <HomeCarousel slides={carouselSlides} intervalMs={6500} client:load />
+    <section>
+      <HomeCarousel />
     </section>
+    <div class="relative z-10" style="margin-top: -55px;">
+      <WaveTransition topColor="#fbf5e6" bottomColor="#dfb553" />
+    </div>
+
+    <AgendaSection />
+    <MidiaSection />
   </main>
 </BaseLayout>

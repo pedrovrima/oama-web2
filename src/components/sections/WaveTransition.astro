@@ -1,0 +1,44 @@
+---
+interface Props {
+  topColor: string;
+  bottomColor: string;
+}
+
+const { topColor, bottomColor } = Astro.props;
+
+// Three distinct wave paths — each has a different shape for asymmetry.
+// All fill from their wave down to the bottom of the viewBox (y=220).
+// Render order: white first (behind), black second, bottomColor last (front).
+// Result: topColor (container bg) → white band → black band → bottomColor
+
+// White wave: edges at y≈65, peaks at y≈12–28. Convex shape visible against
+// the carousel above. The caller must use a negative top margin large enough
+// (≥ 65px CSS) to hide the transparent area above the wave behind the carousel.
+const whiteWave =
+  "M0,65 C250,18 560,48 800,25 C1060,8 1270,50 1440,62 L1440,220 L0,220 Z";
+
+const blackWave =
+  "M0,112 C180,88 480,128 760,102 C1040,76 1262,112 1440,95 L1440,220 L0,220 Z";
+
+const bottomWave =
+  "M0,165 C240,144 460,172 720,154 C985,136 1215,168 1440,152 L1440,220 L0,220 Z";
+---
+
+<div class="relative w-full overflow-hidden leading-[0]">
+  <svg
+    viewBox="0 0 1440 220"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    class="block w-full"
+    style="height: 160px;"
+  >
+    <!-- White band: starts at whiteWave, covers down — topColor shows above -->
+    <path d={whiteWave} fill="white" />
+
+    <!-- Black band: starts at blackWave, covers down — white shows between waves -->
+    <path d={blackWave} fill="black" />
+
+    <!-- Bottom color: starts at bottomWave, covers down — black shows between waves -->
+    <path d={bottomWave} fill={bottomColor} />
+  </svg>
+</div>

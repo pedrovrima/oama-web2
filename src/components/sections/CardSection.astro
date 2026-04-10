@@ -1,0 +1,147 @@
+---
+import ContentCard from "../ui/ContentCard.astro";
+
+interface CardItem {
+  image: string;
+  imageAlt?: string;
+  label: string;
+  title: string;
+  href?: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  subtitle?: string;
+  cards: CardItem[];
+  bg?: string;
+  id?: string;
+}
+
+const {
+  sectionTitle,
+  subtitle,
+  cards,
+  bg = "#dfb553",
+  id = `cs-${Math.random().toString(36).slice(2, 8)}`,
+} = Astro.props;
+
+const hasCarousel = cards.length > 1;
+---
+
+<section class="w-full py-12" style={`background: ${bg};`}>
+  <div class="mx-auto max-w-4xl px-4">
+
+    <div class="text-center mb-10">
+      <h2 class="font-oswald font-bold text-[30px] leading-[35px] text-white">
+        {sectionTitle}
+      </h2>
+      {subtitle && (
+        <p class="font-montserrat font-semibold text-[18px] leading-[25px] text-white mt-1">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="relative" id={id} data-card-section>
+
+      <div class="overflow-hidden">
+        <div
+          class="flex gap-0 md:gap-[65px] transition-transform duration-500 ease-out"
+          data-cs-track
+        >
+          {cards.map((card) => (
+            <div class="w-full md:w-[calc((100%-130px)/3)] shrink-0">
+              <ContentCard {...card} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {hasCarousel && (
+        <>
+          <!-- Arrows: inside card image area on mobile, outside on desktop -->
+          <button
+            type="button"
+            data-cs-prev
+            class="absolute top-[40%] left-2 md:top-1/2 md:-translate-y-1/2 md:-left-8 text-4xl font-bold text-white drop-shadow hover:text-white/80 transition leading-none focus:outline-none z-10"
+            aria-label="Anterior"
+          >‹</button>
+          <button
+            type="button"
+            data-cs-next
+            class="absolute top-[40%] right-2 md:top-1/2 md:-translate-y-1/2 md:-right-8 text-4xl font-bold text-white drop-shadow hover:text-white/80 transition leading-none focus:outline-none z-10"
+            aria-label="Próximo"
+          >›</button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-5" aria-hidden="true">
+            {cards.map((_, index) => (
+              <button
+                type="button"
+                data-cs-dot
+                data-active={index === 0 ? "true" : "false"}
+                class="h-2.5 w-2.5 rounded-full border border-white/60 bg-white/40 transition duration-200 data-[active=true]:bg-white data-[active=true]:border-white focus:outline-none"
+                aria-label={`Ir para o slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+
+  </div>
+</section>
+
+{hasCarousel && (
+  <script define:vars={{ id, total: cards.length }}>
+    (() => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const track = section.querySelector("[data-cs-track]");
+      const prevBtn = section.querySelector("[data-cs-prev]");
+      const nextBtn = section.querySelector("[data-cs-next]");
+      const dots = Array.from(section.querySelectorAll("[data-cs-dot]"));
+
+      let current = 0;
+
+      const getLayout = () => {
+        const containerWidth = track.parentElement.offsetWidth;
+        const isMobile = containerWidth < 768;
+        const gap = isMobile ? 0 : 65;
+        const cardWidth = isMobile
+          ? containerWidth
+          : (containerWidth - 2 * gap) / 3;
+        const maxIndex = isMobile ? total - 1 : Math.max(0, total - 3);
+        return { gap, cardWidth, maxIndex };
+      };
+
+      let maxIndex = getLayout().maxIndex;
+
+      const goTo = (index) => {
+        const { gap, cardWidth, maxIndex: currentMax } = getLayout();
+        maxIndex = currentMax;
+        current = Math.max(0, Math.min(index, maxIndex));
+        track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+
+        if (prevBtn) prevBtn.style.opacity = current === 0 ? "0.3" : "1";
+        if (nextBtn) nextBtn.style.opacity = current >= maxIndex ? "0.3" : "1";
+
+        dots.forEach((dot, idx) => {
+          dot.dataset.active = idx === current ? "true" : "false";
+        });
+      };
+
+      prevBtn?.addEventListener("click", () => goTo(current - 1));
+      nextBtn?.addEventListener("click", () => goTo(current + 1));
+      dots.forEach((dot, idx) =>
+        dot.addEventListener("click", () => goTo(idx))
+      );
+
+      window.addEventListener("resize", () => goTo(current));
+
+      goTo(0);
+    })();
+  </script>
+)}

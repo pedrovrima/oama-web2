@@ -1,0 +1,176 @@
+---
+import { getProgramSlides, urlFor } from "../../utils/sanity";
+
+const FALLBACK = [
+  {
+    title: "Monitoramento de Aves da Mantiqueira",
+    subtitle: "Desde 2018, monitoramos mais de 160 espécies na Serra da Mantiqueira com metodologia científica rigorosa.",
+    image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&h=400&q=80",
+    link: "#",
+  },
+  {
+    title: "Projeto Juçara",
+    subtitle: "Agricultores, observadores de aves e pesquisadores unidos pela conservação da palmeira juçara.",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&h=400&q=80",
+    link: "#",
+  },
+  {
+    title: "Anilhamento Científico",
+    subtitle: "Captura, marcação e soltura de aves para rastreamento de populações e rotas migratórias.",
+    image: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=1200&h=400&q=80",
+    link: "#",
+  },
+];
+
+const raw = await getProgramSlides();
+
+const slides = raw.length > 0
+  ? raw.map((s) => ({
+      title: s.title,
+      subtitle: s.subtitle,
+      image: urlFor(s.image).width(1200).height(400).fit("crop").auto("format").url(),
+      link: s.link ?? "#",
+    }))
+  : FALLBACK;
+---
+
+{
+  slides.length > 0 && (
+    <section
+      class="bg-[#dfb553] w-full"
+      aria-label="Programas em destaque"
+      id="programs-carousel"
+      data-programs-carousel
+    >
+      <div class="relative mx-auto max-w-4xl px-0 py-0 md:px-6 md:py-10 md:py-14">
+        {slides.map((slide, index) => (
+          <article
+            data-programs-slide
+            data-active={index === 0 ? "true" : "false"}
+            class:list={{
+              "transition-opacity duration-500 ease-out": true,
+              "opacity-0 absolute inset-x-0 top-0 md:inset-x-6 md:top-10 pointer-events-none":
+                index !== 0,
+              "opacity-100 pointer-events-auto": index === 0,
+            }}
+            aria-hidden={index === 0 ? "false" : "true"}
+          >
+            <a
+              href={slide.link}
+              class="relative block w-full overflow-hidden md:rounded-[25px] shadow-xl"
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                loading={index === 0 ? "eager" : "lazy"}
+                class="h-[425px] w-full object-cover md:h-[400px]"
+              />
+              <!-- Mobile: gradient top→bottom; Desktop: gradient bottom→top -->
+              <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent md:bg-gradient-to-t md:from-black/70 md:via-black/20 md:to-transparent" />
+              <!-- Mobile: text at TOP; Desktop: text at BOTTOM -->
+              <div class="absolute top-0 left-0 p-6 md:top-auto md:bottom-0 md:p-8">
+                <h3 class="font-oswald text-[30px] leading-[35px] font-bold uppercase text-white drop-shadow md:text-3xl">
+                  {slide.title}
+                </h3>
+                <p class="mt-2 font-montserrat text-[18px] leading-[25px] font-semibold text-white/90 drop-shadow md:text-base max-w-sm">
+                  {slide.subtitle}
+                </p>
+              </div>
+            </a>
+          </article>
+        ))}
+
+        {slides.length > 1 && (
+          <>
+            <!-- Mobile: bottom-left; Desktop: centered left -->
+            <button
+              type="button"
+              data-programs-prev
+              class="absolute bottom-4 left-4 md:bottom-auto md:left-0 md:top-1/2 md:-translate-y-1/2 text-4xl font-bold text-white/80 hover:text-white transition leading-none focus:outline-none"
+              aria-label="Slide anterior"
+            >‹</button>
+
+            <!-- Mobile: bottom-right; Desktop: centered right -->
+            <button
+              type="button"
+              data-programs-next
+              class="absolute bottom-4 right-4 md:bottom-auto md:right-0 md:top-1/2 md:-translate-y-1/2 text-4xl font-bold text-white/80 hover:text-white transition leading-none focus:outline-none"
+              aria-label="Próximo slide"
+            >›</button>
+
+            <!-- Dots: overlaid on image on mobile, below on desktop -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 md:relative md:bottom-auto md:left-auto md:translate-x-0 md:mt-5 md:justify-center" aria-hidden="true">
+              {slides.map((_, index) => (
+                <button
+                  type="button"
+                  data-programs-dot
+                  data-active={index === 0 ? "true" : "false"}
+                  class="h-2.5 w-2.5 rounded-full border border-white/60 bg-white/40 transition duration-200 data-[active=true]:bg-white data-[active=true]:border-white"
+                  aria-label={`Ir para o slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  )
+}
+
+<script type="module">
+  (() => {
+    const section = document.querySelector("[data-programs-carousel]");
+    if (!section) return;
+
+    const slides = Array.from(section.querySelectorAll("[data-programs-slide]"));
+    const dots = Array.from(section.querySelectorAll("[data-programs-dot]"));
+    const prevBtn = section.querySelector("[data-programs-prev]");
+    const nextBtn = section.querySelector("[data-programs-next]");
+
+    if (!slides.length) return;
+
+    let current = 0;
+    let timer;
+
+    const setActive = (index) => {
+      const next = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, idx) => {
+        const isActive = idx === next;
+        slide.dataset.active = isActive ? "true" : "false";
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+        slide.classList.toggle("opacity-100", isActive);
+        slide.classList.toggle("pointer-events-auto", isActive);
+        slide.classList.toggle("opacity-0", !isActive);
+        slide.classList.toggle("pointer-events-none", !isActive);
+        slide.classList.toggle("absolute", !isActive);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.dataset.active = idx === next ? "true" : "false";
+      });
+
+      current = next;
+    };
+
+    const next = () => setActive(current + 1);
+    const prev = () => setActive(current - 1);
+
+    const stop = () => clearInterval(timer);
+    const start = () => { stop(); timer = setInterval(next, 6000); };
+
+    prevBtn?.addEventListener("click", () => { prev(); start(); });
+    nextBtn?.addEventListener("click", () => { next(); start(); });
+    dots.forEach((dot, idx) =>
+      dot.addEventListener("click", () => { setActive(idx); start(); })
+    );
+
+    section.addEventListener("mouseenter", stop);
+    section.addEventListener("mouseleave", start);
+    document.addEventListener("visibilitychange", () => {
+      document.hidden ? stop() : start();
+    });
+
+    start();
+  })();
+</script>
