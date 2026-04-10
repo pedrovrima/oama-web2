@@ -19,6 +19,8 @@ export default defineConfig({
       dataset: dataset,
       apiVersion: "2024-01-01",
       useCdn: false,
+      studioBasePath: "/admin",
+      studioRouterHistory: "hash",
     }),
   ],
 
