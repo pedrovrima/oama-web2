@@ -7,10 +7,10 @@ const { topColor = "#dfb553", bottomColor = "#fff9ea" } = Astro.props;
 ---
 
 <div class="relative w-full overflow-hidden leading-[0]" style={`background: ${topColor};`}>
-  <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="block w-full" style="height: 100px;">
+  <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="block w-full" style="height: 150px;">
     <!-- Black middle band -->
-    <path d="M0,30 C300,60 600,10 900,45 C1100,70 1300,25 1440,35 L1440,120 L0,120 Z" fill="black" />
+    <path d="M0,20 C300,50 600,5 900,35 C1100,60 1300,20 1440,30 L1440,160 L0,160 Z" fill="black" />
     <!-- Bottom color on top of black -->
-    <path d="M0,70 C250,45 550,80 800,58 C1050,36 1280,72 1440,62 L1440,120 L0,120 Z" fill={bottomColor} />
+    <path d="M0,110 C250,85 550,120 800,98 C1050,76 1280,112 1440,102 L1440,160 L0,160 Z" fill={bottomColor} />
   </svg>
 </div>

@@ -1,0 +1,71 @@
+---
+import HistoriaTimeline from "../../ui/HistoriaTimeline.tsx";
+import type { HistoriaItem } from "../../ui/HistoriaTimeline.tsx";
+
+// TODO: replace with Sanity query
+const historia: HistoriaItem[] = [
+  {
+    ano: 2017,
+    titulo: "A IDEIA DE UM OBSERVATÓRIO DE AVES",
+    texto: "Em 2017, um grupo de biólogos e entusiastas das aves da Serra da Mantiqueira começou a sonhar com uma iniciativa de monitoramento padronizado e de longo prazo da avifauna regional. A semente do OAMa foi plantada.",
+    foto: "https://picsum.photos/seed/historia2017/600/400",
+  },
+  {
+    ano: 2018,
+    titulo: "OS PRIMEIROS PASSOS",
+    texto: "Em 2018 começaram os primeiros trabalhos de campo, com protocolos de monitoramento sendo testados e refinados. A rede de colaboradores começou a se formar ao redor da ideia.",
+    foto: "https://picsum.photos/seed/historia2018/600/400",
+  },
+  {
+    ano: 2019,
+    titulo: "A MATERIALIZAÇÃO DO SONHO",
+    texto: "Em agosto de 2019 o OAMa foi oficialmente fundado como ONG. As primeiras estações de monitoramento foram estabelecidas e a estrutura institucional tomou forma.",
+    foto: "https://picsum.photos/seed/historia2019/600/400",
+  },
+  {
+    ano: 2020,
+    titulo: "RECALCULANDO ROTAS",
+    texto: "A pandemia trouxe desafios inéditos. O OAMa adaptou suas atividades, manteve o monitoramento essencial e investiu em comunicação digital para não perder o vínculo com a comunidade.",
+    foto: "https://picsum.photos/seed/historia2020/600/400",
+  },
+  {
+    ano: 2021,
+    titulo: "COMUNICAÇÃO VIRTUAL DE CIÊNCIA E CONSERVAÇÃO",
+    texto: "O OAMa expandiu sua presença digital com conteúdos científicos acessíveis, lives, cursos online e colaborações nacionais. A ciência chegou a mais pessoas do que nunca.",
+    foto: "https://picsum.photos/seed/historia2021/600/400",
+  },
+  {
+    ano: 2022,
+    titulo: "CAPACITAÇÃO ÉTICA E DE EXCELÊNCIA",
+    texto: "Com o retorno ao campo, o foco foi na formação de novos cientistas e educadores, com cursos presenciais, expedições e parcerias com universidades brasileiras.",
+    foto: "https://picsum.photos/seed/historia2022/600/400",
+  },
+  {
+    ano: 2023,
+    titulo: "ECOTURISMO PARA RECONECTAR E CURAR",
+    texto: "Em 2023 o OAMa lançou iniciativas de ecoturismo científico na Serra da Mantiqueira, conectando pessoas à natureza e gerando recursos para a conservação.",
+    foto: "https://picsum.photos/seed/historia2023/600/400",
+  },
+  {
+    ano: 2024,
+    titulo: "PESQUISA CIENTÍFICA PARA SUBSIDIAR NOVOS CAMINHOS",
+    texto: "O OAMa consolidou parcerias científicas nacionais e internacionais, publicou resultados de longo prazo do monitoramento e ampliou sua atuação em políticas públicas para conservação das aves.",
+    foto: "https://picsum.photos/seed/historia2024/600/400",
+  },
+  {
+    ano: 2025,
+    titulo: "",
+    texto: "A história continua...",
+    foto: undefined,
+  },
+];
+---
+
+<section class="bg-[#5ba4d9] pb-0">
+  <div class="max-w-3xl mx-auto px-6 pt-16 pb-16">
+    <h2 class="font-oswald font-bold text-[30px] text-[#1a2e4a] text-center uppercase mb-12">
+      A HISTÓRIA DO OAMA
+    </h2>
+    <HistoriaTimeline items={historia} client:load />
+  </div>
+</section>

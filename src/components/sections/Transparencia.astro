@@ -1,0 +1,125 @@
+---
+// TODO: replace with Sanity queries
+
+const relatoriosAnuais = [
+  { nome: "Relatório Anual 2024", imagem: "https://placehold.co/300x400/5ba4d9/fff?text=Rel+2024", arquivo: "#" },
+  { nome: "Relatório Anual 2023", imagem: "https://placehold.co/300x400/4a93c9/fff?text=Rel+2023", arquivo: "#" },
+  { nome: "Relatório Anual 2022", imagem: "https://placehold.co/300x400/3a83b9/fff?text=Rel+2022", arquivo: "#" },
+  { nome: "Relatório Anual 2021", imagem: "https://placehold.co/300x400/2a73a9/fff?text=Rel+2021", arquivo: "#" },
+];
+
+const annualReports = [
+  { nome: "Annual Report 2024", imagem: "https://placehold.co/300x400/1a2e4a/fff?text=AR+2024", arquivo: "#" },
+  { nome: "Annual Report 2023", imagem: "https://placehold.co/300x400/1a2e4a/fff?text=AR+2023", arquivo: "#" },
+  { nome: "Annual Report 2022", imagem: "https://placehold.co/300x400/1a2e4a/fff?text=AR+2022", arquivo: "#" },
+];
+
+const relatoriosProAves = [
+  { nome: "Relatório de Atividades 2024 Programa Ações Pró-Aves", imagem: "https://placehold.co/300x400/dfb553/fff?text=ProAves+2024", arquivo: "#" },
+  { nome: "Relatório de Atividades 2023 Programa Ações Pró-Aves", imagem: "https://placehold.co/300x400/c9a040/fff?text=ProAves+2023", arquivo: "#" },
+];
+
+const arquivosInstitucionais = [
+  { nome: "Estatuto Social", imagem: "https://placehold.co/300x400/e8e8e8/555?text=Estatuto+Social", arquivo: "#" },
+  { nome: "DRE 2022", imagem: "https://placehold.co/300x400/e8e8e8/555?text=DRE+2022", arquivo: "#" },
+  { nome: "DRE 2023", imagem: "https://placehold.co/300x400/e8e8e8/555?text=DRE+2023", arquivo: "#" },
+  { nome: "DRE 2024", imagem: "https://placehold.co/300x400/e8e8e8/555?text=DRE+2024", arquivo: "#" },
+];
+---
+
+<section class="bg-oama-cream py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="font-oswald font-bold text-[36px] text-oama-ink text-center uppercase mb-4">
+      TRANSPARÊNCIA
+    </h2>
+    <p class="font-montserrat text-[16px] text-oama-ink text-center mb-12">
+      Confira o histórico completo de relatórios anuais e balanços financeiros do OAMa.
+    </p>
+
+    <!-- Relatório Anual -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+      {relatoriosAnuais.map((item) => (
+        <a href={item.arquivo} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center text-center">
+          <img
+            src={item.imagem}
+            alt={item.nome}
+            class="w-full aspect-[3/4] object-cover rounded-lg shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-200"
+          />
+          <p class="font-montserrat text-[13px] text-oama-ink mt-2 leading-snug">{item.nome}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Annual Reports toggle -->
+    <div class="flex justify-center mb-6">
+      <button
+        id="annual-reports-btn"
+        class="font-montserrat text-[15px] font-medium bg-[#dfb553] text-[#1a2e4a] px-8 py-2.5 rounded-full hover:brightness-105 transition"
+      >
+        Annual Reports
+      </button>
+    </div>
+
+    <div id="annual-reports-wrapper" class="mb-10" style="display:none">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {annualReports.map((item) => (
+          <a href={item.arquivo} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center text-center">
+            <img
+              src={item.imagem}
+              alt={item.nome}
+              class="w-full aspect-[3/4] object-cover rounded-lg shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-200"
+            />
+            <p class="font-montserrat text-[13px] text-oama-ink mt-2 leading-snug">{item.nome}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Relatório Pró-Aves -->
+    <div class="flex justify-center gap-6 mb-12">
+      {relatoriosProAves.map((item) => (
+        <a href={item.arquivo} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center text-center w-[calc(50%-12px)] max-w-[200px]">
+          <img
+            src={item.imagem}
+            alt={item.nome}
+            class="w-full aspect-[3/4] object-cover rounded-lg shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-200"
+          />
+          <p class="font-montserrat text-[13px] text-oama-ink mt-2 leading-snug">{item.nome}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Arquivos Institucionais -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {arquivosInstitucionais.map((item) => (
+        <a href={item.arquivo} target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center text-center">
+          <img
+            src={item.imagem}
+            alt={item.nome}
+            class="w-full aspect-[3/4] object-cover rounded-lg shadow-sm group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-200"
+          />
+          <p class="font-montserrat text-[13px] text-oama-ink mt-2 leading-snug">{item.nome}</p>
+        </a>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Wave out -->
+  <div class="relative w-full overflow-hidden leading-[0] mt-16" style="background: #fbf5e6;">
+    <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="block w-full" style="height: 150px;">
+      <path d="M0,20 C300,50 600,5 900,35 C1100,60 1300,20 1440,30 L1440,160 L0,160 Z" fill="black" />
+      <path d="M0,110 C250,85 550,120 800,98 C1050,76 1280,112 1440,102 L1440,160 L0,160 Z" fill="#dfb553" />
+    </svg>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById("annual-reports-btn");
+  const wrapper = document.getElementById("annual-reports-wrapper");
+  btn?.addEventListener("click", () => {
+    const isOpen = wrapper?.style.display !== "none";
+    if (wrapper) wrapper.style.display = isOpen ? "none" : "block";
+  });
+</script>

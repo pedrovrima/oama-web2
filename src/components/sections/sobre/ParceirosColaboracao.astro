@@ -1,0 +1,93 @@
+---
+interface Parceiro {
+  nome: string;
+  site: string;
+  logo: string;
+}
+
+// TODO: replace with Sanity query
+const parceiros: Parceiro[] = [
+  { nome: "CEMAVE / ICMBio-MMA", site: "https://www.gov.br/icmbio", logo: "https://placehold.co/120x80/e8e8e8/666?text=CEMAVE" },
+  { nome: "ICMBio / MMA", site: "https://www.icmbio.gov.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=ICMBio" },
+  { nome: "PANAves Mata Atlântica", site: "https://panavesma.org.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=PANAves" },
+  { nome: "AVISTAR BRASIL", site: "https://avistarbrasil.com.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=AVISTAR" },
+  { nome: "Klamath Bird Observatory", site: "https://www.klamathbird.org", logo: "https://placehold.co/120x80/e8e8e8/666?text=KBO" },
+  { nome: "Pedra Selada", site: "https://pedraselada.com.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=Pedra+Selada" },
+  { nome: "Alto Montana da Serra Fina", site: "https://altomontana.com.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=Alto+Montana" },
+  { nome: "Birds Atlantic", site: "https://birdsatlantic.org", logo: "https://placehold.co/120x80/e8e8e8/666?text=Birds+Atlantic" },
+  { nome: "Secretaria Municipal de Turismo de Resende", site: "https://resende.rj.gov.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=Turismo+Resende" },
+  { nome: "RiMa", site: "https://rima.org.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=RiMa" },
+  { nome: "Observatório Ecológico", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=OE" },
+];
+
+// TODO: replace with Sanity query
+const colaboracaoCientifica: Parceiro[] = [
+  { nome: "Laboratório de Biologia de Populações", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=Lab+Bio+Pop" },
+  { nome: "Lab Ornitologia", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=Lab+Orni" },
+  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=LabOAc" },
+  { nome: "LECAVE", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=LECAVE" },
+  { nome: "UERJ", site: "https://www.uerj.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=UERJ" },
+  { nome: "Laboratório de Ornitologia — UFJF", site: "https://www.ufjf.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=UFJF" },
+  { nome: "Laboratório de Evolução e Caracteres Complexos — USP", site: "https://www.usp.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=USP" },
+];
+---
+
+<section class="bg-oama-cream relative pt-16 pb-0 overflow-visible">
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- PARCEIROS -->
+    <h2 class="font-oswald font-bold text-[30px] text-oama-ink text-center uppercase tracking-wide mt-6">
+      PARCEIROS
+    </h2>
+    <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 mt-10">
+      {parceiros.map((p) => (
+        <a href={p.site} target="_blank" rel="noopener noreferrer" class="group">
+          {p.logo ? (
+            <img
+              src={p.logo}
+              alt={p.nome}
+              class="h-16 w-auto max-w-[130px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+            />
+          ) : (
+            <span class="font-montserrat text-[14px] text-oama-ink text-center leading-tight group-hover:text-oama-yellow transition-colors duration-200">
+              {p.nome}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- COLABORAÇÃO CIENTÍFICA -->
+    <h2 class="font-oswald font-bold text-[30px] text-oama-ink text-center uppercase tracking-wide mt-16">
+      COLABORAÇÃO CIENTÍFICA
+    </h2>
+    <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 mt-10 mb-16">
+      {colaboracaoCientifica.map((c) => (
+        <a href={c.site} target="_blank" rel="noopener noreferrer" class="group">
+          {c.logo ? (
+            <img
+              src={c.logo}
+              alt={c.nome}
+              class="h-16 w-auto max-w-[140px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+            />
+          ) : (
+            <span class="font-montserrat text-[14px] text-oama-ink text-center leading-tight group-hover:text-oama-yellow transition-colors duration-200">
+              {c.nome}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Wave out to gold footer -->
+  <div class="relative w-full overflow-hidden leading-[0]" style="background: #fbf5e6;">
+    <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="block w-full" style="height: 150px;">
+      <path d="M0,20 C300,50 600,5 900,35 C1100,60 1300,20 1440,30 L1440,160 L0,160 Z" fill="black" />
+      <path d="M0,110 C250,85 550,120 800,98 C1050,76 1280,112 1440,102 L1440,160 L0,160 Z" fill="#dfb553" />
+    </svg>
+  </div>
+
+</section>

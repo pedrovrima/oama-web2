@@ -3,12 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroQuemSomos from "../components/sections/sobre/HeroQuemSomos.astro";
 import WaveDark from "../components/sections/WaveDark.astro";
 import PlanoDeVoo from "../components/sections/sobre/PlanoDeVoo.astro";
+import Membros from "../components/sections/sobre/Membros.astro";
+import ParceirosColaboracao from "../components/sections/sobre/ParceirosColaboracao.astro";
+import HistoriaOAMa from "../components/sections/sobre/HistoriaOAMa.astro";
+import Transparencia from "../components/sections/Transparencia.astro";
 ---
 
 <BaseLayout title="Sobre — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     <HeroQuemSomos />
-    <WaveDark topColor="#dfb553" bottomColor="#fff9ea" />
+    <WaveDark topColor="#dfb553" bottomColor="#fbf5e6" />
     <PlanoDeVoo />
+    <WaveDark topColor="#5ba4d9" bottomColor="#dfb553" />
+    <Membros />
+    <ParceirosColaboracao />
+    <WaveDark topColor="#dfb553" bottomColor="#5ba4d9" />
+    <HistoriaOAMa />
+    <WaveDark topColor="#5ba4d9" bottomColor="#fbf5e6" />
+    <Transparencia />
   </main>
 </BaseLayout>

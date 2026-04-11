@@ -1,0 +1,150 @@
+---
+interface Colaborador {
+  nome: string;
+  cargo: string;
+}
+
+// TODO: replace with Sanity query
+const colaboradores: Colaborador[] = [
+  { nome: "Dirlene Ribeiro Martins", cargo: "Revisão de texto português" },
+  { nome: "Ellen Campbell", cargo: "Revisão de texto inglês" },
+  { nome: "Simone Coimbra", cargo: "Produção Use.OAMa" },
+  { nome: "Karine Resende", cargo: "Assuntos gerais" },
+];
+
+interface TeamMember {
+  nome: string;
+  cargo: string;
+  foto: string;
+  email?: string;
+  placeholder?: boolean;
+}
+
+// TODO: replace with Sanity query
+const equipe: TeamMember[] = [
+  { nome: "Luiza Figueira", cargo: "Diretora Executiva | Coordenadora do Programa de Monitoramento e de Treinamento", foto: "https://picsum.photos/seed/luiza/400/500", email: "luiza@oama.eco.br" },
+  { nome: "", cargo: "", foto: "", placeholder: true },
+  { nome: "Pedro Martins", cargo: "Coordenador Científico", foto: "https://picsum.photos/seed/pedro/400/500" },
+  { nome: "Rafael Costa", cargo: "Pesquisador em Ecologia", foto: "https://picsum.photos/seed/rafael/400/500" },
+  { nome: "Carlos Souza", cargo: "Pesquisador de Campo", foto: "https://picsum.photos/seed/carlos/400/500" },
+  { nome: "Ana Lima", cargo: "Educadora Ambiental", foto: "https://picsum.photos/seed/analima/400/500", email: "ana@oama.eco.br" },
+  { nome: "Mariana Santos", cargo: "Comunicação e Outreach", foto: "https://picsum.photos/seed/mariana/400/500" },
+  { nome: "Julia Rodrigues", cargo: "Analista de Dados", foto: "https://picsum.photos/seed/julia/400/500" },
+  { nome: "Thiago Alves", cargo: "Fotógrafo de Natureza", foto: "https://picsum.photos/seed/thiago/400/500" },
+  { nome: "Beatriz Ferreira", cargo: "Voluntária Sênior", foto: "https://picsum.photos/seed/beatriz/400/500" },
+  { nome: "Lucas Mendes", cargo: "Assistente de Pesquisa", foto: "https://picsum.photos/seed/lucas/400/500" },
+  { nome: "Sofia Nascimento", cargo: "Estagiária", foto: "https://picsum.photos/seed/sofia/400/500", email: "sofia@oama.eco.br" },
+];
+---
+
+<section class="bg-[#dfb553] relative overflow-visible">
+  <!-- Japu - right, overflows top and right -->
+  <img
+    src="/sobre/japu.png"
+    alt="Japu"
+    class="absolute right-[10%] top-[40px] h-[380px] w-auto object-contain hidden md:block z-0"
+  />
+  <!-- Andorinhão - left, overflows left -->
+  <img
+    src="/sobre/andorinhao.png"
+    alt="Andorinhão"
+    class="absolute left-[10%] top-[300px] h-[260px] w-auto object-contain hidden md:block z-0"
+  />
+
+  <div class="max-w-2xl mx-auto px-6 pt-16 pb-10 text-center relative z-10">
+
+    <h2 class="font-oswald font-bold text-[24px] text-white uppercase tracking-widest">
+      MEMBROS
+    </h2>
+
+    <!-- Fundadores -->
+    <h3 class="font-oswald font-light text-[36px] text-oama-ink mt-10">
+      Fundadores
+    </h3>
+    <div class="font-montserrat text-[18px] text-oama-ink mt-2 space-y-1">
+      <p>Pedro Martins</p>
+      <p>Raquel Justo</p>
+      <p>Luiza Figueira</p>
+    </div>
+
+    <!-- Associados -->
+    <h3 class="font-oswald font-light text-[36px] text-oama-ink mt-10">
+      Associados
+    </h3>
+    <div class="font-montserrat text-[18px] text-oama-ink mt-2 space-y-1">
+      <p>Affonso Souza</p>
+      <p>Felipe Cotrim</p>
+      <p>Julia Rodrigues</p>
+      <p>Luiza Figueira</p>
+      <p>Pedro Martins</p>
+      <p>Renata Miwa</p>
+    </div>
+
+    <!-- Diretoria Executiva -->
+    <h3 class="font-oswald font-light text-[36px] text-oama-ink mt-10">
+      Diretoria Executiva
+    </h3>
+    <div class="font-montserrat text-[18px] text-oama-ink mt-2 space-y-1">
+      <p>Presidente | Pedro Martins</p>
+      <p>Secretária | Rafaella Vitti</p>
+      <p>Tesoureira | Veronica Battezini</p>
+    </div>
+
+    <!-- Equipe heading -->
+    <h3 class="font-oswald font-light text-[36px] text-oama-ink mt-10">
+      Equipe
+    </h3>
+
+  </div>
+
+  <!-- Team grid - constrained to max width, no gaps -->
+  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-0 relative z-10">
+    {equipe.map((member) => member.placeholder ? (
+      <div class="aspect-square bg-[#c9a84c] flex items-center justify-center">
+        <img src="/brand/logo-round.png" alt="OAMa" class="h-20 w-20 object-contain opacity-60" />
+      </div>
+    ) : (
+      <div class="group relative overflow-hidden aspect-square cursor-pointer">
+        <img
+          src={member.foto}
+          alt={member.nome}
+          class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent
+                    opacity-100 group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <p class="font-oswald font-bold text-white text-[17px] leading-tight">{member.nome}</p>
+            <p class="font-montserrat text-white/85 text-[13px] leading-snug mt-1">{member.cargo}</p>
+            {member.email && (
+              <a href={`mailto:${member.email}`} class="font-montserrat text-white/70 text-[12px] mt-1 block">
+                {member.email}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+
+  <!-- Colaboradores -->
+  <div class="max-w-2xl mx-auto px-6 pt-12 pb-4 text-center relative z-10">
+    <h3 class="font-oswald font-light text-[36px] text-oama-ink">
+      Colaboradores
+    </h3>
+    <div class="font-montserrat text-[18px] text-oama-ink mt-4 space-y-1">
+      {colaboradores.map((c) => (
+        <p>{c.nome} | {c.cargo}</p>
+      ))}
+    </div>
+  </div>
+
+  <!-- Wave out of gold section -->
+  <div class="relative w-full overflow-hidden leading-[0] mt-10" style="background: #dfb553;">
+    <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="block w-full" style="height: 150px;">
+      <path d="M0,20 C300,50 600,5 900,35 C1100,60 1300,20 1440,30 L1440,160 L0,160 Z" fill="black" />
+      <path d="M0,110 C250,85 550,120 800,98 C1050,76 1280,112 1440,102 L1440,160 L0,160 Z" fill="#fbf5e6" />
+    </svg>
+  </div>
+
+</section>
