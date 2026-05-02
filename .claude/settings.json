@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --headless*)",
+      "Bash(sips*)"
+    ]
+  }
+}
