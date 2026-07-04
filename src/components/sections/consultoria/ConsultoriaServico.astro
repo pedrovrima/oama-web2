@@ -1,0 +1,172 @@
+---
+import WaveDark from "../WaveDark.astro";
+
+interface Colors {
+  yellow: string;
+  blue: string;
+  cream: string;
+  dark: string;
+}
+
+interface Props {
+  titulo: string;
+  heroImg: string;
+  heroAlt: string;
+  servicos: string[];
+  diferenciais: string[];
+  publico: string[];
+  icones: string[];
+  colors: Colors;
+}
+
+const {
+  titulo,
+  heroImg,
+  heroAlt,
+  servicos,
+  diferenciais,
+  publico,
+  icones,
+  colors,
+} = Astro.props;
+
+// SVG de cada ícone circular do bloco "Público potencial".
+const iconPaths: Record<string, string> = {
+  building:
+    "M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01",
+  shield: "M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z",
+  flask: "M9 3h6M10 3v6L4 19a2 2 0 001.7 3h12.6A2 2 0 0020 19L14 9V3M7 15h10",
+  industry: "M3 21h18M5 21V10l5 3V10l5 3V8l6 3v10",
+  tree: "M12 3l5 5h-3v4h3l-5 6-5-6h3V8H7l5-5zM12 18v3",
+  book: "M12 6.5C10.5 5 8 4.5 5 5v13c3-.5 5.5 0 7 1.5M12 6.5C13.5 5 16 4.5 19 5v13c-3-.5-5.5 0-7 1.5M12 6.5v13",
+  binoculars:
+    "M7 4h3v3M14 4h3v3M6 7l-2 8a3 3 0 006 0l-1-8M13 7l-1 8a3 3 0 006 0l-2-8M6 7h4M14 7h4M10 11h4",
+  hand: "M8 13V5a1.5 1.5 0 013 0v6m0-6a1.5 1.5 0 013 0v6m0-4a1.5 1.5 0 013 0v6a6 6 0 01-6 6h-1a6 6 0 01-5-3l-2.5-4a1.5 1.5 0 012.5-1.7L8 13",
+  monitor: "M4 5h16v11H4zM9 20h6M12 16v4M8 10l2 2 3-4",
+};
+---
+
+<main class="font-montserrat">
+  {/* HERO: full-bleed com foto de fundo e título sobreposto */}
+  <section
+    class="relative flex min-h-[85vh] w-full items-end overflow-hidden"
+  >
+    <img
+      src={heroImg}
+      alt={heroAlt}
+      class="absolute inset-0 h-full w-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-black/25"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 md:pb-20">
+      <h1
+        class="font-oswald text-[30px] font-bold uppercase leading-[35px] text-white md:text-[48px] md:leading-[54px]"
+      >
+        {titulo}
+      </h1>
+    </div>
+  </section>
+
+  {/* Faixa AZUL: Serviços | Diferenciais do OAMa (2 colunas) */}
+  <section class="w-full scroll-mt-24" style={`background:${colors.blue};`}>
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div>
+          <h2
+            class="mb-5 font-montserrat text-[18px] font-semibold leading-[25px] text-white"
+          >
+            Serviços
+          </h2>
+          <ul
+            class="list-disc space-y-1 pl-5 font-montserrat text-[16px] leading-[24px] text-oama-ink marker:text-oama-ink"
+          >
+            {servicos.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2
+            class="mb-5 font-montserrat text-[18px] font-semibold leading-[25px] text-white"
+          >
+            Diferenciais do OAMa
+          </h2>
+          <ul
+            class="list-disc space-y-1 pl-5 font-montserrat text-[16px] leading-[24px] text-oama-ink marker:text-oama-ink"
+          >
+            {diferenciais.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Onda azul → creme → escuro → amarelo */}
+  <WaveDark
+    topColor={colors.blue}
+    bottomColor={colors.yellow}
+    path1Color={colors.cream}
+    path2Color={colors.dark}
+  />
+
+  {/* Faixa AMARELA curta → onda amarelo → branco */}
+  <section class="w-full" style={`background:${colors.yellow};`}>
+    <div class="h-6 md:h-10"></div>
+  </section>
+  <WaveDark
+    topColor={colors.yellow}
+    bottomColor="white"
+    path1Color={colors.cream}
+    path2Color={colors.dark}
+  />
+
+  {/* Faixa BRANCA: Público potencial (lista + cluster de ícones) */}
+  <section id="publico-potencial" class="w-full scroll-mt-24 bg-white">
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+        <div>
+          <h2
+            class="mb-5 font-montserrat text-[18px] font-semibold leading-[25px] text-oama-ink"
+          >
+            Público potencial
+          </h2>
+          <ul
+            class="list-disc space-y-1 pl-5 font-montserrat text-[16px] leading-[24px] text-oama-ink marker:text-oama-ink"
+          >
+            {publico.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        {/* Cluster de ícones circulares azuis */}
+        <div class="flex justify-center md:justify-end">
+          <div class="grid w-[220px] grid-cols-2 gap-4">
+            {
+              icones.map((ic, i) => (
+                <span
+                  class={`inline-flex h-[84px] w-[84px] items-center justify-center rounded-full text-white shadow-md ${
+                    i % 2 === 1 ? "translate-y-6" : ""
+                  }`}
+                  style={`background:${colors.blue};`}
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-9 w-9"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d={iconPaths[ic] ?? iconPaths.building} />
+                  </svg>
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
