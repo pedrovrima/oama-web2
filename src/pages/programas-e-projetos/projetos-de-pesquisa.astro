@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaveDark from "../../components/sections/WaveDark.astro";
+
+const projetos = [
+  {
+    titulo:
+      "Pesquisa de Percepção Socioambiental — PAN Aves da Mata Atlântica",
+    periodo: "2024 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-1.jpg",
+    alt: "Tangará-de-bochecha-azul (Chiroxiphia caudata) anilhado em campo pelo OAMa",
+    tom: "claro",
+  },
+  {
+    titulo: "Migração altitudinal de aves na Mantiqueira",
+    periodo: "2023 — 2025",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-4.jpg",
+    alt: "Ave da Mata Atlântica fotografada durante levantamento de campo na Mantiqueira",
+    tom: "escuro",
+  },
+  {
+    titulo: "Levantamento de aves da Serra da Mantiqueira",
+    periodo: "2021 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-2.jpg",
+    alt: "Pesquisadora medindo asa de ave durante sessão de anilhamento do OAMa",
+    tom: "escuro",
+  },
+  {
+    titulo: "Dinâmicas populacionais de beija-flores",
+    periodo: "2023 — 2025",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-beija-flor.jpg",
+    alt: "Beija-flor anilhado sendo examinado durante estudo populacional do OAMa",
+    tom: "claro",
+  },
+  {
+    titulo:
+      "Uso da corrugação de bico para auxiliar a classificação de idade de beija-flores",
+    periodo: "2022 — 2025",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-5.jpg",
+    alt: "Beija-flor em posição dorsal sendo examinado para classificação de idade durante anilhamento",
+    tom: "claro",
+  },
+  {
+    titulo: "Variação na taxa de captura com redes de neblina",
+    periodo: "2025 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-6.jpg",
+    alt: "Ave capturada em rede de neblina durante pesquisa de monitoramento do OAMa",
+    tom: "escuro",
+  },
+  {
+    titulo: "Ciclo de muda e classificação de idade de Chiroxiphia caudata",
+    periodo: "2019 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-7.jpg",
+    alt: "Tangará-de-bochecha-azul (Chiroxiphia caudata) anilhado em campo na Mantiqueira",
+    tom: "escuro",
+  },
+  {
+    titulo: "Aves seguidoras de frutificações de bambu",
+    periodo: "2024 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-3.jpg",
+    alt: "Passeriforme anilhado pela equipe do OAMa em campo na Mantiqueira",
+    tom: "claro",
+  },
+  {
+    titulo:
+      "Colisões de aves com vidro: enxergando soluções para uma ameaça invisível",
+    periodo: "2024 — atual",
+    imagem: "/midias/programas-e-projetos/pesquisa-card-8.jpg",
+    alt: "Detalhe de beija-flor examinado durante anilhamento para pesquisa do OAMa",
+    tom: "claro",
+  },
+];
+---
+
+<BaseLayout title="Projetos de Pesquisa — OAMa" navVariant="overlay">
+  <main class="font-montserrat">
+    <!-- HERO with title overlay -->
+    <section class="relative min-h-[80vh] md:min-h-[90vh] w-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/midias/programas-e-projetos/pesquisa-hero.jpg"
+        alt="Tangará (Ramphocelus bresilius) fotografado durante pesquisa de campo do OAMa"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl">
+        <h1
+          class="text-[28px] md:text-[48px] lg:text-[56px] leading-[36px] md:leading-[56px] lg:leading-[64px] font-extrabold uppercase text-white font-oswald drop-shadow-lg"
+        >
+          Projetos <br class="md:hidden" />de Pesquisa
+        </h1>
+      </div>
+    </section>
+
+    <section class="bg-oama-yellow w-full">
+      <div class="max-w-4xl mx-auto px-6 py-14">
+
+        <div
+          class="mt-8 space-y-5 text-[18px] leading-[25px] text-white font-montserrat text-justify"
+        >
+          <p>
+            O crescente banco de dados oriundo, principalmente, do nosso
+            monitoramento padronizado e de longo prazo da avifauna da
+            Mantiqueira, impulsiona estudos sobre a história natural e a
+            ecologia das espécies e populações locais. Tendo isso como parte
+            dos nossos objetivos, compreendemos que a colaboração no meio
+            científico funciona como uma relação mutualística, onde todas as
+            partes têm algo a ganhar, inclusive a sociedade.
+          </p>
+          <p>
+            O OAMa disponibiliza dados científicos para que estudantes e
+            colaboradores parceiros — de diversas instituições de pesquisa,
+            como <strong>USP</strong>, <strong>UFRGS</strong>, <strong>UFRJ</strong>
+            e <strong>UFSC</strong> — possam analisá-los para responder perguntas
+            que impulsionem o conhecimento ornitológico e de ecologia no
+            Brasil. Esses esforços convertem-se em mais estudos publicados,
+            que podem ser traduzidos em narrativas socioambientais marcantes —
+            por meio da divulgação científica — e em ferramentas de gestão
+            ambiental para tomadas de decisões informadas.
+          </p>
+          <p>
+            A seguir, confira alguns dos nossos projetos de pesquisa em
+            desenvolvimento ou já concluídos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-oama-yellow w-full pb-14">
+      <div class="max-w-5xl mx-auto px-6">
+        <ul
+          class="grid gap-6 sm:grid-cols-2"
+          aria-label="Projetos de pesquisa do OAMa"
+        >
+          {
+            projetos.map((p) => (
+              <li
+                class="flex flex-col overflow-hidden rounded-xl shadow-md ring-1 bg-white ring-black/5"
+              >
+                <div class="h-44 w-full overflow-hidden">
+                  <img
+                    src={p.imagem}
+                    alt={p.alt}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col p-5 font-montserrat text-oama-ink">
+                  <h2 class="font-montserrat text-[17px] md:text-[18px] font-semibold leading-[22px] md:leading-[24px] text-oama-ink">
+                    {p.titulo}
+                  </h2>
+                  <p class="mt-2 text-[13px] md:text-[14px] leading-[20px] text-oama-ink/75">
+                    {p.periodo}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#e9b130"
+      bottomColor="#fbf5e6"
+      path1Color="#fbf5e6"
+      path2Color="#fbf5e6"
+    />
+
+  </main>
+</BaseLayout>

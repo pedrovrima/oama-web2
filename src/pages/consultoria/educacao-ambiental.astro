@@ -1,0 +1,283 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaveDark from "../../components/sections/WaveDark.astro";
+
+const servicos = [
+  "Programas de educação ambiental.",
+  "Oficinas, palestras, cursos e exposições sobre aves silvestres e impactos humanos.",
+  "Produção de materiais educativos e informativos.",
+  "Mobilização comunitária para mitigar impactos urbanos sobre as aves.",
+  "Educação ambiental e ensino do meio com foco em biodiversidade.",
+  "Práticas de observação de aves visando a sensibilização ambiental.",
+];
+
+const diferenciais = [
+  "Design original e personalizado de materiais gráficos e de atividades didáticas.",
+  "Conteúdo pautado na transposição didática da ciência para todas as idades.",
+  "Abordagens participativas.",
+  "Atividades em espaços formais e não-formais de educação.",
+  "Práticas que integram a arte ao conhecimento científico e à educação.",
+];
+
+const publico = [
+  {
+    titulo: "Escolas, museus e universidades",
+    icone: "building",
+  },
+  {
+    titulo: "Administração pública e organizações do terceiro setor",
+    icone: "shield",
+  },
+  {
+    titulo: "Empresas com programas socioambientais",
+    icone: "industry",
+  },
+  {
+    titulo: "Projetos de compensação ambiental",
+    icone: "tree",
+  },
+];
+---
+
+<BaseLayout title="Educação Ambiental e Comunicação Científica — OAMa" navVariant="overlay">
+  <main class="font-montserrat">
+    <!-- HERO: full-bleed com foto de fundo e título sobreposto -->
+    <section class="relative min-h-[85vh] w-full overflow-hidden">
+      <img
+        src="/midias/consultoria/educacao.jpg"
+        alt="Atividade educativa conduzida pelo OAMa com público participante"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <div class="relative z-10 flex h-full items-end">
+        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
+          <h1
+            class="text-[28px] leading-[32px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
+          >
+            Educação Ambiental e Comunicação Científica
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção branca em 2 colunas: Serviços | Diferenciais -->
+    <section class="bg-white w-full scroll-mt-24">
+      <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Coluna 1: Serviços -->
+          <div>
+            <h2
+              class="text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-oama-ink font-oswald mb-6"
+            >
+              Serviços
+            </h2>
+
+            <p
+              class="text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-oama-ink/85 font-montserrat mb-6"
+            >
+              Traduzimos ciência em linguagens acessíveis para públicos diversos,
+              por meio de programas, oficinas, materiais educativos e ações de
+              mobilização comunitária:
+            </p>
+
+            <ul class="space-y-3">
+              {
+                servicos.map((item) => (
+                  <li class="flex items-start gap-3 text-oama-ink text-[14px] md:text-[15px] leading-[20px] md:leading-[22px] font-montserrat">
+                    <span
+                      class="flex-shrink-0 mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-oama-blue text-white shadow-sm"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-3.5 w-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="3.5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <!-- Coluna 2: Diferenciais -->
+          <div>
+            <h2
+              class="text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-oama-ink font-oswald mb-6"
+            >
+              Diferenciais <br class="md:hidden" />do OAMa
+            </h2>
+
+            <p
+              class="text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-oama-ink/85 font-montserrat mb-6"
+            >
+              Combinamos ciência, arte e pedagogia para gerar experiências
+              educativas transformadoras em espaços formais e não-formais:
+            </p>
+
+            <ul class="space-y-3">
+              {
+                diferenciais.map((item) => (
+                  <li class="flex items-start gap-3 text-oama-ink text-[14px] md:text-[15px] leading-[20px] md:leading-[22px] font-montserrat">
+                    <span
+                      class="flex-shrink-0 mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-oama-blue text-white shadow-sm"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-3.5 w-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="3.5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixa decorativa azul-escura com onda -->
+    <WaveDark
+      topColor="white"
+      bottomColor="#0c2a3a"
+      path1Color="#0c2a3a"
+      path2Color="#0c2a3a"
+    />
+
+    <!-- Público potencial: faixa azul-escura -->
+    <section id="publico-potencial" class="bg-[#0c2a3a] w-full scroll-mt-24">
+      <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+        <h2
+          class="text-center text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-white font-oswald mb-6"
+        >
+          Público <br class="md:hidden" />potencial
+        </h2>
+
+        <p
+          class="max-w-3xl mx-auto text-center text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-white/90 font-montserrat mb-10"
+        >
+          Nossos serviços são desenhados para apoiar diferentes organizações
+          que atuam com educação, comunicação e meio ambiente:
+        </p>
+
+        <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {
+            publico.map((p) => (
+              <li class="flex flex-col items-center text-center">
+                <span
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-oama-blue text-white shadow-md mb-4"
+                  aria-hidden="true"
+                >
+                  {p.icone === "building" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"
+                      />
+                    </svg>
+                  )}
+                  {p.icone === "shield" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12l2 2 4-4"
+                      />
+                    </svg>
+                  )}
+                  {p.icone === "industry" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 21h18M5 21V10l5 3V10l5 3V8l6 3v10"
+                      />
+                    </svg>
+                  )}
+                  {p.icone === "tree" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3l5 5h-3v4h3l-5 6-5-6h3V8H7l5-5z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 18v3"
+                      />
+                    </svg>
+                  )}
+                </span>
+                <span class="font-montserrat text-[14px] md:text-[15px] leading-[20px] md:leading-[22px] font-semibold text-white">
+                  {p.titulo}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    {/* TODO bloco azul final: conferir frame vivo 2620:878 no Figma — conteúdo não visível no export */}
+
+  </main>
+</BaseLayout>

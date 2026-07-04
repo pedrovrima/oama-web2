@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+const programas = [
+  {
+    href: "/programas-e-projetos/monitoramento-de-avifauna",
+    titulo: "Programa de Monitoramento de Avifauna da Mantiqueira",
+    subtitulo: "Ciência de longo prazo para compreender e proteger as aves da Mantiqueira.",
+    imagem: "/midias/programas-e-projetos/card-monitoramento.jpg",
+    alt: "Pesquisadora do OAMa registrando dados de anilhamento em campo na Mantiqueira",
+  },
+  {
+    href: "/programas-e-projetos/treinamento-monitoramento-avifauna",
+    titulo: "Programa de Treinamento em Monitoramento de Avifauna",
+    subtitulo: "Formação de pessoas para pesquisa, anilhamento e trabalho de campo.",
+    imagem: "/midias/programas-e-projetos/card-treinamento.jpg",
+    alt: "Pesquisadora segurando beija-flor durante sessão de anilhamento do OAMa",
+  },
+  {
+    href: "/programas-e-projetos/acoes-pro-aves",
+    titulo: "Programa Ações Pró-Aves",
+    subtitulo: "Comunicação, sensibilização e ciência cidadã para aproximar sociedade e aves.",
+    imagem: "/midias/programas-e-projetos/card-acoes-pro-aves.jpg",
+    alt: "Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves",
+  },
+  {
+    href: "/programas-e-projetos/projetos-de-pesquisa",
+    titulo: "Projetos de Pesquisa",
+    subtitulo: "Parcerias científicas que transformam dados em conhecimento para conservação.",
+    imagem: "/midias/programas-e-projetos/card-projetos-pesquisa.jpg",
+    alt: "Pesquisador examinando asa de beija-flor durante estudo de campo do OAMa",
+  },
+  {
+    href: "/programas-e-projetos/fundraising-field-trip",
+    titulo: "Fundraising Field Trip",
+    subtitulo: "Experiências de campo que conectam conservação, território e apoio financeiro.",
+    imagem: "/midias/programas-e-projetos/card-fft.jpg",
+    alt: "Grupo de visitantes passarinhando na Serra da Mantiqueira durante Fundraising Field Trip",
+  },
+  {
+    href: "/programas-e-projetos/campanha-jacucara",
+    titulo: "Campanha Jacuçara",
+    subtitulo: "Uma campanha pela jacutinga, pela juçara e pelas relações ecológicas da floresta.",
+    imagem: "/midias/programas-e-projetos/card-jacucara.jpg",
+    alt: "Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica",
+  },
+  {
+    href: "/programas-e-projetos/pro-aves",
+    titulo: "Resultados do Programa Pró-Aves",
+    subtitulo: "Acervo legado e registros históricos mantidos separados da página principal do programa.",
+    imagem: "/proaves2/cover_pro_aves.jpeg",
+    alt: "Capa visual do acervo de resultados do Programa Pró-Aves",
+  },
+];
+---
+
+<BaseLayout title="Programas e Projetos — OAMa" navVariant="overlay">
+  <main class="font-montserrat bg-oama-cream text-oama-ink">
+    <!-- HERO -->
+    <section class="relative min-h-[85vh] w-full overflow-hidden">
+      <img
+        src="/midias/programas-e-projetos/hub-hero.jpg"
+        alt="Pesquisador do OAMa segurando ave anilhada na Mantiqueira"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <div class="relative z-10 flex h-full items-center justify-center">
+        <div class="mx-auto w-full max-w-5xl px-6 text-center">
+          <h1 class="font-oswald text-[42px] font-bold uppercase leading-[0.95] text-white md:text-[76px]">
+            Programas e Projetos
+          </h1>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GALERIA / HUB -->
+    <section class="bg-oama-cream px-4 py-12 md:px-6 md:py-16">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+        {
+          programas.map((programa) => (
+            <a
+              href={programa.href}
+              class="group relative aspect-square overflow-hidden rounded-[1.5rem] shadow-sm transition duration-300 hover:shadow-xl md:rounded-[2rem]"
+            >
+              <img
+                src={programa.imagem}
+                alt={programa.alt}
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 p-5 text-white md:p-6">
+                <h2 class="font-oswald text-[18px] font-bold uppercase leading-[1.1] md:text-[22px]">
+                  {programa.titulo}
+                </h2>
+                <p class="mt-2 line-clamp-2 text-[13px] font-medium leading-5 md:text-[14px] md:leading-6">
+                  {programa.subtitulo}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      {/* TODO: confirmar com usuário — "Resultados Pró-Aves" (7º item) não aparece no mosaico Figma; mantido o link em programas[6] */}
+    </section>
+
+    <WaveDark topColor="#fbf5e6" bottomColor="#0c2a3a" path1Color="#ffffff" path2Color="#98c1da" />
+  </main>
+</BaseLayout>

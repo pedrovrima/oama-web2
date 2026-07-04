@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+const colors = {
+  yellow: "#dfb553",
+  blue: "#5ba4d9",
+  cream: "#fbf5e6",
+  dark: "#071723",
+};
+
+const monitoringImages = [
+  "/midias/areas-de-atuacao/pesquisa-1.jpg",
+  "/midias/areas-de-atuacao/pesquisa-2.jpg",
+  "/midias/areas-de-atuacao/pesquisa-3.jpg",
+];
+
+const communicationImages = [
+  "/midias/areas-de-atuacao/comunicacao-1.jpg",
+  "/midias/areas-de-atuacao/comunicacao-2.jpg",
+  "/midias/areas-de-atuacao/comunicacao-3.jpg",
+];
+
+const trainingImages = [
+  "/midias/areas-de-atuacao/capacitacao-1.jpg",
+  "/midias/areas-de-atuacao/capacitacao-2.jpg",
+  "/midias/areas-de-atuacao/capacitacao-3.jpg",
+];
+---
+
+<BaseLayout title="Áreas de Atuação — OAMa">
+  <main class="font-montserrat text-[#1e1702]">
+    <section class="relative h-[400px] w-full overflow-hidden md:h-[680px]">
+      <img
+        src="/midias/areas-de-atuacao/capa-areas.jpg"
+        alt="Fotografia de ave nativa da Mata Atlântica"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6 pb-5 md:pb-16">
+        <h1 class="text-center font-oswald text-[34px] font-bold uppercase leading-none text-white drop-shadow-md md:text-[58px]">
+          Áreas de Atuação
+        </h1>
+      </div>
+    </section>
+
+    <section id="pesquisa-e-monitoramento" class="scroll-mt-24 bg-[#dfb553]">
+      <div class="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-14">
+        <h2 class="mx-auto max-w-3xl text-center font-oswald text-[31px] font-bold uppercase leading-[39px] text-white md:text-[34px] md:leading-[42px]">
+          Pesquisa e Monitoramento de Avifauna
+        </h2>
+
+        <p class="mt-8 text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          O monitoramento padronizado e de longo prazo tem como objetivo
+          <strong>acompanhar um fenômeno, um grupo de seres vivos ou uma área ao longo do tempo e, muitas vezes, através do espaço.</strong>
+          No OAMa, nosso foco é a avifauna na Serra da Mantiqueira. É por meio
+          desse tipo de monitoramento que coletamos dados de parâmetros
+          populacionais e ecológicos das aves. Com tais dados é possível avaliar
+          como as mudanças nas populações de aves se relacionam com as mudanças
+          no ambiente e no clima.
+        </p>
+
+        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
+          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
+          <img src="/home/atuacao/pc.png" alt="" class="absolute bottom-5 left-0 h-14 w-14 brightness-0 invert md:bottom-16 md:left-10 md:h-20 md:w-20" loading="lazy" />
+          <img src="/home/atuacao/feather.png" alt="" class="absolute right-3 top-20 h-14 w-14 brightness-0 invert md:right-10 md:top-28 md:h-20 md:w-20" loading="lazy" />
+          <img src={monitoringImages[0]} alt="Ave monitorada durante pesquisa" class="absolute left-2 top-2 h-[132px] w-[132px] rounded-full object-cover md:left-24 md:h-[210px] md:w-[210px]" loading="lazy" />
+          <img src={monitoringImages[1]} alt="Registro de ave em campo" class="absolute right-6 top-20 h-[98px] w-[98px] rounded-full object-cover md:right-24 md:top-24 md:h-[150px] md:w-[150px]" loading="lazy" />
+          <img src={monitoringImages[2]} alt="Equipe em atividade de monitoramento" class="absolute bottom-4 left-1/2 h-[178px] w-[178px] -translate-x-1/2 rounded-full object-cover md:bottom-4 md:h-[280px] md:w-[280px]" loading="lazy" />
+        </div>
+
+        <div class="mt-8 space-y-5 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
+          <p>
+            Dessa forma, <strong>o monitoramento da avifauna funciona como um termômetro da saúde não só das aves, mas de todo o ecossistema local.</strong>
+            Além disso, torna-se uma relevante ferramenta para o avanço do
+            conhecimento ornitológico brasileiro e para o planejamento de
+            iniciativas de conservação e preservação ambiental.
+          </p>
+          <p>
+            Nosso monitoramento da avifauna, realizado desde 2018, utiliza de
+            dois métodos complementares: a captura-marcação-recaptura com redes
+            de neblina e anilhas; e a detecção visual e sonora das aves com os
+            pontos fixos. O programa é reconhecido e autorizado pelos órgãos
+            competentes com licenças atualizadas regularmente no SISBIO e CEMAVE.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <img src="/midias/areas-de-atuacao/pesquisa-4.jpg" alt="Ave em rede de neblina" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/pesquisa-5.jpg" alt="Pesquisador registrando aves em campo" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+      </div>
+
+      <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
+        <p class="text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          Disponibilizamos um <strong><u>Relatório de Dados do Monitoramento (2018 - 2024)</u></strong>,
+          mantendo a transparência com nosso público. Nele, você acessará as
+          áreas de estudos, o esforço amostral e algumas análises básicas do
+          perfil das capturas e da fenologia das aves estudadas. Reforçamos
+          nosso interesse em pesquisas colaborativas. Para saber mais sobre como
+          acessar nossos dados, entre em contato com nossa Coordenadora de
+          Pesquisa, <u>Luiza Figueira</u>.
+        </p>
+      </div>
+    </section>
+
+    <WaveDark topColor={colors.yellow} bottomColor={colors.blue} path1Color={colors.cream} path2Color={colors.dark} />
+
+    <section id="comunicacao-cientifica" class="scroll-mt-24 bg-[#5ba4d9]">
+      <div class="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-14">
+        <h2 class="mx-auto max-w-3xl text-center font-oswald text-[31px] font-bold uppercase leading-[39px] text-white md:text-[34px] md:leading-[42px]">
+          Comunicação Científica
+        </h2>
+
+        <p class="mt-8 text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          Entendemos que a conservação ambiental é uma missão de toda a
+          sociedade, e que deve estar presente na vida de cada cidadão. Por isso,
+          <strong>o diálogo com as pessoas é uma ação contínua, na qual visamos informá-las e sensibilizá-las sobre a perda de biodiversidade e o nosso papel na busca pela reversão desse cenário atual.</strong>
+          A comunicação científica do OAMa permeia todas nossas iniciativas.
+          Utilizamos das redes sociais para manter um canal aberto e abrangente
+          de conversa. Além do meio virtual, realizamos, desde 2019, ações
+          interativas para conectar e aproximar o público da “Conservação com
+          Ciência”. Exposições, documentários, campanhas, passarinhadas com roda
+          de conversa, aulas e apresentações em escolas são algumas formas pelas
+          quais buscamos compartilhar o conhecimento com a sociedade.
+        </p>
+
+        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
+          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
+          <img src="/home/atuacao/megafone.png" alt="" class="absolute right-4 top-10 h-14 w-14 brightness-0 invert md:right-20 md:top-24 md:h-20 md:w-20" loading="lazy" />
+          <img src="/home/atuacao/pc.png" alt="" class="absolute bottom-10 left-2 h-14 w-14 brightness-0 invert md:bottom-24 md:left-10 md:h-20 md:w-20" loading="lazy" />
+          <img src={communicationImages[0]} alt="Atividade educativa com público" class="absolute left-0 top-8 h-[150px] w-[150px] rounded-full object-cover md:left-16 md:h-[250px] md:w-[250px]" loading="lazy" />
+          <img src={communicationImages[1]} alt="Criança em atividade de observação" class="absolute right-3 top-24 h-[98px] w-[98px] rounded-full object-cover md:right-20 md:top-28 md:h-[150px] md:w-[150px]" loading="lazy" />
+          <img src={communicationImages[2]} alt="Grupo em atividade de campo" class="absolute bottom-2 left-1/2 h-[150px] w-[150px] -translate-x-1/2 rounded-full object-cover md:bottom-6 md:h-[230px] md:w-[230px]" loading="lazy" />
+        </div>
+
+        <p class="mt-8 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
+          O Ações Pró-Aves é o nosso programa de destaque. Iniciado em 2022, ele
+          tem como escopo informar e dialogar sobre os principais impactos que
+          nosso modo de vida gera para as aves. Buscamos despertar o interesse
+          das pessoas para temas como colisões com vidro, tráfico ilegal e
+          poluição luminosa. <strong>Além de jogar luz aos problemas ambientais,
+          instruímos de forma prática, com base na ciência, como percorrer um
+          caminho, muitas vezes esquecido, de volta à uma convivência respeitosa
+          e harmoniosa com os seres-mais-que-humanos, como as aves.</strong> Para
+          isso, realizamos ciclos anuais de exposições interativas, apresentações
+          teatrais, oficinas, distribuição gratuita de materiais informativos
+          (ex.: folders, cartilhas e livretos) e campanhas educativas presenciais
+          e virtuais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <img src="/midias/areas-de-atuacao/comunicacao-4.jpg" alt="Instalação artística de aves de papel" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/comunicacao-5.jpg" alt="Participante em oficina de desenho de aves" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+      </div>
+
+      <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
+        <p class="text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          As iniciativas de divulgação científica do OAMa são alinhadas com o
+          Plano de Ação Nacional para a Conservação das Aves da Mata Atlântica,
+          do qual o OAMa é colaborador e parte do grupo de assessoramento técnico.
+        </p>
+      </div>
+    </section>
+
+    <WaveDark topColor={colors.blue} bottomColor={colors.yellow} path1Color={colors.cream} path2Color={colors.dark} />
+
+    <section id="capacitacoes-tecnicas" class="scroll-mt-24 bg-[#dfb553]">
+      <div class="mx-auto max-w-5xl px-6 py-10 md:px-12 md:py-14">
+        <h2 class="mx-auto max-w-3xl text-center font-oswald text-[31px] font-bold uppercase leading-[39px] text-white md:text-[34px] md:leading-[42px]">
+          Capacitações Técnicas
+        </h2>
+
+        <p class="mt-8 text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          Promover espaços de formação técnica e crescimento profissional
+          relacionada ao estudo e conservação da avifauna é uma das frentes de
+          atuação do OAMa. <strong>Para realizar monitoramentos de longo prazo —
+          ou qualquer outro trabalho de manejo de animais silvestres —, é preciso
+          ter profissionais altamente capacitados e criteriosos.</strong> Para
+          isso, o OAMa oferece cursos teóricos e práticos em nossas áreas de
+          especialidade técnica (1. Curso Básico de Anilhamento de Aves e 2.
+          Curso de Análise de Muda e Determinação de Idade em Aves), além da
+          oportunidade de treinamento imersivo focado em técnicas de anilhamento
+          de aves.
+        </p>
+
+        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
+          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
+          <img src="/home/atuacao/feather.png" alt="" class="absolute bottom-8 right-3 h-14 w-14 brightness-0 invert md:bottom-20 md:right-20 md:h-20 md:w-20" loading="lazy" />
+          <img src={trainingImages[0]} alt="Anilhamento de ave em capacitação" class="absolute left-5 top-14 h-[110px] w-[110px] rounded-full object-cover md:left-24 md:h-[150px] md:w-[150px]" loading="lazy" />
+          <img src={trainingImages[1]} alt="Participantes de curso em campo" class="absolute right-0 top-4 h-[140px] w-[140px] rounded-full object-cover md:right-20 md:h-[210px] md:w-[210px]" loading="lazy" />
+          <img src={trainingImages[2]} alt="Equipe em treinamento técnico" class="absolute bottom-6 left-1/2 h-[178px] w-[178px] -translate-x-1/2 rounded-full object-cover md:bottom-8 md:h-[280px] md:w-[280px]" loading="lazy" />
+        </div>
+
+        <p class="mt-8 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
+          Nosso maior programa na área de capacitações técnicas é o
+          <strong><u>Programa de Treinamento em Monitoramento de Avifauna</u></strong>,
+          que é uma atividade de residência e imersão, que segue um currículo de
+          aprendizagem. O currículo do programa de treinamento inclui aulas
+          teóricas, práticas supervisionadas, discussões de artigos,
+          apresentação de seminários e outras atividades de extensão
+          complementares. O programa recebe <strong>estudantes e profissionais,
+          brasileiros e estrangeiros, em formação ou buscando aprimorar técnicas
+          de coleta de dados ornitológicos em campo.</strong>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <img src="/midias/areas-de-atuacao/capacitacao-4.jpg" alt="Atividade técnica em área externa" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/capacitacao-5.jpg" alt="Material usado em curso técnico" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+      </div>
+
+      <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
+        <p class="text-justify text-[18px] leading-[25px] md:text-[18px] md:leading-[26px]">
+          O OAMa também promove <strong>cursos em parceria com artistas,
+          fotógrafos, educadores e pesquisadores.</strong> O objetivo é aproximar
+          as pessoas da natureza, por meio de formações em técnicas
+          complementares de pesquisa e fomento de desenvolvimento socioambiental.
+          Alguns dos cursos oferecidos neste contexto são curso de bordados de
+          aves, o curso de identificação de cogumelos, o curso de bioacústica de
+          aves e o curso de fotografia de aves.
+        </p>
+      </div>
+    </section>
+
+    <WaveDark topColor={colors.yellow} bottomColor={colors.dark} path1Color={colors.dark} path2Color={colors.cream} />
+  </main>
+</BaseLayout>

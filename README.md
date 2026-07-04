@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# OAMa Website 2
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Novo site do OAMa em **Astro 5 + Tailwind v4 + Sanity**, com implementação orientada por Figma e migração seletiva do site antigo em Next.js.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Objetivo do repositório
+Este projeto está sendo construído página por página, combinando:
+- layouts vindos do Figma exportado em `design-assets/`
+- conteúdo e comportamento herdados do site antigo em `/Users/anhinga/Projetos/oama-website`
+- decisões sobre hardcoded vs Sanity registradas em `AGENT.md`
 
-## 🚀 Project Structure
+## Como agentes devem trabalhar aqui
+Este repo foi preparado para trabalho dirigido por agentes.
 
-Inside of your Astro project, you'll see the following folders and files:
+### Ordem de leitura obrigatória
+1. `CLAUDE.md`
+2. `docs/agent-workflow/README.md`
+3. `docs/agent-workflow/STATUS.md`
+4. `docs/agent-workflow/REPOS.md`
+5. `docs/agent-workflow/SUBTASKS.md`
+6. `docs/agent-workflow/HANDOFF.md`
+7. `AGENT.md`
 
+## Estrutura principal
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/                      # páginas e componentes Astro
+public/                   # assets estáticos
+design-assets/            # exportações e análises do Figma
+docs/implementation/      # briefs e docs por página
+docs/agent-workflow/      # camada de orquestração estilo OmniScience
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Comandos principais
+```bash
+npm install
+npm run dev
+npm run build
+```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Com PATH completo usado nas automações:
+```bash
+PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" npm run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Fontes de verdade possíveis
+Cada task precisa dizer explicitamente qual fonte manda:
+- **Figma-first**
+- **Legacy-first**
+- **CMS-first**
+- **Hybrid**
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Observação importante
+Nem toda rota deste projeto vem da mesma origem.
+Algumas páginas devem seguir o Figma; outras precisam ser migradas do site antigo. O agente deve registrar isso antes de implementar.

@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-11T22:44:41.311Z",
+  "plans": [
+    {
+      "name": "Patinho",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfNTM4WVJLMEZ5Z3VqcEt5SWVxRkwwb2xv00decj5QvG",
+      "currency": "brl",
+      "unit_amount": 600,
+      "url": "https://buy.stripe.com/9B6eVd1VV7tCfix71odAl0q"
+    },
+    {
+      "name": "Tico-tico",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfVFo3OFZFMGYzU0dja3lVaVpYSW1vNDg0008FClzCru",
+      "currency": "brl",
+      "unit_amount": 2000,
+      "url": "https://buy.stripe.com/00weVd587g085HXadAdAl0t"
+    },
+    {
+      "name": "Sai-andorinha",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfQmJMQ0E0NkI2emlXZXloTDhhZGEyNXJ500TMBOgDmK",
+      "currency": "brl",
+      "unit_amount": 5000,
+      "url": "https://buy.stripe.com/dRm8wP9on4hq7Q5etQdAl0f"
+    },
+    {
+      "name": "Saíra-lagarta",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfSW9LQzIwSXpLcjZlWGhDMzJydkxwSW9G00UkjvVRWJ",
+      "currency": "brl",
+      "unit_amount": 10000,
+      "url": "https://buy.stripe.com/4gM14ngQPaFOfixbhEdAl08"
+    },
+    {
+      "name": "Saira-amarela",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfaklsZGhxV2N2VzU0NEkxYUlQSFhZc1Ba0005ARPDq0",
+      "currency": "brl",
+      "unit_amount": 25000,
+      "url": "https://buy.stripe.com/5kQ9ATasr8xG6M11H4dAl0l"
+    },
+    {
+      "name": "Cauré",
+      "image": "https://files.stripe.com/links/MDB8YWNjdF8xTzFITXhIdHVXZUVCQ3RtfGZsX3Rlc3RfOVFmdW9kY0NIdkNLVGkyT0lReVpuMk1S00nwyjpVyj",
+      "currency": "brl",
+      "unit_amount": 50000,
+      "url": "https://buy.stripe.com/aFacN5asr8xGdapclIdAk47"
+    }
+  ]
+}

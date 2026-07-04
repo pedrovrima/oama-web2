@@ -1,0 +1,11 @@
+---
+// /proaves — migração Legacy-first da página de RESULTADOS do Pró-Aves
+// (oama-website/pages/proaves/index.jsx). É distinta da página descritiva
+// /programas-e-projetos/pro-aves. Ver docs/implementation/pages/proaves.md.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProAvesApp from "../components/proaves/ProAvesApp.jsx";
+---
+
+<BaseLayout title="ProAves" navVariant="overlay">
+  <ProAvesApp client:load />
+</BaseLayout>

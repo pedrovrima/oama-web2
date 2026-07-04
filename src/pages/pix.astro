@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+const dadosBancarios = [
+  { rotulo: "Banco", valor: "Banco do Brasil" },
+  { rotulo: "Código", valor: "001" },
+  { rotulo: "Agência", valor: "0131-7" },
+  { rotulo: "Conta corrente", valor: "81487-3" },
+  { rotulo: "CNPJ", valor: "35.713.512/0001-80" },
+];
+
+const canaisConfirmacao = [
+  {
+    rotulo: "E-mail",
+    valor: "contato@oama.eco.br",
+    href: "mailto:contato@oama.eco.br?subject=Doa%C3%A7%C3%A3o%20via%20PIX%20para%20o%20OAMa",
+  },
+  {
+    rotulo: "WhatsApp",
+    valor: "+55 24 99962-7394",
+    href: "https://wa.me/5524999627394?text=Ol%C3%A1%2C%20quero%20confirmar%20os%20dados%20para%20doa%C3%A7%C3%A3o%20via%20PIX%20ao%20OAMa.",
+  },
+];
+---
+
+<BaseLayout title="PIX — OAMa">
+  <main class="font-montserrat text-[#1e1702]">
+    <section class="relative overflow-hidden bg-[#1a2e4a]">
+      <div class="absolute inset-0 opacity-20">
+        <img
+          src="/apoie/apoie.jpg"
+          alt=""
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+      </div>
+      <div class="relative mx-auto flex min-h-[520px] max-w-5xl flex-col justify-end px-6 pb-16 pt-32 md:min-h-[600px] md:px-10">
+        <span class="mb-4 inline-flex w-fit rounded-full bg-[#EDC15A] px-5 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#1a2e4a]">
+          Doação única
+        </span>
+        <h1 class="max-w-3xl font-oswald text-[42px] font-extrabold uppercase leading-none text-white md:text-[72px]">
+          Doação via PIX
+        </h1>
+        <p class="mt-5 max-w-2xl text-[18px] leading-[29px] text-white/90 md:text-[22px] md:leading-[34px]">
+          Sua contribuição ajuda o OAMa a transformar apoio em pesquisa,
+          conhecimento, educação ambiental e conservação das aves da Mata Atlântica.
+        </p>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#1a2e4a"
+      bottomColor="#dfb553"
+      path1Color="#1e1702"
+      path2Color="#fbf5e6"
+    />
+
+    <section class="bg-[#dfb553] px-6 py-14 md:px-10 md:py-20">
+      <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-start">
+        <div class="rounded-[28px] bg-white p-7 shadow-xl md:p-10">
+          <h2 class="font-oswald text-[30px] font-extrabold uppercase leading-none text-[#1a2e4a] md:text-[42px]">
+            Dados confirmados
+          </h2>
+          <p class="mt-4 text-[16px] leading-[26px] text-[#1e1702]/80">
+            Estes são os dados bancários já migrados da página antiga do OAMa e
+            usados na página <a href="/apoie" class="font-bold text-[#1a2e4a] underline decoration-[#EDC15A] decoration-2 underline-offset-4">Apoie</a>.
+          </p>
+
+          <dl class="mt-8 divide-y divide-[#1a2e4a]/10 rounded-2xl border border-[#1a2e4a]/10 bg-[#fbf5e6]">
+            {
+              dadosBancarios.map((item) => (
+                <div class="grid gap-1 px-5 py-4 sm:grid-cols-[160px_1fr] sm:gap-4">
+                  <dt class="text-sm font-bold uppercase tracking-[0.12em] text-[#1a2e4a]/65">
+                    {item.rotulo}
+                  </dt>
+                  <dd class="text-[18px] font-extrabold text-[#1a2e4a]">
+                    {item.valor}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+
+          <div class="mt-7 rounded-2xl bg-[#1a2e4a] p-5 text-white">
+            <p class="text-[15px] leading-[24px]">
+              <strong>Importante:</strong> não encontrei no legado nem nos assets
+              atuais uma chave PIX ou QR code oficial. Por segurança, esta página
+              não inventa esses dados. Antes de transferir por PIX, confirme a
+              chave oficial pelos canais do OAMa abaixo.
+            </p>
+          </div>
+        </div>
+
+        <aside class="rounded-[28px] bg-[#5ba4d9] p-7 text-white shadow-xl md:p-10">
+          <h2 class="font-oswald text-[30px] font-extrabold uppercase leading-none md:text-[40px]">
+            Confirme a chave PIX
+          </h2>
+          <p class="mt-4 text-[16px] leading-[26px] text-white/90">
+            Para evitar erro de transferência, fale com o OAMa e peça a chave PIX
+            oficial antes de concluir a doação.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            {
+              canaisConfirmacao.map((canal) => (
+                <a
+                  href={canal.href}
+                  target={canal.href.startsWith("http") ? "_blank" : undefined}
+                  rel={canal.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  class="block rounded-2xl bg-white px-5 py-4 text-[#1a2e4a] transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <span class="block text-xs font-bold uppercase tracking-[0.14em] text-[#1a2e4a]/60">
+                    {canal.rotulo}
+                  </span>
+                  <span class="mt-1 block text-[18px] font-extrabold">
+                    {canal.valor}
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+
+          <a
+            href="/apoie"
+            class="mt-8 inline-flex rounded-full bg-[#EDC15A] px-7 py-3 font-extrabold uppercase text-[#1a2e4a] transition hover:bg-white"
+          >
+            Ver outras formas de apoiar
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#dfb553"
+      bottomColor="#5ba4d9"
+      path1Color="#1e1702"
+      path2Color="#fbf5e6"
+    />
+  </main>
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaveDark from "../../components/sections/WaveDark.astro";
+
+const cursosConcluidos = [
+  {
+    titulo: "Curso Fotografia - Birds Atlantic",
+    descricao:
+      "Curso realizado em parceria com a Birds Atlantic, voltado a fotografia de natureza com foco em aves.",
+  },
+];
+---
+
+<BaseLayout title="Cursos - Online e Presencial — OAMa" navVariant="overlay">
+  <main class="font-montserrat">
+    <!-- HERO: full-bleed verde com foto de fundo e título sobreposto -->
+    <section class="relative min-h-[85vh] w-full overflow-hidden bg-[#3d6e4f]">
+      <img
+        src="/midias/cursos/capa-cursos.jpg"
+        alt="Foto de capa dos cursos e treinamentos do OAMa"
+        class="absolute inset-0 h-full w-full object-cover opacity-60"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/20"></div>
+
+      <div class="relative z-10 flex h-full items-end">
+        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
+          <h1
+            class="text-[28px] leading-[32px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
+          >
+            Cursos - Online e Presencial
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro: faixa amarela com copy -->
+    <section class="bg-[#dfb553] w-full">
+      <div class="mx-auto max-w-5xl px-6 py-12 md:py-14">
+        <div class="mx-auto max-w-4xl text-[15px] leading-7 text-white md:text-[17px] md:leading-8">
+          <p>
+            Nossos cursos de curta duração em anilhamento e em análise de mudas em aves (foco em passeriformes) são uma forma de
+            <strong> promover a formação, o treinamento, e a atualização de técnicas de campo para o estudo ornitológico.</strong>
+            Cursos e oficinas de extensão, em temas correlatos à ornitologia, à conservação e à observação de aves, são promovidos pelo OAMa em parceria com profissionais de variadas áreas de atuação (artistas, fotógrafos, educadores e pesquisadores), visando conectar pessoas e natureza.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de títulos e fotos intercaladas -->
+    <section class="bg-white w-full">
+      <div class="mx-auto max-w-5xl px-6 py-14">
+        <h2 class="mb-12 text-center font-oswald text-[30px] font-bold uppercase leading-none text-oama-ink md:text-[44px]">
+          Quais os objetivos e como funcionam os cursos
+        </h2>
+
+        <div class="mx-auto max-w-4xl space-y-12">
+          <!-- Curso 1: texto + foto grande -->
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="flex-1 text-[14px] leading-7 text-oama-ink md:text-[16px] md:leading-8">
+              <p>
+                No curso ONLINE <u>Básico de Anilhamento</u>, realizado em parceria com o Projeto Aves de Noronha/Instituto Tartar, abordamos da introdução a uma revisão aprofundada sobre a aplicação do anilhamento em monitoramento de avifauna e em pesquisa, com identificação do indivíduo. O anilhamento é um método de estudo de grande importância para a conservação das espécies. É assim como qualquer atividade que implica na captura e manuseio de organismos vivos, existe um cuidado no manejo. Essa área minuciosa com o treinamento rigoroso e continuado de cada integrante da equipe de trabalho. Realizamos este curso teórico em geral uma vez por ano pela plataforma Sympla.
+              </p>
+            </div>
+            <img
+              src="/midias/cursos/curso-anilhamento.jpg"
+              alt="Participante em atividade prática de anilhamento de aves"
+              class="w-full md:w-1/2 md:max-w-sm object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Curso 2: foto + texto (invertida) -->
+          <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+            <div class="flex-1 text-[14px] leading-7 text-oama-ink md:text-[16px] md:leading-8">
+              <p>
+                No curso ONLINE de <u>Análise de Mudas e Classificação de Idade em Aves</u>, focamos no aprendizado sobre o ciclo de muda das aves e como podemos usar esse conhecimento para a classificação de idade das aves. Introduzimos o conhecimento básico sobre as estratégias e padrões de muda e plumagem na aves e apresentamos o método WRP para classificação de idade (ou "moult based ageing system"). Com isso, visamos promover a padronização no uso de terminologias e nomenclaturas para mudas e plumagens em aves, e expandir a prática de classificação de idade de aves com base na análise de mudas e plumagem entre os ornitólogos do Brasil.
+              </p>
+            </div>
+            <img
+              src="/midias/cursos/curso-mudas.jpg"
+              alt="Trainee manipulando ave em curso de análise de mudas do OAMa"
+              class="w-full md:w-1/2 md:max-w-sm object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Curso 3: texto + foto -->
+          <div class="flex flex-col md:flex-row gap-8 items-start">
+            <div class="flex-1 text-[14px] leading-7 text-oama-ink md:text-[16px] md:leading-8">
+              <p>
+                Por fim, no curso <u>PRESENCIAL</u>, trabalhamos tanto sobre a análise de mudas, plumagens e dados complementares. Durante cerca de 20h de aulas teóricas e experiências supervisionadas em campo, guiamos os participantes no exercício de manipulação, de extração de aves das redes, de aplicação de anilhas e de coleta de dados em aves, além do manejo responsável de uma estação de anilhamento. É associado a isso, trazemos todo a compreensão das estratégias e padrões de mudas das aves, as terminologias e nomenclaturas para mudas e plumagens, e ao exercício da classificação de idade de aves pelo método WRP.
+              </p>
+            </div>
+            <img
+              src="/midias/cursos/curso-presencial.jpg"
+              alt="Participantes em curso presencial do OAMa"
+              class="w-full md:w-1/2 md:max-w-sm object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="mx-auto mt-12 max-w-4xl text-[14px] leading-7 text-oama-ink md:text-[15px] md:leading-8">
+          <p>
+            Deixamos claro que nenhuma ave será colocada em risco por priorizar a experiência prática dos estudantes. Caso haja a necessidade, os instrutores poderão intervir a qualquer momento para garantir o bem estar das aves. Seguimos o código de ética e recomendações de práticas pelo NABC (North American Banding Council) e CEMAVE (Centro Nacional de Pesquisa e Conservação de Aves Silvestres).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção "Sobre as inscrições" -->
+    <section class="bg-white w-full border-t border-oama-ink/10">
+      <div class="mx-auto max-w-5xl px-6 py-14">
+        <h2 class="mb-8 text-center font-oswald text-[30px] font-bold uppercase leading-none text-oama-ink md:text-[44px]">
+          Sobre as inscrições
+        </h2>
+
+        <div class="mx-auto max-w-4xl text-[14px] leading-7 text-oama-ink md:text-[16px] md:leading-8">
+          <p>
+            As aberturas de inscrições dos cursos teóricos e do curso prático acontecem uma vez por ano, e a divulgação acontece pelas redes sociais e por campanhas de email do OAMa (inscreva-se aqui para não perder as chamadas). Os valores arrecadados com os cursos pagos são 100% convertidos em doações para ações de pesquisa e conservação das aves, sendo assim, uma forma de viabilizar a continuação do OAMa.
+          </p>
+        </div>
+
+        <details class="mx-auto mt-8 max-w-4xl rounded-lg bg-oama-blue text-white open:pb-6">
+          <summary class="cursor-pointer list-none px-8 py-6 text-center font-oswald text-[26px] font-bold uppercase leading-none marker:content-none md:text-[34px]">
+            Cursos concluídos
+            <div class="mt-2 text-2xl">⌄</div>
+          </summary>
+          <div class="px-8 text-[14px] leading-7 md:px-10 md:text-[16px] md:leading-8">
+            {cursosConcluidos.map((curso) => (
+              <div class="border-t border-white/30 pt-5">
+                <p class="font-bold">{curso.titulo}</p>
+                <p class="mt-1 text-white/90">{curso.descricao}</p>
+              </div>
+            ))}
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

@@ -1,0 +1,600 @@
+---
+// /apoie — migração Legacy-first, fiel ao site antigo:
+// /Users/anhinga/Projetos/oama-website/pages/apoie/index.js
+//
+// Diferenças intencionais em relação ao legado (documentadas em
+// docs/implementation/pages/apoie.md):
+// - planos recorrentes do Stripe vêm de um snapshot estático
+//   (src/data/apoie-stripe.json, gerado por scripts/fetch-apoie-stripe.mjs)
+//   em vez de getServerSideProps + criação de payment link por clique;
+// - typos do legado corrigidos ("apio", "para para", "gente.!");
+// - links internos remapeados para as rotas do site novo;
+// - Nav/Footer são os do site novo (chrome global).
+import BaseLayout from "../layouts/BaseLayout.astro";
+import stripeData from "../data/apoie-stripe.json";
+
+const planos = stripeData.plans.map((plano) => ({
+  ...plano,
+  precoFormatado: new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: plano.currency.toUpperCase(),
+  }).format(plano.unit_amount / 100),
+  href: `${plano.url}?locale=pt`,
+}));
+
+const metodosDoacaoUnica = [
+  { name: "PIX", url: "/pix", image: "/apoie/10.png" },
+  {
+    name: "PayPal",
+    url: "https://www.paypal.com/donate/?hosted_button_id=9HRNWTKA892WS",
+    image: "/apoie/11.png",
+  },
+  {
+    name: "Cartão de Crédito",
+    url: "https://donate.stripe.com/3csbL34ezfRfdfa144",
+    image: "/apoie/13.png",
+  },
+];
+
+const projetos = [
+  {
+    title: "Livro Educativo Ornitologia Pra Todo Dia",
+    year: "2019",
+    url: "/publicacoes/files/ornito_todo_dia_OAMa.pdf",
+  },
+  { title: "Dia de Campo", description: "currículo interativo em banners", year: "2019" },
+  {
+    title: "Canal do Youtube",
+    description: "documentários e seminários",
+    year: "2021",
+    url: "https://www.youtube.com/@observatoriodeavesdamantiq4958",
+  },
+  {
+    title: "Saltator",
+    description: "jogo online",
+    year: "2021",
+    url: "https://saltator.oama.eco.br",
+  },
+  {
+    title: "Juçara, conservação e consumo consciente",
+    description: "documentário",
+    year: "2021",
+    url: "https://youtu.be/FtL8dOPeu6U?si=wQTz1IFgD2Zv7Zsg",
+  },
+  {
+    title: "Livro de Colorir Espécies Ameaçadas de Extinção da Mata Atlântica",
+    year: "2022",
+    url: "/publicacoes/files/Oama_Livreto_Colorir_AvesAmea%C3%A7adas.pdf",
+  },
+  {
+    title: "Pró-Aves",
+    description: "programa educativo com folders, instalações, etc",
+    year: "2022",
+    url: "/proaves",
+  },
+  {
+    title: "Jacuçara",
+    description: "site",
+    year: "2022",
+    url: "/programas-e-projetos/campanha-jacucara",
+  },
+  {
+    title: "Monitorando o presente, preservando o futuro",
+    description: "documentário",
+    year: "2023",
+    url: "https://youtu.be/OrGmxyzla5A?si=CU_bDEvgsFo3LAJa",
+  },
+  { title: "Guia de Aves da região de Visconde de Mauá", description: "folder", year: "2023" },
+  { title: "Impacto de pets em aves", description: "banners informativos", year: "2023" },
+  { title: "Campanha Jacuçara", description: "banners informativos", year: "2023" },
+];
+
+const slidesAcoes = [
+  { name: "Livro Educativo Ornitologia Pra Todo Dia", image: "/apoie/28.png" },
+  { name: "Painel utilizado na atividade Dia de Campo", image: "/apoie/29.png" },
+  { name: "Guia de Aves de Visconde de Mauá e Região", image: "/apoie/30.png" },
+  { name: "Folders do projeto Pró-Aves", image: "/apoie/31.png" },
+  {
+    name: "Livro de Colorir Espécies Ameaçadas de Extinção da Mata Atlântica",
+    image: "/apoie/32.png",
+  },
+  { name: 'Folder "Tráfico e Engaiolamento" do programa Pró-Aves', image: "/apoie/33.png" },
+];
+
+// Fotos do carrossel final (51.jpg a 61.jpg, como no legado)
+const fotosFinais = Array.from({ length: 11 }, (_, i) => 51 + i);
+
+const isExterno = (url: string) => url.startsWith("http");
+---
+
+<BaseLayout title="Apoie" navVariant="overlay">
+  <main class="max-w-[100vw] overflow-hidden">
+    <!-- ═══ HERO ═══ -->
+    <div class="relative h-[700px] max-h-[70vh] bg-[#4E7B90]">
+      <div class="hero-small md:hero h-full items-center justify-items-center pt-32 md:pb-16 lg:pb-16">
+        <div class="absolute top-0 h-full w-full">
+          <img
+            src="/apoie/capa.png"
+            alt="Aves da Mata Atlântica"
+            class="absolute inset-0 z-40 h-full w-full object-cover object-center"
+            loading="eager"
+          />
+        </div>
+        <div class="mx-auto flex h-full w-full items-center lg:max-w-[1024px]">
+          <h1 class="z-50 px-12 text-5xl font-bold text-white sm:w-1/2 lg:px-0">
+            Venha pro bando em defesa das aves da Mata Atlântica!
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ INTRO + DOAÇÕES ═══ -->
+    <div class="md:hero-path relative -top-[10px] z-20 bg-[#4E7B90] pb-24">
+      <div class="mx-auto md:max-w-screen-md lg:max-w-[1024px]">
+        <div class="relative z-20 grid grid-cols-1 md:grid-cols-4 md:gap-8 lg:grid-cols-5">
+          <div class="order-3 px-8 py-24 text-justify md:order-1 md:col-span-2 md:pl-12 md:pr-0 lg:col-span-3 lg:px-0">
+            <p class="mb-6 text-lg text-white md:px-0">
+              O OAMa está trabalhando para a construção coletiva de um futuro
+              melhor para as aves, para o ecossistema, e, consequentemente,
+              para nós!
+            </p>
+            <p class="mb-6 text-lg text-white md:px-0">
+              Visamos um futuro em que a sociedade dê maior importância às aves
+              e em que as pessoas sejam agentes ativos para a conservação da
+              biodiversidade. Para transformar esse futuro em um presente real,
+              utilizamos do monitoramento e estudo da avifauna, da educação,
+              informação e sensibilização ambiental, conectando pessoas e
+              natureza em nossas ações.
+            </p>
+            <p class="mb-6 text-lg text-white md:px-0">
+              <strong>Você pode participar desse esforço coletivo!</strong>
+            </p>
+            <p class="mb-6 text-lg text-white md:px-0">
+              A existência do OAMa e o sucesso de nossas ações são
+              viabilizados, em grande parte, pelo apoio de doadores
+              recorrentes, que dividem um pouquinho das contas e custos mensais
+              com a gente. Compartilhamos com nossos doadores recorrentes a
+              visão de que o benefício é coletivo, e o custo também!
+            </p>
+            <p class="mb-6 text-lg text-white md:px-0">
+              <strong>Vem somar com a gente!</strong>
+            </p>
+            <h3 class="mb-6 px-8 text-lg font-bold text-white md:px-0">
+              COMUNICANDO CIÊNCIA PARA A CONSERVAÇÃO
+            </h3>
+            <p class="mb-6 text-lg text-white md:px-0">
+              Conectar pessoas com a ciência e conservação da biodiversidade
+              requer encantamento, reconhecimento e apropriação. Nossa atuação
+              nos últimos 5 anos vai além dos limites da Serra da Mantiqueira,
+              alcançando pessoas em várias partes do mundo que compreendem a
+              importância da conservação das aves e de nossos ecossistemas.
+            </p>
+            <p class="mb-6 text-lg text-white md:px-0">
+              A conservação ambiental precisa ser um esforço multidisciplinar
+              e coletivo.
+            </p>
+          </div>
+
+          <div class="order-1 col-span-2">
+            <!-- Doações (equivalente ao Billing do legado) -->
+            <div class="relative h-fit min-w-fit px-8 py-12">
+              <div class="relative">
+                <div class="mb-8 w-full rounded-full bg-[#332139] p-4 text-center text-lg leading-5 text-white md:mt-16">
+                  <p>TORNE-SE UM DOADOR RECORRENTE!</p>
+                  <p class="text-sm">Escolha o valor do seu apoio mensal</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-2">
+                  {
+                    planos.map((plano) => (
+                      <div class="mb-8 flex flex-col items-center justify-center">
+                        <a
+                          href={plano.href}
+                          class="group relative block h-36 w-36 cursor-pointer rounded-full border-4 border-solid border-[#332139] shadow-yellow-500 transition-all duration-200 ease-in-out hover:border-[#62466B] hover:shadow-2xl"
+                          style={
+                            plano.image
+                              ? `background-image: url(${plano.image}); background-size: cover;`
+                              : undefined
+                          }
+                        >
+                          <span class="absolute -bottom-6 block w-36 rounded-full bg-[#332139] px-4 py-2 text-white shadow-xl transition-all duration-200 ease-in-out group-hover:bg-[#62466B] group-hover:shadow-2xl">
+                            <span class="block text-center text-sm font-bold">{plano.name}</span>
+                            <span class="block text-center text-sm">
+                              {plano.precoFormatado} / mês
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+              <div class="text-md mb-8 mt-12 w-full rounded-full bg-[#332139] p-4 px-12 text-center leading-5 text-white md:mt-32 lg:mt-12">
+                <p>Você também pode fazer uma doação única!</p>
+              </div>
+              <div class="z-40 grid auto-cols-min grid-cols-2 justify-items-center gap-2">
+                {
+                  metodosDoacaoUnica.map((metodo) => (
+                    <a
+                      href={metodo.url}
+                      target={isExterno(metodo.url) ? "_blank" : undefined}
+                      rel={isExterno(metodo.url) ? "noopener noreferrer" : undefined}
+                      class="group relative z-40 flex w-40 flex-row items-center"
+                    >
+                      <div class="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#332139] group-hover:bg-[#62466B]">
+                        <img
+                          src={metodo.image}
+                          alt=""
+                          width="40"
+                          height="40"
+                          class="z-40 h-10 w-10 max-w-none"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="absolute left-[2rem] flex h-[3.0rem] w-28 items-center justify-center rounded-full bg-[#332139] p-2 text-center text-sm font-bold leading-none text-white group-hover:bg-[#62466B]">
+                        {metodo.name}
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="relative">
+              <div class="absolute -right-[200px] -top-[220px] hidden w-full md:-top-[130px] md:left-[10px] md:flex">
+                <img
+                  src="/apoie/14.png"
+                  alt=""
+                  width="450"
+                  height="450"
+                  class="z-20 h-[450px] w-[450px] max-w-none"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative z-[80] -mt-[50px] h-[300px] w-full md:mb-[120px] md:h-[400px] md:w-full md:rounded-lg lg:-mt-[160px] lg:mb-16 lg:w-3/5">
+          <img
+            src="/apoie/35.png"
+            alt="Equipe do OAMa em campo"
+            class="absolute inset-0 h-full w-full rounded-xl object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SEU APOIO FAZ A DIFERENÇA ═══ -->
+    <div class="md:hero-path relative -top-[50px] z-0 mx-auto pb-24 md:-top-[200px] md:pb-0 lg:-top-[150px]">
+      <div class="absolute top-0 h-full w-full">
+        <img
+          src="/apoie/34.png"
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="relative z-20 mx-auto w-full py-24 md:max-w-screen-md md:py-48 lg:max-w-[1024px] lg:py-36">
+        <div class="absolute -bottom-[60px] -right-10 z-0 md:bottom-0">
+          <img
+            src="/apoie/4.png"
+            alt=""
+            width="200"
+            height="350"
+            class="h-[350px] w-[200px] max-w-none"
+            loading="lazy"
+          />
+        </div>
+        <div class="flex w-full flex-col lg:flex-row lg:items-center">
+          <div class="z-[99] px-12 md:pl-12 lg:w-1/4 lg:pl-0">
+            <h2 class="mb-6 text-4xl text-[#EDC15A] md:px-0">
+              Seu apoio faz a diferença!
+            </h2>
+            <p class="mb-6 text-lg text-white md:px-0">
+              As ações do OAMa são realizadas com apoio de editais,
+              contratações, serviços, e com a receita da marca Use.OAMa. Mas a
+              nossa existência institucional depende fortemente do apoio de
+              doadores recorrentes.
+            </p>
+          </div>
+          <div class="relative z-[70] w-full lg:h-[500px] lg:w-[600px]">
+            <img
+              src="/apoie/grafico.png"
+              alt="Gráfico de custos do OAMa"
+              class="h-auto w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="relative pb-36">
+          <div class="absolute -top-[110px] right-[120px] flex flex-row items-center gap-[20px] sm:-left-[190px] md:-top-[120px]">
+            <div class="z-50 h-[650px] w-[650px] rotate-[20deg] md:rotate-[15deg]">
+              <img src="/apoie/15.png" alt="" class="h-auto w-full" loading="lazy" />
+            </div>
+            <div class="absolute left-[350px] top-[240px] z-20 min-w-[500px] rounded-l-full rounded-r-full bg-[#4E7B90] py-4 pl-24 pr-24 sm:left-[350px] sm:pr-12">
+              <div class="flex h-full flex-row items-center justify-center gap-4 text-white">
+                <div class="flex flex-row items-center gap-2">
+                  <svg
+                    class="hidden sm:flex"
+                    width="70"
+                    height="70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="10.5" x2="12" y2="17" stroke-linecap="round"></line>
+                    <circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"></circle>
+                  </svg>
+                  <p>Custo institucional anual: R$205.769,00.</p>
+                </div>
+                <div class="h-[60px] w-1 rounded-full bg-white"></div>
+                <p>Nosso custo total anual: R$447.975,00.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONHEÇA ALGUMAS DE NOSSAS AÇÕES ═══ -->
+    <div class="relative mx-auto bg-white sm:h-[1250px] md:h-[950px] md:max-w-screen-md md:flex-col lg:h-[900px] lg:max-w-[1024px]">
+      <div
+        style="transform: scaleX(-1); rotate: -15deg;"
+        class="absolute -top-[120px] bottom-0 left-[400px] z-50 sm:-right-[380px] sm:-top-[90px] md:-top-[210px] lg:-right-[200px]"
+      >
+        <img
+          src="/apoie/8.png"
+          alt=""
+          width="600"
+          height="600"
+          class="h-[600px] w-[600px] max-w-none"
+          loading="lazy"
+        />
+      </div>
+      <div class="z-[99] -my-[100px] flex w-full flex-col gap-8 md:flex-row md:gap-[50px] lg:gap-[150px]">
+        <div class="w-[450px] max-w-[350px] py-12 pl-4 sm:max-w-full md:w-[26rem] md:py-0 lg:pl-0">
+          <h2 class="mb-6 text-4xl text-[#EDC15A] md:px-0">
+            Conheça algumas de nossas ações
+          </h2>
+          <ul class="z-[99]">
+            {
+              projetos.map((projeto) => (
+                <li class="pb-[8px] leading-4">
+                  {projeto.url ? (
+                    <a
+                      href={projeto.url}
+                      target={isExterno(projeto.url) || projeto.url.endsWith(".pdf") ? "_blank" : undefined}
+                      rel={isExterno(projeto.url) ? "noopener noreferrer" : undefined}
+                      class="cursor-pointer hover:underline"
+                    >
+                      <span class="text-md font-bold text-gray-500">{projeto.title}</span>
+                      {projeto.description && (
+                        <span class="text-md text-gray-400">{` - ${projeto.description}`}</span>
+                      )}
+                      <span class="text-sm text-gray-400">{`, ${projeto.year}`}</span>
+                    </a>
+                  ) : (
+                    <p>
+                      <span class="text-md font-bold text-gray-500">{projeto.title}</span>
+                      {projeto.description && (
+                        <span class="text-sm text-gray-400">{` - ${projeto.description}`}</span>
+                      )}
+                      <span class="text-sm text-gray-400">{`, ${projeto.year}`}</span>
+                    </p>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="mb-[220px] flex justify-center sm:mb-0 md:pt-[200px]">
+          <!-- Carrossel de materiais (EmblaCarousel do legado) -->
+          <div class="relative z-[80]" data-carousel>
+            <div class="embla" data-viewport>
+              <div class="embla__container w-[320px] lg:w-[400px]">
+                {
+                  slidesAcoes.map((slide) => (
+                    <div class="embla__slide">
+                      <div class="flex flex-col gap-6">
+                        <div class="flex h-[300px] w-[300px] items-center justify-center rounded-full bg-[#332139]">
+                          <img
+                            src={slide.image}
+                            alt={slide.name}
+                            width="350"
+                            height="350"
+                            class="z-[80] h-[350px] w-[350px] max-w-none"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div class="w-[300px] rounded-full bg-[#332139] px-12 py-4 text-center">
+                          <p class="font-bold text-white">{slide.name}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+              <button
+                data-prev
+                aria-label="Slide anterior"
+                class="absolute -left-[38px] top-[125px] flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400 lg:-left-[50px]"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
+              </button>
+              <button
+                data-next
+                aria-label="Próximo slide"
+                class="absolute left-[290px] top-[125px] flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400 lg:left-[302px]"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CARROSSEL DE FOTOS ═══ -->
+    <div class="relative mx-auto -mb-[70px] flex h-[700px] w-screen flex-row bg-[#4E7B90] sm:-mb-[70px] md:-mt-[100px]">
+      <div class="relative mx-auto flex w-screen items-center justify-center md:max-w-screen-md lg:max-w-[1024px]">
+        <div
+          style="transform: scaleX(-1); rotate: -15deg;"
+          class="absolute -top-[200px] bottom-0 left-[350px] z-20 h-[600px] w-[600px] sm:-right-[400px] sm:left-auto lg:-right-[200px]"
+        >
+          <img src="/apoie/5.png" alt="" class="h-auto w-full" loading="lazy" />
+        </div>
+        <div
+          style="rotate: -5deg;"
+          class="absolute -left-[550px] -top-[400px] bottom-0 right-[250px] z-0 h-[800px] w-[800px] sm:-left-[400px] lg:-left-[350px]"
+        >
+          <img src="/apoie/16.png" alt="" class="h-auto w-full" loading="lazy" />
+        </div>
+        <div class="relative z-50 overflow-hidden" data-carousel>
+          <div class="embla" data-viewport>
+            <div class="embla__container w-screen sm:w-[550px] lg:w-[750px]">
+              {
+                fotosFinais.map((numero) => (
+                  <div class="embla__slide flex flex-col items-center">
+                    <div class="block w-screen items-center justify-center rounded-xl bg-[#332139] sm:h-[285.6px] sm:w-[500px] lg:h-[400px] lg:w-[700px]">
+                      <img
+                        src={`/apoie/${numero}.jpg`}
+                        alt="Atividades do OAMa"
+                        class="z-40 aspect-[7/4] h-full w-full rounded-xl object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+            <button
+              data-prev
+              aria-label="Foto anterior"
+              class="absolute left-0 top-[40%] flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400 sm:top-[120px] lg:top-[175px]"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+            <button
+              data-next
+              aria-label="Próxima foto"
+              class="absolute -right-0 top-[40%] flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400 sm:right-0 sm:top-[120px] lg:top-[175px]"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+
+  document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((root) => {
+    const viewport = root.querySelector<HTMLElement>("[data-viewport]");
+    if (!viewport) return;
+    const embla = EmblaCarousel(viewport, { loop: true });
+    root
+      .querySelector("[data-prev]")
+      ?.addEventListener("click", () => embla.scrollPrev());
+    root
+      .querySelector("[data-next]")
+      ?.addEventListener("click", () => embla.scrollNext());
+  });
+</script>
+
+<!--
+  CSS portado verbatim de oama-website/styles/index.css.
+  A ordem importa: .hero-small::after vem por último para vencer
+  .md\:hero::after na cascata, como no site antigo.
+-->
+<style is:global>
+  .embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .md\:hero-path {
+      clip-path: polygon(
+        100% 0%, 0% 0%, 0% 99%, 1% 99%, 2% 98.98%, 3% 98.96%, 4% 98.92%,
+        5% 98.88%, 6% 98.82%, 7% 98.76%, 8% 98.68%, 9% 98.6%, 10% 98.51%,
+        11% 98.41%, 12% 98.3%, 13% 98.18%, 14% 98.06%, 15% 97.93%, 16% 97.79%,
+        17% 97.64%, 18% 97.49%, 19% 97.33%, 20% 97.16%, 21% 96.99%, 22% 96.81%,
+        23% 96.63%, 24% 96.45%, 25% 96.26%, 26% 96.07%, 27% 95.88%, 28% 95.68%,
+        29% 95.48%, 30% 95.28%, 31% 95.08%, 32% 94.88%, 33% 94.68%, 34% 94.48%,
+        35% 94.29%, 36% 94.09%, 37% 93.9%, 38% 93.71%, 39% 93.52%, 40% 93.34%,
+        41% 93.16%, 42% 92.98%, 43% 92.81%, 44% 92.65%, 45% 92.49%, 46% 92.33%,
+        47% 92.19%, 48% 92.05%, 49% 91.92%, 50% 91.8%, 51% 91.68%, 52% 91.57%,
+        53% 91.47%, 54% 91.38%, 55% 91.3%, 56% 91.23%, 57% 91.17%, 58% 91.12%,
+        59% 91.07%, 60% 91.04%, 61% 91.02%, 62% 91%, 63% 91%, 64% 91.01%,
+        65% 91.02%, 66% 91.05%, 67% 91.09%, 68% 91.13%, 69% 91.19%, 70% 91.25%,
+        71% 91.33%, 72% 91.41%, 73% 91.51%, 74% 91.61%, 75% 91.72%, 76% 91.84%,
+        77% 91.96%, 78% 92.1%, 79% 92.24%, 80% 92.39%, 81% 92.54%, 82% 92.7%,
+        83% 92.87%, 84% 93.04%, 85% 93.22%, 86% 93.4%, 87% 93.58%, 88% 93.77%,
+        89% 93.96%, 90% 94.16%, 91% 94.35%, 92% 94.55%, 93% 94.75%, 94% 94.95%,
+        95% 95.15%, 96% 95.35%, 97% 95.55%, 98% 95.75%, 99% 95.94%, 100% 96.13%
+      );
+    }
+
+    .md\:hero {
+      clip-path: polygon(
+        100% 0%, 0% 0%, 0% 99%, 1% 99%, 2% 98.98%, 3% 98.96%, 4% 98.92%,
+        5% 98.88%, 6% 98.82%, 7% 98.76%, 8% 98.68%, 9% 98.6%, 10% 98.51%,
+        11% 98.41%, 12% 98.3%, 13% 98.18%, 14% 98.06%, 15% 97.93%, 16% 97.79%,
+        17% 97.64%, 18% 97.49%, 19% 97.33%, 20% 97.16%, 21% 96.99%, 22% 96.81%,
+        23% 96.63%, 24% 96.45%, 25% 96.26%, 26% 96.07%, 27% 95.88%, 28% 95.68%,
+        29% 95.48%, 30% 95.28%, 31% 95.08%, 32% 94.88%, 33% 94.68%, 34% 94.48%,
+        35% 94.29%, 36% 94.09%, 37% 93.9%, 38% 93.71%, 39% 93.52%, 40% 93.34%,
+        41% 93.16%, 42% 92.98%, 43% 92.81%, 44% 92.65%, 45% 92.49%, 46% 92.33%,
+        47% 92.19%, 48% 92.05%, 49% 91.92%, 50% 91.8%, 51% 91.68%, 52% 91.57%,
+        53% 91.47%, 54% 91.38%, 55% 91.3%, 56% 91.23%, 57% 91.17%, 58% 91.12%,
+        59% 91.07%, 60% 91.04%, 61% 91.02%, 62% 91%, 63% 91%, 64% 91.01%,
+        65% 91.02%, 66% 91.05%, 67% 91.09%, 68% 91.13%, 69% 91.19%, 70% 91.25%,
+        71% 91.33%, 72% 91.41%, 73% 91.51%, 74% 91.61%, 75% 91.72%, 76% 91.84%,
+        77% 91.96%, 78% 92.1%, 79% 92.24%, 80% 92.39%, 81% 92.54%, 82% 92.7%,
+        83% 92.87%, 84% 93.04%, 85% 93.22%, 86% 93.4%, 87% 93.58%, 88% 93.77%,
+        89% 93.96%, 90% 94.16%, 91% 94.35%, 92% 94.55%, 93% 94.75%, 94% 94.95%,
+        95% 95.15%, 96% 95.35%, 97% 95.55%, 98% 95.75%, 99% 95.94%, 100% 96.13%
+      );
+    }
+
+    .md\:hero::after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        to left,
+        rgba(255, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.45) 100%
+      );
+    }
+  }
+
+  .hero-small::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      to top,
+      rgba(255, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+</style>

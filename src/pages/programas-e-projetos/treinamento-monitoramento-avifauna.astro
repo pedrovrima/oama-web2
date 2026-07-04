@@ -1,0 +1,358 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaveDark from "../../components/sections/WaveDark.astro";
+
+const objetivos = [
+  "Contribuir para a capacitação e formação técnica de novos cientistas, biólogos, profissionais educadores e interessados em ornitologia e conservação.",
+  "Oferecer um programa de treinamento e capacitação para ornitólogos de campo que atenda à demanda nacional e internacional.",
+];
+
+const equipe = [
+  "Affonso Souza",
+  "Danielle Santos",
+  "Karine Resende",
+  "Otávio Rocha",
+  "Pedro Martins",
+  "Rachel Fidelis",
+  "Victor Sanchez",
+];
+
+const galeria = [
+  {
+    imagem: "/midias/programas-e-projetos/treinamento-galeria-1.jpg",
+    alt: "Trainee do OAMa examinando ave capturada durante sessão de anilhamento na Mata Atlântica",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/treinamento-galeria-2.jpg",
+    alt: "Trainee do OAMa registrando dados biométricos de ave em campo",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/treinamento-galeria-3.jpg",
+    alt: "Trainee em atividade prática de anilhamento supervisionado na Mantiqueira",
+  },
+];
+---
+
+<BaseLayout
+  title="Programa de Treinamento em Monitoramento de Avifauna — OAMa"
+  navVariant="overlay"
+>
+  <main class="font-montserrat">
+    <!-- HERO with title overlay -->
+    <section class="relative min-h-[80vh] md:min-h-[90vh] w-full overflow-hidden flex items-center justify-center">
+      <img
+        src="/midias/programas-e-projetos/treinamento-hero.jpg"
+        alt="Pesquisadores do OAMa em sessão prática de anilhamento de aves na Mata Atlântica"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl">
+        <h1
+          class="text-[28px] md:text-[48px] lg:text-[56px] leading-[36px] md:leading-[56px] lg:leading-[64px] font-extrabold uppercase text-white font-oswald drop-shadow-lg"
+        >
+          Programa de Treinamento <br class="md:hidden" />em Monitoramento
+          de Avifauna
+        </h1>
+      </div>
+    </section>
+
+    <!-- 1) INTRODUÇÃO + OBJETIVOS PRINCIPAIS -->
+    <section class="bg-oama-yellow w-full">
+      <div class="max-w-4xl mx-auto px-6 py-14">
+
+        <div
+          class="mt-8 space-y-5 text-[18px] leading-[25px] text-white font-montserrat text-justify"
+        >
+          <p>
+            O monitoramento de avifauna, em especial a técnica de anilhamento,
+            exige um treinamento supervisionado para a formação de ornitólogos
+            de campo habilidosos, com uma atuação ética e altamente
+            qualificada. Este tipo de treinamento é oferecido em diferentes
+            partes do mundo, em especial na América do Norte, mas não existia
+            no Brasil até muito recentemente. Acreditando na importância desse
+            treinamento para o desenvolvimento dos estudos ornitológicos em
+            campo com alta qualidade no Brasil, o OAMa iniciou o programa de
+            treinamento em monitoramento de avifauna em <strong>2022</strong>.
+          </p>
+        </div>
+
+        <p
+          class="mt-10 text-center font-oswald text-[18px] md:text-[20px] font-bold uppercase text-white"
+        >
+          Os objetivos deste programa são principalmente os seguintes:
+        </p>
+
+        <ul class="mt-6 max-w-2xl mx-auto space-y-4">
+          {
+            objetivos.map((obj) => (
+              <li class="flex items-start gap-3 text-white text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] font-montserrat">
+                <span
+                  class="flex-shrink-0 mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-[#dfb553]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </span>
+                <span class="text-justify">{obj}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-10 overflow-hidden rounded-2xl border-4 border-white shadow-md">
+          <ul
+            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]"
+            style="-webkit-overflow-scrolling: touch;"
+            aria-label="Galeria visual do programa de treinamento"
+          >
+            {
+              galeria.map((item) => (
+                <li class="relative w-full flex-shrink-0 snap-center">
+                  <img
+                    src={item.imagem}
+                    alt={item.alt}
+                    class="h-[240px] md:h-[360px] w-full object-cover"
+                    loading="lazy"
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#dfb553"
+      bottomColor="#5ba4d9"
+      path1Color="#fbf5e6"
+      path2Color="#1a2e4a"
+    />
+
+    <WaveDark
+      topColor="#e9b130"
+      bottomColor="#fbf5e6"
+      path1Color="#fbf5e6"
+      path2Color="#fbf5e6"
+    />
+
+    <!-- 2) SOBRE INSCRIÇÕES + COORDENAÇÃO/EQUIPE (em faixa creme) -->
+    <section class="bg-oama-cream w-full">
+      <div class="max-w-4xl mx-auto px-6 py-14">
+        <h2
+          class="text-center text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-oama-ink font-oswald"
+        >
+          Sobre <br class="md:hidden" />inscrições
+        </h2>
+
+        <div
+          class="mt-8 space-y-5 text-[18px] leading-[25px] text-oama-ink font-montserrat text-justify"
+        >
+          <p>
+            O lançamento de edital de seleção é realizado uma vez por ano,
+            normalmente, no qual selecionamos em torno de quatro trainees para
+            um ciclo de atividades de no mínimo 12 semanas. A divulgação é
+            realizada em nossas redes sociais.
+          </p>
+        </div>
+
+        <p
+          class="mt-8 mx-auto inline-block w-full text-center font-oswald text-[18px] md:text-[22px] font-extrabold uppercase text-oama-ink"
+        >
+          SEM CHAMADAS ABERTAS NO MOMENTO
+        </p>
+
+        <div
+          class="mt-10 space-y-5 text-[18px] leading-[25px] text-oama-ink font-montserrat text-justify"
+        >
+          <p>
+            O programa é coordenado e supervisionado por <strong
+              >Luiza Figueira</strong
+            >. Luiza é co-fundadora e Diretora Executiva do OAMa, anilhadora e
+            treinadora certificada pelo NABC desde 2015, anilhadora sênior do
+            CEMAVE e responsável técnica pelas licenças de pesquisa do OAMa no
+            SISBIO e SNA/CEMAVE. A realização conta com a participação de
+            diversos colaboradores da equipe OAMa.
+          </p>
+        </div>
+
+        <ul
+          class="mt-8 max-w-3xl mx-auto grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {
+            equipe.map((nome) => (
+              <li class="flex items-center gap-3 rounded-lg bg-oama-yellow/10 px-4 py-3 ring-1 ring-oama-ink/10">
+                <span
+                  class="flex-shrink-0 inline-flex h-7 w-7 items-center justify-center rounded-full bg-oama-yellow shadow-sm"
+                  aria-hidden="true"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-oama-ink"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </span>
+                <span class="text-oama-ink font-oswald uppercase text-[15px] md:text-[16px] font-bold leading-[20px]">
+                  {nome}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <p
+          class="mt-6 max-w-3xl mx-auto text-center text-[15px] md:text-[16px] leading-[22px] text-oama-ink/90 font-montserrat"
+        >
+          fazem parte da equipe qualificada do OAMa para atuar no
+          monitoramento e treinamento do OAMa.
+        </p>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#fbf5e6"
+      bottomColor="#e9b130"
+      path1Color="#e9b130"
+      path2Color="#e9b130"
+    />
+
+    <!-- 3) INTERCÂMBIO DE ANILHADORES (em faixa amarela) -->
+    <section class="bg-oama-yellow w-full">
+      <div class="max-w-4xl mx-auto px-6 py-14">
+        <h2
+          class="text-center text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-white font-oswald"
+        >
+          Intercâmbio <br class="md:hidden" />de anilhadores
+        </h2>
+
+        <div
+          class="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] md:items-center"
+        >
+          <div
+            class="mx-auto md:mx-0 h-[220px] w-[220px] md:h-[280px] md:w-[280px] overflow-hidden rounded-full border-4 border-white/30 shadow-md"
+          >
+            <img
+              src="/midias/programas-e-projetos/treinamento-intercambio.jpg"
+              alt="Intercambista do OAMa em sessão de anilhamento durante intercâmbio no exterior"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="space-y-5 text-[16px] leading-[24px] text-white font-montserrat text-justify"
+          >
+            <p>
+              O OAMa e o Observatório de Aves de Klamath (<strong
+                >KBO</strong
+              >), localizado no Oregon, Estados Unidos, promovem um
+              intercâmbio de seis meses entre trainees das duas organizações.
+              O objetivo dessas viagens é proporcionar a continuidade da
+              capacitação profissional de anilhadores de aves para além das
+              fronteiras nacionais (<em>"Banders Beyond Borders"</em>).
+            </p>
+            <p>
+              Durante o intercâmbio, os trainees continuam seus estudos e
+              atividades práticas, como o uso seguro e ético de redes de
+              neblina, o levantamento de avifauna, o anilhamento de aves, as
+              técnicas avançadas de identificação de idade e sexo, e a entrada
+              e o gerenciamento de dados. Os participantes também têm
+              oportunidade de atuar como monitores em workshops e atividades
+              de educação ambiental.
+            </p>
+            <p>
+              Ao fim da experiência, os intercambistas são testados em seus
+              conhecimentos, em busca de certificações internacionais de
+              anilhadores e de treinadores pelo Conselho Norte-americano de
+              Anilhamento (<strong>NABC</strong>). Esse projeto de partilhas
+              técnicas e culturais só é possível graças aos recursos obtidos
+              nas <em>"Fundraising Field Trips"</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#e9b130"
+      bottomColor="#e9b130"
+      path1Color="#e9b130"
+      path2Color="#e9b130"
+    />
+
+    <!-- 4) DEPOIMENTO DESTACADO (em faixa amarela) -->
+    <section class="bg-oama-yellow w-full py-14">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-col items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 md:h-10 md:w-10 text-white/90 mb-4"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.17 6C6.31 6 4 8.31 4 11.17v6.83h6.83V11.17H7.83C7.83 9.94 8.77 9 10 9V6H9.17zm10 0c-2.86 0-5.17 2.31-5.17 5.17v6.83H20.83V11.17h-2.83c0-1.23.94-2.17 2.17-2.17V6h-0.83z"
+            />
+          </svg>
+
+          <blockquote
+            class="max-w-3xl text-center text-white font-montserrat text-[15px] md:text-[17px] leading-[23px] md:leading-[26px] italic"
+          >
+            "Participar do intercâmbio no KBO tem sido uma das experiências
+            mais intensas da minha vida. Viver imersa na rotina de campo não
+            é fácil, mas tenho aprendido muito sobre a ética no anilhamento
+            de aves, trabalho de campo e liderança. Para além do crescimento
+            profissional, conheci outras culturas, idiomas e criei preciosas
+            amizades com pessoas de várias partes do mundo. Uma oportunidade
+            como essa, para alguém que vem de tão distante, não é fácil,
+            afinal, muitos custos estão envolvidos. É por meio de doações,
+            filiações e de viagens de arrecadações de fundos que esses
+            sonhos se tornam reais. Essa é uma experiência que pode moldar
+            e mudar caminhos, e que eu desejo a todos que puderem ter a
+            oportunidade."
+          </blockquote>
+
+          <figcaption
+            class="mt-4 text-white/90 font-montserrat text-[13px] md:text-[15px] leading-[20px]"
+          >
+            – Andreza Freitas, voluntária de divulgação científica do OAMa e
+            doutoranda no Laboratório de Ecologia de Aves e comportamento da
+            UERJ pelo programa de pós-graduação em Ecologia da UFRJ.
+          </figcaption>
+        </div>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#e9b130"
+      bottomColor="#fbf5e6"
+      path1Color="#fbf5e6"
+      path2Color="#fbf5e6"
+    />
+
+  </main>
+</BaseLayout>

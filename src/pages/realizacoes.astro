@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+const realizacoes = [
+  {
+    id: "downloads",
+    titulo: "Downloads",
+    descricao: "Baixe livros, cartilhas, pôsteres ilustrados, adesivos anti colisão e muito mais",
+    imagem: "/midias/realizacoes/downloads.jpg",
+    alt: "Material para download do OAMa",
+  },
+  {
+    id: "documentarios",
+    titulo: "Documentários",
+    descricao: "Assista às produções audiovisuais do OAMa",
+    imagem: "/midias/realizacoes/documentarios.jpg",
+    alt: "Documentários do OAMa",
+  },
+  {
+    id: "wikimudas",
+    titulo: "Wikimudas",
+    descricao: "Conheça nossa enciclopédia colaborativa de muda e idade de aves brasileiras",
+    imagem: "/midias/realizacoes/wikimudas.webp",
+    alt: "Wikimudas — enciclopédia de muda e idade de aves brasileiras",
+  },
+  {
+    id: "divulgacao-cientifica",
+    titulo: "Divulgação Científica",
+    descricao: "Um blog para compartilhar e aproximar a ciência de você",
+    imagem: "/midias/realizacoes/divulgacao-cientifica.jpg",
+    alt: "Divulgação científica do OAMa",
+  },
+  {
+    id: "textos-academicos",
+    titulo: "Textos Acadêmicos",
+    descricao: "Leia artigos e resumos científicos de pesquisas lideradas pela equipe OAMa",
+    imagem: "/midias/realizacoes/textos-academicos.jpg",
+    alt: "Textos acadêmicos e artigos científicos do OAMa",
+  },
+];
+---
+
+<BaseLayout title="Realizações — OAMa">
+  <main class="font-montserrat text-[#1e1702]">
+    <section class="relative h-[520px] w-full overflow-hidden md:h-[720px]">
+      <img
+        src="/midias/realizacoes/capa-realizacoes.jpg"
+        alt="Realizações do OAMa"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6 pb-8 md:pb-18">
+        <h1 class="text-center font-oswald text-[36px] font-bold uppercase leading-none text-white drop-shadow-md md:text-[58px]">
+          Realizações
+        </h1>
+      </div>
+    </section>
+
+    <section class="bg-[#dfb553]">
+      <div class="mx-auto max-w-5xl px-7 py-12 md:px-12 md:py-16">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-10 md:gap-y-12">
+          {
+            realizacoes.map((item) => (
+              <article
+                id={item.id}
+                class="overflow-hidden rounded-[24px] bg-white shadow-sm scroll-mt-24"
+              >
+                <img
+                  src={item.imagem}
+                  alt={item.alt}
+                  class="h-[245px] w-full object-cover md:h-[300px]"
+                  loading="lazy"
+                />
+
+                <div class="flex min-h-[132px] flex-col items-center justify-center px-6 py-6 text-center md:min-h-[150px]">
+                  <h2 class="font-montserrat text-[18px] font-extrabold uppercase leading-[24px] tracking-[0.01em] text-[#111111]">
+                    {item.titulo}
+                  </h2>
+                  <p class="mt-2 max-w-[340px] text-[18px] leading-[27px] text-[#111111] md:text-[18px] md:leading-[27px]">
+                    {item.descricao}
+                  </p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <WaveDark
+      topColor="#dfb553"
+      bottomColor="#5ba4d9"
+      path1Color="#1e1702"
+      path2Color="#fbf5e6"
+    />
+  </main>
+</BaseLayout>

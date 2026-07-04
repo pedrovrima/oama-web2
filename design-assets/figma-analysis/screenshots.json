@@ -1,0 +1,261 @@
+[
+  {
+    "index": 0,
+    "nodeId": "2:4",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/tablet-tablet-2_4.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/tablet-tablet-2_4.png"
+  },
+  {
+    "index": 1,
+    "nodeId": "28:383",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-homepage-28_383.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-homepage-28_383.png"
+  },
+  {
+    "index": 2,
+    "nodeId": "29:2",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-maior-2-29_2.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-maior-2-29_2.png"
+  },
+  {
+    "index": 3,
+    "nodeId": "2212:678",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-homepage-2212_678.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-homepage-2212_678.png"
+  },
+  {
+    "index": 4,
+    "nodeId": "2214:169",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-menu-2214_169.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-menu-2214_169.png"
+  },
+  {
+    "index": 5,
+    "nodeId": "2215:156",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-missão-2215_156.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-missão-2215_156.png"
+  },
+  {
+    "index": 6,
+    "nodeId": "2263:24",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-sobre-2263_24.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-sobre-2263_24.png"
+  },
+  {
+    "index": 7,
+    "nodeId": "2263:140",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-sobre-2263_140.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-sobre-2263_140.png"
+  },
+  {
+    "index": 0,
+    "nodeId": "2275:277",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-história-do-oama-2275_277.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-história-do-oama-2275_277.png"
+  },
+  {
+    "index": 1,
+    "nodeId": "2330:176",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-áreas-de-atuação-2330_176.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-áreas-de-atuação-2330_176.png"
+  },
+  {
+    "index": 2,
+    "nodeId": "2349:350",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-áreas-de-atuação-2349_350.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-áreas-de-atuação-2349_350.png"
+  },
+  {
+    "index": 3,
+    "nodeId": "2423:234",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-programas-e-projetos-2423_234.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-programas-e-projetos-2423_234.png"
+  },
+  {
+    "index": 4,
+    "nodeId": "2431:492",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-2431_492.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-2431_492.png"
+  },
+  {
+    "index": 5,
+    "nodeId": "2446:326",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-treinamento-2446_326.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-treinamento-2446_326.png"
+  },
+  {
+    "index": 6,
+    "nodeId": "2462:618",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-ações-pró-aves-2462_618.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-ações-pró-aves-2462_618.png"
+  },
+  {
+    "index": 7,
+    "nodeId": "2465:298",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-cursos-2465_298.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-cursos-2465_298.png"
+  },
+  {
+    "index": 0,
+    "nodeId": "2473:389",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-projetos-de-pesquisa-2473_389.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-projetos-de-pesquisa-2473_389.png"
+  },
+  {
+    "index": 1,
+    "nodeId": "2479:433",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-jacuçara-2479_433.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-jacuçara-2479_433.png"
+  },
+  {
+    "index": 2,
+    "nodeId": "2479:525",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-fft-2479_525.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-fft-2479_525.png"
+  },
+  {
+    "index": 3,
+    "nodeId": "2497:419",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-programas-e-projetos-2497_419.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-programas-e-projetos-2497_419.png"
+  },
+  {
+    "index": 4,
+    "nodeId": "2498:638",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-2498_638.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-2498_638.png"
+  },
+  {
+    "index": 5,
+    "nodeId": "2502:668",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-2502_668.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-2502_668.png"
+  },
+  {
+    "index": 6,
+    "nodeId": "2512:624",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-ações-pró-aves-2512_624.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-ações-pró-aves-2512_624.png"
+  },
+  {
+    "index": 7,
+    "nodeId": "2513:501",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-cursos-2513_501.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-cursos-2513_501.png"
+  },
+  {
+    "index": 0,
+    "nodeId": "2514:766",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-projetos-de-pesquisa-2514_766.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-projetos-de-pesquisa-2514_766.png"
+  },
+  {
+    "index": 1,
+    "nodeId": "2517:1052",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-jacuçara-2517_1052.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-jacuçara-2517_1052.png"
+  },
+  {
+    "index": 2,
+    "nodeId": "2517:1092",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-ações-pró-aves-2517_1092.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-ações-pró-aves-2517_1092.png"
+  },
+  {
+    "index": 3,
+    "nodeId": "2560:450",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-realizações-2560_450.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-realizações-2560_450.png"
+  },
+  {
+    "index": 4,
+    "nodeId": "2581:454",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-realizações-2581_454.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-realizações-2581_454.png"
+  },
+  {
+    "index": 5,
+    "nodeId": "2592:573",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-consultoria-2592_573.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-consultoria-2592_573.png"
+  },
+  {
+    "index": 6,
+    "nodeId": "2610:569",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-de-aves-e-estudos-de-avifauna-2610_569.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-de-aves-e-estudos-de-avifauna-2610_569.png"
+  },
+  {
+    "index": 7,
+    "nodeId": "2611:730",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-educação-ambiental-e-comunicação-científica-2611_730.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-educação-ambiental-e-comunicação-científica-2611_730.png"
+  },
+  {
+    "index": 0,
+    "nodeId": "2611:847",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-de-aves-e-estudos-de-avifauna-2611_847.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/mobile-celular-monitoramento-de-aves-e-estudos-de-avifauna-2611_847.png"
+  },
+  {
+    "index": 1,
+    "nodeId": "2612:1124",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-consultoria-2612_1124.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-consultoria-2612_1124.png"
+  },
+  {
+    "index": 2,
+    "nodeId": "2620:831",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_831.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_831.png"
+  },
+  {
+    "index": 3,
+    "nodeId": "2620:878",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_878.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_878.png"
+  },
+  {
+    "index": 4,
+    "nodeId": "2620:940",
+    "outputPath": "/Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_940.png",
+    "success": false,
+    "error": "file already exists at outputPath: /Users/anhinga/Projetos/oama-web2/design-assets/figma-exports/selection/desktop-desktop-monitoramento-de-aves-e-estudos-de-avifauna-2620_940.png"
+  }
+]

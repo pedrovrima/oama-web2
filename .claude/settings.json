@@ -4,5 +4,15 @@
       "Bash(/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --headless*)",
       "Bash(sips*)"
     ]
+  },
+  "mcpServers": {
+    "figma-mcp-go": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@vkhanhqui/figma-mcp-go@latest"
+      ]
+    }
   }
 }
