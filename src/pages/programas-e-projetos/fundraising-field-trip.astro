@@ -25,36 +25,6 @@ const destaques = [
   },
 ];
 
-const localidades = [
-  "São Francisco Xavier (SP)",
-  "Serrinha do Alambari (RJ)",
-  "Vila de Visconde de Mauá (RJ)",
-  "Bocaina de Minas (MG)",
-  "Itamonte (MG)",
-];
-
-const impactos = [
-  {
-    titulo: "Pesquisa",
-    descricao:
-      "Financiam o monitoramento padronizado e de longo prazo da avifauna, gerando dados que alimentam estudos e publicações científicas.",
-  },
-  {
-    titulo: "Treinamento",
-    descricao:
-      "Viabilizam o Programa de Treinamento em Monitoramento e o intercâmbio de anilhadores entre o OAMa e o KBO.",
-  },
-  {
-    titulo: "Educação",
-    descricao:
-      "Apoiam ações de sensibilização ambiental, ciência cidadã e comunicação científica em diferentes formatos e públicos.",
-  },
-  {
-    titulo: "Restauração",
-    descricao:
-      "Contribuem para a restauração de habitats degradados e para a conservação de espécies e paisagens da Mantiqueira.",
-  },
-];
 ---
 
 <BaseLayout title="Fundraising Field Trip — OAMa" navVariant="overlay">
@@ -81,10 +51,10 @@ const impactos = [
     </section>
 
     <!-- 1) INTRODUÇÃO EM DUAS COLUNAS (faixa amarela) -->
-    <section class="bg-oama-yellow w-full">
+    <section class="w-full" style="background:#dfb553;">
       <div class="max-w-5xl mx-auto px-6 py-16">
         <div class="grid md:grid-cols-2 gap-10">
-          <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-white font-montserrat text-justify">
+          <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
             <p>
               A <em>"FUNdraising Field Trip"</em> é uma ação de colaboração entre
               o OAMa e o <strong>Klamath Bird Observatory (KBO)</strong>. Esse
@@ -94,7 +64,7 @@ const impactos = [
               <strong>turismo de conservação</strong>.
             </p>
           </div>
-          <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-white font-montserrat text-justify">
+          <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
             <p>
               A ação acontece em forma de uma
               <strong>viagem internacional de cerca de 10 dias</strong>, em que o
@@ -109,7 +79,7 @@ const impactos = [
     </section>
 
     <!-- 2) CARROSSEL DE FOTOS -->
-    <section class="bg-oama-yellow w-full">
+    <section class="w-full" style="background:#dfb553;">
       <div class="max-w-5xl mx-auto px-6 pb-16">
         <div
           class="relative overflow-hidden rounded-lg border-4 border-white shadow-md"
@@ -179,10 +149,10 @@ const impactos = [
     </section>
 
     <!-- 3) FECHAMENTO -->
-    <section class="bg-oama-yellow w-full">
+    <section class="w-full" style="background:#dfb553;">
       <div class="max-w-4xl mx-auto px-6 pb-16">
         <p
-          class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-white font-montserrat text-justify"
+          class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
         >
           Ao longo do trajeto, proporcionamos aos turistas
           <strong>trilhas e passarinhadas únicas</strong> em diversas unidades
