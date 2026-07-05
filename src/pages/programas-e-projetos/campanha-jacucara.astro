@@ -1,38 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
-
-const destaques = [
-  {
-    imagem: "/midias/programas-e-projetos/jacucara-hero.jpg",
-    alt: "Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica",
-    legenda: "Jacutinga — ave-chave da campanha",
-  },
-  {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-1.jpg",
-    alt: "Chupim anilhado com fruto de juçara no bico — relação ecológica central da campanha",
-    legenda: "Ave com fruto de juçara — dispersão de sementes",
-  },
-  {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-2.jpg",
-    alt: "Cachos de frutos maduros de juçara (Euterpe edulis) em palmeira da Mata Atlântica",
-    legenda: "Juçara — base alimentar da floresta",
-  },
-  {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-3.jpg",
-    alt: "Grupo de pessoas observando jacutinga em ambiente florestal durante ação da Campanha Jacuçara",
-    legenda: "Educação e mobilização pela conservação",
-  },
-];
-
-const resultados = [
-  "Publicação do documentário “Reconectar pessoas às aves: PAN Aves da Mata Atlântica”, no canal do YouTube do ICMBio.",
-  "Lançamento do site oficial da campanha Jacuçara.",
-  "Ações de educação ambiental com degustação de pratos à base de juçara.",
-  "Visitas a sistemas agroflorestais conduzidos por produtores locais.",
-  "Doações de sementes e mudas de juçara para estudantes e produtores rurais.",
-];
-
 ---
 
 <BaseLayout title="Campanha Jacuçara — OAMa" navVariant="overlay">
@@ -41,7 +9,7 @@ const resultados = [
     <section class="relative min-h-[85vh] w-full overflow-hidden flex items-end">
       <img
         src="/midias/programas-e-projetos/jacucara-hero.jpg"
-        alt="Jacutinga em palmeira juçara na Mata Atlântica"
+        alt="Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
@@ -58,107 +26,34 @@ const resultados = [
       </div>
     </section>
 
-    <!-- 1) RELAÇÃO MUTUALÍSTICA (faixa branca com 2 colunas + foto) -->
+    <!-- RELAÇÃO MUTUALÍSTICA (faixa branca com 2 colunas + foto) -->
     <section class="bg-white w-full">
       <div class="max-w-5xl mx-auto px-6 py-16">
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
-            <h2 class="text-[26px] md:text-[32px] leading-[30px] md:leading-[38px] font-bold uppercase text-oama-ink font-oswald">
-              Uma relação <br class="md:hidden" />mutualística
-            </h2>
             <p>
               A campanha Jacuçara surgiu para <strong>divulgar a importância e
-              fortalecer a conservação de duas espécies-chave da Mata
-              Atlântica</strong> que também estão ameaçadas de extinção: a
-              jacutinga e a juçara.
+              fortalecer a conservação de duas espécies-chave da Mata Atlântica,
+              que também estão ameaçadas de extinção: a jacutinga e a
+              juçara</strong>. Ambas as espécies existem em uma complexa teia de
+              relações ecológicas que as tornam dependentes uma da outra.
             </p>
             <p>
-              Ambas as espécies existem em uma complexa teia de relações
-              ecológicas que as tornam dependentes uma da outra. As jacutingas
-              consomem os frutos da juçara e dispersam suas sementes pela
-              floresta, garantindo a germinação de novas plantas
+              As jacutingas consomem os frutos da juçara e dispersam suas
+              sementes pela floresta, garantindo a germinação de novas plantas
               geneticamente diversas e saudáveis, que, por sua vez, produzirão
-              mais frutos para essas aves e muitas outras espécies nativas.
+              mais frutos para essas aves e muitas outras espécies nativas que
+              dependem dessa fonte de alimento.
             </p>
           </div>
           <div>
             <img
               src="/midias/programas-e-projetos/jacucara-galeria-2.jpg"
-              alt="Frutos de juçara — base alimentar fundamental"
+              alt="Cachos de frutos maduros de juçara (Euterpe edulis) em palmeira da Mata Atlântica"
               class="w-full h-auto rounded-lg shadow-md"
               loading="lazy"
             />
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2) CARROSSEL DE IMAGENS -->
-    <section class="bg-white w-full">
-      <div class="max-w-5xl mx-auto px-6 pb-16">
-        <div
-          class="relative overflow-hidden rounded-lg border-4 border-oama-ink shadow-md"
-        >
-          <ul
-            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]"
-            style="-webkit-overflow-scrolling: touch;"
-            aria-label="Galeria de imagens da Campanha Jacuçara"
-          >
-            {
-              destaques.map((d) => (
-                <li class="relative flex-shrink-0 w-full snap-center">
-                  <img
-                    src={d.imagem}
-                    alt={d.alt}
-                    class="h-[240px] md:h-[350px] w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                  <p class="absolute bottom-0 left-0 right-0 px-5 py-4 text-white font-montserrat text-[13px] md:text-[15px] leading-[18px] md:leading-[22px] text-center">
-                    {d.legenda}
-                  </p>
-                </li>
-              ))
-            }
-          </ul>
-
-          <!-- Setas visuais (decorativas) -->
-          <span
-            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-oama-ink shadow-md"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </span>
-          <span
-            class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-oama-ink shadow-md"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </span>
         </div>
       </div>
     </section>
@@ -169,6 +64,5 @@ const resultados = [
       path1Color="#98c1da"
       path2Color="#0c2a3a"
     />
-
   </main>
 </BaseLayout>
