@@ -25,6 +25,12 @@
 - `PED-41` — `done` — `/missao`
 
 ### Em execução
+- `TASK-LAUNCH-001` — `in_progress` — auditoria e preparação para lançamento
+  - tipo: `Launch-first` (sem CMS)
+  - escopo: rotas públicas, links, assets, responsividade e newsletter; ver `docs/implementation/pages/lancamento.md`.
+  - orquestração: Pi na conta `openai-pedro` e Claude Code; **Fable proibido**.
+- `TASK-LAUNCH-002` — `in_progress` — newsletter: endpoint de produção e segurança do mailer
+  - escopo cross-repo isolado em `docs/implementation/pages/newsletter-lancamento.md`.
 - Home (`PED-37`) e Sobre (`PED-38`) seguem pausadas por direção do usuário.
 
 ### Newsletter 2026-06-13: integração com o mailer self-hosted (§6.2)

@@ -513,7 +513,7 @@ export default function Colisao() {
           animais de estimação e barulho. Em seguida, contate a polícia
           ambiental e/ou o Centro de Triagem de Animais Silvestres (
           <a
-            href='http://www.ibama.gov.br/fauna-silvestre/cetas/o-que-sao-os-cetas” por “https://www.gov.br/ibama/pt-br/acesso-a-informacao/institucional/o-que-sao-os-cetas'
+            href='https://www.gov.br/ibama/pt-br/acesso-a-informacao/institucional/o-que-sao-os-cetas'
             className='text-yellow-600'
           >
             CETAS/Ibama

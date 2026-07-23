@@ -4,55 +4,57 @@ import WaveDark from "../../components/sections/WaveDark.astro";
 
 const atividades = [
   {
+    imagem: "/proaves2/gallery/final1.jpg",
+    alt: "Pessoa bordando uma ave durante atividade artística do Programa Ações Pró-Aves",
+    legenda: "Oficinas de artes sobre aves",
+    posicao: "center 72%",
+  },
+  {
     imagem: "/midias/programas-e-projetos/proaves-galeria-1.jpg",
     alt: "Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves",
     legenda: "Teatro e atividades artísticas sobre aves",
+    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-2.jpg",
     alt: "Crianças explorando exposição educativa sobre aves em atividade de campo do OAMa",
     legenda: "Atividades educativas com escolas e comunidades",
+    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-3.jpg",
     alt: "Apresentação sobre colisão de aves em vidros no Congresso Brasileiro de Ornitologia",
     legenda: "Divulgação científica em eventos e congressos",
+    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-4.jpg",
     alt: "Aplicação de marcações em vidro para prevenção de colisões de aves",
     legenda: "Ações práticas de prevenção de colisões com vidros",
+    posicao: "center",
   },
 ];
 ---
 
 <BaseLayout title="Programa Ações Pró-Aves — OAMa" navVariant="overlay">
   <main class="font-montserrat">
-    <!-- HERO full-bleed com overlay -->
-    <section class="relative min-h-[85vh] w-full overflow-hidden flex items-end">
+    <!-- HERO: foto de teatro do frame, sem texto sobreposto -->
+    <section class="relative h-[164px] w-full overflow-hidden md:h-[320px]">
       <img
-        src="/midias/programas-e-projetos/proaves-hero.jpg"
-        alt="Crianças com fantoches educativos do Programa Ações Pró-Aves"
-        class="absolute inset-0 h-full w-full object-cover"
+        src="/midias/programas-e-projetos/proaves-galeria-1.jpg"
+        alt="Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves"
+        class="h-full w-full object-cover object-center"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="relative z-10 w-full">
-        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
-          <h1
-            class="text-[32px] leading-[38px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
-          >
-            Programa Ações <br class="md:hidden" />Pró-Aves
-          </h1>
-        </div>
-      </div>
     </section>
 
     <!-- 1) MISSÃO E SOBRE O PROGRAMA (faixa amarela) -->
     <section class="w-full" style="background:#dfb553;">
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <div class="max-w-3xl space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
+      <div class="mx-auto max-w-5xl px-6 py-10 md:py-10">
+        <h1 class="mb-7 text-center font-oswald text-[24px] font-bold uppercase leading-[27px] text-white md:mb-7 md:text-[30px] md:leading-[34px]">
+          Programa <br class="md:hidden" />Ações Pró-Aves
+        </h1>
+        <div class="mx-auto max-w-3xl space-y-5 text-justify font-montserrat text-[13px] leading-[19px] text-oama-ink md:text-[16px] md:leading-[24px]">
             <p>
               O Programa Ações Pró-Aves se consolidou como um pilar do OAMa
               para atingir nossa missão de criar pontes com a sociedade e
@@ -62,22 +64,13 @@ const atividades = [
               e como podemos, como indivíduos e como sociedade, transformar
               nossos hábitos para promover ações para a conservação das aves.
             </p>
-            <p>
-              O programa reúne esforços para transpor o conhecimento científico
-              e acadêmico em linguagem acessível para a sociedade por meio de
-              mídias digitais, exposições, materiais informativos, oficinas de
-              artes, teatro, ciência cidadã e outras produções.
-            </p>
         </div>
       </div>
     </section>
 
-    <!-- 2) CARROSSEL DE ATIVIDADES -->
+    <!-- 2) CARROSSEL DE ATIVIDADES: mídia ocupa toda a largura como no frame -->
     <section class="w-full" style="background:#dfb553;">
-      <div class="max-w-5xl mx-auto px-6 pb-16">
-        <div
-          class="relative overflow-hidden rounded-lg border-4 border-white shadow-md"
-        >
+        <div class="relative w-full overflow-hidden">
           <ul
             class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]"
             style="-webkit-overflow-scrolling: touch;"
@@ -89,7 +82,8 @@ const atividades = [
                   <img
                     src={a.imagem}
                     alt={a.alt}
-                    class="h-[240px] md:h-[350px] w-full object-cover"
+                    class="h-[260px] w-full object-cover md:h-[510px]"
+                    style={`object-position:${a.posicao};`}
                     loading="lazy"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
@@ -139,7 +133,6 @@ const atividades = [
             </svg>
           </span>
         </div>
-      </div>
     </section>
 
     <!-- 3) FECHAMENTO COM LINK -->
@@ -148,6 +141,14 @@ const atividades = [
         <p
           class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
         >
+          O programa reúne esforços para transpor o conhecimento científico e
+          acadêmico em linguagem acessível para a sociedade por meio de mídias
+          digitais, exposições, materiais informativos, oficinas de artes,
+          teatro, ciência cidadã e outras produções. <strong>O programa Ações
+          Pró-Aves impulsiona o potencial de cada pessoa para tornar o mundo
+          melhor para as aves e para nós.</strong>
+        </p>
+        <p class="mt-5 text-[16px] leading-[24px] text-oama-ink md:text-[18px] md:leading-[26px]">
           Desde <strong>2022</strong>, o OAMa tem realizado diversas
           atividades, produtos e projetos com o apoio de inúmeros
           parceiros, entre eles o PAN Aves da Mata Atlântica, CEMAVE/ICMBio,

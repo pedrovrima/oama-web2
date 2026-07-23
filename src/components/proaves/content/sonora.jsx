@@ -299,7 +299,7 @@ export default function Sonora() {
           Saiba mais
         </h3>
         <a
-          href=' https://www.youtube.com/watch?v=AJ1FYQC6UvA'
+          href='https://www.youtube.com/watch?v=AJ1FYQC6UvA'
           target='_blank'
           className='mb-4 text-yellow-600'
         >
@@ -308,7 +308,7 @@ export default function Sonora() {
         </a>
         <br />
         <a
-          href=' https://www.youtube.com/watch?v=KAnrDf94Lgo'
+          href='https://www.youtube.com/watch?v=KAnrDf94Lgo'
           target='_blank'
           className='mb-4 text-yellow-600'
         >
@@ -316,7 +316,7 @@ export default function Sonora() {
         </a>
         <br />
         <a
-          href=' https://www.youtube.com/watch?v=2CqPiGw2f7I'
+          href='https://www.youtube.com/watch?v=2CqPiGw2f7I'
           target='_blank'
           className='mb-4 text-yellow-600'
         >
@@ -324,7 +324,7 @@ export default function Sonora() {
         </a>
         <br />
         <a
-          href=' https://www.nps.gov/subjects/sound/index.htm'
+          href='https://www.nps.gov/subjects/sound/index.htm'
           target='_blank'
           className='mb-4 text-yellow-600'
         >

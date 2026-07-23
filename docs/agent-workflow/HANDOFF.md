@@ -47,6 +47,7 @@ orquestrador fez o componente global; 4 subagentes haiku fizeram as páginas
 
 ## Estado atual
 
+- **TASK-LAUNCH-001 está em andamento (2026-07-20):** lançamento antes de CMS. Escopo: auditoria de rotas/links/assets/responsividade/newsletter e correções estritamente bloqueadoras. Brief em `docs/implementation/pages/lancamento.md`. Topologia Herdr: abas Coordenação, Triagem e evidências, Newsletter e integração, QA e release; Pi usa a conta `openai-pedro`, Claude Code faz auditorias focadas. **Fable proibido.**
 - Linear é a fonte oficial de gestão.
 - Docs locais em `docs/agent-workflow/` são a camada operacional do orquestrador.
 - Regra ativa: uma issue em progresso por vez.

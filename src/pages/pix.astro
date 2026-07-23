@@ -2,25 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WaveDark from "../components/sections/WaveDark.astro";
 
+// Origem: legado `pages/pix.js` (payload/QR) e `pages/__apoie__/index.js` (dados bancários).
+const payloadPix =
+  "00020126360014BR.GOV.BCB.PIX0114357135120001805204000053039865802BR5923OAMa - Aves Mantiqueira6011Resende- RJ62140510DOACAOOAMA63046E50";
+
 const dadosBancarios = [
   { rotulo: "Banco", valor: "Banco do Brasil" },
   { rotulo: "Código", valor: "001" },
   { rotulo: "Agência", valor: "0131-7" },
   { rotulo: "Conta corrente", valor: "81487-3" },
   { rotulo: "CNPJ", valor: "35.713.512/0001-80" },
-];
-
-const canaisConfirmacao = [
-  {
-    rotulo: "E-mail",
-    valor: "contato@oama.eco.br",
-    href: "mailto:contato@oama.eco.br?subject=Doa%C3%A7%C3%A3o%20via%20PIX%20para%20o%20OAMa",
-  },
-  {
-    rotulo: "WhatsApp",
-    valor: "+55 24 99962-7394",
-    href: "https://wa.me/5524999627394?text=Ol%C3%A1%2C%20quero%20confirmar%20os%20dados%20para%20doa%C3%A7%C3%A3o%20via%20PIX%20ao%20OAMa.",
-  },
 ];
 ---
 
@@ -84,41 +75,42 @@ const canaisConfirmacao = [
 
           <div class="mt-7 rounded-2xl bg-[#1a2e4a] p-5 text-white">
             <p class="text-[15px] leading-[24px]">
-              <strong>Importante:</strong> não encontrei no legado nem nos assets
-              atuais uma chave PIX ou QR code oficial. Por segurança, esta página
-              não inventa esses dados. Antes de transferir por PIX, confirme a
-              chave oficial pelos canais do OAMa abaixo.
+              Use os dados bancários acima para transferência ou faça a doação
+              pelo QR code e pelo PIX copia e cola ao lado.
             </p>
           </div>
         </div>
 
         <aside class="rounded-[28px] bg-[#5ba4d9] p-7 text-white shadow-xl md:p-10">
           <h2 class="font-oswald text-[30px] font-extrabold uppercase leading-none md:text-[40px]">
-            Confirme a chave PIX
+            Pague com PIX
           </h2>
           <p class="mt-4 text-[16px] leading-[26px] text-white/90">
-            Para evitar erro de transferência, fale com o OAMa e peça a chave PIX
-            oficial antes de concluir a doação.
+            Aponte a câmera do seu aplicativo bancário para o QR code ou use o
+            PIX copia e cola.
           </p>
 
-          <div class="mt-8 space-y-4">
-            {
-              canaisConfirmacao.map((canal) => (
-                <a
-                  href={canal.href}
-                  target={canal.href.startsWith("http") ? "_blank" : undefined}
-                  rel={canal.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  class="block rounded-2xl bg-white px-5 py-4 text-[#1a2e4a] transition hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  <span class="block text-xs font-bold uppercase tracking-[0.14em] text-[#1a2e4a]/60">
-                    {canal.rotulo}
-                  </span>
-                  <span class="mt-1 block text-[18px] font-extrabold">
-                    {canal.valor}
-                  </span>
-                </a>
-              ))
-            }
+          <img
+            src="/pix/qrcode-donation-oama.png"
+            alt="QR code para doação via PIX ao OAMa"
+            class="mx-auto mt-7 w-full max-w-[280px] rounded-2xl bg-white p-3"
+            loading="eager"
+          />
+
+          <div class="mt-7 rounded-2xl bg-white p-4 text-[#1a2e4a]">
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#1a2e4a]/60">
+              PIX copia e cola
+            </p>
+            <code class="mt-3 block break-all text-xs leading-5">{payloadPix}</code>
+            <button
+              id="copiar-pix"
+              type="button"
+              data-payload={payloadPix}
+              class="mt-4 w-full rounded-full bg-[#1a2e4a] px-5 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-white transition hover:bg-[#EDC15A] hover:text-[#1a2e4a]"
+            >
+              Copiar código PIX
+            </button>
+            <p id="status-copia-pix" class="mt-3 text-sm font-semibold" role="status" aria-live="polite"></p>
           </div>
 
           <a
@@ -138,4 +130,35 @@ const canaisConfirmacao = [
       path2Color="#fbf5e6"
     />
   </main>
+
+  <script>
+    const botao = document.querySelector<HTMLButtonElement>("#copiar-pix");
+    const status = document.querySelector<HTMLElement>("#status-copia-pix");
+    const rotuloOriginal = botao?.textContent?.trim() ?? "Copiar código PIX";
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    function restaurarBotao() {
+      if (botao) botao.textContent = rotuloOriginal;
+    }
+
+    botao?.addEventListener("click", async () => {
+      clearTimeout(timer);
+      try {
+        await navigator.clipboard.writeText(botao.dataset.payload ?? "");
+        botao.textContent = "Código copiado!";
+        if (status) {
+          status.textContent = "Código PIX copiado para a área de transferência.";
+          status.classList.remove("text-red-700");
+          status.classList.add("text-green-700");
+        }
+        timer = setTimeout(restaurarBotao, 3000);
+      } catch {
+        if (status) {
+          status.textContent = "Não foi possível copiar o código. Selecione-o acima.";
+          status.classList.remove("text-green-700");
+          status.classList.add("text-red-700");
+        }
+      }
+    });
+  </script>
 </BaseLayout>

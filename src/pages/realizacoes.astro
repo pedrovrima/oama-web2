@@ -9,6 +9,7 @@ const realizacoes = [
     descricao: "Baixe livros, cartilhas, pôsteres ilustrados, adesivos anti colisão e muito mais",
     imagem: "/midias/realizacoes/downloads.jpg",
     alt: "Material para download do OAMa",
+    href: "https://www.oama.eco.br/downloads",
   },
   {
     id: "documentarios",
@@ -16,6 +17,7 @@ const realizacoes = [
     descricao: "Assista às produções audiovisuais do OAMa",
     imagem: "/midias/realizacoes/documentarios.jpg",
     alt: "Documentários do OAMa",
+    href: "https://www.youtube.com/channel/UCzLcpYmPb1DR524wXb0CvHA",
   },
   {
     id: "wikimudas",
@@ -30,6 +32,7 @@ const realizacoes = [
     descricao: "Um blog para compartilhar e aproximar a ciência de você",
     imagem: "/midias/realizacoes/divulgacao-cientifica.jpg",
     alt: "Divulgação científica do OAMa",
+    href: "https://www.oama.eco.br/blog",
   },
   {
     id: "textos-academicos",
@@ -37,6 +40,7 @@ const realizacoes = [
     descricao: "Leia artigos e resumos científicos de pesquisas lideradas pela equipe OAMa",
     imagem: "/midias/realizacoes/textos-academicos.jpg",
     alt: "Textos acadêmicos e artigos científicos do OAMa",
+    href: "https://www.oama.eco.br/downloads",
   },
 ];
 ---
@@ -65,7 +69,7 @@ const realizacoes = [
             realizacoes.map((item) => (
               <article
                 id={item.id}
-                class="overflow-hidden rounded-[24px] bg-white shadow-sm scroll-mt-24"
+                class="relative overflow-hidden rounded-[24px] bg-white shadow-sm scroll-mt-24"
               >
                 <img
                   src={item.imagem}
@@ -82,6 +86,20 @@ const realizacoes = [
                     {item.descricao}
                   </p>
                 </div>
+
+                {
+                  item.href && (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Abrir ${item.titulo}`}
+                      class="absolute inset-0 z-10 rounded-[24px] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1a2e4a] focus-visible:ring-inset"
+                    >
+                      <span class="sr-only">Abrir {item.titulo}</span>
+                    </a>
+                  )
+                }
               </article>
             ))
           }

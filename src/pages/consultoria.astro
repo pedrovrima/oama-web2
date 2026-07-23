@@ -62,12 +62,10 @@ const logos = ["AEGVAP", "Casa Latalli"];
       />
       <div class="absolute inset-0 bg-black/30"></div>
 
-      <div class="relative z-10 flex h-full items-center justify-center px-6 text-center">
-        <div>
-          <h1 class="font-oswald text-[40px] font-bold uppercase leading-[0.95] text-white md:text-[68px]">
-            Consultoria
-          </h1>
-        </div>
+      <div class="absolute inset-0 z-10 flex items-end justify-center px-6 pb-8 text-center md:pb-14">
+        <h1 class="font-oswald text-[40px] font-bold uppercase leading-[0.95] text-white md:text-[68px]">
+          Consultoria
+        </h1>
       </div>
     </section>
 
@@ -183,35 +181,52 @@ const logos = ["AEGVAP", "Casa Latalli"];
           Preencha o formulário ou escreva para <a href="mailto:contato@oama.eco.br" class="underline underline-offset-4">contato@oama.eco.br</a>.
         </p>
 
-        <form class="mt-8 space-y-3" onsubmit="event.preventDefault();" aria-label="Fale conosco">
+        <form class="mt-8 space-y-3" aria-label="Fale conosco" data-consultoria-form>
+          <label class="sr-only" for="consultoria-nome">Seu nome</label>
           <input
+            id="consultoria-nome"
             type="text"
             name="nome"
             placeholder="Seu nome"
+            autocomplete="name"
+            required
             class="w-full rounded-full bg-oama-yellow px-5 py-3 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           />
+          <label class="sr-only" for="consultoria-cargo">Cargo ou organização</label>
           <input
+            id="consultoria-cargo"
             type="text"
             name="cargo"
             placeholder="Cargo / organização"
+            autocomplete="organization-title"
             class="w-full rounded-full bg-oama-yellow px-5 py-3 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           />
+          <label class="sr-only" for="consultoria-email">Seu e-mail</label>
           <input
+            id="consultoria-email"
             type="email"
             name="email"
             placeholder="Seu e-mail"
+            autocomplete="email"
+            required
             class="w-full rounded-full bg-oama-yellow px-5 py-3 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           />
+          <label class="sr-only" for="consultoria-telefone">Seu telefone</label>
           <input
+            id="consultoria-telefone"
             type="tel"
             name="telefone"
             placeholder="Seu telefone"
+            autocomplete="tel"
             class="w-full rounded-full bg-oama-yellow px-5 py-3 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           />
+          <label class="sr-only" for="consultoria-mensagem">Descreva sua necessidade</label>
           <textarea
+            id="consultoria-mensagem"
             name="mensagem"
             placeholder="Descreva sua necessidade"
             rows="6"
+            required
             class="w-full rounded-[24px] bg-oama-yellow px-5 py-4 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           ></textarea>
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -219,10 +234,18 @@ const logos = ["AEGVAP", "Casa Latalli"];
               type="submit"
               class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95"
             >
-              Enviar
+              Preparar e-mail
             </button>
-            {/* TODO: reCAPTCHA implementation — user pending decision on real captcha vs placeholder */}
           </div>
+          <p class="text-[14px] leading-5 text-white/90" data-consultoria-status hidden aria-live="polite"></p>
+          <a
+            class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
+            data-consultoria-email-link
+            href="mailto:contato@oama.eco.br"
+            hidden
+          >
+            Abrir o e-mail novamente
+          </a>
         </form>
       </div>
     </section>
@@ -230,3 +253,44 @@ const logos = ["AEGVAP", "Casa Latalli"];
     <WaveDark topColor="#5ba4d9" bottomColor="#fbf5e6" path1Color="#ffffff" path2Color="#dfb553" />
   </main>
 </BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-consultoria-form]");
+  const status = form?.querySelector<HTMLElement>("[data-consultoria-status]");
+  const emailLink = form?.querySelector<HTMLAnchorElement>("[data-consultoria-email-link]");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const valor = (campo: string) => String(data.get(campo) ?? "").trim();
+    const corpo = [
+      "Olá, equipe OAMa!",
+      "",
+      "Gostaria de conversar sobre uma proposta de consultoria.",
+      "",
+      `Nome: ${valor("nome")}`,
+      `Cargo / organização: ${valor("cargo") || "Não informado"}`,
+      `E-mail: ${valor("email")}`,
+      `Telefone: ${valor("telefone") || "Não informado"}`,
+      "",
+      "Necessidade:",
+      valor("mensagem"),
+    ].join("\n");
+    const mailto = `mailto:contato@oama.eco.br?subject=${encodeURIComponent("Solicitação de consultoria pelo site")}&body=${encodeURIComponent(corpo)}`;
+
+    if (emailLink && status) {
+      emailLink.href = mailto;
+      emailLink.hidden = false;
+      status.textContent = "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e confirme o envio por lá. Se nada acontecer, use o link abaixo.";
+      status.hidden = false;
+    }
+
+    window.location.href = mailto;
+  });
+</script>

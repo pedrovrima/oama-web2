@@ -3,7 +3,11 @@
 // `data-newsletter-status`. O endpoint faz double opt-in (envia email de
 // confirmação), então o sucesso aqui significa "verifique seu email".
 
-const ENDPOINT = "https://mailer.oama.eco.br/api/subscribers";
+const configuredEndpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT;
+const ENDPOINT =
+  typeof configuredEndpoint === "string" && configuredEndpoint.trim()
+    ? configuredEndpoint.trim()
+    : "https://newsletter-oama.vercel.app/api/subscribers";
 
 function wireForm(form: HTMLFormElement) {
   if (form.dataset.wired === "1") return; // idempotente (script é global)
