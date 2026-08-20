@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/quem-somos", "destination": "/sobre", "statusCode": 301 },
+    { "source": "/projetos", "destination": "/programas-e-projetos", "statusCode": 301 },
+    { "source": "/jacucara", "destination": "/programas-e-projetos/campanha-jacucara", "statusCode": 301 },
+    { "source": "/jucara", "destination": "/programas-e-projetos/campanha-jacucara", "statusCode": 301 },
+    { "source": "/treinamento-cursos", "destination": "/consultoria/cursos", "statusCode": 301 },
+    { "source": "/treinamento-cursos/curso-foto", "destination": "/consultoria/cursos", "statusCode": 301 },
+    { "source": "/anilhamento-demonstrativo", "destination": "/programas-e-projetos/monitoramento-de-avifauna", "statusCode": 301 },
+    { "source": "/estacao-de-pesquisa", "destination": "/programas-e-projetos/monitoramento-de-avifauna", "statusCode": 301 },
+    { "source": "/camci", "destination": "/programas-e-projetos/projetos-de-pesquisa", "statusCode": 301 },
+    { "source": "/blog/old/:slug", "destination": "/blog/:slug", "statusCode": 301 },
+    { "source": "/whatsapp", "destination": "https://api.whatsapp.com/send?phone=5524999627394", "statusCode": 301 }
+  ]
+}

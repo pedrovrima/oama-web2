@@ -11,6 +11,12 @@ import { relatorioAnual } from "./relatorioAnual";
 import { annualReport } from "./annualReport";
 import { relatorioProAves } from "./relatorioProAves";
 import { arquivoInstitucional } from "./arquivoInstitucional";
+import { blog } from "./blog";
+import { author } from "./author";
+import { category } from "./category";
+import { imageWithAlt } from "./imageWithAlt";
+import { linkTree } from "./linkTree";
+import { link } from "./link";
 
 export const schemaTypes = [
   programSlide,
@@ -26,4 +32,10 @@ export const schemaTypes = [
   annualReport,
   relatorioProAves,
   arquivoInstitucional,
+  blog,
+  author,
+  category,
+  imageWithAlt,
+  linkTree,
+  link,
 ];
