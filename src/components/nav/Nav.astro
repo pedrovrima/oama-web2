@@ -34,7 +34,7 @@ const styles = isOverlay
     Desktop layout (md+):
       - flex, justify-between: logo left | nav center | Apoie right
   -->
-  <div class="relative mx-auto flex max-w-6xl items-center px-4 py-2 md:justify-between md:py-3">
+  <div class="relative mx-auto flex min-h-[66px] max-w-6xl items-center px-4 py-2 md:min-h-0 md:justify-between md:py-3">
 
     <!-- ── MOBILE: round logo centered absolutely ── -->
     <a
@@ -172,6 +172,23 @@ const styles = isOverlay
   }
   header[data-nav-overlay].is-scrolled .nav-bar {
     background-color: #1e1702;
+  }
+
+  /* Mobile: o Figma mostra a barra BRANCA SÓLIDA sobre o hero (não transparente).
+     Abaixo de md o overlay vira sólido e os elementos escurecem. */
+  @media (max-width: 767px) {
+    header[data-nav-overlay] {
+      position: sticky;
+      background-color: rgb(255 255 255 / 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+    }
+    header[data-nav-overlay] .nav-bar {
+      background-color: #1e1702;
+    }
+    header[data-nav-overlay] .nav-links-overlay {
+      color: rgb(30 23 2 / 0.8);
+    }
   }
 </style>
 
