@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
 import { getBlogPosts, urlFor } from "../../utils/sanity";
-import { portableTextToHtml } from "../../utils/portableText";
+import { portableTextToHtml, portableTextToPlainText } from "../../utils/portableText";
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
@@ -16,6 +16,18 @@ const { post } = Astro.props as { post: any };
 
 const corpoHtml = portableTextToHtml(post.body);
 
+// Resumo do post para busca e para o card de compartilhamento: primeiros
+// parágrafos do corpo; sem corpo, cai num texto derivado do título.
+const resumo = portableTextToPlainText(post.body, 155);
+const descricao = resumo
+  ? resumo
+  : `${post.title} — texto de divulgação científica publicado no blog do Observatório de Aves da Mantiqueira.`;
+
+// Capa do post é o que aparece ao compartilhar; sem capa, o layout usa o logo.
+const imagemSocial = post.mainImage
+  ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url()
+  : undefined;
+
 const dataFormatada = post.publishedAt
   ? new Date(post.publishedAt).toLocaleDateString("pt-BR", {
       day: "2-digit",
@@ -25,7 +37,7 @@ const dataFormatada = post.publishedAt
   : "";
 ---
 
-<BaseLayout title={`${post.title} — Blog OAMa`}>
+<BaseLayout title={`${post.title} — Blog OAMa`} description={descricao} image={imagemSocial}>
   <main class="font-montserrat text-oama-ink">
     <section class="relative h-[380px] w-full overflow-hidden md:h-[480px]">
       {

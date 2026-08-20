@@ -20,9 +20,27 @@ const links = (linkTree.links ?? [])
     ...item,
     href: reescreverUrlLegado(item.url),
   }));
+
+// Descrição vem do Sanity; sem ela, montamos uma frase a partir do título.
+// Buscadores cortam por volta de 160 caracteres, então encurtamos no espaço.
+const encurtar = (texto: string, max = 155) => {
+  if (texto.length <= max) return texto;
+  const corte = texto.slice(0, max);
+  const ultimoEspaco = corte.lastIndexOf(" ");
+  return `${(ultimoEspaco > 60 ? corte.slice(0, ultimoEspaco) : corte).trim()}…`;
+};
+
+const descricaoSanity = (linkTree.description ?? "").trim();
+const descricao = descricaoSanity
+  ? encurtar(descricaoSanity)
+  : `Links, materiais e canais de ${linkTree.title}, do Observatório de Aves da Mantiqueira, reunidos em uma única página.`;
+
+const imagemSocial = linkTree.headerImage
+  ? urlFor(linkTree.headerImage).width(1200).fit("max").auto("format").url()
+  : undefined;
 ---
 
-<BaseLayout title={`${linkTree.title} — OAMa`}>
+<BaseLayout title={`${linkTree.title} — OAMa`} description={descricao} image={imagemSocial}>
   <main class="min-h-screen bg-oama-cream font-montserrat text-oama-ink">
     <div class="mx-auto w-full max-w-[560px] px-5 py-10 md:py-14">
       <header class="mb-8 flex flex-col items-center text-center">
