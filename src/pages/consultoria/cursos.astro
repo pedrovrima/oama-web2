@@ -26,8 +26,11 @@ const cursos = [
   {
     texto:
       "Por fim, no curso PRESENCIAL trabalhamos tanto acerca de técnicas básicas de anilhamento de aves, como sobre a análise de mudas, plumagens e dados complementares. Durante cerca de 20h de aulas teóricas e experiências supervisionadas em campo, guiamos os participantes no exercício de manipulação, de extração de aves das redes, de aplicação de anilhas e de coleta de dados em aves; além do manejo responsável de uma estação de anilhamento. E associado a isso, trazemos foco à compreensão das estratégias e padrões de mudas das aves; às terminologias e nomenclaturas para mudas e plumagens; e ao exercício de classificação de idade de aves pelo método WRP.",
-    img: "/midias/cursos/curso-presencial.jpg",
-    alt: "Instrutora e participante em atividade prática do curso presencial do OAMa",
+    // PENDÊNCIA DE ASSET: curso-presencial.jpg é byte a byte idêntico a
+    // capa-cursos.jpg (a foto do hero). Repetir a mesma imagem no corpo é pior
+    // que não ter imagem, então este item fica sem foto até chegar a do frame.
+    img: undefined,
+    alt: "",
   },
 ];
 ---
@@ -87,12 +90,14 @@ const cursos = [
                     {curso.texto}
                   </p>
                 </div>
-                <img
-                  src={curso.img}
-                  alt={curso.alt}
-                  class="mt-6 h-[220px] w-full rounded-2xl object-cover md:h-[360px]"
-                  loading="lazy"
-                />
+                {curso.img && (
+                  <img
+                    src={curso.img}
+                    alt={curso.alt}
+                    class="mt-6 h-[220px] w-full rounded-2xl object-cover md:h-[360px]"
+                    loading="lazy"
+                  />
+                )}
               </div>
             ))
           }

@@ -48,11 +48,14 @@ const realizacoes = [
 
 <BaseLayout title="Realizações — OAMa">
   <main class="font-montserrat text-[#1e1702]">
-    <section class="relative h-[520px] w-full overflow-hidden md:h-[720px]">
+    {/* HERO — enquadramento mais aberto, como no frame do Figma (2581:454):
+        a ave e o galho aparecem inteiros. Altura menor e object-position
+        deslocado para o topo evitam o corte da cabeça e da cauda. */}
+    <section class="relative h-[520px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/realizacoes/capa-realizacoes.jpg"
         alt="Realizações do OAMa"
-        class="absolute inset-0 h-full w-full object-cover"
+        class="absolute inset-0 h-full w-full object-cover object-[50%_20%]"
         loading="eager"
       />
       <div class="absolute inset-0 bg-black/10"></div>

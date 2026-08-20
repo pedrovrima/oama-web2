@@ -9,6 +9,24 @@ const objetivos = [
   "Descrever a biologia e ecologia das espécies de aves na Mantiqueira.",
 ];
 
+// Carrossel full-bleed logo após a nota azul (frame Figma 2498:638: foto grande
+// com setas ‹ › antes do parágrafo "Iniciamos o monitoramento…").
+// Reaproveita as fotos de campo que já existem no repositório.
+const carrossel = [
+  {
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-1.jpg",
+    alt: "Pesquisadores do OAMa avaliando muda de uma ave durante sessão de anilhamento na Mantiqueira",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-2.jpg",
+    alt: "Saíra-de-papo-preto pousada em galho durante monitoramento de avifauna na Mantiqueira",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-3.jpg",
+    alt: "Trinca-ferro pousado em galho registrado durante o monitoramento na Serra da Mantiqueira",
+  },
+];
+
 const tecnicas = [
   {
     titulo: "Anilhamento com redes de neblina",
@@ -178,6 +196,66 @@ const tecnicas = [
       path2Color="#fbf5e6"
     />
 
+    <!-- CARROSSEL full-bleed (frame: foto grande com setas ‹ › logo após a nota azul) -->
+    <section
+      class="relative w-full overflow-hidden"
+      aria-label="Galeria do monitoramento de avifauna"
+    >
+      <div class="relative" data-monitoramento-carousel>
+        {
+          carrossel.map((foto, i) => (
+            <img
+              src={foto.imagem}
+              alt={foto.alt}
+              class:list={[
+                "h-[280px] w-full object-cover md:h-[520px]",
+                i === 0 ? "" : "hidden",
+              ]}
+              data-slide={i}
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          ))
+        }
+
+        <button
+          type="button"
+          data-prev
+          aria-label="Foto anterior"
+          class="absolute left-4 top-1/2 -translate-y-1/2 text-white drop-shadow-lg transition hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:left-8"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-9 w-9 md:h-12 md:w-12"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-next
+          aria-label="Próxima foto"
+          class="absolute right-4 top-1/2 -translate-y-1/2 text-white drop-shadow-lg transition hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-8"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-9 w-9 md:h-12 md:w-12"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
     <!-- 3) INÍCIO E ÁREAS AMOSTRAIS -->
     <section class="bg-oama-cream w-full">
       <div class="max-w-5xl mx-auto px-6 py-14">
@@ -265,3 +343,18 @@ const tecnicas = [
 
   </main>
 </BaseLayout>
+
+<script>
+  // Carrossel do monitoramento: troca a imagem visível via classe "hidden"
+  const raiz = document.querySelector<HTMLElement>("[data-monitoramento-carousel]");
+  if (raiz) {
+    const slides = Array.from(raiz.querySelectorAll<HTMLImageElement>("[data-slide]"));
+    let atual = 0;
+    const mostrar = (i: number) => {
+      atual = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle("hidden", n !== atual));
+    };
+    raiz.querySelector("[data-prev]")?.addEventListener("click", () => mostrar(atual - 1));
+    raiz.querySelector("[data-next]")?.addEventListener("click", () => mostrar(atual + 1));
+  }
+</script>
