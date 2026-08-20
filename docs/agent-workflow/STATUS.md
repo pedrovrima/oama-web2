@@ -85,6 +85,14 @@
     0 imagens quebradas, 0 overflow, 0 links quebrados, 0 `href="#"`.
     Detalhes e pendências em `REVISAO_FIGMA_2026-08-19.md`.
 
+19. **2026-08-20 (lote 4)** — Removido conteúdo fabricado (5 matérias de
+    imprensa inventadas em "OAMa na Mídia", eventos de exemplo na Agenda,
+    5 imagens de `placehold.co`). Migradas `/links/[slug]` e os redirects 301
+    do site antigo. Fotos dos frames aplicadas (a pasta de mídias do cliente
+    existe e tem as capas do designer). SEO criado do zero (Open Graph,
+    canonical, sitemap, robots). **Imagens: 440 MB → 85 MB.**
+    Build: 28 páginas; 25 rotas com 0 imagens faltando.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:

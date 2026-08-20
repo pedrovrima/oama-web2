@@ -225,3 +225,85 @@ Nas 24 rotas públicas, desktop 1440 e mobile 390: **0 imagens quebradas,
 - `/blog/old/[slug]` do legado (posts em markdown) não foi migrado.
 - Em `monitoramento-de-avifauna` as 3 fotos do carrossel são as mesmas da faixa
   de imagens no fim da página — decidir se a faixa sai.
+
+## Lote 4 — 2026-08-20 (segunda rodada, 6 subagentes)
+
+### Descoberta que destravou quase tudo
+**A pasta de mídias do cliente existe**: `/Users/anhinga/Downloads/WEBSITE/`,
+7,4 GB, 1.060 imagens organizadas por página. E dentro de
+`mídias PROGRAMAS E PROJETOS website/Programas e Projetos (atualizado)/` estão
+**as fotos que o designer usou nos frames**, nomeadas por seção (`Cursos.png`,
+`Monitoramento.png`, `Treinamento.png`, `FFT.png`, `Pesquisas.png`…).
+A mesma pasta tem `A história do OAMa (NÃO RESUMIDA_2025).docx`, a história
+oficial completa — fonte melhor que o Figma para a timeline.
+
+### Conteúdo fabricado removido (achado grave)
+- "OAMa na Mídia" trazia **5 matérias inventadas** atribuídas a G1, National
+  Geographic, BBC Brasil, Globo Rural e Folha, com fotos do Unsplash. Imprensa
+  fictícia no site de uma ONG científica é dano de credibilidade.
+- "Agenda 2025" trazia eventos de exemplo, também com Unsplash.
+- `/sobre` tinha **5 imagens de `placehold.co`** (serviço externo).
+Todas as três seções agora só renderizam com conteúdo real; os parceiros sem
+logo caem no fallback de texto. **Zero dependência de serviço externo de imagem.**
+
+### Timeline
+2023 preenchido com os marcos reais do docx; demais anos complementados onde o
+docx acrescenta fato (Assembleia de Fundação com os fundadores nomeados, saída
+da Raquel Justo, números de cada edição do Treinamento). Título de 2024
+atualizado para a versão do docx.
+
+### Fotos
+Heroes de cursos, treinamento, monitoramento-de-avifauna e sobre; as 7 fotos do
+mosaico do hub; hero e os 9 cards de projetos-de-pesquisa remapeados 1:1;
+carrossel do FFT com a placa do Itatiaia; cluster Pesquisa de áreas-de-atuação.
+Espécies conferidas uma a uma. **17 assets órfãos removidos.**
+
+Registro: `pesquisa-card-1.jpg` (ave morta sobre jornal) **é do frame** — é o
+card "Colisões de aves com vidro". O defeito era estar no card 1. Um relatório
+anterior sugeria trocá-la com o hero; teria posto um espécime no topo da página.
+
+### Rotas novas
+- **`/links/[slug]`** — existe 1 linktree no Sanity (`acoes-pro-aves`, 9 links),
+  provavelmente na bio do Instagram do programa. Sem essa rota, quebraria no
+  lançamento. URLs do domínio antigo com equivalente local são reescritas em
+  código; o Sanity não foi editado.
+- **`vercel.json`** com 11 redirects **301** das rotas do site antigo
+  (`/quem-somos`, `/projetos`, `/jacucara`, `/jucara`, `/treinamento-cursos`,
+  `/camci`, `/estacao-de-pesquisa`, `/anilhamento-demonstrativo`,
+  `/blog/old/:slug`, `/whatsapp`). Nota: `"permanent": true` na Vercel emite
+  **308**, por isso `"statusCode": 301` explícito.
+
+### Schemas do Studio
+`blog`, `author`, `category`, `imageWithAlt`, `linkTree`, `link`, modelados
+sobre os documentos reais do dataset. Sem eles o OAMa não conseguia publicar
+post pelo `/admin`.
+
+### SEO (não existia)
+O `BaseLayout` tinha só charset, viewport e title. Agora: meta description por
+página, Open Graph + Twitter card, canonical absoluto, favicon linkado (o
+arquivo existia sem link), theme-color, `site` no astro.config,
+`src/pages/sitemap.xml.ts` (sem dependência nova, inclui os posts do blog) e
+`public/robots.txt` com `Disallow: /admin`.
+
+### Performance
+**73 imagens de 440 MB → 85 MB (-81%)**. O site servia fotos em resolução de
+câmera (9071×6803, uma com 23 MB), o que inviabilizava `/apoie` e `/proaves` em
+conexão móvel. Redimensionadas para 2000px, JPG q82 progressivo, formato e nome
+preservados. Qualidade comparada antes/depois na resolução real: indistinguível.
+
+### Verificação final
+Build limpo: **28 páginas**. As 25 rotas públicas respondem 200 com **0 imagens
+faltando** (411 imagens verificadas por HTTP), 0 links internos quebrados,
+0 `href="#"`, 0 aspas curvas em atributo.
+
+### O que continua bloqueado (material ou decisão)
+- **Ícones ilustrados** de Clientes e Público potencial: não estão na pasta do
+  cliente; precisam ser exportados do Figma.
+- **Logos** de USP, UFJF, Turismo Resende e Observatório Ecológico: idem.
+- **Conteúdo real** de "OAMa na Mídia" e "Agenda" (as seções somem até chegar).
+- **Contraste do CTA azul**: 2,71, abaixo do WCAG. As duas saídas mudam a
+  identidade visual em todas as páginas — decisão do usuário.
+- **Studio**: um humano com login precisa abrir `/admin` (na porta **4321** — em
+  outras portas dá `CorsOriginError`) e confirmar que os tipos novos aparecem.
+- **Fale Conosco** com backend + reCAPTCHA: caminho descrito, não implementado.
+- Ícone do cluster Pesquisa em `/areas-de-atuacao` diverge do frame.

@@ -1,11 +1,17 @@
 # Handoff operacional — OAMa Website v2
 
-## Estado em 2026-08-20 (leia isto primeiro)
+## Estado em 2026-08-20 — lote 4 (leia isto primeiro)
 
-Branch `revisao-figma-lote-1`, **5 commits, não enviados ao remoto**.
+Branch `revisao-figma-lote-1`, **11 commits, não enviados ao remoto**.
+
+**A pasta de mídias do cliente existe** em `/Users/anhinga/Downloads/WEBSITE/`
+(7,4 GB). Dentro dela, `mídias PROGRAMAS E PROJETOS website/Programas e Projetos
+(atualizado)/` tem as fotos dos frames nomeadas por seção, e
+`A história do OAMa (NÃO RESUMIDA_2025).docx` é a história oficial completa.
+**Comece por aí antes de declarar qualquer coisa bloqueada por falta de asset.**
 Doc de referência: `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`.
 
-Build limpo: **27 páginas**. QA nas 24 rotas públicas (1440 e 390): 0 imagens
+Build limpo: **28 páginas**. QA nas 24 rotas públicas (1440 e 390): 0 imagens
 quebradas, 0 overflow horizontal, 0 links internos quebrados, 0 assets faltando,
 0 `href="#"`, 0 aspas curvas em atributo.
 
