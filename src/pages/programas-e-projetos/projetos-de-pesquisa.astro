@@ -85,27 +85,25 @@ const projetos = [
 <BaseLayout title="Projetos de Pesquisa — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     {/* HERO: full-bleed com foto de fundo e título ancorado ao rodapé */}
-    <section class="relative flex min-h-[85vh] w-full items-end overflow-hidden">
+    {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/programas-e-projetos/pesquisa-hero.jpg"
         alt="Mão segurando ave de asas abertas durante pesquisa de campo do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/25"></div>
-
-      <div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 md:pb-20">
-        <h1
-          class="font-oswald text-[30px] font-bold uppercase leading-[35px] text-white md:text-[48px] md:leading-[54px]"
-        >
-          Projetos de Pesquisa
-        </h1>
-      </div>
     </section>
 
     {/* Faixa AMARELA: introdução com trecho em destaque */}
     <section class="w-full" style={`background:${colors.yellow};`}>
       <div class="mx-auto max-w-5xl px-6 pt-14 pb-8">
+        <h1
+          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[42px] md:leading-[48px]"
+        >
+          Projetos de Pesquisa
+        </h1>
+
         <div
           class="space-y-5 text-[16px] leading-[24px] text-[#1e1702] text-justify"
         >

@@ -30,29 +30,25 @@ const destaques = [
 <BaseLayout title="Fundraising Field Trip — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     <!-- HERO full-bleed com overlay -->
-    <section class="relative min-h-[85vh] w-full overflow-hidden flex items-end">
+    {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/programas-e-projetos/fft-hero.jpg"
         alt="Grupo na montanha durante Fundraising Field Trip"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="relative z-10 w-full">
-        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
-          <h1
-            class="text-[32px] leading-[38px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
-          >
-            Fundraising <br class="md:hidden" />Field Trip
-          </h1>
-        </div>
-      </div>
     </section>
 
     <!-- 1) INTRODUÇÃO EM DUAS COLUNAS (faixa amarela) -->
     <section class="w-full" style="background:#dfb553;">
       <div class="max-w-5xl mx-auto px-6 py-16">
+        <h1
+          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[42px] md:leading-[48px]"
+        >
+          Fundraising Field Trip
+        </h1>
+
         <div class="grid md:grid-cols-2 gap-10">
           <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
             <p>

@@ -104,3 +104,51 @@ Fonte: **Figma-first**. Build ok (23 páginas), render conferido no navegador.
 7. Copy de `/consultoria` (cards "Por que escolher" e "Clientes") — a do Figma
    e a implementada são versões diferentes; usuário marcou para corrigir
    seguindo o Figma.
+
+## Lote 2 — executado em 2026-08-20 (branch `revisao-figma-lote-1`)
+
+**Hero transversal** (direção do usuário): foto contida `h-[300px] md:h-[620px]`
+e título movido para a faixa de cor, centralizado — em `/consultoria`, nas 3
+filhas (via `ConsultoriaServico.astro`), `fundraising-field-trip`,
+`projetos-de-pesquisa`, `treinamento-...` e `monitoramento-de-avifauna`.
+`acoes-pro-aves` já tinha o padrão; só o contraste do H1 foi corrigido.
+
+**`/sobre`**
+- Seção **Equipe removida** (decisão do usuário). O array `equipe` fica no
+  arquivo, desativado, para retomada.
+- **Timeline refeita** com a copy real dos nós `2302:322`–`2302:424`. O texto
+  anterior era inventado de 2020 em diante.
+- **Achado**: no Figma o bloco de **2023 repete literalmente a lista de 2022**
+  (conferido no frame `Celular_História do OAMa` 2275:277). É erro do design —
+  não foi copiado. 2023 ficou só com o título, aguardando os marcos reais.
+
+**`/consultoria`**
+- Copy de "Por que escolher o OAMa?" (8 itens) e de "Clientes" (8 categorias)
+  substituída pela do Figma (nós `I2616:*`, `I2593:*`, `I2594:813`, `I2619:*`).
+- Ícone de check removido dos cards (não existe no frame).
+
+**`/programas-e-projetos/monitoramento-de-avifauna`**
+- Citação do Dr. Sekercioglu agora sobre **foto full-width** com nota de
+  tradução em faixa azul, como no frame. O asset
+  `monitoramento-citacao-fundo.jpg` já existia no repo e não era usado.
+- "Técnicas complementares": 3 cards com descrições inventadas viraram o
+  **parágrafo corrido do frame** + faixa das 3 fotos.
+
+**Outros**
+- Hub de programas: **mosaico mobile corrigido** — tinha `w-[134px]` fixo, o que
+  espremia os tiles num terço da tela.
+- `/consultoria/educacao-ambiental`: enquadramento do hero (nova prop `heroPos`).
+- `ContentCard`: **sem destino real o card não vira mais link**. Com isso o site
+  ficou com **zero `href="#"`** (eram 10 na home).
+- Cursos: títulos de seção passaram de azul para branco, como no frame.
+
+### Pendências do lote 2
+- **Footer**: o usuário reportou "ícones estranhos (insta)". O footer **não existe
+  nos exports nem no JSON do Figma**, então não há referência para comparar.
+  Hoje os 6 ícones misturam estilo sólido e contorno. Precisa de direção.
+- Marcos reais de **2023** para a timeline.
+- Conteúdo real de "OAMa na Mídia" e "Agenda" (virá do Otávio).
+- Fotos: hero de treinamento/monitoramento/cursos, duplicata em cursos, hero e
+  card 1 trocados em projetos-de-pesquisa.
+- Carrossel de fotos grandes em `monitoramento-de-avifauna` (o frame tem, a
+  implementação não).

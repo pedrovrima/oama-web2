@@ -2,12 +2,14 @@
 import HistoriaTimeline from "../../ui/HistoriaTimeline.tsx";
 import type { HistoriaItem } from "../../ui/HistoriaTimeline.tsx";
 
-// TODO: replace with Sanity query
+// Copy extraída dos nós do Figma 2302:322–2302:424 (canvas, FORA do frame
+// Desktop_SOBRE — ver REVISAO_FIGMA_2026-08-19, "componentes fora do frame").
+// O texto anterior era inventado de 2020 em diante.
 const historia: HistoriaItem[] = [
   {
     ano: 2017,
     titulo: "A IDEIA DE UM OBSERVATÓRIO DE AVES",
-    texto: "Os primeiros passos do OAMa iniciaram-se quando nossos co-fundadores Luiza Figueira e Pedro Martins trabalharam como Pesquisadores Visitantes do Klamath Bird Observatory (KBO), no Oregon, EUA. Lá, foram inspirados pelo modelo de um observatório de aves: uma organização focada em pesquisa ornitológica, educação e conservação, que realiza monitoramento de longo prazo e sistemático de aves. A ideia de um observatório de aves da Mantiqueira foi apresentada por Pedro e Luiza na Conferência Internacional de Observatórios de Aves (IBOC), em Cape May, New Jersey, EUA. De volta ao Brasil, uniram-se a Raquel Justo, terceira co-fundadora, para elaborar a base de uma organização independente, sem fins lucrativos, conectando ciência, sociedade e conservação para preservar a biodiversidade.",
+    texto: "Os primeiros passos do OAMa iniciaram-se quando nossos co-fundadores Luiza Figueira e Pedro Martins trabalharam como Pesquisadores Visitantes do Klamath Bird Observatory (KBO), no Oregon, EUA. Lá, eles foram inspirados pelo modelo de um Observatório de Aves: uma organização focada em pesquisa ornitológica, educação e conservação, e que geralmente realiza monitoramento de longo prazo e sistemático de aves. A ideia de um observatório de aves da Mantiqueira foi apresentada por Pedro e Luiza na Conferência Internacional de Observatórios de Aves (IBOC), em Cape May, New Jersey, EUA. Voltando ao Brasil, eles se uniram a Raquel Justo, nossa terceira co-fundadora, e elaboraram o que seria a base do OAMa: uma organização independente, sem fins lucrativos, conectando os pilares de ciência, sociedade e conservação, com a finalidade de preservar a biodiversidade.",
     foto: "/midias/sobre/historia-2017.jpg",
   },
   {
@@ -19,46 +21,50 @@ const historia: HistoriaItem[] = [
   {
     ano: 2019,
     titulo: "A MATERIALIZAÇÃO DO SONHO",
-    texto: "O OAMa foi registrado oficialmente como uma Organização do Terceiro Setor em 28 de agosto de 2019. No mesmo ano, realizou o Dia de campo: conhecendo as aves, em parceria com a ONG Silo — Arte e Latitude Rural e com apoio do edital CAMP do Instituto Serrapilheira; publicou o livreto Ornitologia pra todo dia; estabeleceu a Estação de Pesquisa (EP), base com casa, laboratório, escritório e sala de aula; e realizou o I Curso Prático de Análise de Muda e Classificação de Idade em Aves.",
+    texto: "OAMa registrado oficialmente como uma Organização do Terceiro Setor, em 28 de agosto de 2019. “Dia de campo: conhecendo as aves”, realizado em parceria com a ONG Silo - Arte e Latitude Rural com apoio do edital CAMP do Instituto Serrapilheira. Livreto Ornitologia para todo dia. Estação de Pesquisa (EP) estabelecida como a base onde reúne-se a estrutura física do OAMa, funcionando como uma casa, laboratório, escritório e sala de aula. I Curso Prático de Análise de Muda e Classificação de Idade em Aves.",
     foto: "/midias/sobre/historia-2019.jpg",
   },
   {
     ano: 2020,
     titulo: "RECALCULANDO ROTAS",
-    texto: "A pandemia trouxe desafios inéditos. O OAMa adaptou suas atividades, manteve o monitoramento essencial e investiu em comunicação digital para não perder o vínculo com a comunidade.",
-    foto: undefined, // sem foto para 2020 no design (frame Celular_História 2275:277)
+    texto: "As limitações impostas para segurança e saúde das pessoas interromperam ou desaceleraram nossas iniciativas, como o programa de voluntariado, consultorias ambientais e outros projetos com parceiros.",
+    foto: undefined,
   },
   {
     ano: 2021,
     titulo: "COMUNICAÇÃO VIRTUAL DE CIÊNCIA E CONSERVAÇÃO",
-    texto: "O OAMa expandiu sua presença digital com conteúdos científicos acessíveis, lives, cursos online e colaborações nacionais. A ciência chegou a mais pessoas do que nunca.",
+    texto: "Fortalecimento do Programa de Voluntariado, captando estudantes de diferentes regiões do país. REDE de Observatórios de Aves do Brasil. Ações de divulgação científica em parceria com o CEMAVE/ICMBio para o Plano de Ação Nacional de Aves da Mata Atlântica: “Campanha Consumo e Conservação de Produtos Florestais” e “Campanha Ações Pró-Aves”. Documentário “Juçara - Consumo e Conservação” lançado junto a Contemplar Films, com apoio do CRBio-04. I Curso Teórico Básico de Anilhamento, em parceria com o Projeto Aves de Noronha.",
     foto: "/midias/sobre/historia-2021.jpg",
   },
   {
     ano: 2022,
     titulo: "CAPACITAÇÃO ÉTICA E DE EXCELÊNCIA",
-    texto: "Com o retorno ao campo, o foco foi na formação de novos cientistas e educadores, com cursos presenciais, expedições e parcerias com universidades brasileiras.",
+    texto: "Programa de Treinamento em Monitoramento de Avifauna, um modelo de treinamento inédito no Brasil. I Curso Teórico de Análise de Muda e Classificação de Idade em Aves. II Curso Teórico Básico de Anilhamento e I Curso Prático Básico de Anilhamento, em parceria com o Projeto Aves de Noronha. II Curso Prático de Análise de Muda e Classificação de Idade em Aves. Curso de Fotografia de Aves, em parceria com Birds Atlantic. Livro de colorir Aves Ameaçadas da Mata Atlântica lançado em parceria com o PAN Aves da Mata Atlântica, com apoio do CRBio-04. Campanha Ações Pró-Aves no mundo virtual e físico: criação de website, instalações artísticas sensoriais e distribuição de folders informativos. “Campanha Jacuçara”, idealizada pelo PAN Aves da Mata Atlântica, organizada em parceria com outras instituições, com lançamento de website e do documentário “Reconectar pessoas às aves”. Projeto PAF (Re)Floresta, Água e Carbono, prestação de serviço de consultoria em educação ambiental sob contrato com a Associação Pró-Gestão das Águas da Bacia Hidrográfica do Rio Paraíba do Sul - AGEVAP.",
     foto: "/midias/sobre/historia-2022.jpg",
   },
   {
+    // PENDÊNCIA: no Figma o bloco de 2023 repete literalmente a lista de 2022
+    // (conferido no frame Celular_História do OAMa 2275:277). É erro do design.
+    // Mantido só o título do frame até o OAMa fornecer os marcos reais de 2023.
     ano: 2023,
     titulo: "ECOTURISMO PARA RECONECTAR E CURAR",
-    texto: "Em 2023 o OAMa lançou iniciativas de ecoturismo científico na Serra da Mantiqueira, conectando pessoas à natureza e gerando recursos para a conservação.",
+    texto: "",
     foto: "/midias/sobre/historia-2023.jpg",
   },
   {
     ano: 2024,
     titulo: "PESQUISA CIENTÍFICA PARA SUBSIDIAR NOVOS CAMINHOS",
-    texto: "O OAMa consolidou parcerias científicas nacionais e internacionais, publicou resultados de longo prazo do monitoramento e ampliou sua atuação em políticas públicas para conservação das aves.",
+    texto: "Reconhecimento Amigos do Turismo 2023 da Secretaria de Turismo de Resende, pelo trabalho e envolvimento no cenário do turismo na região. III edição do Programa de Treinamento. II intercâmbio em parceria com o Klamath Bird Observatory (KBO) para o Oregon, Estados Unidos, com o objetivo de dar continuidade à capacitação profissional sem fronteiras. I Oficina de anilhamento de beija-flores para a equipe OAMa e colaboradores, ministrada por Victor González, de Baja California Sur, México. Dois cursos internacionais: VII Bird Banding and Molt Analysis Course (BBMA VII), em parceria com os proponentes Dr. Gonçalo Ferraz e Dr. Jared Wolfe, e Hierarchical Modelling Workshop, em parceria com o Ferraz Population Biology Laboratory (UFRGS). IV Curso Teórico Básico de Anilhamento, em parceria com o Projeto Aves de Noronha. Mesa redonda sobre guarda responsável de pets. Apresentação teatral infantil sobre tráfico e engaiolamento de aves silvestres da Mata Atlântica. Mesa redonda sobre colisões de aves com vidros e medidas mitigatórias. Cartilhas ilustradas sobre guarda responsável de pets e colisões de aves com vidros. Formulário de reportes de colisões de aves tornou-se nacional. Campanha Jacuçara promoveu ação em Vargem Alta, ES, junto ao Programa de Conservação Saíra-Apunhalada (Instituto Marcos Daniel) para produtores rurais e especialistas discutirem o manejo sustentável da palmeira-juçara. II Festival de Aves da Mantiqueira organizado em parceria com diversas instituições. II FUNdraising Field Trip, segunda viagem de arrecadação de fundos realizada em parceria com o KBO. Primeira Reunião de Monitoria do segundo ciclo do PAN Mata Atlântica (2023-2028). Relatório de Pesquisa de Percepção Socioambiental 2024 publicado junto ao ICMBio/CEMAVE. Doação do primeiro carro institucional do OAMa pelos patronos C.J. e Carol Ralph, importantes doadores, conselheiros e fontes de inspiração para a criação da organização.",
     foto: "/midias/sobre/historia-2024.jpg",
   },
   {
     ano: 2025,
     titulo: "",
-    texto: "A história continua...",
+    texto: "Hoje, em 2025, seguimos realizando nossos projetos e programas, finalizando os primeiros artigos científicos já sendo submetidos para publicação, fortalecendo parcerias, buscando a sustentabilidade da ONG e a viabilidade de nossas ações com o apoio de empresas e grandes patrocinadores, para além do importante e contínuo apoio de doadores esporádicos e doadores mensais.",
     foto: undefined,
   },
 ];
+
 ---
 
 <section class="bg-[#5ba4d9] pb-0">

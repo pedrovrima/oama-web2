@@ -12,6 +12,8 @@ interface Props {
   titulo: string;
   heroImg: string;
   heroAlt: string;
+  /** object-position do hero, ex.: "center 30%" — para enquadrar a foto */
+  heroPos?: string;
   servicos: string[];
   diferenciais: string[];
   publico: string[];
@@ -23,6 +25,7 @@ const {
   titulo,
   heroImg,
   heroAlt,
+  heroPos,
   servicos,
   diferenciais,
   publico,
@@ -47,30 +50,26 @@ const iconPaths: Record<string, string> = {
 ---
 
 <main class="font-montserrat">
-  {/* HERO: full-bleed com foto de fundo e título sobreposto */}
-  <section
-    class="relative flex min-h-[85vh] w-full items-end overflow-hidden"
-  >
+  {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+  <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
     <img
       src={heroImg}
       alt={heroAlt}
       class="absolute inset-0 h-full w-full object-cover"
+      style={heroPos ? `object-position:${heroPos};` : undefined}
       loading="eager"
     />
-    <div class="absolute inset-0 bg-black/25"></div>
+  </section>
 
-    <div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 md:pb-20">
+  {/* Faixa AZUL: título + Serviços | Diferenciais do OAMa (2 colunas) */}
+  <section class="w-full scroll-mt-24" style={`background:${colors.blue};`}>
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      {/* Título centralizado na faixa, como no frame */}
       <h1
-        class="font-oswald text-[30px] font-bold uppercase leading-[35px] text-white md:text-[48px] md:leading-[54px]"
+        class="mb-12 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-white md:text-[44px] md:leading-[50px]"
       >
         {titulo}
       </h1>
-    </div>
-  </section>
-
-  {/* Faixa AZUL: Serviços | Diferenciais do OAMa (2 colunas) */}
-  <section class="w-full scroll-mt-24" style={`background:${colors.blue};`}>
-    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
         <div>
           <h2
