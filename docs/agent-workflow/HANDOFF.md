@@ -1,5 +1,34 @@
 # Handoff operacional — OAMa Website v2
 
+## Estado em 2026-08-20 (leia isto primeiro)
+
+Branch `revisao-figma-lote-1`, **5 commits, não enviados ao remoto**.
+Doc de referência: `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`.
+
+Build limpo: **27 páginas**. QA nas 24 rotas públicas (1440 e 390): 0 imagens
+quebradas, 0 overflow horizontal, 0 links internos quebrados, 0 assets faltando,
+0 `href="#"`, 0 aspas curvas em atributo.
+
+O site **não depende mais do domínio antigo**: `/downloads` e `/blog` foram
+migrados e os 9 PDFs de relatório de `/sobre` são servidos localmente.
+
+### Armadilhas confirmadas (não repita)
+1. **Componentes do Figma fora dos frames.** Carrosséis, ODS, agenda e a timeline
+   real vivem soltos no canvas (`design-assets/figma-analysis/selection-raw.json`).
+   Não concluir "não existe no Figma" pelo PNG do frame.
+2. **Captura com `loading="lazy"` mente** — force `eager` e role antes do screenshot.
+3. **Autorrelato de subagente infla.** Um relatou "4 blocos de texto branco sobre
+   amarelo"; só 1 estava. Outro sugeriu trocar hero e card de projetos-de-pesquisa
+   — a foto do card é uma ave morta sobre jornal; a troca teria posto isso no topo.
+   **Sempre verificar antes de aplicar.**
+4. **Builds concorrentes** de vários agentes sobre o mesmo `dist/` geram
+   `Cannot find module dist/renderers.mjs`. Não é defeito do código.
+5. **RTK**: `git status --short` retornou vazio havendo 10 arquivos alterados.
+   Para qualquer saída usada para decidir, prefixe `rtk proxy`.
+6. **O Figma tem erros próprios**: o bloco de 2023 da timeline repete a lista de
+   2022. Não copiar o erro nem inventar substituto.
+
+
 ## O que foi feito na última frente (2026-08-19/20): revisão + lote 1
 
 Nova revisão completa contra o Figma (a de junho estava desatualizada: T1/T2/T4/T5/T6

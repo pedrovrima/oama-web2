@@ -76,6 +76,15 @@
     FFT com os 3 parágrafos do frame, temas focais em acoes-pro-aves, copy de
     agente removida de pro-aves, WIKIMUDAS com destino, card de Cursos no hub.
 
+18. **2026-08-20 — Lotes 2 e 3 executados** (branch `revisao-figma-lote-1`,
+    5 commits). Hero transversal, timeline real de `/sobre`, copy do Figma em
+    `/consultoria`, e as migrações de **`/downloads`** (45 cards, 43 PDFs) e
+    **`/blog`** (Sanity `1tnejkhf`, 2 posts). O site **não depende mais do
+    domínio antigo** para os PDFs de relatório nem para blog/downloads.
+    Build limpo: **27 páginas**. Verificação nas 24 rotas em 1440 e 390:
+    0 imagens quebradas, 0 overflow, 0 links quebrados, 0 `href="#"`.
+    Detalhes e pendências em `REVISAO_FIGMA_2026-08-19.md`.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:
