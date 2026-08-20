@@ -307,3 +307,31 @@ faltando** (411 imagens verificadas por HTTP), 0 links internos quebrados,
   outras portas dá `CorsOriginError`) e confirmar que os tipos novos aparecem.
 - **Fale Conosco** com backend + reCAPTCHA: caminho descrito, não implementado.
 - Ícone do cluster Pesquisa em `/areas-de-atuacao` diverge do frame.
+
+## Lote 5 — auditoria final (2026-08-20)
+
+### Corrigido
+- **Formulário de newsletter (rodapé, todas as páginas)**: texto branco sobre o
+  amarelo `#eab231` dava contraste **1,92** no digitado e **1,35** no
+  placeholder (mínimo 4,5). Passou a tinta escura: **9,26**. Ganhou também
+  labels `sr-only`, `autocomplete` e anel de foco — antes só havia placeholder,
+  que some ao digitar e nem sempre é lido por leitor de tela.
+- **`/apoie`**: a condição do `target="_blank"` incluía PDFs mas a do
+  `rel="noopener"` não, então PDFs abriam em nova aba sem proteção.
+- **SEO por página**: 27 descriptions distintas (133–157 caracteres), escritas
+  do conteúdo real; `og:image` com o hero próprio onde há caminho público
+  estável. Antes as 27 usavam o mesmo texto institucional.
+- `site: "#"` em parceiros → `""`; `favicon.ico` para o caminho legado.
+
+### Medido e descartado (não vale o trabalho)
+**394 de 442 imagens não têm `width`/`height`.** O reflexo esperado seria
+layout shift, mas a medição real no navegador deu **CLS = 0,0000** em `/`,
+`/sobre`, `/downloads`, `/realizacoes` e `/programas-e-projetos`: as classes de
+altura do Tailwind já reservam o espaço. Adicionar os atributos seria trabalho
+grande sem ganho. **Medir antes de corrigir.**
+
+### Estado final da branch (13 commits)
+Build limpo: **28 páginas**. 25 rotas públicas: **410 imagens, 0 quebradas**,
+0 links internos quebrados, 0 `href="#"`, 0 aspas curvas em atributo,
+0 imagens sem `alt`, 0 dependência de serviço externo de imagem,
+0 conteúdo fabricado. Sem erros de console.
