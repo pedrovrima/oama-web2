@@ -1,5 +1,34 @@
 # Handoff operacional — OAMa Website v2
 
+## O que foi feito na última frente (2026-08-19/20): revisão + lote 1
+
+Nova revisão completa contra o Figma (a de junho estava desatualizada: T1/T2/T4/T5/T6
+já tinham sido executadas). Produtos:
+
+- `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md` — diagnóstico atual, auditoria
+  de links, decisões do usuário e backlog do lote 2. **Leia este antes do de junho.**
+- Checklist interativo entregue ao usuário (267 itens, marcação corrigir/ignorar +
+  comentário). As decisões dele já estão no doc acima.
+- **Lote 1 implementado** na branch `revisao-figma-lote-1` — 9 arquivos, build ok
+  (23 páginas), render conferido no navegador com lazy-load forçado.
+  **Ainda não commitado** (aguardando o usuário).
+
+### Armadilhas confirmadas nesta rodada
+1. **Componentes fora do frame.** O Figma tem nós soltos no canvas, ao lado dos
+   frames. Carrosséis, ODS, agenda e a timeline real do OAMa estão lá
+   (`design-assets/figma-analysis/selection-raw.json`, nós `2302:*` para a timeline).
+2. **Captura com `loading="lazy"` mente.** Screenshots full-page mostram imagens em
+   branco que existem. Forçar `loading='eager'` + scroll antes de capturar.
+3. **Autorrelato de subagente infla.** Um relatou "4 blocos de texto branco sobre
+   amarelo" em `projetos-de-pesquisa`; só 1 estava sobre amarelo. Sempre conferir.
+4. **Não inventar URL.** Os 3 links do frame da Jacuçara ficaram sem âncora,
+   registrados como pendência, em vez de chutar destino.
+
+### Próximo passo recomendado
+Lote 2, na ordem do backlog: hero transversal (altura + posição do título),
+depois `/sobre` (remover Equipe, timeline correta dos nós `2302:*`).
+
+
 ## O que foi feito na última frente (2026-06-12, parte 2): T5 + T2
 
 Tasks transversais **T5 (Nav/hero)** e **T2 (descardificação)** executadas. O

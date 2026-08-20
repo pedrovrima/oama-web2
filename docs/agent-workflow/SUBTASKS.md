@@ -25,6 +25,13 @@
 - `PED-41` — `done` — `/missao`
 
 ### Em execução
+- `TASK-REV-2026-08` — `review` — revisão Figma + lote 1 de correções
+  - tipo: `Figma-first`
+  - fonte: `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`
+  - branch: `revisao-figma-lote-1` (build ok; não commitado)
+  - lote 2 pendente: hero transversal → `/sobre` → Fale Conosco nas filhas →
+    carrosséis da home → fotos trocadas → migrar `/downloads` e `/blog`
+
 - `TASK-LAUNCH-001` — `in_progress` — auditoria e preparação para lançamento
   - tipo: `Launch-first` (sem CMS)
   - escopo: rotas públicas, links, assets, responsividade e newsletter; ver `docs/implementation/pages/lancamento.md`.

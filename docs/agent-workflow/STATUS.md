@@ -64,6 +64,18 @@
     nesta frente** — só diagnóstico. Scripts reutilizáveis em `scripts/revisao/`.
     Esta revisão supersede, no nível de detalhe, a auditoria de 2026-06-07.
 
+17. **2026-08-19/20 — Nova revisão Figma vs implementação + lote 1 executado.**
+    Diagnóstico consolidado em `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`
+    (supersede o estado do doc de 2026-06-12). Inclui auditoria de links/rotas,
+    as decisões do usuário vindas do checklist interativo e o backlog do lote 2.
+    Descoberta de método: **há componentes do Figma fora dos frames exportados**
+    (nós soltos no canvas) — não concluir "não existe no Figma" pelo PNG do frame.
+    Lote 1 implementado na branch `revisao-figma-lote-1` (build ok, render
+    conferido): AGEVAP/Casa Tlalli, contraste em treinamento e projetos-de-pesquisa,
+    Jacuçara refeita conforme o frame (faixa roxa + 3 parágrafos restaurados),
+    FFT com os 3 parágrafos do frame, temas focais em acoes-pro-aves, copy de
+    agente removida de pro-aves, WIKIMUDAS com destino, card de Cursos no hub.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:
