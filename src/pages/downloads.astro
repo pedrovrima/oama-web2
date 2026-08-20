@@ -1,0 +1,481 @@
+---
+// Página /downloads — migrada do site antigo (Next.js): pages/downloads/index.js.
+// Fonte de verdade: LEGADO. Não existe frame de Figma para esta rota.
+// Todo o conteúdo (títulos, textos, arquivos) foi preservado 1:1 do legado;
+// apenas a casca visual foi adaptada para a identidade do site novo.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+type Publicacao = {
+  titulo: string;
+  texto: string;
+  img: string;
+  arquivo?: string;
+  linkExterno?: string;
+};
+
+const divulgacaoCientifica: Publicacao[] = [
+  {
+    titulo: "Relatório Pesquisa de Percepção Socioambiental 2024",
+    texto:
+      "A Pesquisa de Percepção Socioambiental foi organizada pelo CEMAVE/ICMBio e Observatório de Aves da Mantiqueira e realizada com apoio do Parque das Aves, Rima Editora e Instituto Claravis, e com colaboração de diversos parceiros para o Plano de Ação Nacional para Conservação das Aves da Mata Atlântica. A pesquisa tem como objetivo amostrar o que as pessoas pensam e conhecem sobre as principais ameaças à conservação de aves da Mata Atlântica. Neste relatório você encontra as informações completas sobre a pesquisa e seus resultados.",
+    img: "relatorio_percepcao.png",
+    arquivo: "OAMa_relatorio_percepcao.pdf",
+  },
+  {
+    titulo: "Cartilha: Colisões de Aves com Vidros",
+    texto:
+      "Cartilha informativa acerca do impacto que estruturas de vidro têm em aves. Nesse material você aprenderá por que os vidros são tão prejudiciais às aves, quais fatores aumentam os riscos de acidentes, o que pode ser feito depois que uma ave colide com vidro e quais são as soluções para reduzir esse impacto. No verso da cartilha, encontra-se um pôster com orientações.",
+    img: "cartilha_colisao.png",
+    arquivo: "Cartilha Colisão com vidro.pdf",
+  },
+  {
+    titulo: "Cartilha: Guarda Responsável de Pets",
+    texto:
+      "Cartilha informativa sobre como ser um bom tutor para o seu gato ou cachorro. Neste material você entenderá o que significa uma guarda responsável; as consequências de uma guarda ruim, tanto para animais domésticos, como para os animais silvestres; e quais ações pró-aves você pode aderir para minimizar esses impactos dos pets na biodiversidade.",
+    img: "cartilha_pet.png",
+    arquivo: "Cartilha Guarda Responsável de Pets.pdf",
+  },
+  {
+    titulo: "Pôster: Colisões de Aves com Vidros",
+    texto:
+      "Cartilha informativa acerca do impacto que estruturas de vidro têm em aves. Nesse material você aprenderá por que os vidros são tão prejudiciais às aves, quais fatores aumentam os riscos de acidentes, o que pode ser feito depois que uma ave colide com vidro e quais são as soluções para reduzir esse impacto. No verso da cartilha, encontra-se um pôster com orientações.",
+    img: "poster_colisao.png",
+    arquivo: "Pôster da Cartilha Colisão com vidro.pdf",
+  },
+  {
+    titulo: "Pôster: Guarda Responsável de Pets",
+    texto:
+      "Cartilha informativa sobre como ser um bom tutor para o seu gato ou cachorro. Neste material você entenderá o que significa uma guarda responsável; as consequências de uma guarda ruim, tanto para animais domésticos, como para os animais silvestres; e quais ações pró-aves você pode aderir para minimizar esses impactos dos pets na biodiversidade.",
+    img: "poster_pet.png",
+    arquivo: "Pôster da Cartilha Guarda Responsável de Pets.pdf",
+  },
+  {
+    titulo: "Impressão - Cartilha: Colisões de Aves com Vidros",
+    texto:
+      "[Arquivo para impressão] Cartilha informativa acerca do impacto que estruturas de vidro têm em aves. Nesse material você aprenderá por que os vidros são tão prejudiciais às aves, quais fatores aumentam os riscos de acidentes, o que pode ser feito depois que uma ave colide com vidro e quais são as soluções para reduzir esse impacto. No verso da cartilha, encontra-se um pôster com orientações.",
+    img: "Mockup cartilha colisao.png",
+    arquivo: "Cartilha-Colisão-com vidro-OAMa.pdf",
+  },
+  {
+    titulo: "Impressão - Cartilha: Guarda Responsável de Pets",
+    texto:
+      "[Arquivo para impressão] Cartilha informativa sobre como ser um bom tutor para o seu gato ou cachorro. Neste material você entenderá o que significa uma guarda responsável; as consequências de uma guarda ruim, tanto para animais domésticos, como para os animais silvestres; e quais ações pró-aves você pode aderir para minimizar esses impactos dos pets na biodiversidade.",
+    img: "mockup cartilha pets.jpg",
+    arquivo: "Cartilha Guarda Responsável de Pets - Ações Pró-Aves.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Engaiolamento",
+    texto:
+      "Panfleto informativo sobre os efeitos do engaiolamento nos indíviduos e populações de aves.",
+    img: "mockup folder tráfico.png",
+    arquivo: "(LEITURA) Folder Tráfico.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Animais Domésticos",
+    texto:
+      "Panfleto informativo sobre como aliar a criação de pets com o bem estar das aves.",
+    img: "mockup folder pets.png",
+    arquivo: "(LEITURA) Folder Pets.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Poluição Luminosa",
+    texto:
+      "Panfleto informativo sobre como mitigar os efeitos da poluição luminosa nas aves.",
+    img: "mockup folder luminosa.png",
+    arquivo: "(LEITURA) Folder Luminosa.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Poluição Sonora",
+    texto:
+      "Panfleto informativo sobre como mitigar os efeitos da poluição sonora nas aves.",
+    img: "mockup folder sonora.png",
+    arquivo: "(LEITURA) Folder Sonora.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Comedouros",
+    texto: "Panfleto informativo sobre como montar comedouros para as aves.",
+    img: "mockup folder comedouro.png",
+    arquivo: "(LEITURA) Folder Comedouros.pdf",
+  },
+  {
+    titulo: "Campanha pró-aves: Colisão com Vidros",
+    texto: "Panfleto informativo sobre como mitigar as colisões com vidros.",
+    img: "mockup folder colisão.png",
+    arquivo: "(LEITURA) Folder Colisão.pdf",
+  },
+  {
+    titulo: "Adesivo anti-colisão",
+    texto:
+      "Adesivos circulares anti colisão de aves para impressão em folha A3, vinil branco fosco. Instruções de aplicação na página Ações Pró-Aves.",
+    img: "adesivo.jpg",
+    arquivo: "adesivos.pdf",
+  },
+  {
+    titulo: "Guia de Aves de Visconde de Mauá e região",
+    texto:
+      "Guia dobrável de aves da região de Visconde de Mauá. Esse material de estímulo ao ecoturismo oferece um olhar introdutório à riqueza da avifauna local e os melhores lugares para passarinhar, como a Estação de Pesquisa OAMa, na RPPN Fazenda Alto da Boa Vista, no Vale das Flores, em Bocaina de Minas/MG.",
+    img: "icone_guia.png",
+    arquivo: "Guia de Aves de Visconde de Mauá e região.pdf",
+  },
+  {
+    titulo: "Banner Conheça a Palmeira-juçara",
+    texto:
+      "Banner sobre a palmeira-juçara, espécie exclusiva da Mata Atlântica e vulnerável à extinção. Neste material, parte da campanha Jacuçara, você aprenderá como identificar a juçara, curiosidades sobre sua ecologia, quais as principais ameaças à espécie e o que pode ser feito pela sua conservação.",
+    img: "icone_jucara.png",
+    arquivo: "Banner Infográfico Conheça a palmeira-juçara.pdf",
+  },
+  {
+    titulo: "Banner Conheça a Jacutinga",
+    texto:
+      "Banner sobre a jacutinga, espécie de ave exclusiva da Mata Atlântica e em perigo de extinção. Neste material, parte da campanha Jacuçara, você aprenderá como identificar a jacutinga, curiosidades sobre sua ecologia, quais as principais ameaças à espécie e o que está sendo feito pela sua conservação.",
+    img: "icone_jacutinga.png",
+    arquivo: "Banner Infográfico Conheça a jacutinga.pdf",
+  },
+  {
+    titulo: "Banner Impacto dos Pets em Animais Silvestres",
+    texto:
+      "Banners sobre o impacto que pets têm em animais silvestres, como as aves. Nestes materiais, parte do Programa Ações-Pró-Aves, você compreenderá a escala e os desdobramentos desse problema mundial, e como os tutores podem atuar para garantir uma vida mais segura e saudável para cães, gatos e para a fauna silvestre.",
+    img: "icone_pets.png",
+    arquivo: "Banner - O impacto dos pets - Campanha Ações Pró-Aves.pdf",
+  },
+  {
+    titulo: "Livreto Bird Friendly Coalition",
+    texto: "Livreto informativo sobre a iniciativa Bird Friendly Coalition.",
+    img: "birdF.jpg",
+    arquivo: "BF Coalition Brochure Traduzido.pdf",
+  },
+  {
+    titulo: "Ornitologia pra todo dia - conhecendo as aves",
+    texto:
+      "Livreto para pequenos e grandes curiosos, com muita informação, curiosidades e atividades sobre aves, ciência e conservação. Para divertir, informar e entreter.",
+    img: "livreto_Curriculo_OAMA.jpg",
+    arquivo: "ornito_todo_dia_OAMa.pdf",
+  },
+  {
+    titulo: "Livreto de colorir - Aves ameaçadas da Mata Atlântica",
+    texto:
+      "A Mata Atlântica tem uma rica diversidade de aves, e muitas espécies ocorrem exclusivamente neste bioma, e em nenhum outro lugar no mundo! Mas devido principalmente perda de habitat, caça e tráfico ilegal de animais silvestres, muitas destas espécies estão hoje ameaçadas de extinção. Para buscar estratégias e ações para proteger essas espécies existe o Plano de Ação Nacional (PAN) de aves da Mata Atlântica. Esse livrinho é o resultado de uma ação do PAN para dialogarmos mais com a sociedade sobre a existência de espécies ameaçadas. Se quisermos proteger as espécies, é importante que a sociedade conheça tanto as espécies como suas ameaças.",
+    img: "mockup_livro_colorir_OAMa3.jpg",
+    arquivo: "Oama_Livreto_Colorir_AvesAmeaçadas.pdf",
+  },
+  {
+    titulo: "Folder sobre Uso e Conservação da Palmeira Juçara",
+    texto:
+      "Material de comunicação com a sociedade para dialogar sobre o impacto que gatos domésticos soltos têm nas populações de aves silvestres. Além de introduzir um pouco sobre esse grande problema, recomendamos algumas pequenas ações que cada um pode fazer para realizar uma guarda responsável do pet e mitigar os impactos negativos às aves. Bom para os humanos, bom para os gatos e bom para as aves!",
+    img: "Imagem capa - folder juçara.png",
+    arquivo: "informativo de distribuição - Juçara.pdf",
+  },
+  {
+    titulo: "Curta-documentário 'Juçara - Consumo e Conservação'",
+    texto:
+      "Essa produção abre o diálogo com a sociedade sobre a importância da palmeira juçara para a conservação da Mata Atlântica. Através de curtas entrevistas com pesquisadores, agricultores extrativistas e observadores de aves, passamos por diferentes pontos de vista e relações com a juçara. Além de apresentar a juçara, expomos sobre a relação de consumo e conservação. Documentário elaborado pelo OAMa em colaboração com o PAN Aves da Mata Atlântica, produzido por Contemplar Films e com apoio do CRBio-04.",
+    img: "Juçara consumo e conservação.png",
+    linkExterno: "https://www.youtube.com/watch?v=FtL8dOPeu6U",
+  },
+];
+
+const institucional: Publicacao[] = [
+  {
+    titulo: "Relatório Anual 2025",
+    texto:
+      "Relatório oficial de atividades, finanças e tudo mais relacionado ao funcionamento do OAMa em 2025.",
+    img: "relatorio_2025.png",
+    arquivo: "Relatório Anual 2025 - OAMa PTBR.pdf",
+  },
+  {
+    titulo: "2025 Annual Report - English Version",
+    texto:
+      "Official report of activities, finances, and everything related to the operation of OAMa in 2025.",
+    img: "mockup_annual_report_2025.png",
+    arquivo: "2025 Annual Report - OAMa EN.pdf",
+  },
+  {
+    titulo: "Relatório Atividades Pró-Aves 2025",
+    texto:
+      "Aqui você confere as atividades realizadas, os produtos elaborados, resultados alcançados e orçamento realizado para a execução do Programa Pró-Aves de 2025.",
+    img: "pro_aves_2025.jpg",
+    arquivo: "relatorioProAves2025.pdf",
+  },
+  {
+    titulo: "2024 Annual Report - English Version",
+    texto:
+      "Official report of activities, finances, and everything related to the operation of OAMa in 2024.",
+    img: "mockup_annual_report_2024.png",
+    arquivo: "2024 Annual Report - OAMa EN.pdf",
+  },
+  {
+    titulo: "Relatório Atividades Pró-Aves 2024",
+    texto:
+      "Aqui você confere as atividades realizadas, os produtos elaborados, resultados alcançados e orçamento realizado para a execução do Programa Pró-Aves de 2024.",
+    img: "pro_aves_2024.png",
+    arquivo: "Relatório Ações Pró-Aves 2024.pdf",
+  },
+  {
+    titulo: "Relatório Anual 2024",
+    texto:
+      "Relatório oficial de atividades, finanças e tudo mais relacionado ao funcionamento do OAMa em 2024.",
+    img: "relatorio_2024.png",
+    arquivo: "Relatório Anual 2024 - OAMa PTBR.pdf",
+  },
+  {
+    titulo: "2023 Annual Report - English Version",
+    texto:
+      "Official report of activities, finances, and everything related to the operation of OAMa in 2023.",
+    img: "mockup_annual_report_2023.png",
+    arquivo: "2023 Annual Report - OAMa EN.pdf",
+  },
+  {
+    titulo: "Relatório Anual 2023",
+    texto:
+      "Relatório oficial de atividades, finanças e tudo mais relacionado ao funcionamento do OAMa em 2023.",
+    img: "mockup relatório anual 2023.png",
+    arquivo: "OAMarelatorioAnual2023.pdf",
+  },
+  {
+    titulo: "Relatório Atividades Pró-Aves 2023",
+    texto:
+      "Aqui você confere as atividades realizadas, os produtos elaborados, resultados alcançados e orçamento realizado para a execução do Programa Pró-Aves de 2023.",
+    img: "mockup pró-aves 2023.png",
+    arquivo: "relatorioProAves2023.pdf",
+  },
+  {
+    titulo: "2022 Annual Report - English Version",
+    texto:
+      "Official report of activities, finances, and everything related to the operation of OAMa in 2022.",
+    img: "mockup_annual_report_2022.png",
+    arquivo: "2022Report.pdf",
+  },
+  {
+    titulo: "Relatório Anual 2022",
+    texto:
+      "Relatório oficial de atividades, finanças e tudo mais relacionado ao funcionamento do OAMa em 2022.",
+    img: "mockup relatório anual 2022.png",
+    arquivo: "Relatório_Anual_2022.pdf",
+  },
+  {
+    titulo: "Portfólio OAMa",
+    texto:
+      "Material institucional, uma apresentação expandida sobre a organização, seus propósitos e razões de ser. O portfólio do OAMa é um material de comunicação para qualquer um que queira conhecer mais sobre nossas iniciativas, incluindo potenciais apoiadores da causa.",
+    img: "portfolio.png",
+    arquivo: "Portfolio_OAMa.pdf",
+  },
+  {
+    titulo: "Folder",
+    texto:
+      "Esse é nosso “cartão de visita”, um material informativo para apresentar o Observatório de Aves da Mantiqueira para quem ainda não nos conhece.",
+    img: "_MOCKUP_Folder_Oama_2021.jpg",
+    arquivo: "Folder_Oama.pdf",
+  },
+  {
+    titulo: "Relatório Anual 2021",
+    texto:
+      "Relatório oficial de atividades, finanças e tudo mais relacionado ao funcionamento do OAMa em 2021.",
+    img: "relatorio_anual_oama_2021.png",
+    arquivo: "Relatório Anual 2021.pdf",
+  },
+];
+
+const academico: Publicacao[] = [
+  {
+    titulo:
+      "Palestra 'Observatórios de aves: conectando ciência, conservação e pessoas'",
+    texto:
+      "Apresentação sobre o papel dos observatórios de aves na conexão entre ciência, educação e conservação. Elaborada e apresentada por Luiza Figueira para Avistar 2018.",
+    img: "Mockup apresentação OAMa - Avistar 2018 lfr.png",
+    arquivo: "aud02_18-sex_11h00_luiza_figueira.pdf",
+  },
+  {
+    titulo: "Palestra 'Mudar para quê? Uma introdução ao mundo da muda das penas'",
+    texto:
+      "Apresentação sobre o papel dos observatórios de aves na conexão entre ciência, educação e conservação. Elaborada e apresentada por Luiza Figueira para Avistar 2018.",
+    img: "Mockup apresentação OAMa - Avistar 2019 pvm.png",
+    arquivo: "18_A2_10h00_221_Pedro_Martins.pdf",
+  },
+  {
+    titulo: "Palestra 'Observação de aves: ciência, educação e conservação'",
+    texto:
+      "Apresentação sobre como a atividade de observar aves pode promover a conservação das espécies através da ciência cidadã e da educação e sensibilização ambiental. Elaborada e apresentada por Luiza Figueira para Avistar 2019.",
+    img: "Mockup apresentação OAMa - Avistar 2019 lfr.png",
+    arquivo: "LFR_avistar2019.pdf",
+  },
+  {
+    titulo: "Palestra 'Ciclo de muda e determinação de idade em aves'",
+    texto:
+      "Trabalho sobre a importância do conhecimento sobre muda de aves dentro da ornitologia apresentado por Luiza Figueira no XXVI Congresso Brasileiro de Ornitologia, 2019.",
+    img: "Mockup apresentação OAMa - CBO 2019 lfr.png",
+    arquivo: "CBO2019LFRfinal.pdf",
+  },
+  {
+    titulo:
+      "Palestra 'Movimentos migratórios de aves no Brasil identificados através de ciência cidadã'",
+    texto:
+      "Estudo em desenvolvimento usando dados de e-bird para a detecção de sobre movimentos migratórios de aves do Brasil. Apresentação elaborada e apresentada por Pedro Martins no XXVI Congresso Brasileiro de Ornitologia, 2019.",
+    img: "Mockup apresentação OAMa - CBO 2019 pvm.png",
+    arquivo: "CBO2019_PedroMartins_semAnim.pdf",
+  },
+  {
+    titulo: "Palestra 'Determinação de idade em aves brasileiras'",
+    texto:
+      "Estudo em desenvolvimento usando dados de e-bird para a detecção de sobre movimentos migratórios de aves do Brasil. Apresentação elaborada e apresentada por Pedro Martins no XXVI Congresso Brasileiro de Ornitologia, 2019.",
+    img: "Mockup apresentação OAMa - CBO 2021 pvm.png",
+    arquivo: "Determinação de idade em aves brasileiras.pdf",
+  },
+  {
+    titulo:
+      "Pôster 'Padrões e tendências sobre o conhecimento atual da avifauna na Serra da Mantiqueira, sudeste do Brasil'",
+    texto:
+      "Trabalho apresentado por Affonso Souza no XXVII Congresso Brasileiro de Ornitologia, 2021.",
+    img: "Poster CBO2021 ahs.png",
+    linkExterno: "https://youtu.be/_Qmz-0XjUQo",
+  },
+  {
+    titulo: "Palestra 'O que são observatórios de aves'",
+    texto:
+      "Trabalho apresentado por Luiza Figueira como abertura do simpósio sobre Observatórios de Aves no XXVII Congresso Brasileiro de Ornitologia, 2021. O simpósio foi coordenado por Luiza e tratou sobre as diferentes frentes de ação dos observatórios de aves, com apresentações sobre o monitoramento de avifauna de longo-prazo no Brasil, ações de educação e sensibilização ambiental, a pesquisa realizada por observatórios de aves, modelos de observatórios de aves, e ações de ponte com a sociedade.",
+    img: "Mockup apresentação OAMa - CBO 2021 lfr.png",
+    arquivo: "O que são Observatórios de Aves - CBO2021(1).pdf",
+  },
+];
+
+// Monta a URL final do card, codificando acentos/espaços dos nomes de arquivo.
+const urlDoItem = (item: Publicacao) =>
+  item.linkExterno ?? `/publicacoes/files/${encodeURIComponent(item.arquivo ?? "")}`;
+
+const urlDaImagem = (item: Publicacao) =>
+  `/publicacoes/img/${encodeURIComponent(item.img)}`;
+
+const secoes = [
+  {
+    id: "divulgacao-cientifica",
+    titulo: "Divulgação Científica",
+    descricao:
+      "Cartilhas, pôsteres, banners, livretos e folders produzidos pelo OAMa para levar ciência e conservação até você.",
+    itens: divulgacaoCientifica,
+    fundo: "#fbf5e6",
+    corTexto: "#1e1702",
+  },
+  {
+    id: "institucional",
+    titulo: "Institucional",
+    descricao:
+      "Relatórios anuais, relatórios de programas e materiais de apresentação do Observatório de Aves da Mantiqueira.",
+    itens: institucional,
+    fundo: "#5ba4d9",
+    corTexto: "#ffffff",
+  },
+  {
+    id: "academico",
+    titulo: "Acadêmico",
+    descricao:
+      "Palestras e pôsteres apresentados pela equipe OAMa em congressos e encontros científicos.",
+    itens: academico,
+    fundo: "#fbf5e6",
+    corTexto: "#1e1702",
+  },
+];
+---
+
+<BaseLayout title="Arquivos e Downloads — OAMa">
+  <main class="font-montserrat text-[#1e1702]">
+    <!-- HERO -->
+    <section class="relative h-[380px] w-full overflow-hidden md:h-[460px]">
+      <img
+        src="/midias/realizacoes/downloads.jpg"
+        alt="Materiais para download do OAMa"
+        class="absolute inset-0 h-full w-full object-cover object-[50%_45%]"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-6 pb-10 md:pb-14">
+        <h1 class="text-center font-oswald text-[36px] font-bold uppercase leading-none text-white drop-shadow-md md:text-[58px]">
+          Arquivos e Downloads
+        </h1>
+        <div class="mt-4 h-[6px] w-40 rounded-full bg-[#e9b130] md:w-64"></div>
+      </div>
+    </section>
+
+    <!-- Introdução + atalhos para as seções -->
+    <section class="bg-[#e9b130]">
+      <div class="mx-auto max-w-5xl px-7 py-10 md:px-12 md:py-12">
+        <p class="mx-auto max-w-3xl text-center text-[17px] leading-[27px] text-[#1e1702] md:text-[18px]">
+          Todo o material produzido pelo OAMa está disponível aqui, de graça, para leitura,
+          impressão e compartilhamento. Escolha uma categoria abaixo e baixe o que quiser.
+        </p>
+        <nav class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          {
+            secoes.map((secao) => (
+              <a
+                href={`#${secao.id}`}
+                class="rounded-full border-2 border-[#1e1702] bg-[#fbf5e6] px-5 py-2 font-montserrat text-[13px] font-extrabold uppercase tracking-[0.04em] text-[#1e1702] transition hover:bg-[#1e1702] hover:text-[#fbf5e6]"
+              >
+                {secao.titulo}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </section>
+
+    {
+      secoes.map((secao) => (
+        <section id={secao.id} class="scroll-mt-24" style={`background: ${secao.fundo};`}>
+          <div class="mx-auto max-w-6xl px-7 py-14 md:px-12 md:py-20">
+            <h2
+              class="text-center font-oswald text-[30px] font-bold uppercase leading-tight md:text-[44px]"
+              style={`color: ${secao.corTexto};`}
+            >
+              {secao.titulo}
+            </h2>
+            <p
+              class="mx-auto mt-3 max-w-2xl text-center text-[16px] leading-[26px] md:text-[17px]"
+              style={`color: ${secao.corTexto};`}
+            >
+              {secao.descricao}
+            </p>
+
+            <div class="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+              {secao.itens.map((item) => (
+                <a
+                  href={urlDoItem(item)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-analytics-event="content_download_click"
+                  data-analytics-label={item.titulo}
+                  data-analytics-location="downloads_grid"
+                  class="group flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1a2e4a]"
+                >
+                  <img
+                    src={urlDaImagem(item)}
+                    alt={item.titulo}
+                    class="h-[210px] w-full bg-[#fbf5e6] object-contain"
+                    loading="lazy"
+                  />
+                  <div class="flex flex-1 flex-col px-6 py-5">
+                    <h3 class="font-montserrat text-[17px] font-extrabold leading-[24px] text-[#111111]">
+                      {item.titulo}
+                    </h3>
+                    <p class="mt-3 text-[15px] leading-[24px] text-[#333333]">{item.texto}</p>
+                    <span class="mt-5 inline-flex items-center gap-2 font-montserrat text-[13px] font-extrabold uppercase tracking-[0.04em] text-[#1a2e4a]">
+                      {item.linkExterno ? "Assistir" : "Baixar arquivo"}
+                      <span aria-hidden="true" class="transition group-hover:translate-x-1">
+                        &rarr;
+                      </span>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))
+    }
+
+    <WaveDark
+      topColor="#fbf5e6"
+      bottomColor="#5ba4d9"
+      path1Color="#1e1702"
+      path2Color="#fbf5e6"
+    />
+  </main>
+</BaseLayout>

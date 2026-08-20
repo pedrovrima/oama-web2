@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WaveDark from "../../components/sections/WaveDark.astro";
+import { getBlogPosts, urlFor } from "../../utils/sanity";
+import { portableTextToHtml } from "../../utils/portableText";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: any };
+
+const corpoHtml = portableTextToHtml(post.body);
+
+const dataFormatada = post.publishedAt
+  ? new Date(post.publishedAt).toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    })
+  : "";
+---
+
+<BaseLayout title={`${post.title} — Blog OAMa`}>
+  <main class="font-montserrat text-oama-ink">
+    <section class="relative h-[380px] w-full overflow-hidden md:h-[480px]">
+      {
+        post.mainImage ? (
+          <img
+            src={urlFor(post.mainImage).width(1800).height(900).fit("crop").auto("format").url()}
+            alt={post.title}
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+          />
+        ) : (
+          <div class="absolute inset-0 bg-[#5ba4d9]" />
+        )
+      }
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-6 pb-8 md:pb-14">
+        <h1
+          class="max-w-[880px] text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-white drop-shadow-md md:text-[48px] md:leading-[54px]"
+        >
+          {post.title}
+        </h1>
+      </div>
+    </section>
+
+    <section class="bg-oama-cream">
+      <article class="mx-auto max-w-[760px] px-7 py-12 md:px-8 md:py-16">
+        <header class="border-b border-[#1e1702]/15 pb-6">
+          <div class="flex flex-wrap items-center gap-3">
+            {
+              post.author?.image && (
+                <img
+                  src={urlFor(post.author.image).width(96).height(96).fit("crop").auto("format").url()}
+                  alt={`Foto de ${post.author?.name ?? "autor"}`}
+                  class="h-12 w-12 rounded-full object-cover"
+                  loading="lazy"
+                />
+              )
+            }
+            <div>
+              {
+                post.author?.name && (
+                  <p class="text-[16px] font-bold leading-[22px] text-[#1e1702]">
+                    {post.author.name}
+                  </p>
+                )
+              }
+              {
+                dataFormatada && (
+                  <p class="text-[14px] leading-[20px] text-[#1e1702]/70">{dataFormatada}</p>
+                )
+              }
+            </div>
+          </div>
+        </header>
+
+        <div class="blog-corpo" set:html={corpoHtml} />
+
+        <footer class="mt-12 border-t border-[#1e1702]/15 pt-6">
+          <a
+            href="/blog"
+            class="inline-block font-montserrat text-[14px] font-bold uppercase tracking-[0.06em] text-[#8a6a12] underline decoration-[#e9b130] decoration-2 underline-offset-4"
+          >
+            ← Voltar para o blog
+          </a>
+        </footer>
+      </article>
+    </section>
+
+    <WaveDark
+      topColor="#fbf5e6"
+      bottomColor="#5ba4d9"
+      path1Color="#1e1702"
+      path2Color="#dfb553"
+    />
+  </main>
+</BaseLayout>

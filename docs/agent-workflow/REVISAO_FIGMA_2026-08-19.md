@@ -152,3 +152,76 @@ filhas (via `ConsultoriaServico.astro`), `fundraising-field-trip`,
   card 1 trocados em projetos-de-pesquisa.
 - Carrossel de fotos grandes em `monitoramento-de-avifauna` (o frame tem, a
   implementação não).
+
+## Auditoria de contraste (2026-08-20, medida no navegador)
+
+Medição real de WCAG por nó de texto contra o fundo efetivo (não heurística de
+classe CSS). A maioria dos "reprovados" é **falso positivo**: texto branco sobre
+foto de hero, que o medidor não consegue avaliar. Conferidos visualmente um a um.
+
+**Achado real e global:** o CTA "Nos Ajude a Construir Pontes" / "Assine a
+Newsletter" usa branco sobre o azul `#5ba4d9` → contraste **2,71**.
+- títulos (30–40px, bold): exigido 3,0 → reprovado por pouco
+- corpo e botões (18px): exigido 4,5 → reprovado com folga
+- afeta **todas as páginas** (o CTA é global)
+
+As duas saídas divergem do Figma, então isto é **decisão do usuário**:
+1. escurecer o azul do CTA (ex.: `#2c6e9b` atinge 4,5 com branco) — muda a
+   identidade visual em todas as páginas;
+2. manter o azul e passar o texto para tinta escura `#1e1702` — resolve a
+   legibilidade preservando a cor, mas o Figma desenha o texto em branco.
+
+Não foi alterado unilateralmente por mexer na identidade aprovada do cliente.
+
+**Verificado e OK:** zero imagens sem `alt` em todo o `src/`.
+
+## Lote 3 — 2026-08-20, executado com 5 subagentes em paralelo
+
+Por diretiva do usuário ("faça todas as correções encontradas e óbvias, mesmo as
+que eu não aprovei"). Arquivos disjuntos por agente; revisão e QA final do
+orquestrador.
+
+**Migrações do legado (as 2 rotas que o site novo referenciava)**
+- **`/downloads`** — 45 cards (23 Divulgação Científica, 14 Institucional,
+  8 Acadêmico), 43 PDFs locais + 2 vídeos do YouTube. Assets copiados do legado:
+  `public/publicacoes/img/` 0 → 57 e `files/` 14 → 63. Os 43 PDFs e as 45 capas
+  foram testados por HTTP: todos 200.
+- **`/blog`** — listagem + post individual, direto do Sanity (`1tnejkhf`,
+  `_type: "blog"`), **o mesmo projeto que este repo já usava**. 2 posts reais.
+  Renderizador de Portable Text escrito à mão, sem nova dependência.
+- `/realizacoes` deixou de apontar para `oama.eco.br`: agora `/downloads`,
+  `/downloads#academico` e `/blog`.
+
+**Fale Conosco nas 3 filhas de consultoria** — implementado (o frame mobile
+mostra o formulário no fim). Campos do Figma, botão "Enviar", mesmo
+comportamento `mailto:` do hub, sem reCAPTCHA e sem texto placeholder.
+Nos pills o texto ficou em tinta escura, não branco: branco sobre amarelo é
+ilegível (é o mesmo defeito corrigido no lote 1).
+
+**Outros**
+- Filhas de consultoria: "Diferenciais" ganha faixa amarela própria no mobile.
+- Footer: os 6 ícones sociais padronizados em glifo sólido, mesmo viewBox e peso.
+  Destinos preservados. (Sem referência no Figma — decisão de consistência.)
+- `monitoramento-de-avifauna`: carrossel full-bleed de 3 fotos.
+- `/realizacoes`: hero reenquadrado (`object-position 35%`), mostrando ave e
+  galho inteiros. Reduzir a altura pioraria o corte — a foto é 3:2.
+- `/sobre`: os 9 PDFs de relatório passaram a ser servidos **localmente**;
+  o site não depende mais do domínio antigo para eles.
+- `/consultoria/cursos`: o item do curso presencial ficou sem foto, porque a
+  que estava lá era a mesma do hero (md5 idêntico).
+
+**Verificação final** (build limpo, sem concorrência): 27 páginas.
+Nas 24 rotas públicas, desktop 1440 e mobile 390: **0 imagens quebradas,
+0 overflow horizontal, 0 links internos quebrados, 0 assets faltando,
+0 `href="#"`, 0 aspas curvas em atributo.**
+
+### Achados que ficam registrados
+- O erro de build `Cannot find module dist/renderers.mjs` relatado pelos agentes
+  era **corrida entre builds concorrentes** no mesmo `dist/`, não defeito do
+  código. Com `dist` limpo e um build por vez, passa.
+- `_type: "blog"` (e `author`, `imageWithAlt`) **não têm schema** em
+  `src/sanity/schemaTypes/`: os posts existem no dataset mas não são editáveis
+  pelo Studio em `/admin`. Portar os schemas é task separada.
+- `/blog/old/[slug]` do legado (posts em markdown) não foi migrado.
+- Em `monitoramento-de-avifauna` as 3 fotos do carrossel são as mesmas da faixa
+  de imagens no fim da página — decidir se a faixa sai.

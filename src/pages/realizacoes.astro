@@ -9,7 +9,7 @@ const realizacoes = [
     descricao: "Baixe livros, cartilhas, pôsteres ilustrados, adesivos anti colisão e muito mais",
     imagem: "/midias/realizacoes/downloads.jpg",
     alt: "Material para download do OAMa",
-    href: "https://www.oama.eco.br/downloads",
+    href: "/downloads",
   },
   {
     id: "documentarios",
@@ -33,7 +33,8 @@ const realizacoes = [
     descricao: "Um blog para compartilhar e aproximar a ciência de você",
     imagem: "/midias/realizacoes/divulgacao-cientifica.jpg",
     alt: "Divulgação científica do OAMa",
-    href: "https://www.oama.eco.br/blog",
+    // Blog migrado do site antigo para este repo (rota interna /blog).
+    href: "/blog",
   },
   {
     id: "textos-academicos",
@@ -41,7 +42,7 @@ const realizacoes = [
     descricao: "Leia artigos e resumos científicos de pesquisas lideradas pela equipe OAMa",
     imagem: "/midias/realizacoes/textos-academicos.jpg",
     alt: "Textos acadêmicos e artigos científicos do OAMa",
-    href: "https://www.oama.eco.br/downloads",
+    href: "/downloads#academico",
   },
 ];
 ---
@@ -49,13 +50,14 @@ const realizacoes = [
 <BaseLayout title="Realizações — OAMa">
   <main class="font-montserrat text-[#1e1702]">
     {/* HERO — enquadramento mais aberto, como no frame do Figma (2581:454):
-        a ave e o galho aparecem inteiros. Altura menor e object-position
-        deslocado para o topo evitam o corte da cabeça e da cauda. */}
-    <section class="relative h-[520px] w-full overflow-hidden md:h-[620px]">
+        a ave e o galho aparecem inteiros. Com object-cover a 1440px a foto
+        (3:2) rende 960px de altura, então manter a seção em 720px e deslocar
+        o object-position para 35% mostra a ave da cabeça à cauda sem corte. */}
+    <section class="relative h-[520px] w-full overflow-hidden md:h-[720px]">
       <img
         src="/midias/realizacoes/capa-realizacoes.jpg"
         alt="Realizações do OAMa"
-        class="absolute inset-0 h-full w-full object-cover object-[50%_20%]"
+        class="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
         loading="eager"
       />
       <div class="absolute inset-0 bg-black/10"></div>
@@ -95,8 +97,8 @@ const realizacoes = [
                   item.href && (
                     <a
                       href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={item.href.startsWith("/") ? undefined : "_blank"}
+                      rel={item.href.startsWith("/") ? undefined : "noopener noreferrer"}
                       aria-label={`Abrir ${item.titulo}`}
                       class="absolute inset-0 z-10 rounded-[24px] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1a2e4a] focus-visible:ring-inset"
                     >

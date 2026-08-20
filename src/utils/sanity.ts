@@ -65,3 +65,24 @@ export const MIDIA_ITEMS_QUERY = defineQuery(
 export async function getMidiaItems() {
   return sanityClient.fetch(MIDIA_ITEMS_QUERY);
 }
+
+/**
+ * Blog — os posts vivem no mesmo projeto Sanity (1tnejkhf) usado pelo site
+ * antigo em Next.js, sob o _type "blog". A migração do blog é só religar a
+ * consulta; o conteúdo já está publicado.
+ */
+export const BLOG_POSTS_QUERY = defineQuery(
+  `*[_type == "blog" && defined(slug.current)] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt,
+    mainImage,
+    body,
+    author->{ name, image }
+  }`
+);
+
+export async function getBlogPosts() {
+  return sanityClient.fetch(BLOG_POSTS_QUERY);
+}
