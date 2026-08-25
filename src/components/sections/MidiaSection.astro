@@ -2,25 +2,65 @@
 import { getMidiaItems, urlFor } from "../../utils/sanity";
 import CardSection from "./CardSection.astro";
 
-// Aparições do OAMa na mídia, informadas pelo OAMa. Ficam no código porque o
-// Sanity ainda não tem itens; quando tiver, os de lá têm prioridade.
-// PENDÊNCIA: falta o link de cada matéria — sem ele o card não vira link
-// (ver ContentCard). Os veículos vêm da própria arte enviada.
+// Aparições do OAMa na mídia, com título e link do documento oficial de redação
+// do site (Google Doc do cliente, seção "OAMa NA MÍDIA"). Ficam no código porque
+// o Sanity ainda não tem itens; quando tiver, os de lá têm prioridade.
+// As 3 primeiras têm arte enviada pelo OAMa; as demais ainda não.
 const MIDIA = [
-  {
-    image: "/midias/home/midia/colisao-aves-vidros.png",
-    label: "Repórter Eco",
-    title: "A colisão de aves em vidros",
-  },
   {
     image: "/midias/home/midia/campanha-escute-as-aves.png",
     label: "PAN Aves da Mata Atlântica",
     title: "Campanha “Escute as Aves” do PAN Aves da Mata Atlântica",
+    href: "https://www.youtube.com/watch?v=6UMyPnKaBWk",
+  },
+  {
+    image: "/midias/home/midia/colisao-aves-vidros.png",
+    label: "Repórter Eco",
+    title: "A colisão de aves em vidros",
+    href: "https://youtu.be/H5Hp-zX6yuA",
   },
   {
     image: "/midias/home/midia/observatorio-sexta-extincao.png",
     label: "Brasil Sustentável",
     title: "Observatório das aves e a 6ª extinção em massa",
+    href: "https://www.youtube.com/watch?v=sTvSLOHZduE",
+  },
+  {
+    image: undefined,
+    label: "Vídeo",
+    title: "PAF (Re)Floresta Água e Carbono: Encontro pelas Florestas e a Água",
+    href: "https://www.youtube.com/watch?v=dME4kmEfVdo",
+  },
+  {
+    image: undefined,
+    label: "Vídeo",
+    title:
+      "Percepções sobre conservação das aves e os desafios ambientais na Mata Atlântica",
+    href: "https://www.youtube.com/watch?v=xe8_IRyp-rs",
+  },
+  {
+    image: undefined,
+    label: "ICMBio",
+    title: "Novo website do programa Ações Pró-Aves",
+    href: "https://www.gov.br/icmbio/pt-br/assuntos/noticias/ultimas-noticias/novo-website-acoes-pro-aves201d-reune-informacoes-para-a-conservacao-das-aves-da-mata-atlantica",
+  },
+  {
+    image: undefined,
+    label: "G1 Terra da Gente",
+    title: "Programa Ações Pró-Aves reúne informações sobre colisão de aves em vidros",
+    href: "https://g1.globo.com/sp/campinas-regiao/terra-da-gente/noticia/2024/05/30/programa-de-conservacao-da-avifauna-reune-informacoes-sobre-colisao-de-aves-contra-vidros.ghtml",
+  },
+  {
+    image: undefined,
+    label: "G1 Terra da Gente",
+    title: "Captura de ave migratória do hemisfério norte surpreende equipe",
+    href: "https://g1.globo.com/sp/campinas-regiao/terra-da-gente/noticia/2024/03/13/viajante-de-longa-distancia-conheca-a-ave-que-surpreendeu-pesquisadores-da-serra-da-mantiqueira.ghtml",
+  },
+  {
+    image: undefined,
+    label: "G1 Sul do Rio",
+    title: "História de criação do OAMa, nossos projetos e formas de apoio",
+    href: "https://g1.globo.com/rj/sul-do-rio-costa-verde/noticia/2022/07/08/conheca-o-trabalho-de-amigos-que-criaram-um-observatorio-de-passaros-em-visconde-de-maua.ghtml",
   },
 ];
 
