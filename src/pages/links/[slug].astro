@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getLinkTrees, reescreverUrlLegado, urlFor } from "../../utils/sanity";
+
+export async function getStaticPaths() {
+  const linkTrees = await getLinkTrees();
+  return linkTrees.map((linkTree: any) => ({
+    params: { slug: linkTree.slug },
+    props: { linkTree },
+  }));
+}
+
+const { linkTree } = Astro.props as { linkTree: any };
+
+// Os links vivem no Sanity; aqui só reescrevemos URLs do domínio antigo que
+// têm equivalente comprovado neste site (ver reescreverUrlLegado).
+const links = (linkTree.links ?? [])
+  .filter((item: any) => item && item.title)
+  .map((item: any) => ({
+    ...item,
+    href: reescreverUrlLegado(item.url),
+  }));
+
+// Descrição vem do Sanity; sem ela, montamos uma frase a partir do título.
+// Buscadores cortam por volta de 160 caracteres, então encurtamos no espaço.
+const encurtar = (texto: string, max = 155) => {
+  if (texto.length <= max) return texto;
+  const corte = texto.slice(0, max);
+  const ultimoEspaco = corte.lastIndexOf(" ");
+  return `${(ultimoEspaco > 60 ? corte.slice(0, ultimoEspaco) : corte).trim()}…`;
+};
+
+const descricaoSanity = (linkTree.description ?? "").trim();
+const descricao = descricaoSanity
+  ? encurtar(descricaoSanity)
+  : `Links, materiais e canais de ${linkTree.title}, do Observatório de Aves da Mantiqueira, reunidos em uma única página.`;
+
+const imagemSocial = linkTree.headerImage
+  ? urlFor(linkTree.headerImage).width(1200).fit("max").auto("format").url()
+  : undefined;
+---
+
+<BaseLayout title={`${linkTree.title} — OAMa`} description={descricao} image={imagemSocial}>
+  <main class="min-h-screen bg-oama-cream font-montserrat text-oama-ink">
+    <div class="mx-auto w-full max-w-[560px] px-5 py-10 md:py-14">
+      <header class="mb-8 flex flex-col items-center text-center">
+        {
+          linkTree.headerImage && (
+            <img
+              src={urlFor(linkTree.headerImage).width(480).fit("max").auto("format").url()}
+              alt={`Imagem do programa ${linkTree.title}`}
+              class="mb-5 h-auto w-[190px] object-contain md:w-[220px]"
+              loading="eager"
+            />
+          )
+        }
+        <h1
+          class="font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[40px] md:leading-[46px]"
+        >
+          {linkTree.title}
+        </h1>
+        {
+          linkTree.description && (
+            <p class="mt-4 text-[15px] leading-[24px] text-oama-ink/80 md:text-[16px] md:leading-[26px]">
+              {linkTree.description}
+            </p>
+          )
+        }
+      </header>
+
+      <ul class="flex flex-col gap-4">
+        {
+          links.map((item: any) => (
+            <li>
+              <a
+                href={item.href}
+                target={item.href && item.href.startsWith("/") ? "_self" : "_blank"}
+                rel={item.href && item.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                class="flex min-h-[72px] w-full items-center gap-4 rounded-full border-2 border-oama-ink bg-white px-3 py-3 text-left shadow-[0_2px_0_0_#1e1702] transition-colors duration-200 hover:bg-oama-yellow focus-visible:bg-oama-yellow"
+              >
+                {item.image && (
+                  <img
+                    src={urlFor(item.image).width(120).height(120).fit("crop").auto("format").url()}
+                    alt={`Ícone do link ${item.title}`}
+                    class="h-[52px] w-[52px] shrink-0 rounded-full object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <span class="font-oswald text-[17px] font-medium uppercase leading-[22px] text-oama-ink md:text-[19px] md:leading-[24px]">
+                  {item.title}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</BaseLayout>

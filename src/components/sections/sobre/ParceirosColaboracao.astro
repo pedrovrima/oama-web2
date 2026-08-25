@@ -6,6 +6,10 @@ interface Parceiro {
 }
 
 // TODO: replace with Sanity query
+// Sem logo local, o componente cai no fallback de TEXTO (ver template abaixo).
+// Antes havia imagens de https://placehold.co — serviço externo de placeholder
+// que aparecia no site como retângulo cinza escrito o nome. Não há logo dessas
+// instituições na pasta de mídias do cliente.
 const parceiros: Parceiro[] = [
   { nome: "CEMAVE / ICMBio-MMA", site: "https://www.gov.br/icmbio", logo: "/midias/sobre/logo-cemave-icmbio.jpg" },
   { nome: "ICMBio / MMA", site: "https://www.icmbio.gov.br", logo: "/midias/sobre/logo-cemave-icmbio.jpg" },
@@ -15,9 +19,9 @@ const parceiros: Parceiro[] = [
   { nome: "Pedra Selada", site: "https://pedraselada.com.br", logo: "/midias/sobre/logo-pedra-selada.jpg" },
   { nome: "Alto Montana da Serra Fina", site: "https://altomontana.com.br", logo: "/midias/sobre/logo-alto-montana.jpg" },
   { nome: "Birds Atlantic", site: "https://birdsatlantic.org", logo: "/midias/sobre/logo-birds-atlantic.jpg" },
-  { nome: "Secretaria Municipal de Turismo de Resende", site: "https://resende.rj.gov.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=Turismo+Resende" },
+  { nome: "Secretaria Municipal de Turismo de Resende", site: "https://resende.rj.gov.br", logo: "" },
   { nome: "RiMa", site: "https://rima.org.br", logo: "/midias/sobre/logo-rima.jpg" },
-  { nome: "Observatório Ecológico", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=OE" },
+  { nome: "Observatório Ecológico", site: "", logo: "" },
   // Parceiros migrados do site antigo (pages/quem-somos/index.js, seção "Parcerias").
   // Logos do legado não estão em public/midias/sobre/ e esta task não pode alterar
   // outros arquivos, então entram sem logo (fallback de texto) com o destino real do legado.
@@ -31,13 +35,13 @@ const parceiros: Parceiro[] = [
 
 // TODO: replace with Sanity query
 const colaboracaoCientifica: Parceiro[] = [
-  { nome: "Laboratório de Biologia de Populações", site: "#", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
-  { nome: "Lab Ornitologia", site: "#", logo: "https://placehold.co/120x80/e8e8e8/666?text=Lab+Orni" },
-  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "#", logo: "/midias/sobre/logo-laboac.jpg" },
-  { nome: "LECAVE", site: "#", logo: "/midias/sobre/logo-lecave.jpg" },
+  { nome: "Laboratório de Biologia de Populações", site: "", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
+  { nome: "Lab Ornitologia", site: "", logo: "" },
+  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "", logo: "/midias/sobre/logo-laboac.jpg" },
+  { nome: "LECAVE", site: "", logo: "/midias/sobre/logo-lecave.jpg" },
   { nome: "UERJ", site: "https://www.uerj.br", logo: "/midias/sobre/logo-uerj.jpg" },
-  { nome: "Laboratório de Ornitologia — UFJF", site: "https://www.ufjf.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=UFJF" },
-  { nome: "Laboratório de Evolução e Caracteres Complexos — USP", site: "https://www.usp.br", logo: "https://placehold.co/120x80/e8e8e8/666?text=USP" },
+  { nome: "Laboratório de Ornitologia — UFJF", site: "https://www.ufjf.br", logo: "" },
+  { nome: "Laboratório de Evolução e Caracteres Complexos — USP", site: "https://www.usp.br", logo: "" },
 ];
 ---
 

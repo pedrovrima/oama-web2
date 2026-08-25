@@ -1,68 +1,161 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
+
+// Paleta amostrada do frame Figma Desktop_Jacuçara (2517:1052)
+const colors = {
+  purple: "#9b8ab6",
+  blue: "#5ba4d9",
+};
+
+// Carrossel full-bleed entre os dois blocos de texto (frame: foto dos cachos com setas)
+const galeria = [
+  {
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-2.jpg",
+    alt: "Cachos de frutos maduros de juçara (Euterpe edulis) em palmeira da Mata Atlântica",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-1.jpg",
+    alt: "Palmeira juçara em fragmento de Mata Atlântica",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-3.jpg",
+    alt: "Ação de campo da Campanha Jacuçara",
+  },
+];
 ---
 
-<BaseLayout title="Campanha Jacuçara — OAMa" navVariant="overlay">
+<BaseLayout
+  description="Campanha do OAMa pela conservação da jacutinga e da palmeira juçara, duas espécies ameaçadas da Mata Atlântica ligadas por uma teia de relações."
+  image="/midias/programas-e-projetos/jacucara-hero.jpg" title="Campanha Jacuçara — OAMa" navVariant="overlay">
   <main class="font-montserrat">
-    <!-- HERO full-bleed com overlay -->
-    <section class="relative min-h-[85vh] w-full overflow-hidden flex items-end">
+    {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/programas-e-projetos/jacucara-hero.jpg"
         alt="Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="relative z-10 w-full">
-        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
-          <h1
-            class="text-[32px] leading-[38px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
-          >
-            Campanha <br class="md:hidden" />Jacuçara
-          </h1>
-        </div>
-      </div>
     </section>
 
-    <!-- RELAÇÃO MUTUALÍSTICA (faixa branca com 2 colunas + foto) -->
-    <section class="bg-white w-full">
+    {/* FAIXA ROXA (frame: full-bleed #9b8ab6) — título + relação mutualística */}
+    <section class="w-full" style={`background:${colors.purple};`}>
       <div class="max-w-5xl mx-auto px-6 py-16">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
-            <p>
-              A campanha Jacuçara surgiu para <strong>divulgar a importância e
-              fortalecer a conservação de duas espécies-chave da Mata Atlântica,
-              que também estão ameaçadas de extinção: a jacutinga e a
-              juçara</strong>. Ambas as espécies existem em uma complexa teia de
-              relações ecológicas que as tornam dependentes uma da outra.
-            </p>
-            <p>
-              As jacutingas consomem os frutos da juçara e dispersam suas
-              sementes pela floresta, garantindo a germinação de novas plantas
-              geneticamente diversas e saudáveis, que, por sua vez, produzirão
-              mais frutos para essas aves e muitas outras espécies nativas que
-              dependem dessa fonte de alimento.
-            </p>
-          </div>
-          <div>
-            <img
-              src="/midias/programas-e-projetos/jacucara-galeria-2.jpg"
-              alt="Cachos de frutos maduros de juçara (Euterpe edulis) em palmeira da Mata Atlântica"
-              class="w-full h-auto rounded-lg shadow-md"
-              loading="lazy"
-            />
-          </div>
+        <h1
+          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[42px] md:leading-[48px]"
+        >
+          Campanha Jacuçara
+        </h1>
+        <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink text-justify">
+          <p>
+            A campanha Jacuçara surgiu para <strong>divulgar a importância e
+            fortalecer a conservação de duas espécies-chave da Mata Atlântica,
+            que também estão ameaçadas de extinção: a jacutinga e a
+            juçara</strong>. Ambas as espécies existem em uma complexa teia de
+            relações ecológicas que as tornam dependentes uma da outra.
+          </p>
+          <p>
+            As jacutingas consomem os frutos da juçara e dispersam suas
+            sementes pela floresta, garantindo a germinação de novas plantas
+            geneticamente diversas e saudáveis, que, por sua vez, produzirão
+            mais frutos para essas aves e muitas outras espécies nativas que
+            dependem dessa fonte de alimento.
+          </p>
         </div>
       </div>
     </section>
 
+    {/* CARROSSEL full-bleed (frame: foto dos cachos com setas ‹ ›) */}
+    <section class="relative w-full overflow-hidden" aria-label="Galeria da Campanha Jacuçara">
+      <div class="relative" data-jacucara-carousel>
+        {galeria.map((foto, i) => (
+          <img
+            src={foto.imagem}
+            alt={foto.alt}
+            class:list={[
+              "h-[280px] w-full object-cover md:h-[520px]",
+              i === 0 ? "" : "hidden",
+            ]}
+            data-slide={i}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+
+        <button
+          type="button"
+          data-prev
+          aria-label="Foto anterior"
+          class="absolute left-4 top-1/2 -translate-y-1/2 text-white drop-shadow-lg transition hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:left-8"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-next
+          aria-label="Próxima foto"
+          class="absolute right-4 top-1/2 -translate-y-1/2 text-white drop-shadow-lg transition hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-8"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    {/* FAIXA ROXA (continuação): resultados, PAN Aves e link da campanha.
+        PENDÊNCIA: o frame marca 3 links (canal do ICMBio, página do PAN Aves,
+        página da campanha) cujos destinos não estão no export. Texto restaurado
+        sem âncora até o usuário fornecer as URLs. */}
+    <section class="w-full" style={`background:${colors.purple};`}>
+      <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink text-justify">
+          <p>
+            Dentre os resultados obtidos, publicamos o documentário
+            “Reconectar pessoas às aves: PAN Aves da Mata Atlântica”
+            (canal do Youtube do ICMBio), lançamos o site da campanha, realizamos ações de educação
+            ambiental com degustação de pratos à base de juçara e visita a
+            sistema agroflorestal, além de doações de sementes e de mudas de
+            juçara para estudantes e produtores rurais.
+          </p>
+          <p>
+            A campanha é uma iniciativa do
+            <strong>Plano de Ação Nacional para Conservação das Aves da Mata
+            Atlântica</strong>, organizado coletivamente por Associação de Zoológicos e Aquários
+            do Brasil, CEMAVE, Centro Ecológico, Ministério do Meio Ambiente,
+            Centro Nacional de Conservação da Flora, Jardim Botânico do Rio de
+            Janeiro, OAMa, Parque das Aves, SAVE Brasil e Instituto Marcos
+            Daniel.
+          </p>
+          <p>
+            Para saber mais, acesse a página da campanha.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Ondas de fechamento (frame: roxo → amarelo → preto → branco → azul) */}
     <WaveDark
-      topColor="white"
-      bottomColor="#0c2a3a"
-      path1Color="#98c1da"
-      path2Color="#0c2a3a"
+      topColor={colors.purple}
+      bottomColor={colors.blue}
+      path1Color="#dfb553"
+      path2Color="#1e1702"
     />
   </main>
 </BaseLayout>
+
+<script>
+  const raiz = document.querySelector<HTMLElement>("[data-jacucara-carousel]");
+  if (raiz) {
+    const slides = Array.from(raiz.querySelectorAll<HTMLImageElement>("[data-slide]"));
+    let atual = 0;
+    const mostrar = (i: number) => {
+      atual = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle("hidden", n !== atual));
+    };
+    raiz.querySelector("[data-prev]")?.addEventListener("click", () => mostrar(atual - 1));
+    raiz.querySelector("[data-next]")?.addEventListener("click", () => mostrar(atual + 1));
+  }
+</script>

@@ -107,7 +107,12 @@ const fotosFinais = Array.from({ length: 11 }, (_, i) => 51 + i);
 const isExterno = (url: string) => url.startsWith("http");
 ---
 
-<BaseLayout title="Apoie" navVariant="overlay">
+<BaseLayout
+  title="Apoie"
+  description="Torne-se doador recorrente do OAMa ou faça uma doação única por PIX, PayPal ou cartão e ajude a manter a conservação das aves da Mata Atlântica."
+  image="/apoie/capa.png"
+  navVariant="overlay"
+>
   <main class="max-w-[100vw] overflow-hidden">
     <!-- ═══ HERO ═══ -->
     <div class="relative h-[700px] max-h-[70vh] bg-[#4E7B90]">
@@ -367,7 +372,7 @@ const isExterno = (url: string) => url.startsWith("http");
                     <a
                       href={projeto.url}
                       target={isExterno(projeto.url) || projeto.url.endsWith(".pdf") ? "_blank" : undefined}
-                      rel={isExterno(projeto.url) ? "noopener noreferrer" : undefined}
+                      rel={isExterno(projeto.url) || projeto.url.endsWith(".pdf") ? "noopener noreferrer" : undefined}
                       class="cursor-pointer hover:underline"
                     >
                       <span class="text-md font-bold text-gray-500">{projeto.title}</span>

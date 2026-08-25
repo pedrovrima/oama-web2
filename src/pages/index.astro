@@ -12,7 +12,11 @@ import ProgramsCarousel from "../components/sections/ProgramsCarousel.astro";
 import WaveTransition from "../components/sections/WaveTransition.astro";
 ---
 
-<BaseLayout title="OAMa — Conservação com ciência" navVariant="overlay">
+<BaseLayout
+  title="OAMa — Conservação com ciência"
+  description="Conservação com ciência: o OAMa gera dados e engajamento pelas aves da Mata Atlântica com pesquisa, comunicação científica e capacitações técnicas."
+  navVariant="overlay"
+>
   <main class="font-montserrat">
     <!-- FULL-BLEED HERO -->
     <section class="relative h-[640px] md:min-h-screen md:h-auto w-full overflow-hidden">
@@ -256,6 +260,14 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               </p>
             </div>
           </div>
+
+          {/* Frase de fechamento (frame Desktop_HOMEPAGE 28:383) */}
+          <p
+            class="mx-auto mt-12 max-w-3xl px-4 text-center font-montserrat text-[16px] font-semibold leading-[24px] text-oama-ink md:text-[18px] md:leading-[26px]"
+          >
+            Transformamos o olhar das pessoas sobre as aves e o meio ambiente, e
+            multiplicamos os esforços para a conservação.
+          </p>
           </div>
         </section>
     </section>

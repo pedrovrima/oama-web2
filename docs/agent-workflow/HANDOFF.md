@@ -1,5 +1,69 @@
 # Handoff operacional — OAMa Website v2
 
+## Estado em 2026-08-20 — lote 4 (leia isto primeiro)
+
+Branch `revisao-figma-lote-1`, **11 commits, não enviados ao remoto**.
+
+**A pasta de mídias do cliente existe** em `/Users/anhinga/Downloads/WEBSITE/`
+(7,4 GB). Dentro dela, `mídias PROGRAMAS E PROJETOS website/Programas e Projetos
+(atualizado)/` tem as fotos dos frames nomeadas por seção, e
+`A história do OAMa (NÃO RESUMIDA_2025).docx` é a história oficial completa.
+**Comece por aí antes de declarar qualquer coisa bloqueada por falta de asset.**
+Doc de referência: `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`.
+
+Build limpo: **28 páginas**. QA nas 24 rotas públicas (1440 e 390): 0 imagens
+quebradas, 0 overflow horizontal, 0 links internos quebrados, 0 assets faltando,
+0 `href="#"`, 0 aspas curvas em atributo.
+
+O site **não depende mais do domínio antigo**: `/downloads` e `/blog` foram
+migrados e os 9 PDFs de relatório de `/sobre` são servidos localmente.
+
+### Armadilhas confirmadas (não repita)
+1. **Componentes do Figma fora dos frames.** Carrosséis, ODS, agenda e a timeline
+   real vivem soltos no canvas (`design-assets/figma-analysis/selection-raw.json`).
+   Não concluir "não existe no Figma" pelo PNG do frame.
+2. **Captura com `loading="lazy"` mente** — force `eager` e role antes do screenshot.
+3. **Autorrelato de subagente infla.** Um relatou "4 blocos de texto branco sobre
+   amarelo"; só 1 estava. Outro sugeriu trocar hero e card de projetos-de-pesquisa
+   — a foto do card é uma ave morta sobre jornal; a troca teria posto isso no topo.
+   **Sempre verificar antes de aplicar.**
+4. **Builds concorrentes** de vários agentes sobre o mesmo `dist/` geram
+   `Cannot find module dist/renderers.mjs`. Não é defeito do código.
+5. **RTK**: `git status --short` retornou vazio havendo 10 arquivos alterados.
+   Para qualquer saída usada para decidir, prefixe `rtk proxy`.
+6. **O Figma tem erros próprios**: o bloco de 2023 da timeline repete a lista de
+   2022. Não copiar o erro nem inventar substituto.
+
+
+## O que foi feito na última frente (2026-08-19/20): revisão + lote 1
+
+Nova revisão completa contra o Figma (a de junho estava desatualizada: T1/T2/T4/T5/T6
+já tinham sido executadas). Produtos:
+
+- `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md` — diagnóstico atual, auditoria
+  de links, decisões do usuário e backlog do lote 2. **Leia este antes do de junho.**
+- Checklist interativo entregue ao usuário (267 itens, marcação corrigir/ignorar +
+  comentário). As decisões dele já estão no doc acima.
+- **Lote 1 implementado** na branch `revisao-figma-lote-1` — 9 arquivos, build ok
+  (23 páginas), render conferido no navegador com lazy-load forçado.
+  **Ainda não commitado** (aguardando o usuário).
+
+### Armadilhas confirmadas nesta rodada
+1. **Componentes fora do frame.** O Figma tem nós soltos no canvas, ao lado dos
+   frames. Carrosséis, ODS, agenda e a timeline real do OAMa estão lá
+   (`design-assets/figma-analysis/selection-raw.json`, nós `2302:*` para a timeline).
+2. **Captura com `loading="lazy"` mente.** Screenshots full-page mostram imagens em
+   branco que existem. Forçar `loading='eager'` + scroll antes de capturar.
+3. **Autorrelato de subagente infla.** Um relatou "4 blocos de texto branco sobre
+   amarelo" em `projetos-de-pesquisa`; só 1 estava sobre amarelo. Sempre conferir.
+4. **Não inventar URL.** Os 3 links do frame da Jacuçara ficaram sem âncora,
+   registrados como pendência, em vez de chutar destino.
+
+### Próximo passo recomendado
+Lote 2, na ordem do backlog: hero transversal (altura + posição do título),
+depois `/sobre` (remover Equipe, timeline correta dos nós `2302:*`).
+
+
 ## O que foi feito na última frente (2026-06-12, parte 2): T5 + T2
 
 Tasks transversais **T5 (Nav/hero)** e **T2 (descardificação)** executadas. O

@@ -12,6 +12,10 @@ const dataset = process.env.SANITY_DATASET;
 
 // https://astro.build/config
 export default defineConfig({
+  // Domínio de produção. Necessário para canonical, Open Graph e sitemap
+  // saírem com URL absoluta — rede social ignora URL relativa.
+  site: process.env.SITE_URL ?? "https://oama.eco.br",
+
   integrations: [
     react(),
     sanity({

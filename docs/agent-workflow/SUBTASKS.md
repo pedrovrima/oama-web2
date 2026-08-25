@@ -25,6 +25,18 @@
 - `PED-41` — `done` — `/missao`
 
 ### Em execução
+- `TASK-REV-2026-08` — `review` — revisão Figma + lotes 1, 2 e 3
+  - tipo: `Figma-first`
+  - fonte: `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`
+  - branch: `revisao-figma-lote-1` (build ok; não commitado)
+  - lotes 1–3 concluídos (5 commits, build 27 páginas, QA nas 24 rotas)
+  - **bloqueado por material do usuário**: fotos (heroes de treinamento/
+    monitoramento/cursos, duplicata em cursos), ícones ilustrados de Clientes e
+    Público potencial, logos de parceiros e clientes, marcos de 2023 da timeline,
+    conteúdo de Mídia/Agenda, 3 URLs da Jacuçara, capa do Relatório 2021
+  - **aguardando decisão**: contraste do CTA azul (2,71 — abaixo do WCAG);
+    backend do Fale Conosco + reCAPTCHA; schemas do blog no Studio
+
 - `TASK-LAUNCH-001` — `in_progress` — auditoria e preparação para lançamento
   - tipo: `Launch-first` (sem CMS)
   - escopo: rotas públicas, links, assets, responsividade e newsletter; ver `docs/implementation/pages/lancamento.md`.

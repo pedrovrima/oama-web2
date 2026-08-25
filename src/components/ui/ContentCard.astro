@@ -7,13 +7,25 @@ interface Props {
   href?: string;
 }
 
-const { image, imageAlt = "", label, title, href = "#" } = Astro.props;
+const { image, imageAlt = "", label, title, href } = Astro.props;
+
+// Sem destino real, o card NÃO vira link: `href="#"` é placeholder proibido
+// (CLAUDE.md) e um link que não leva a lugar nenhum engana o leitor.
+const temDestino = Boolean(href && href !== "#");
+const Tag = temDestino ? "a" : "div";
+const props = temDestino
+  ? {
+      href,
+      class:
+        "group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-md hover:shadow-lg transition-shadow duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-oama-yellow",
+    }
+  : {
+      class:
+        "group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-md",
+    };
 ---
 
-<a
-  href={href}
-  class="group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-md hover:shadow-lg transition-shadow duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-oama-yellow"
->
+<Tag {...props}>
   <!-- Image: 239px wide × 236px tall → aspect-[239/236] (card is 239×408 total) -->
   <div class="aspect-[239/236] w-full overflow-hidden">
     <img
@@ -33,4 +45,4 @@ const { image, imageAlt = "", label, title, href = "#" } = Astro.props;
       {title}
     </p>
   </div>
-</a>
+</Tag>

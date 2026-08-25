@@ -5,10 +5,27 @@ import Footer from "../components/sections/Footer.astro";
 
 interface Props {
   title?: string;
+  /** Resumo da página para busca e para o card de compartilhamento (~150-160 caracteres). */
+  description?: string;
+  /** Imagem do card ao compartilhar em rede social. Caminho absoluto a partir da raiz. */
+  image?: string;
   navVariant?: "default" | "overlay";
 }
 
-const { title = "OAMa", navVariant = "default" } = Astro.props;
+const {
+  title = "OAMa — Observatório de Aves da Mantiqueira",
+  description =
+    "O Observatório de Aves da Mantiqueira é uma organização sem fins lucrativos que une pesquisa, educação e conservação das aves da Mata Atlântica.",
+  image = "/brand/logo-round.png",
+  navVariant = "default",
+} = Astro.props;
+
+// `Astro.site` só existe quando `site` está definido no astro.config. Sem ele,
+// caímos no domínio de produção para que og:url e canonical fiquem absolutos —
+// redes sociais ignoram URL relativa.
+const origem = Astro.site?.origin ?? "https://oama.eco.br";
+const canonica = new URL(Astro.url.pathname, origem).href;
+const imagemAbsoluta = new URL(image, origem).href;
 ---
 
 <html lang="pt-BR">
@@ -16,6 +33,23 @@ const { title = "OAMa", navVariant = "default" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonica} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#e9b130" />
+
+    <!-- Card de compartilhamento (WhatsApp, Instagram, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OAMa — Observatório de Aves da Mantiqueira" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagemAbsoluta} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imagemAbsoluta} />
   </head>
   <body class="bg-white text-oama-ink">
     <Nav variant={navVariant} />

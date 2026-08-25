@@ -23,7 +23,7 @@ interface TeamMember {
 // Dados recuperados de `pages/quem-somos/index.js` do site legado.
 // Mantém-se a composição e os retratos locais definidos pelo Figma; cargos sem
 // fonte no legado permanecem vazios para não inferir informação institucional.
-const equipe: TeamMember[] = [
+const equipe: TeamMember[] = [ // preservado: a seção Equipe está desativada (ver abaixo)
   { nome: "Luiza Figueira", cargo: "Diretora Executiva", foto: "/midias/sobre/luiza-figueira.jpg", email: "luiza@oama.eco.br" },
   { nome: "", cargo: "", foto: "", placeholder: true },
   { nome: "Pedro Martins", cargo: "Coordenador de dados", foto: "/midias/sobre/pedro-martins.jpg" },
@@ -92,42 +92,11 @@ const equipe: TeamMember[] = [
       <p>Tesoureira | Veronica Battezini</p>
     </div>
 
-    <!-- Equipe heading -->
-    <h3 class="font-oswald font-light text-[36px] text-oama-ink mt-10">
-      Equipe
-    </h3>
+    {/* Equipe: seção removida por decisão do usuário (2026-08-20).
+        O bloco original (título + grid de retratos com overlay de nome/cargo/e-mail)
+        está preservado no histórico do git — commit da revisão Figma lote 2. */}
 
   </div>
-
-  <!-- Team grid - constrained to max width, no gaps -->
-  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-0 relative z-10">
-    {equipe.map((member) => member.placeholder ? (
-      <div class="aspect-square bg-[#c9a84c] flex items-center justify-center">
-        <img src="/brand/logo-round.png" alt="OAMa" class="h-20 w-20 object-contain opacity-60" />
-      </div>
-    ) : (
-      <div class="group relative overflow-hidden aspect-square cursor-pointer">
-        <img
-          src={member.foto}
-          alt={member.nome}
-          class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent
-                    opacity-100 group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <p class="font-oswald font-bold text-white text-[17px] leading-tight">{member.nome}</p>
-            <p class="font-montserrat text-white/85 text-[13px] leading-snug mt-1">{member.cargo}</p>
-            {member.email && (
-              <a href={`mailto:${member.email}`} class="font-montserrat text-white/70 text-[12px] mt-1 block">
-                {member.email}
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-
 
   <!-- Colaboradores -->
   <div class="max-w-2xl mx-auto px-6 pt-12 pb-4 text-center relative z-10">

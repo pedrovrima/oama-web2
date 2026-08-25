@@ -5,54 +5,52 @@ import WaveDark from "../../components/sections/WaveDark.astro";
 const destaques = [
   {
     imagem: "/midias/programas-e-projetos/fft-galeria-1.jpg",
-    alt: "Grupo de visitantes passarinhando com binóculos na Serra da Mantiqueira durante Fundraising Field Trip",
-    legenda: "Passarinhadas guiadas na Serra da Mantiqueira",
+    alt: "Grupo posando junto à placa do Parque Nacional do Itatiaia, com o Pico das Agulhas Negras ao fundo",
+    legenda: "Visitas guiadas a unidades de conservação como o Parque Nacional do Itatiaia",
   },
   {
     imagem: "/midias/programas-e-projetos/fft-galeria-2.jpg",
-    alt: "Visitante sorridente em trilha próxima a cachoeira durante a Fundraising Field Trip na Mantiqueira",
+    alt: "Visitante sorrindo ao lado de cachoeira em trilha durante a Fundraising Field Trip",
     legenda: "Trilhas e experiências únicas na Mantiqueira",
   },
   {
     imagem: "/midias/programas-e-projetos/fft-galeria-3.jpg",
-    alt: "Pesquisadora do OAMa mostrando ave anilhada para visitante durante a Fundraising Field Trip",
+    alt: "Visitante observando de perto ave segurada por pesquisador do OAMa durante atividade de campo",
     legenda: "Visitantes participam das atividades de campo do OAMa",
   },
   {
     imagem: "/midias/programas-e-projetos/fft-galeria-4.jpg",
-    alt: "Almoço compartilhado em pousada rural durante a Fundraising Field Trip",
+    alt: "Mesa posta com pratos da culinária local servidos em pousada durante a Fundraising Field Trip",
     legenda: "Gastronomia e cultura local durante a viagem",
   },
 ];
 
 ---
 
-<BaseLayout title="Fundraising Field Trip — OAMa" navVariant="overlay">
+<BaseLayout
+  description="Viagem anual de cerca de dez dias entre OAMa e Klamath Bird Observatory que une captação de recursos, turismo de conservação e educação ambiental."
+  image="/midias/programas-e-projetos/fft-hero.jpg" title="Fundraising Field Trip — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     <!-- HERO full-bleed com overlay -->
-    <section class="relative min-h-[85vh] w-full overflow-hidden flex items-end">
+    {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/programas-e-projetos/fft-hero.jpg"
-        alt="Grupo na montanha durante Fundraising Field Trip"
+        alt="Grupo em trilha rochosa entre picos e capim durante a Fundraising Field Trip"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="relative z-10 w-full">
-        <div class="w-full max-w-5xl mx-auto px-6 pb-20">
-          <h1
-            class="text-[32px] leading-[38px] font-bold uppercase text-white font-oswald md:text-[48px] md:leading-[54px]"
-          >
-            Fundraising <br class="md:hidden" />Field Trip
-          </h1>
-        </div>
-      </div>
     </section>
 
     <!-- 1) INTRODUÇÃO EM DUAS COLUNAS (faixa amarela) -->
     <section class="w-full" style="background:#dfb553;">
       <div class="max-w-5xl mx-auto px-6 py-16">
+        <h1
+          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[42px] md:leading-[48px]"
+        >
+          Fundraising Field Trip
+        </h1>
+
         <div class="grid md:grid-cols-2 gap-10">
           <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify">
             <p>
@@ -148,20 +146,33 @@ const destaques = [
       </div>
     </section>
 
-    <!-- 3) FECHAMENTO -->
+    <!-- 3) FECHAMENTO (frame 2517:1092: 3 parágrafos) -->
     <section class="w-full" style="background:#dfb553;">
       <div class="max-w-4xl mx-auto px-6 pb-16">
-        <p
-          class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
+        <div
+          class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
         >
-          Ao longo do trajeto, proporcionamos aos turistas
-          <strong>trilhas e passarinhadas únicas</strong> em diversas unidades
-          de conservação, além de conversas inspiradoras com
-          <strong>cientistas, produtores rurais, ambientalistas e artistas
-          locais</strong>. A <em>"FUNdraising Field Trip"</em> é uma viagem
-          que cria momentos inesquecíveis para conectar os visitantes às
-          aves, aos habitats e às pessoas que os protegem.
-        </p>
+          <p>
+            A cada ano, a viagem trilha caminhos levemente diferentes. Já
+            percorremos localidades como <strong>São Francisco Xavier (SP),
+            Serrinha do Alambari (RJ), Vila de Visconde de Mauá (RJ), Bocaina
+            de Minas (MG) e Itamonte (MG)</strong>. Ao longo do trajeto,
+            proporcionamos aos turistas <strong>trilhas e passarinhadas
+            únicas</strong> em diversas unidades de conservação; e conversas
+            inspiradoras com <strong>cientistas, produtores rurais,
+            ambientalistas e artistas locais</strong>.
+          </p>
+          <p>
+            A <em>“FUNdraising Field Trip”</em> é uma viagem que cria momentos
+            inesquecíveis para conectar os visitantes às aves, aos habitats e às
+            pessoas que os protegem.
+          </p>
+          <p>
+            As doações realizadas pelos turistas financiam os programas de
+            pesquisa, de treinamento, de educação ambiental e de restauração de
+            habitats do OAMa e do KBO.
+          </p>
+        </div>
       </div>
     </section>
 

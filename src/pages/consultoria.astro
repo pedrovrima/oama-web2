@@ -23,54 +23,57 @@ const frentes = [
   },
 ];
 
+// Copy extraída dos nós do Figma do frame Desktop_CONSULTORIA (I2616:*, I2593:*).
+// A copy anterior era uma reescrita que não correspondia ao design.
 const diferenciais = [
-  "Atuação guiada por ciência aplicada e conservação.",
-  "Equipe qualificada para planejamento, campo, análise e comunicação.",
-  "Corpo técnico com experiência em avifauna e Mata Atlântica.",
-  "Foco no bem-estar animal e na ética profissional.",
-  "Transposição didática da ciência para diferentes públicos.",
-  "Planejamento de atividades formais e não-formais de educação.",
-  "Integração entre pesquisa, monitoramento e formação.",
-  "Parcerias técnicas e institucionais em diferentes escalas.",
-  "Serviços personalizados para cada contexto socioambiental.",
-  "Formação baseada em atividades práticas supervisionadas.",
+  "Recursos revertidos em projetos de pesquisa, conservação e sensibilização ambiental",
+  "Equipe qualificada para a coleta de dados padronizados em ornitologia",
+  "Corpo técnico pautado na ética, respeito e diversidade",
+  "Foco no bem estar animal",
+  "Design original e personalizado de materiais gráficos e de atividades didáticas",
+  "Práticas que integram a arte ao conhecimento científico e à educação",
+  "Instrutores habilitados e certificados nacional e internacionalmente",
+  "Sistema padronizado de ensino-aprendizagem",
 ];
 
+// Categorias de clientes conforme os nós I2594:813 e I2619:* do Figma.
 const clientes = [
-  "Empresas e consultorias socioambientais",
-  "Empreendimentos e instituições privadas",
-  "Órgãos públicos e administrações locais",
+  "Empresas e consultorias ambientais",
+  "Empreendimentos de impacto ambiental",
+  "Órgãos públicos e administração pública",
   "Universidades e institutos de pesquisa",
-  "Redes de ensino e espaços educativos",
-  "Projetos e movimentos sociais",
-  "Organizações da sociedade civil",
-  "Iniciativas de restauração e conservação",
-  "Observadores de aves e turismo de natureza",
+  "Estudantes e profissionais da área ambiental",
+  "Escolas e museus",
+  "Observadores de aves e da natureza",
+  "Unidades de conservação",
 ];
 
-const logos = ["AEGVAP", "Casa Latalli"];
+
+const logos = ["AGEVAP", "Casa Tlalli"];
 ---
 
-<BaseLayout title="Consultoria — OAMa" navVariant="overlay">
+<BaseLayout
+  description="Serviços técnicos do OAMa em monitoramento de aves, educação ambiental, comunicação científica e formação profissional, com foco na Mata Atlântica."
+  image="/midias/consultoria/capa-consultoria.jpg" title="Consultoria — OAMa" navVariant="overlay">
   <main class="font-montserrat bg-[#201700]">
-    <section class="relative min-h-[85vh] w-full overflow-hidden">
+    {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
         src="/midias/consultoria/capa-consultoria.jpg"
         alt="Capa da seção de consultoria do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="absolute inset-0 z-10 flex items-end justify-center px-6 pb-8 text-center md:pb-14">
-        <h1 class="font-oswald text-[40px] font-bold uppercase leading-[0.95] text-white md:text-[68px]">
-          Consultoria
-        </h1>
-      </div>
     </section>
 
     <section class="bg-[#5ba4d9] px-6 py-12 text-white md:px-8 md:py-14">
       <div class="mx-auto max-w-5xl text-center">
+        <h1
+          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-white md:text-[42px] md:leading-[48px]"
+        >
+          Consultoria
+        </h1>
+
         <h2 class="font-oswald text-[24px] font-bold uppercase leading-[1.05] md:text-[34px]">
           Serviços baseados em ciência e conservação
         </h2>
@@ -130,12 +133,7 @@ const logos = ["AEGVAP", "Casa Latalli"];
           {
             diferenciais.map((item, index) => (
               <div class={`rounded-[12px] px-5 py-6 text-center text-[15px] leading-6 md:text-[16px] md:leading-7 font-medium ${index % 2 === 0 ? 'bg-oama-yellow text-oama-ink' : 'bg-oama-blue text-white'}`}>
-                <div class="flex items-start gap-3">
-                  <svg class="mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
                   <span>{item}</span>
-                </div>
               </div>
             ))
           }

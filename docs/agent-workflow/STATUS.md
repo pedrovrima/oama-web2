@@ -64,6 +64,35 @@
     nesta frente** — só diagnóstico. Scripts reutilizáveis em `scripts/revisao/`.
     Esta revisão supersede, no nível de detalhe, a auditoria de 2026-06-07.
 
+17. **2026-08-19/20 — Nova revisão Figma vs implementação + lote 1 executado.**
+    Diagnóstico consolidado em `docs/agent-workflow/REVISAO_FIGMA_2026-08-19.md`
+    (supersede o estado do doc de 2026-06-12). Inclui auditoria de links/rotas,
+    as decisões do usuário vindas do checklist interativo e o backlog do lote 2.
+    Descoberta de método: **há componentes do Figma fora dos frames exportados**
+    (nós soltos no canvas) — não concluir "não existe no Figma" pelo PNG do frame.
+    Lote 1 implementado na branch `revisao-figma-lote-1` (build ok, render
+    conferido): AGEVAP/Casa Tlalli, contraste em treinamento e projetos-de-pesquisa,
+    Jacuçara refeita conforme o frame (faixa roxa + 3 parágrafos restaurados),
+    FFT com os 3 parágrafos do frame, temas focais em acoes-pro-aves, copy de
+    agente removida de pro-aves, WIKIMUDAS com destino, card de Cursos no hub.
+
+18. **2026-08-20 — Lotes 2 e 3 executados** (branch `revisao-figma-lote-1`,
+    5 commits). Hero transversal, timeline real de `/sobre`, copy do Figma em
+    `/consultoria`, e as migrações de **`/downloads`** (45 cards, 43 PDFs) e
+    **`/blog`** (Sanity `1tnejkhf`, 2 posts). O site **não depende mais do
+    domínio antigo** para os PDFs de relatório nem para blog/downloads.
+    Build limpo: **27 páginas**. Verificação nas 24 rotas em 1440 e 390:
+    0 imagens quebradas, 0 overflow, 0 links quebrados, 0 `href="#"`.
+    Detalhes e pendências em `REVISAO_FIGMA_2026-08-19.md`.
+
+19. **2026-08-20 (lote 4)** — Removido conteúdo fabricado (5 matérias de
+    imprensa inventadas em "OAMa na Mídia", eventos de exemplo na Agenda,
+    5 imagens de `placehold.co`). Migradas `/links/[slug]` e os redirects 301
+    do site antigo. Fotos dos frames aplicadas (a pasta de mídias do cliente
+    existe e tem as capas do designer). SEO criado do zero (Open Graph,
+    canonical, sitemap, robots). **Imagens: 440 MB → 85 MB.**
+    Build: 28 páginas; 25 rotas com 0 imagens faltando.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:

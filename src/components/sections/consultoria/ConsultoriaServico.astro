@@ -12,6 +12,8 @@ interface Props {
   titulo: string;
   heroImg: string;
   heroAlt: string;
+  /** object-position do hero, ex.: "center 30%" — para enquadrar a foto */
+  heroPos?: string;
   servicos: string[];
   diferenciais: string[];
   publico: string[];
@@ -23,6 +25,7 @@ const {
   titulo,
   heroImg,
   heroAlt,
+  heroPos,
   servicos,
   diferenciais,
   publico,
@@ -47,34 +50,30 @@ const iconPaths: Record<string, string> = {
 ---
 
 <main class="font-montserrat">
-  {/* HERO: full-bleed com foto de fundo e título sobreposto */}
-  <section
-    class="relative flex min-h-[85vh] w-full items-end overflow-hidden"
-  >
+  {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
+  <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
     <img
       src={heroImg}
       alt={heroAlt}
       class="absolute inset-0 h-full w-full object-cover"
+      style={heroPos ? `object-position:${heroPos};` : undefined}
       loading="eager"
     />
-    <div class="absolute inset-0 bg-black/25"></div>
+  </section>
 
-    <div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 md:pb-20">
+  {/* Faixa AZUL: título + Serviços | Diferenciais do OAMa (2 colunas) */}
+  <section class="w-full scroll-mt-24" style={`background:${colors.blue};`}>
+    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      {/* Título centralizado na faixa, como no frame */}
       <h1
-        class="font-oswald text-[30px] font-bold uppercase leading-[35px] text-white md:text-[48px] md:leading-[54px]"
+        class="mb-12 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-white md:text-[44px] md:leading-[50px]"
       >
         {titulo}
       </h1>
-    </div>
-  </section>
-
-  {/* Faixa AZUL: Serviços | Diferenciais do OAMa (2 colunas) */}
-  <section class="w-full scroll-mt-24" style={`background:${colors.blue};`}>
-    <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
         <div>
           <h2
-            class="mb-5 font-montserrat text-[18px] font-semibold leading-[25px] text-white"
+            class="mb-5 text-center font-montserrat text-[18px] font-semibold leading-[25px] text-white md:text-left"
           >
             Serviços
           </h2>
@@ -85,7 +84,9 @@ const iconPaths: Record<string, string> = {
           </ul>
         </div>
 
-        <div>
+        {/* No mobile os Diferenciais migram para a faixa amarela (ver abaixo);
+            no desktop seguem como 2ª coluna da faixa azul, como no Figma. */}
+        <div class="hidden md:block">
           <h2
             class="mb-5 font-montserrat text-[18px] font-semibold leading-[25px] text-white"
           >
@@ -109,9 +110,22 @@ const iconPaths: Record<string, string> = {
     path2Color={colors.dark}
   />
 
-  {/* Faixa AMARELA curta → onda amarelo → branco */}
+  {/* Faixa AMARELA: no mobile carrega os Diferenciais do OAMa;
+      no desktop continua sendo apenas uma faixa curta de transição. */}
   <section class="w-full" style={`background:${colors.yellow};`}>
-    <div class="h-6 md:h-10"></div>
+    <div class="hidden h-6 md:block md:h-10"></div>
+    <div class="mx-auto max-w-5xl px-6 pb-10 pt-8 md:hidden">
+      <h2
+        class="mb-5 text-center font-montserrat text-[18px] font-semibold leading-[25px] text-white"
+      >
+        Diferenciais do OAMa
+      </h2>
+      <ul
+        class="list-disc space-y-1 pl-5 font-montserrat text-[16px] leading-[24px] text-oama-ink marker:text-oama-ink"
+      >
+        {diferenciais.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
   </section>
   <WaveDark
     topColor={colors.yellow}
@@ -169,4 +183,158 @@ const iconPaths: Record<string, string> = {
       </div>
     </div>
   </section>
+
+  {/* Onda branco → azul, entrando na faixa do formulário */}
+  <WaveDark
+    topColor="white"
+    bottomColor={colors.blue}
+    path1Color={colors.yellow}
+    path2Color={colors.dark}
+  />
+
+  {/* Faixa AZUL: FALE CONOSCO (formulário que monta um mailto) */}
+  <section
+    id="fale-conosco"
+    class="w-full scroll-mt-24"
+    style={`background:${colors.blue};`}
+  >
+    <div class="mx-auto max-w-5xl px-6 py-14 md:py-20">
+      <h2
+        class="font-oswald text-[28px] font-bold uppercase leading-[34px] text-white md:text-[40px] md:leading-[46px]"
+      >
+        Fale Conosco
+      </h2>
+      <p
+        class="mt-4 max-w-2xl font-montserrat text-[16px] font-semibold leading-[24px] text-white"
+      >
+        Busca serviços pautados na ciência e na conservação da biodiversidade?
+        Preencha o formulário ou envie um e-mail para <a
+          class="underline underline-offset-4"
+          href="mailto:contato@oama.eco.br">contato@oama.eco.br</a
+        > e solicite um orçamento personalizado.
+      </p>
+
+      <form class="mt-8 max-w-2xl space-y-3" aria-label="Fale conosco" data-servico-form>
+        <label class="sr-only" for="servico-nome">Nome Completo</label>
+        <input
+          id="servico-nome"
+          type="text"
+          name="nome"
+          placeholder="Nome Completo"
+          autocomplete="name"
+          required
+          class="w-full rounded-full px-5 py-3 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
+          style={`background:${colors.yellow};`}
+        />
+        <label class="sr-only" for="servico-email">E-mail</label>
+        <input
+          id="servico-email"
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          autocomplete="email"
+          required
+          class="w-full rounded-full px-5 py-3 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
+          style={`background:${colors.yellow};`}
+        />
+        <label class="sr-only" for="servico-telefone">Telefone com DDD</label>
+        <input
+          id="servico-telefone"
+          type="tel"
+          name="telefone"
+          placeholder="Telefone com DDD"
+          autocomplete="tel"
+          class="w-full rounded-full px-5 py-3 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
+          style={`background:${colors.yellow};`}
+        />
+        <label class="sr-only" for="servico-assunto">Assunto</label>
+        <input
+          id="servico-assunto"
+          type="text"
+          name="assunto"
+          placeholder="Assunto"
+          class="w-full rounded-full px-5 py-3 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
+          style={`background:${colors.yellow};`}
+        />
+        <label class="sr-only" for="servico-mensagem">Escreva sua mensagem</label>
+        <textarea
+          id="servico-mensagem"
+          name="mensagem"
+          placeholder="Escreva sua mensagem"
+          rows="6"
+          required
+          class="w-full rounded-[24px] px-5 py-4 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
+          style={`background:${colors.yellow};`}></textarea>
+        <div class="pt-1">
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-full bg-white px-10 py-3 font-montserrat text-[15px] font-semibold transition hover:brightness-95"
+            style={`color:${colors.blue};`}
+          >
+            Enviar
+          </button>
+        </div>
+        <p
+          class="text-[14px] leading-5 text-white"
+          data-servico-status
+          hidden
+          aria-live="polite"
+        >
+        </p>
+        <a
+          class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
+          data-servico-email-link
+          href="mailto:contato@oama.eco.br"
+          hidden
+        >
+          Abrir o e-mail novamente
+        </a>
+      </form>
+    </div>
+  </section>
 </main>
+
+<script>
+  // Mesmo comportamento do formulário do hub /consultoria: não há back-end,
+  // o envio monta um mailto: e abre o cliente de e-mail do visitante.
+  const form = document.querySelector<HTMLFormElement>("[data-servico-form]");
+  const status = form?.querySelector<HTMLElement>("[data-servico-status]");
+  const emailLink = form?.querySelector<HTMLAnchorElement>(
+    "[data-servico-email-link]",
+  );
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const valor = (campo: string) => String(data.get(campo) ?? "").trim();
+    const assunto = valor("assunto") || "Contato pelo site do OAMa";
+    const corpo = [
+      "Olá, equipe OAMa!",
+      "",
+      `Nome: ${valor("nome")}`,
+      `E-mail: ${valor("email")}`,
+      `Telefone: ${valor("telefone") || "Não informado"}`,
+      `Assunto: ${assunto}`,
+      "",
+      "Mensagem:",
+      valor("mensagem"),
+    ].join("\n");
+    const mailto = `mailto:contato@oama.eco.br?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+
+    if (emailLink && status) {
+      emailLink.href = mailto;
+      emailLink.hidden = false;
+      status.textContent =
+        "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e confirme o envio por lá. Se nada acontecer, use o link abaixo.";
+      status.hidden = false;
+    }
+
+    window.location.href = mailto;
+  });
+</script>
