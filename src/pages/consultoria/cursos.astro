@@ -31,6 +31,70 @@ const cursos = [
     alt: "Duas participantes do curso presencial examinando uma ave na mesa de anilhamento em campo",
   },
 ];
+// Cursos já realizados — copy do nó do Figma que fica AO LADO do frame
+// (I2466:417), que lista de 2019 a 2025. As duas edições de 2026 foram
+// informadas pelo usuário: os dois cursos online de edição anual chegaram à
+// VI edição (o de anilhamento e o de análise de mudas estavam na V em 2025).
+// Padronizada a capitalização de "Classificação de Idade", inconsistente no Figma.
+const cursosConcluidos = [
+  {
+    ano: "2026",
+    cursos: [
+      { nome: "VI Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+      { nome: "VI Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+    ],
+  },
+  {
+    ano: "2025",
+    cursos: [
+      { nome: "V Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+      { nome: "V Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+    ],
+  },
+  {
+    ano: "2024",
+    cursos: [
+      { nome: "I Curso Prático de Anilhamento e Análise de Mudas", modo: "Presencial" },
+      { nome: "VII BBMA — Curso internacional de anilhamento de aves e análise de mudas", modo: "Presencial" },
+      { nome: "IV Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+      { nome: "IV Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+    ],
+  },
+  {
+    ano: "2023",
+    cursos: [
+      { nome: "I Curso de bioacústica de aves", modo: "Presencial" },
+      { nome: "I Curso de bordado — conectando arte e conservação", modo: "Presencial" },
+      { nome: "I Curso de identificação de cogumelos", modo: "Presencial" },
+      { nome: "III Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+      { nome: "III Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+    ],
+  },
+  {
+    ano: "2022",
+    cursos: [
+      { nome: "II Curso Prático de Análise de Mudas e Classificação de Idade em Aves", modo: "Presencial" },
+      { nome: "I Curso Prático Básico de Anilhamento", modo: "Presencial" },
+      { nome: "II Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+      { nome: "II Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+      { nome: "Curso de Fotografia de Aves com Birds Atlantic", modo: "Presencial" },
+    ],
+  },
+  {
+    ano: "2021",
+    cursos: [
+      { nome: "I Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
+    ],
+  },
+  {
+    ano: "2019",
+    cursos: [
+      { nome: "I Curso Prático de Análise de Mudas e Classificação de Idade em Aves", modo: "Presencial" },
+    ],
+  },
+];
+
+const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
 ---
 
 <BaseLayout
@@ -133,10 +197,10 @@ const cursos = [
           aves, sendo assim, uma forma de viabilizar a continuação do OAMa.
         </p>
 
-        {/* Faixa "Cursos concluídos" — barra larga, sem destino real ainda */}
-        <div class="mt-12">
-          <div
-            class="flex w-full flex-col items-center rounded-2xl px-8 py-8 text-white shadow-sm md:py-10"
+        {/* "Cursos concluídos": lista real, vinda dos nós do Figma ao lado do frame. */}
+        <details class="group mt-12" data-cursos-concluidos>
+          <summary
+            class="flex w-full cursor-pointer list-none flex-col items-center rounded-2xl px-8 py-8 text-white shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:py-10"
             style={`background:${colors.blue};`}
           >
             <span
@@ -146,19 +210,51 @@ const cursos = [
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="mt-3 h-7 w-7"
+              class="mt-3 h-7 w-7 transition-transform duration-300 group-open:rotate-180"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               stroke-width="2.5"
               stroke-linecap="round"
               stroke-linejoin="round"
+              aria-hidden="true"
             >
               <path d="M6 9l6 6 6-6"></path>
             </svg>
+          </summary>
+
+          <div class="mt-5 rounded-2xl bg-white/90 px-5 py-6 text-left shadow-sm md:px-8">
+            <p class="text-center font-montserrat text-[14px] leading-[21px] text-oama-ink/80 md:text-[15px]">
+              {totalCursos} cursos realizados desde 2019.
+            </p>
+
+            {cursosConcluidos.map((turma) => (
+              <section class="mt-7 first:mt-6">
+                <h3
+                  class="border-b-2 pb-1 font-oswald text-[19px] font-bold uppercase leading-[24px] text-oama-ink md:text-[22px]"
+                  style={`border-color:${colors.yellow};`}
+                >
+                  {turma.ano}
+                </h3>
+                <ul class="mt-3 flex flex-col gap-2.5">
+                  {turma.cursos.map((c) => (
+                    <li class="flex flex-col gap-1 font-montserrat sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                      <span class="text-[15px] leading-[21px] text-oama-ink">
+                        {c.nome}
+                      </span>
+                      <span
+                        class="flex-none self-start rounded-full px-2.5 py-0.5 text-[12px] font-semibold leading-[18px] text-oama-ink sm:self-auto"
+                        style={`background:${colors.yellow};`}
+                      >
+                        {c.modo}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </div>
-        </div>
-        {/* TODO: lista de cursos concluídos aguardando conteúdo do OAMa */}
+        </details>
       </div>
     </section>
 
