@@ -31,6 +31,59 @@ const galeria = [
     alt: "Trainee em atividade prática de anilhamento supervisionado",
   },
 ];
+
+// Trainees por edição — copy dos nós do Figma que ficam AO LADO do frame
+// (nó I2461:597, a lista consolidada; os cards individuais I2503:*/2504:* são a
+// mesma informação com foto). Por decisão do usuário, usamos a versão sem fotos.
+const turmas = [
+  {
+    ano: "2022",
+    pessoas: [
+      { nome: "Otávio Rocha", perfil: "Biólogo, 25 anos, Fortaleza (CE)", periodo: "Fevereiro a maio", aves: 90 },
+      { nome: "André Menini", perfil: "Biólogo, 25 anos, Caieiras (SP)", periodo: "Fevereiro a maio", aves: 104 },
+      { nome: "Danielle Santos", perfil: "Bióloga, 23 anos, Palmas (TO)", periodo: "Março a julho", aves: 165 },
+      { nome: "João Victor Ferrari", perfil: "Biólogo, 24 anos, São Borja (RS)", periodo: "Maio a julho", aves: 127 },
+      { nome: "Gabriela Inhesta", perfil: "Bióloga, 24 anos, Curitiba (PR)", periodo: "Julho a setembro", aves: 41 },
+      { nome: "Luiz Felipe Gonzaga", perfil: "Biólogo, 22 anos, Foz do Iguaçu (PR)", periodo: "Agosto a novembro", aves: 136 },
+    ],
+  },
+  {
+    ano: "2023",
+    pessoas: [
+      { nome: "Victor Sanchez Gonzales", perfil: "Estudante de Ciências Ambientais, 27 anos, Baja Califórnia Sur (México)", periodo: "Março a setembro", aves: 171 },
+      { nome: "André Basílio Ayres Tavares", perfil: "Estudante de Ciências Biológicas, 29 anos, Niterói (RJ)", periodo: "Março a setembro", aves: 170 },
+      { nome: "Natália Inacio-Almeida", perfil: "Bióloga, 24 anos, Campinas (SP)", periodo: "Março a junho", aves: 108 },
+      { nome: "Thalia Matos Aguiar Viana", perfil: "Bióloga, 23 anos, São Luís (MA)", periodo: "Março a junho", aves: 87 },
+      { nome: "Mariane Rodrigues Guedes", perfil: "Bióloga, 27 anos, Itabuna (BA)", periodo: "Março a abril", aves: 27 },
+      { nome: "Patrícia dos Santos Ferreira", perfil: "Bióloga, 28 anos, Campos do Jordão (SP)", periodo: "Junho a setembro", aves: 134 },
+      { nome: "Leonardo Wolff de Oliveira", perfil: "Estudante de Biologia, 25 anos, Lages (SC)", periodo: "Junho a setembro", aves: 115 },
+      { nome: "Caroline Brenda Berté", perfil: "Bióloga, 31 anos, Foz do Iguaçu (PR)", periodo: "Junho a julho", aves: 18 },
+      { nome: "Francisco Javier Contreras Molina", perfil: "Professor e pesquisador, 43 anos, Falcón (Venezuela)", periodo: "Junho a julho", aves: 18 },
+      { nome: "Tarso Natividade Ciolete", perfil: "Biólogo, 31 anos, Contagem (MG)", periodo: "Agosto a setembro", aves: 44 },
+      { nome: "Daniela Ventura Del Puerto", perfil: "Bióloga, 26 anos, Havana (Cuba)", periodo: "Agosto a setembro", aves: 46 },
+      { nome: "Andreza de Freitas Nunes Oliveira", perfil: "Bióloga, 26 anos, Fortaleza (CE)", periodo: "Periódica, de março a dezembro", aves: 72 },
+    ],
+  },
+  {
+    ano: "2024",
+    pessoas: [
+      { nome: "Rachel Augusta Monteiro Fidelis", perfil: "Estudante de Biologia, 23 anos, São Paulo (SP)", periodo: "Setembro a novembro", aves: 133 },
+      { nome: "Rone Fernando de Carvalho", perfil: "Biólogo, 39 anos, Diamantina (MG)", periodo: "Setembro a novembro", aves: 89 },
+      { nome: "Rayanne Lorrane Cruz da Silva", perfil: "Bióloga, 29 anos, Brasília (DF)", periodo: "Setembro a novembro", aves: 111 },
+    ],
+  },
+  {
+    ano: "2025",
+    pessoas: [
+      { nome: "Luisa Simões Pires Fabricio", perfil: "Bióloga, 25 anos, Porto Alegre (RS)", periodo: "Maio a julho", aves: 122 },
+      { nome: "Isadora Cristina Müller de Aguiar", perfil: "Bióloga, 25 anos, Santa Maria (RS)", periodo: "Maio a julho", aves: 108 },
+      { nome: "Bruno Luka de Souza Bambirra Silveira", perfil: "Biólogo, 23 anos, São Paulo (SP)", periodo: "Maio a julho", aves: 113 },
+      { nome: "Luis Felipe Santos Coelho", perfil: "Biólogo, 21 anos, Rio de Janeiro (RJ)", periodo: "Maio a julho", aves: 89 },
+    ],
+  },
+];
+
+const totalTrainees = turmas.reduce((n, t) => n + t.pessoas.length, 0);
 ---
 
 <BaseLayout
@@ -222,30 +275,67 @@ const galeria = [
           treinamento do OAMa.
         </p>
 
-        {/* Banner "Quem já participou" (Figma: faixa azul com chevron).
-            TODO: destino/conteúdo desta chamada não está definido no frame;
-            renderizado como cabeçalho visual não interativo. */}
-        <div
-          class="mx-auto mt-10 flex w-full max-w-2xl flex-col items-center gap-2 rounded-2xl px-6 py-6 shadow-md"
-          style={`background:${colors.blue};`}
-        >
-          <span
-            class="font-oswald text-[22px] font-bold uppercase leading-[26px] text-white md:text-[28px] md:leading-[32px]"
+        {/* "Quem já participou": os trainees de cada edição. A copy vem dos nós
+            do Figma que ficam ao lado do frame; usamos a versão sem fotos. */}
+        <details class="group mx-auto mt-10 w-full max-w-3xl" data-trainees>
+          <summary
+            class="flex cursor-pointer list-none items-center justify-center gap-3 rounded-2xl px-6 py-6 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            style={`background:${colors.blue};`}
           >
-            Quem já participou
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
+            <span
+              class="font-oswald text-[22px] font-bold uppercase leading-[26px] text-white md:text-[28px] md:leading-[32px]"
+            >
+              Quem já participou
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 flex-none text-white transition-transform duration-300 group-open:rotate-180"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+
+          <div class="mt-5 rounded-2xl bg-white/90 px-5 py-6 shadow-sm md:px-7">
+            <p class="text-center font-montserrat text-[14px] leading-[21px] text-oama-ink/80 md:text-[15px]">
+              {totalTrainees} pessoas já passaram pelo programa, de {turmas[0].ano} a {turmas[turmas.length - 1].ano}.
+            </p>
+
+            {turmas.map((turma) => (
+              <section class="mt-7 first:mt-6">
+                <h3
+                  class="border-b-2 pb-1 font-oswald text-[19px] font-bold uppercase leading-[24px] text-oama-ink md:text-[22px]"
+                  style={`border-color:${colors.yellow};`}
+                >
+                  {turma.ano}
+                  <span class="ml-2 font-montserrat text-[13px] font-semibold normal-case text-oama-ink/60">
+                    {turma.pessoas.length} {turma.pessoas.length === 1 ? "trainee" : "trainees"}
+                  </span>
+                </h3>
+
+                <ul class="mt-4 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
+                  {turma.pessoas.map((p) => (
+                    <li class="font-montserrat">
+                      <p class="text-[15px] font-semibold leading-[21px] text-oama-ink">
+                        {p.nome}
+                      </p>
+                      <p class="mt-0.5 text-[13.5px] leading-[19px] text-oama-ink/75">
+                        {p.perfil}
+                      </p>
+                      <p class="mt-0.5 text-[13px] leading-[19px] text-oama-ink/60">
+                        {p.periodo} · {p.aves} aves processadas
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </details>
 
         <p
           class="mt-10 text-[16px] leading-[24px] text-[#1e1702] md:text-[18px] md:leading-[26px] text-justify"
