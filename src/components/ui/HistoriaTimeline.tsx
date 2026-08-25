@@ -3,7 +3,10 @@ import { useState } from "react";
 export interface HistoriaItem {
   ano: number;
   titulo: string;
+  /** Parágrafo de abertura do ano. Pode ser vazio quando só há marcos. */
   texto: string;
+  /** Marcos do ano, quando o conteúdo é uma lista e não um texto corrido. */
+  itens?: string[];
   foto?: string;
 }
 
@@ -45,10 +48,11 @@ export default function HistoriaTimeline({ items }: { items: HistoriaItem[] }) {
 
             {/* Expandable content */}
             <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+              className={`grid overflow-hidden transition-all duration-500 ease-in-out ${
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               }`}
             >
+              <div className="min-h-0 overflow-hidden">
               <div className="flex flex-col md:flex-row gap-6 pb-6 pt-1">
                 {item.foto && (
                   <img
@@ -57,9 +61,17 @@ export default function HistoriaTimeline({ items }: { items: HistoriaItem[] }) {
                     className="w-full md:w-[45%] max-h-[300px] object-cover rounded-xl shrink-0"
                   />
                 )}
-                <p className="font-montserrat text-[16px] text-white leading-relaxed">
-                  {item.texto}
-                </p>
+                <div className="font-montserrat text-[16px] text-white leading-relaxed">
+                  {item.texto && <p>{item.texto}</p>}
+                  {item.itens && item.itens.length > 0 && (
+                    <ul className={`list-disc space-y-1.5 pl-5 marker:text-white/60 ${item.texto ? "mt-4" : ""}`}>
+                      {item.itens.map((m) => (
+                        <li key={m}>{m}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
               </div>
             </div>
           </div>
