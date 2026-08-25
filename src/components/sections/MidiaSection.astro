@@ -2,20 +2,39 @@
 import { getMidiaItems, urlFor } from "../../utils/sanity";
 import CardSection from "./CardSection.astro";
 
-// Sem fallback fabricado: o conteúdo desta seção vem do Sanity.
-// O que havia aqui eram 5 matérias INVENTADAS (G1, National Geographic, BBC,
-// Globo Rural, Folha) com fotos do Unsplash e href="#". Publicar imprensa
-// fictícia é um problema de credibilidade para uma ONG científica, então a
-// seção simplesmente não é renderizada enquanto não houver itens reais.
+// Aparições do OAMa na mídia, informadas pelo OAMa. Ficam no código porque o
+// Sanity ainda não tem itens; quando tiver, os de lá têm prioridade.
+// PENDÊNCIA: falta o link de cada matéria — sem ele o card não vira link
+// (ver ContentCard). Os veículos vêm da própria arte enviada.
+const MIDIA = [
+  {
+    image: "/midias/home/midia/colisao-aves-vidros.png",
+    label: "Repórter Eco",
+    title: "A colisão de aves em vidros",
+  },
+  {
+    image: "/midias/home/midia/campanha-escute-as-aves.png",
+    label: "PAN Aves da Mata Atlântica",
+    title: "Campanha “Escute as Aves” do PAN Aves da Mata Atlântica",
+  },
+  {
+    image: "/midias/home/midia/observatorio-sexta-extincao.png",
+    label: "Brasil Sustentável",
+    title: "Observatório das aves e a 6ª extinção em massa",
+  },
+];
 
 const items = await getMidiaItems();
 
-const cards = items.map((item) => ({
-  image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
-  label: item.label,
-  title: item.title,
-  href: item.link ?? undefined,
-}));
+const cards =
+  items.length > 0
+    ? items.map((item) => ({
+        image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
+        label: item.label,
+        title: item.title,
+        href: item.link ?? undefined,
+      }))
+    : MIDIA;
 ---
 
 {cards.length > 0 && (

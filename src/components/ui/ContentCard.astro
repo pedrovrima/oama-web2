@@ -1,6 +1,7 @@
 ---
 interface Props {
-  image: string;
+  /** Sem imagem, o card usa uma faixa da cor da marca no lugar. */
+  image?: string;
   imageAlt?: string;
   label: string;
   title: string;
@@ -28,12 +29,24 @@ const props = temDestino
 <Tag {...props}>
   <!-- Image: 239px wide × 236px tall → aspect-[239/236] (card is 239×408 total) -->
   <div class="aspect-[239/236] w-full overflow-hidden">
-    <img
-      src={image}
-      alt={imageAlt || title}
-      loading="lazy"
-      class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-    />
+    {image ? (
+      <img
+        src={image}
+        alt={imageAlt || title}
+        loading="lazy"
+        class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+      />
+    ) : (
+      <div class="flex h-full w-full items-center justify-center bg-oama-cream px-4">
+        <img
+          src="/brand/logo-round.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          class="h-16 w-16 object-contain opacity-45"
+        />
+      </div>
+    )}
   </div>
 
   <!-- Text area: 172px (408 - 236) — pt 20px, pb 77px -->

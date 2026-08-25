@@ -2,23 +2,66 @@
 import { getAgendaItems, urlFor } from "../../utils/sanity";
 import CardSection from "./CardSection.astro";
 
-// Sem fallback fabricado: a agenda vem do Sanity. O que havia aqui eram eventos
-// de exemplo com fotos do Unsplash e href="#" — anunciar evento que não existe
-// é pior que não ter seção. Enquanto não houver itens reais, não renderiza.
+// Agenda de 2026 informada pelo OAMa. Fica no código porque o Sanity ainda não
+// tem itens cadastrados; assim que tiver, os dados de lá têm prioridade.
+// Dois eventos ainda não têm imagem própria (Congresso Brasileiro de Ornitologia
+// e IlhaBela Bird Week) — o card cai no selo do OAMa até chegarem.
+const AGENDA_2026 = [
+  {
+    image: "/midias/home/agenda/festival-aves-natureza-2026.png",
+    label: "28 a 30 de agosto",
+    title: "IV Festival de Aves e Natureza de Resende",
+  },
+  {
+    image: "/midias/home/agenda/fundraising-field-trip-2026.png",
+    label: "2 a 12 de setembro",
+    title: "FUNdraising Field Trip 2026",
+  },
+  {
+    image: "/midias/home/agenda/avistar-rio-2026.png",
+    label: "4 a 7 de setembro",
+    title: "Avistar Rio 2026",
+  },
+  {
+    image: "/midias/home/agenda/curso-pratico-passeriformes.png",
+    label: "12 a 17 de setembro",
+    title:
+      "Curso prático de anilhamento, análise de mudas e classificação de idades em aves tropicais (foco em passeriformes)",
+  },
+  {
+    image: undefined,
+    label: "20 a 24 de setembro",
+    title: "XXX Congresso Brasileiro de Ornitologia",
+  },
+  {
+    image: undefined,
+    label: "21 a 27 de setembro",
+    title: "IlhaBela Bird Week 2026",
+  },
+  {
+    image: "/midias/home/agenda/curso-pratico-beija-flores.png",
+    label: "24 a 29 de outubro",
+    title:
+      "Curso prático de anilhamento, análise de mudas e classificação de idades em aves tropicais (foco em beija-flores)",
+  },
+];
 
 const items = await getAgendaItems();
 
-const cards = items.map((item) => ({
-  image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
-  label: item.label,
-  title: item.title,
-  href: item.link ?? undefined,
-}));
+const cards =
+  items.length > 0
+    ? items.map((item) => ({
+        image: urlFor(item.image).width(480).height(474).fit("crop").auto("format").url(),
+        label: item.label,
+        title: item.title,
+        href: item.link ?? undefined,
+      }))
+    : AGENDA_2026;
 ---
 
 {cards.length > 0 && (
 <CardSection
-  sectionTitle="Agenda 2025"
+  sectionTitle="Agenda 2026"
   bg="#dfb553"
   id="agenda-section"
   cards={cards}
