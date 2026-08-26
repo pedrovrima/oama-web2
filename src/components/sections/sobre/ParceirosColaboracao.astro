@@ -1,10 +1,24 @@
 ---
 interface Parceiro {
   nome: string;
-  site: string;
   logo: string;
 }
 
+// Links removidos por decisão do usuário (2026-08-25): os itens desta seção
+// não são mais clicáveis. URLs que estavam em uso, caso alguém queira voltar atrás:
+//   CEMAVE / ICMBio-MMA — https://www.gov.br/icmbio
+//   ICMBio / MMA — https://www.icmbio.gov.br
+//   PANAves Mata Atlântica — https://panavesma.org.br
+//   AVISTAR BRASIL — https://avistarbrasil.com.br
+//   Klamath Bird Observatory — https://www.klamathbird.org
+//   Pedra Selada — https://pedraselada.com.br
+//   Alto Montana da Serra Fina — https://altomontana.com.br
+//   Birds Atlantic — https://birdsatlantic.org
+//   Secretaria Municipal de Turismo de Resende — https://resende.rj.gov.br
+//   RiMa — https://rima.org.br
+//   UERJ — https://www.uerj.br
+//   Laboratório de Ornitologia — UFJF — https://www.ufjf.br
+//   Laboratório de Evolução e Caracteres Complexos — USP — https://www.usp.br
 // TODO: replace with Sanity query
 // Sem logo local, o componente cai no fallback de TEXTO (ver template abaixo).
 // Antes havia imagens de https://placehold.co — serviço externo de placeholder
@@ -13,16 +27,16 @@ interface Parceiro {
 const parceiros: Parceiro[] = [
   // O arquivo original trazia CEMAVE e ICMBio na MESMA imagem; foi cortado ao
   // meio e cada metade virou um logo (logo-cemave.jpg / logo-icmbio.jpg).
-  { nome: "CEMAVE / ICMBio-MMA", site: "https://www.gov.br/icmbio", logo: "/midias/sobre/logo-cemave.jpg" },
-  { nome: "ICMBio / MMA", site: "https://www.icmbio.gov.br", logo: "/midias/sobre/logo-icmbio.jpg" },
-  { nome: "PANAves Mata Atlântica", site: "https://panavesma.org.br", logo: "/midias/sobre/logo-panaves.jpg" },
-  { nome: "AVISTAR BRASIL", site: "https://avistarbrasil.com.br", logo: "/midias/sobre/logo-avistar.png" },
-  { nome: "Klamath Bird Observatory", site: "https://www.klamathbird.org", logo: "/midias/sobre/logo-kbo.png" },
-  { nome: "Pedra Selada", site: "https://pedraselada.com.br", logo: "/midias/sobre/logo-pedra-selada.png" },
-  { nome: "Alto Montana da Serra Fina", site: "https://altomontana.com.br", logo: "/midias/sobre/logo-alto-montana.png" },
-  { nome: "Birds Atlantic", site: "https://birdsatlantic.org", logo: "/midias/sobre/logo-birds-atlantic.jpg" },
-  { nome: "Secretaria Municipal de Turismo de Resende", site: "https://resende.rj.gov.br", logo: "" },
-  { nome: "RiMa", site: "https://rima.org.br", logo: "/midias/sobre/logo-rima.jpg" },
+  { nome: "CEMAVE / ICMBio-MMA", logo: "/midias/sobre/logo-cemave.jpg" },
+  { nome: "ICMBio / MMA", logo: "/midias/sobre/logo-icmbio.jpg" },
+  { nome: "PANAves Mata Atlântica", logo: "/midias/sobre/logo-panaves.jpg" },
+  { nome: "AVISTAR BRASIL", logo: "/midias/sobre/logo-avistar.png" },
+  { nome: "Klamath Bird Observatory", logo: "/midias/sobre/logo-kbo.png" },
+  { nome: "Pedra Selada", logo: "/midias/sobre/logo-pedra-selada.png" },
+  { nome: "Alto Montana da Serra Fina", logo: "/midias/sobre/logo-alto-montana.png" },
+  { nome: "Birds Atlantic", logo: "/midias/sobre/logo-birds-atlantic.jpg" },
+  { nome: "Secretaria Municipal de Turismo de Resende", logo: "" },
+  { nome: "RiMa", logo: "/midias/sobre/logo-rima.jpg" },
   // Removidos por decisão do usuário (2026-08-25): de "Observatório Ecológico"
   // em diante — Simone Coimbra (é colaboradora, não parceira), ColaboraNóbrega,
   // Observatório de Aves do Butantan, Aves Noronha e Visconde de Mauá Apaixonante.
@@ -30,15 +44,15 @@ const parceiros: Parceiro[] = [
 
 // TODO: replace with Sanity query
 const colaboracaoCientifica: Parceiro[] = [
-  { nome: "Laboratório de Biologia de Populações", site: "", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
+  { nome: "Laboratório de Biologia de Populações", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
   // "Lab Ornitologia" saiu e o LiVeFlow entrou no lugar (decisão do usuário).
   // Logo exportado do Figma (nó 2291:178, "laboratório interações").
-  { nome: "Laboratório LiVeFlow — USP", site: "", logo: "/midias/sobre/logo-liveflow.png" },
-  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "", logo: "/midias/sobre/logo-laboac.jpg" },
-  { nome: "LECAVE", site: "", logo: "/midias/sobre/logo-lecave.jpg" },
-  { nome: "UERJ", site: "https://www.uerj.br", logo: "/midias/sobre/logo-uerj.jpg" },
-  { nome: "Laboratório de Ornitologia — UFJF", site: "https://www.ufjf.br", logo: "" },
-  { nome: "Laboratório de Evolução e Caracteres Complexos — USP", site: "https://www.usp.br", logo: "" },
+  { nome: "Laboratório LiVeFlow — USP", logo: "/midias/sobre/logo-liveflow.png" },
+  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", logo: "/midias/sobre/logo-laboac.jpg" },
+  { nome: "LECAVE", logo: "/midias/sobre/logo-lecave.jpg" },
+  { nome: "UERJ", logo: "/midias/sobre/logo-uerj.jpg" },
+  { nome: "Laboratório de Ornitologia — UFJF", logo: "" },
+  { nome: "Laboratório de Evolução e Caracteres Complexos — USP", logo: "" },
 ];
 ---
 
@@ -51,16 +65,8 @@ const colaboracaoCientifica: Parceiro[] = [
       PARCEIROS
     </h2>
     <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 mt-10">
-      {parceiros.map((p) => {
-        const hasLink = Boolean(p.site) && p.site !== "#";
-        const Tag = hasLink ? "a" : "div";
-        return (
-        <Tag
-          href={hasLink ? p.site : undefined}
-          target={hasLink ? "_blank" : undefined}
-          rel={hasLink ? "noopener noreferrer" : undefined}
-          class="group"
-        >
+      {parceiros.map((p) => (
+        <div class="group">
           {p.logo ? (
             <span class="flex h-20 w-[160px] items-center justify-center">
               <img
@@ -74,9 +80,8 @@ const colaboracaoCientifica: Parceiro[] = [
               {p.nome}
             </span>
           )}
-        </Tag>
-        );
-      })}
+        </div>
+      ))}
     </div>
 
     <!-- COLABORAÇÃO CIENTÍFICA -->
@@ -84,16 +89,8 @@ const colaboracaoCientifica: Parceiro[] = [
       COLABORAÇÃO CIENTÍFICA
     </h2>
     <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 mt-10 mb-16">
-      {colaboracaoCientifica.map((c) => {
-        const hasLink = Boolean(c.site) && c.site !== "#";
-        const Tag = hasLink ? "a" : "div";
-        return (
-        <Tag
-          href={hasLink ? c.site : undefined}
-          target={hasLink ? "_blank" : undefined}
-          rel={hasLink ? "noopener noreferrer" : undefined}
-          class="group"
-        >
+      {colaboracaoCientifica.map((c) => (
+        <div class="group">
           {c.logo ? (
             <span class="flex h-20 w-[160px] items-center justify-center">
               <img
@@ -107,9 +104,8 @@ const colaboracaoCientifica: Parceiro[] = [
               {c.nome}
             </span>
           )}
-        </Tag>
-        );
-      })}
+        </div>
+      ))}
     </div>
 
   </div>
