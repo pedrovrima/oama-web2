@@ -1,0 +1,47 @@
+# OAMa — Observatório de Aves da Mantiqueira
+
+> Organização sem fins lucrativos brasileira que une pesquisa científica, educação e conservação das aves da Mata Atlântica na Serra da Mantiqueira. Realiza monitoramento de avifauna de longo prazo com anilhamento, forma ornitólogos de campo, produz divulgação científica e presta consultoria ambiental. Site em português (pt-BR).
+
+O OAMa ("Observatório de Aves da Mantiqueira", pronuncia-se "oáma") atua desde Visconde de Mauá, na Serra da Mantiqueira (RJ/MG, Brasil), e mantém parceria internacional com o Klamath Bird Observatory (EUA).
+
+## Institucional
+
+- [Início](https://oama.eco.br/): visão geral — conservação com ciência, dados e engajamento pelas aves da Mata Atlântica
+- [Sobre](https://oama.eco.br/sobre): história da organização, equipe e transparência (relatórios e DRE)
+- [Missão](https://oama.eco.br/missao): missão, visão e valores
+- [Áreas de Atuação](https://oama.eco.br/areas-de-atuacao): pesquisa, educação ambiental e capacitação técnica
+- [Realizações](https://oama.eco.br/realizacoes): documentários, enciclopédia Wikimudas, blog e produção acadêmica
+
+## Programas e Projetos
+
+- [Programas e Projetos](https://oama.eco.br/programas-e-projetos): hub com todos os programas
+- [Monitoramento de Avifauna](https://oama.eco.br/programas-e-projetos/monitoramento-de-avifauna): monitoramento padronizado e de longo prazo na Mantiqueira, com redes de neblina, pontos de escuta e gravadores
+- [Treinamento em Monitoramento de Avifauna](https://oama.eco.br/programas-e-projetos/treinamento-monitoramento-avifauna): formação supervisionada de ornitólogos de campo em anilhamento, com intercâmbio no Klamath Bird Observatory
+- [Ações Pró-Aves](https://oama.eco.br/programas-e-projetos/acoes-pro-aves): oficinas de arte, teatro, escolas e prevenção de colisões de aves com vidros
+- [Projetos de Pesquisa](https://oama.eco.br/programas-e-projetos/projetos-de-pesquisa): migração altitudinal, ciclos de muda, beija-flores e colisões com vidro, com universidades brasileiras
+- [Campanha Jacuçara](https://oama.eco.br/programas-e-projetos/campanha-jacucara): conservação da jacutinga (Aburria jacutinga) e da palmeira juçara (Euterpe edulis)
+- [Jacuçara — página da campanha](https://oama.eco.br/jacucara): a relação ecológica entre a jacutinga e a juçara e como ajudar
+- [Fundraising Field Trip](https://oama.eco.br/programas-e-projetos/fundraising-field-trip): viagem anual de captação de recursos e turismo de conservação com o Klamath Bird Observatory
+- [ProAves — guia prático](https://oama.eco.br/proaves): como tornar sua vida pró-aves — tráfico, predação por pets, colisões com vidro, poluição sonora e luminosa
+
+## Consultoria e Cursos
+
+- [Consultoria](https://oama.eco.br/consultoria): serviços ambientais da equipe técnica
+- [Monitoramento de Aves](https://oama.eco.br/consultoria/monitoramento-de-aves): inventários, diagnósticos, pareceres técnicos e gestão de dados de avifauna
+- [Educação Ambiental](https://oama.eco.br/consultoria/educacao-ambiental): programas, oficinas, exposições e materiais educativos
+- [Capacitação Técnica](https://oama.eco.br/consultoria/capacitacao-tecnica): treinamento em coleta de dados, análise de muda e classificação de idade em aves
+- [Cursos](https://oama.eco.br/consultoria/cursos): cursos online e presenciais de anilhamento e análise de muda
+
+## Conteúdo e Materiais
+
+- [Blog](https://oama.eco.br/blog): divulgação científica sobre aves, pesquisa e conservação
+- [Downloads](https://oama.eco.br/downloads): relatórios anuais, guias de aves, cartilhas e publicações em PDF
+
+## Como Apoiar
+
+- [Apoie](https://oama.eco.br/apoie): doações recorrentes e formas de apoio
+- [PIX](https://oama.eco.br/pix): doação única por PIX
+
+## Opcional
+
+- [Sitemap](https://oama.eco.br/sitemap.xml): lista completa de páginas, incluindo todos os posts do blog

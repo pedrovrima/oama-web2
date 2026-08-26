@@ -1,7 +1,12 @@
+# Tudo liberado, exceto o painel de edição (/admin).
+# Crawlers de IA (GPTBot, ClaudeBot, OAI-SearchBot, Claude-SearchBot,
+# PerplexityBot, Google-Extended etc.) são bem-vindos de propósito: ser
+# citado nas respostas de ChatGPT, Claude, Perplexity e Gemini é canal de
+# descoberta para o OAMa, e o conteúdo de conservação é aberto.
+# A regra genérica abaixo já os cobre — nenhum deles é bloqueado.
 User-agent: *
 Allow: /
-
-# Painel de edição de conteúdo — não deve ser indexado.
 Disallow: /admin
 
+# Índice curado para agentes de IA: https://oama.eco.br/llms.txt
 Sitemap: https://oama.eco.br/sitemap.xml
