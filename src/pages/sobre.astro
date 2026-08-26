@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroQuemSomos from "../components/sections/sobre/HeroQuemSomos.astro";
 import WaveDark from "../components/sections/WaveDark.astro";
 import PlanoDeVoo from "../components/sections/sobre/PlanoDeVoo.astro";
+import EstacaoPesquisa from "../components/sections/sobre/EstacaoPesquisa.astro";
 import Membros from "../components/sections/sobre/Membros.astro";
 import ParceirosColaboracao from "../components/sections/sobre/ParceirosColaboracao.astro";
 import HistoriaOAMa from "../components/sections/sobre/HistoriaOAMa.astro";
@@ -19,7 +20,13 @@ import Transparencia from "../components/sections/Transparencia.astro";
     <HeroQuemSomos />
     <WaveDark topColor="#dfb553" bottomColor="#fbf5e6" />
     <PlanoDeVoo />
-    <WaveDark topColor="#5ba4d9" bottomColor="#dfb553" path1Color="#fbf5e6" path2Color="#1a2e4a" />
+    {/* PlanoDeVoo termina em azul (#5ba4d9); a Estação de Pesquisa entra em creme
+        (#fbf5e6), a mesma cor da abertura do Plano de Voo e da faixa de Parceiros,
+        mantendo o ritmo creme → azul → creme → amarelo da página. A onda seguinte
+        preserva o mesmo desenho que já levava para Membros (faixa navy #1a2e4a). */}
+    <WaveDark topColor="#5ba4d9" bottomColor="#fbf5e6" path1Color="#dfb553" path2Color="#fbf5e6" />
+    <EstacaoPesquisa />
+    <WaveDark topColor="#fbf5e6" bottomColor="#dfb553" path1Color="#5ba4d9" path2Color="#1a2e4a" />
     <Membros />
     <ParceirosColaboracao />
     <WaveDark topColor="#fbf5e6" bottomColor="#5ba4d9" />

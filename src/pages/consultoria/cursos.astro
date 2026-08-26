@@ -36,26 +36,44 @@ const cursos = [
 // informadas pelo usuário: os dois cursos online de edição anual chegaram à
 // VI edição (o de anilhamento e o de análise de mudas estavam na V em 2025).
 // Padronizada a capitalização de "Classificação de Idade", inconsistente no Figma.
-const cursosConcluidos = [
+// `link` é opcional: só os cursos com página de inscrição/divulgação viram <a>.
+const cursosConcluidos: {
+  ano: string;
+  cursos: { nome: string; modo: string; link?: string }[];
+}[] = [
   {
     ano: "2026",
     cursos: [
       { nome: "VI Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
       { nome: "VI Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+      { nome: "Curso de Ornitologia (SESC Ipiranga)", modo: "Presencial" },
+      { nome: "Curso sobre análise de mudas e plumagens para observadores de aves (SESC Santos)", modo: "Presencial" },
     ],
   },
   {
     ano: "2025",
     cursos: [
-      { nome: "V Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
-      { nome: "V Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
+      {
+        nome: "V Curso Teórico Básico de Anilhamento com Aves de Noronha",
+        modo: "Online",
+        link: "https://www.sympla.com.br/evento-online/v-curso-de-anilhamento-teorico-online/2977724",
+      },
+      {
+        nome: "V Curso Teórico de Análise de Mudas e Classificação de Idade em Aves",
+        modo: "Online",
+        link: "https://www.sympla.com.br/evento-online/v-curso-de-analise-de-muda-e-classificacao-de-idade-em-aves/3003414",
+      },
     ],
   },
   {
     ano: "2024",
     cursos: [
       { nome: "I Curso Prático de Anilhamento e Análise de Mudas", modo: "Presencial" },
-      { nome: "VII BBMA — Curso internacional de anilhamento de aves e análise de mudas", modo: "Presencial" },
+      {
+        nome: "VII BBMA — Curso internacional de anilhamento de aves e análise de mudas",
+        modo: "Presencial",
+        link: "https://ferrazlab.org/workshops",
+      },
       { nome: "IV Curso Teórico Básico de Anilhamento com Aves de Noronha", modo: "Online" },
       { nome: "IV Curso Teórico de Análise de Mudas e Classificação de Idade em Aves", modo: "Online" },
     ],
@@ -191,7 +209,10 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
         >
           As aberturas de inscrições dos cursos teóricos e do curso prático
           acontecem uma vez por ano, e a divulgação acontece pelas redes
-          sociais e por campanhas de email do OAMa (Inscreva-se aqui para não
+          sociais e por campanhas de email do OAMa (<a
+            href="/newsletter"
+            class="font-semibold underline underline-offset-4 hover:opacity-80"
+          >Inscreva-se aqui</a> para não
           perder as chamadas). Os valores arrecadados com os cursos pagos são
           100% convertidos em doações para ações de pesquisa e conservação das
           aves, sendo assim, uma forma de viabilizar a continuação do OAMa.
@@ -240,7 +261,18 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
                   {turma.cursos.map((c) => (
                     <li class="flex flex-col gap-1 font-montserrat sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                       <span class="text-[15px] leading-[21px] text-oama-ink">
-                        {c.nome}
+                        {c.link ? (
+                          <a
+                            href={c.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="underline underline-offset-4 hover:opacity-80"
+                          >
+                            {c.nome}
+                          </a>
+                        ) : (
+                          c.nome
+                        )}
                       </span>
                       <span
                         class="flex-none self-start rounded-full px-2.5 py-0.5 text-[12px] font-semibold leading-[18px] text-oama-ink sm:self-auto"

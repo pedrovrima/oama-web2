@@ -106,9 +106,9 @@ const galeria = [
     </section>
 
     {/* FAIXA ROXA (continuação): resultados, PAN Aves e link da campanha.
-        PENDÊNCIA: o frame marca 3 links (canal do ICMBio, página do PAN Aves,
-        página da campanha) cujos destinos não estão no export. Texto restaurado
-        sem âncora até o usuário fornecer as URLs. */}
+        PENDÊNCIA: resta apenas 1 link sem destino — "canal do Youtube do
+        ICMBio", cuja URL não foi fornecida pelo cliente. Os outros dois
+        (PAN Aves e página da campanha) já estão ancorados. */}
     <section class="w-full" style={`background:${colors.purple};`}>
       <div class="max-w-5xl mx-auto px-6 py-16">
         <div class="space-y-5 text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink text-justify">
@@ -122,15 +122,25 @@ const galeria = [
           </p>
           <p>
             A campanha é uma iniciativa do
-            <strong>Plano de Ação Nacional para Conservação das Aves da Mata
-            Atlântica</strong>, organizado coletivamente por Associação de Zoológicos e Aquários
+            <strong><a
+              href="https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/pan/pan-aves-da-mata-atlantica"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline underline-offset-4 hover:opacity-80"
+            >Plano de Ação Nacional para Conservação das Aves da Mata
+            Atlântica</a></strong>, organizado coletivamente por Associação de Zoológicos e Aquários
             do Brasil, CEMAVE, Centro Ecológico, Ministério do Meio Ambiente,
             Centro Nacional de Conservação da Flora, Jardim Botânico do Rio de
             Janeiro, OAMa, Parque das Aves, SAVE Brasil e Instituto Marcos
             Daniel.
           </p>
           <p>
-            Para saber mais, acesse a página da campanha.
+            Para saber mais, acesse a <a
+              href="https://www.oama.eco.br/jacucara"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold underline underline-offset-4 hover:opacity-80"
+            >página da campanha</a>.
           </p>
         </div>
       </div>

@@ -30,10 +30,12 @@ const diferenciais = [
   "Equipe qualificada para a coleta de dados padronizados em ornitologia",
   "Corpo técnico pautado na ética, respeito e diversidade",
   "Foco no bem estar animal",
+  "Transposição didática da ciência para todas as idades",
   "Design original e personalizado de materiais gráficos e de atividades didáticas",
   "Práticas que integram a arte ao conhecimento científico e à educação",
   "Instrutores habilitados e certificados nacional e internacionalmente",
   "Sistema padronizado de ensino-aprendizagem",
+  "Formação baseada em atividades práticas supervisionadas",
 ];
 
 // Categorias de clientes conforme os nós I2594:813 e I2619:* do Figma.
@@ -44,12 +46,19 @@ const clientes = [
   "Universidades e institutos de pesquisa",
   "Estudantes e profissionais da área ambiental",
   "Escolas e museus",
-  "Observadores de aves e da natureza",
+  "Organizações da sociedade civil",
   "Unidades de conservação",
+  "Observadores de aves e da natureza",
 ];
 
 
-const logos = ["AGEVAP", "Casa Tlalli"];
+// Renderizados como texto: não há arquivo de logo destas instituições nas mídias do cliente.
+const logos = [
+  "AGEVAP - Associação Pró-gestão das Águas da Bacia Hidrográfica do Rio Paraíba do Sul",
+  "Casa Tlalli",
+  "Scinax Consultoria Ambiental",
+  "The Nature Conservancy",
+];
 ---
 
 <BaseLayout
@@ -81,15 +90,31 @@ const logos = ["AGEVAP", "Casa Tlalli"];
           Juntos, multiplicando e potencializando impactos socioambientais reais.
         </p>
         <div class="mx-auto mt-6 max-w-4xl space-y-4 text-[15px] leading-6 md:text-[17px] md:leading-7">
+          {/* Texto oficial do documento de redação do cliente, aplicado verbatim.
+              Correção de digitação: o documento escreve "em mais de seteis anos".
+              O OAMa foi fundado em 2019, logo em 2026 são sete anos — usamos "sete". */}
           <p>
-            Além de promover a confluência entre ciência, conservação e sociedade, o OAMa
-            oferece serviços técnicos para parceiros, instituições, projetos e territórios
-            que precisam de soluções com base em dados, método e sensibilidade socioambiental.
+            Além de promover a confluência entre ciência, conservação e a sociedade brasileira,
+            o OAMa também oferece serviços técnicos para terceiros nas áreas de 1. monitoramento
+            de aves e estudos de avifauna, 2. educação ambiental e comunicação científica e
+            3. capacitação técnica e formação profissional em ornitologia
           </p>
           <p>
-            Nosso trabalho combina monitoramento de aves, educação ambiental, comunicação
-            científica e formação profissional, sempre com foco na Mata Atlântica e na qualidade
-            técnica das entregas.
+            Em mais de sete anos de atuação, o OAMa acumulou preciosas experiências, seja em
+            campo, coletando dados que fomentam estudos técnicos sobre impactos ambientais na
+            conservação e treinando uma nova geração de pesquisadores, ou em escolas e espaços
+            não-formais de educação divulgando a ciência por meio de linguagem acessível a
+            públicos diversos.
+          </p>
+          <p>
+            O compromisso do OAMa é com a ética e a excelência profissional, e com o envolvimento
+            e a democratização do saber científico para com as pessoas. Tudo convergindo para a
+            aplicação de técnicas e metodologias padronizadas. Gerando, assim,
+            <strong>
+              conhecimento científico capaz de fomentar soluções para os desafios atuais da
+              conservação da biodiversidade e o enfrentamento das mudanças climáticas globais,
+              com foco especial na Mata Atlântica do sudeste brasileiro.
+            </strong>
           </p>
         </div>
 
@@ -157,11 +182,13 @@ const logos = ["AGEVAP", "Casa Tlalli"];
           }
         </div>
 
-        <div class="mt-10 flex flex-col items-center gap-4 md:flex-row md:justify-center">
+        <div class="mt-10 grid gap-4 sm:grid-cols-2">
           {
             logos.map((logo) => (
-              <div class="min-w-[220px] rounded-[18px] border border-oama-ink/10 bg-white px-8 py-5 text-center shadow-sm">
-                <p class="font-oswald text-[26px] uppercase tracking-wide text-oama-ink">{logo}</p>
+              <div class="flex items-center justify-center rounded-[18px] border border-oama-ink/10 bg-white px-6 py-5 text-center shadow-sm">
+                <p class="font-oswald text-[18px] uppercase leading-tight tracking-wide text-oama-ink md:text-[20px]">
+                  {logo}
+                </p>
               </div>
             ))
           }
