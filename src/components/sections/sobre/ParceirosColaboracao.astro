@@ -32,9 +32,8 @@ const parceiros: Parceiro[] = [
 const colaboracaoCientifica: Parceiro[] = [
   { nome: "Laboratório de Biologia de Populações", site: "", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
   // "Lab Ornitologia" saiu e o LiVeFlow entrou no lugar (decisão do usuário).
-  // PENDÊNCIA: o logo do LiVeFlow existe no Figma, mas o plugin não estava
-  // conectado — por ora cai no fallback de texto.
-  { nome: "Laboratório LiVeFlow — USP", site: "", logo: "" },
+  // Logo exportado do Figma (nó 2291:178, "laboratório interações").
+  { nome: "Laboratório LiVeFlow — USP", site: "", logo: "/midias/sobre/logo-liveflow.png" },
   { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "", logo: "/midias/sobre/logo-laboac.jpg" },
   { nome: "LECAVE", site: "", logo: "/midias/sobre/logo-lecave.jpg" },
   { nome: "UERJ", site: "https://www.uerj.br", logo: "/midias/sobre/logo-uerj.jpg" },
@@ -63,13 +62,15 @@ const colaboracaoCientifica: Parceiro[] = [
           class="group"
         >
           {p.logo ? (
-            <img
-              src={p.logo}
-              alt={p.nome}
-              class="h-16 w-auto max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
+            <span class="flex h-20 w-[160px] items-center justify-center">
+              <img
+                src={p.logo}
+                alt={p.nome}
+                class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </span>
           ) : (
-            <span class="flex h-16 max-w-[150px] items-center justify-center text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
+            <span class="flex h-20 w-[160px] items-center justify-center px-1 text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
               {p.nome}
             </span>
           )}
@@ -94,13 +95,15 @@ const colaboracaoCientifica: Parceiro[] = [
           class="group"
         >
           {c.logo ? (
-            <img
-              src={c.logo}
-              alt={c.nome}
-              class="h-16 w-auto max-w-[140px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
+            <span class="flex h-20 w-[160px] items-center justify-center">
+              <img
+                src={c.logo}
+                alt={c.nome}
+                class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </span>
           ) : (
-            <span class="flex h-16 max-w-[150px] items-center justify-center text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
+            <span class="flex h-20 w-[160px] items-center justify-center px-1 text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
               {c.nome}
             </span>
           )}
