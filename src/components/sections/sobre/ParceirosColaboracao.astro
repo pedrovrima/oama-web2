@@ -11,8 +11,10 @@ interface Parceiro {
 // que aparecia no site como retângulo cinza escrito o nome. Não há logo dessas
 // instituições na pasta de mídias do cliente.
 const parceiros: Parceiro[] = [
-  { nome: "CEMAVE / ICMBio-MMA", site: "https://www.gov.br/icmbio", logo: "/midias/sobre/logo-cemave-icmbio.jpg" },
-  { nome: "ICMBio / MMA", site: "https://www.icmbio.gov.br", logo: "/midias/sobre/logo-cemave-icmbio.jpg" },
+  // O arquivo original trazia CEMAVE e ICMBio na MESMA imagem; foi cortado ao
+  // meio e cada metade virou um logo (logo-cemave.jpg / logo-icmbio.jpg).
+  { nome: "CEMAVE / ICMBio-MMA", site: "https://www.gov.br/icmbio", logo: "/midias/sobre/logo-cemave.jpg" },
+  { nome: "ICMBio / MMA", site: "https://www.icmbio.gov.br", logo: "/midias/sobre/logo-icmbio.jpg" },
   { nome: "PANAves Mata Atlântica", site: "https://panavesma.org.br", logo: "/midias/sobre/logo-panaves.jpg" },
   { nome: "AVISTAR BRASIL", site: "https://avistarbrasil.com.br", logo: "/midias/sobre/logo-avistar.png" },
   { nome: "Klamath Bird Observatory", site: "https://www.klamathbird.org", logo: "/midias/sobre/logo-kbo.jpg" },
@@ -21,33 +23,27 @@ const parceiros: Parceiro[] = [
   { nome: "Birds Atlantic", site: "https://birdsatlantic.org", logo: "/midias/sobre/logo-birds-atlantic.jpg" },
   { nome: "Secretaria Municipal de Turismo de Resende", site: "https://resende.rj.gov.br", logo: "" },
   { nome: "RiMa", site: "https://rima.org.br", logo: "/midias/sobre/logo-rima.jpg" },
-  { nome: "Observatório Ecológico", site: "", logo: "" },
-  // Parceiros migrados do site antigo (pages/quem-somos/index.js, seção "Parcerias").
-  // Logos do legado não estão em public/midias/sobre/ e esta task não pode alterar
-  // outros arquivos, então entram sem logo (fallback de texto) com o destino real do legado.
-  { nome: "Simone Coimbra", site: "https://instagram.com/si_coimbra", logo: "" },
-  { nome: "ColaboraNóbrega", site: "https://instagram.com/colaboranobrega", logo: "" },
-  { nome: "Observatório de Aves — Instituto Butantan", site: "https://www.facebook.com/observatoriodeavesibu", logo: "" },
-  { nome: "Aves Noronha", site: "https://www.instagram.com/avesdenoronha/", logo: "" },
-  // Legado não fornece URL para este parceiro: item mantido sem inventar destino.
-  { nome: "Visconde de Mauá Apaixonante", site: "", logo: "" },
+  // Removidos por decisão do usuário (2026-08-25): de "Observatório Ecológico"
+  // em diante — Simone Coimbra (é colaboradora, não parceira), ColaboraNóbrega,
+  // Observatório de Aves do Butantan, Aves Noronha e Visconde de Mauá Apaixonante.
 ];
 
 // TODO: replace with Sanity query
 const colaboracaoCientifica: Parceiro[] = [
   { nome: "Laboratório de Biologia de Populações", site: "", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
-  { nome: "Lab Ornitologia", site: "", logo: "" },
+  // "Lab Ornitologia" saiu e o LiVeFlow entrou no lugar (decisão do usuário).
+  // PENDÊNCIA: o logo do LiVeFlow existe no Figma, mas o plugin não estava
+  // conectado — por ora cai no fallback de texto.
+  { nome: "Laboratório LiVeFlow — USP", site: "", logo: "" },
   { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", site: "", logo: "/midias/sobre/logo-laboac.jpg" },
   { nome: "LECAVE", site: "", logo: "/midias/sobre/logo-lecave.jpg" },
   { nome: "UERJ", site: "https://www.uerj.br", logo: "/midias/sobre/logo-uerj.jpg" },
   { nome: "Laboratório de Ornitologia — UFJF", site: "https://www.ufjf.br", logo: "" },
   { nome: "Laboratório de Evolução e Caracteres Complexos — USP", site: "https://www.usp.br", logo: "" },
-  // Documento oficial de redação do cliente; sem logo local, cai no fallback de texto.
-  { nome: "Laboratório LiVeFlow - USP", site: "", logo: "" },
 ];
 ---
 
-<section class="bg-oama-cream relative pt-16 pb-0 overflow-visible">
+<section class="bg-white relative pt-16 pb-0 overflow-visible">
 
   <div class="max-w-4xl mx-auto px-6">
 
@@ -70,10 +66,10 @@ const colaboracaoCientifica: Parceiro[] = [
             <img
               src={p.logo}
               alt={p.nome}
-              class="h-16 w-auto max-w-[130px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+              class="h-16 w-auto max-w-[130px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <span class="font-montserrat text-[14px] text-oama-ink text-center leading-tight group-hover:text-oama-yellow transition-colors duration-200">
+            <span class="flex h-16 max-w-[150px] items-center justify-center text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
               {p.nome}
             </span>
           )}
@@ -101,10 +97,10 @@ const colaboracaoCientifica: Parceiro[] = [
             <img
               src={c.logo}
               alt={c.nome}
-              class="h-16 w-auto max-w-[140px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+              class="h-16 w-auto max-w-[140px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <span class="font-montserrat text-[14px] text-oama-ink text-center leading-tight group-hover:text-oama-yellow transition-colors duration-200">
+            <span class="flex h-16 max-w-[150px] items-center justify-center text-center font-montserrat text-[13px] font-bold leading-snug text-oama-ink transition-colors duration-200 group-hover:text-oama-yellow">
               {c.nome}
             </span>
           )}
