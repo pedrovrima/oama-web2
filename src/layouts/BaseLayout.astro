@@ -50,6 +50,21 @@ const imagemAbsoluta = new URL(image, origem).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imagemAbsoluta} />
+
+    <!-- Google Analytics (gtag.js) — só no build de produção -->
+    {
+      import.meta.env.PROD && (
+        <>
+          <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-78XYNN79L7" />
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-78XYNN79L7');
+          </script>
+        </>
+      )
+    }
   </head>
   <body class="bg-white text-oama-ink">
     <Nav variant={navVariant} />

@@ -9,6 +9,7 @@
 - Backlog Linear já existe; a orquestração local continua em `docs/agent-workflow/`
 
 ## Estado operacional atual
+- **Google Analytics 4 instalado (2026-08-26):** snippet gtag (`G-78XYNN79L7`) no `<head>` de `src/layouts/BaseLayout.astro`, condicionado a `import.meta.env.PROD` — não carrega em `astro dev`. Cobre todas as páginas (layout único).
 - **TASK-LAUNCH-001 está em andamento (2026-07-20):** preparação para lançamento sem CMS; auditoria por abas/painéis Herdr, com Pi (`openai-pedro`) e Claude Code. Fable é proibido. Brief: `docs/implementation/pages/lancamento.md`.
 - O repo já possui uma camada de briefs em `docs/implementation/pages/`.
 - O repo já possui `AGENT.md` com regras de hardcoded vs Sanity.
