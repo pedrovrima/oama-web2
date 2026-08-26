@@ -27,6 +27,7 @@ const ROTAS_ESTATICAS = [
   "/programas-e-projetos/fundraising-field-trip",
   "/programas-e-projetos/pro-aves",
   "/proaves",
+  "/jacucara",
   "/apoie",
   "/pix",
 ];

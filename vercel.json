@@ -3,7 +3,6 @@
   "redirects": [
     { "source": "/quem-somos", "destination": "/sobre", "statusCode": 301 },
     { "source": "/projetos", "destination": "/programas-e-projetos", "statusCode": 301 },
-    { "source": "/jacucara", "destination": "/programas-e-projetos/campanha-jacucara", "statusCode": 301 },
     { "source": "/jucara", "destination": "/programas-e-projetos/campanha-jacucara", "statusCode": 301 },
     { "source": "/treinamento-cursos", "destination": "/consultoria/cursos", "statusCode": 301 },
     { "source": "/treinamento-cursos/curso-foto", "destination": "/consultoria/cursos", "statusCode": 301 },

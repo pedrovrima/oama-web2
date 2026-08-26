@@ -1,0 +1,967 @@
+---
+// /jacucara — migração Legacy-first da página PRINCIPAL do projeto Jacuçara
+// (oama-website/pages/jacucara/index.js). Não há frame no Figma para esta rota.
+// É distinta da página descritiva /programas-e-projetos/campanha-jacucara,
+// que segue o Figma. Espelha o par /proaves ↔ /programas-e-projetos/pro-aves.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WaveDark from "../components/sections/WaveDark.astro";
+
+const roxo = "#9b8ab6";
+const azul = "#5ba4d9";
+
+// Organizações que organizam a campanha (array `logos` do legado, 9 entradas).
+const organizacoes = [
+  { arquivo: "azab.png", nome: "AZAB — Associação de Zoológicos e Aquários do Brasil", site: "https://www.azab.org.br/" },
+  { arquivo: "aves-argentinas.png", nome: "Aves Argentinas", site: "https://www.avesargentinas.org.ar/" },
+  { arquivo: "cncflora.png", nome: "CNCFlora — Centro Nacional de Conservação da Flora", site: "http://cncflora.jbrj.gov.br/portal" },
+  { arquivo: "jbrj.png", nome: "Jardim Botânico do Rio de Janeiro", site: "https://www.gov.br/jbrj/pt-br" },
+  { arquivo: "oama.png", nome: "OAMa — Observatório de Aves da Mantiqueira", site: "https://oama.eco.br" },
+  { arquivo: "parque-das-aves.png", nome: "Parque das Aves", site: "https://www.parquedasaves.com.br/" },
+  { arquivo: "save.png", nome: "SAVE Brasil", site: "http://savebrasil.org.br/" },
+  { arquivo: "pn-iguacu.png", nome: "Parque Nacional do Iguaçu", site: "https://cataratasdoiguacu.com.br/" },
+  { arquivo: "cemave-icmbio.png", nome: "CEMAVE — ICMBio", site: "https://www.gov.br/icmbio/pt-br" },
+];
+
+// Onde comprar polpa de juçara (objeto `places` do legado).
+const pontosDeVenda = [
+  {
+    estado: "Rio de Janeiro",
+    locais: [
+      { nome: "Associação Juçara Viva", cidade: "Resende, RJ", instagram: "@jucaraviva" },
+      { nome: "Juçai", site: "jucai.com.br" },
+    ],
+  },
+  {
+    estado: "Santa Catarina",
+    locais: [
+      { nome: "Açai Juçara da Montanha", cidade: "Florianópolis, SC", instagram: "@acaijucara", site: "acaijucara.com.br" },
+      { nome: "Açaí Juçara Barbacuá", cidade: "Praia Grande, SC", instagram: "@acaibarbacua", site: "acaibarbacua.com" },
+    ],
+  },
+  {
+    estado: "São Paulo",
+    locais: [
+      { nome: "Sítio Agroflorestal Abaetetuba", cidade: "Ubatuba, SP", instagram: "@sitio.abaetetuba" },
+      { nome: "Sítio das Palmeiras", cidade: "Ubatuba, SP", instagram: "@sitiodaspalmeirasuba" },
+    ],
+  },
+  {
+    estado: "Rio Grande do Sul",
+    locais: [
+      { nome: "Cooperativa Econativa", cidade: "Três Cachoeiras, RS", telefone: "(51) 999774531", site: "econativa.coop.br" },
+    ],
+  },
+  {
+    estado: "Espírito Santo",
+    locais: [
+      { nome: "YÇARA Extrativista", cidade: "Santa Teresa, ES", instagram: "@ycara.extrativista" },
+    ],
+  },
+];
+
+// Distribuição gratuita de mudas (objeto `treePlaces` do legado).
+const pontosDeMuda = [
+  {
+    estado: "Minas Gerais",
+    locais: [
+      {
+        nome: "Parque Estadual do Rio Doce",
+        site: "https://www.sei.mg.gov.br/sei/controlador_externo.php?acao=usuario_externo_avisar_cadastro&id_orgao_acesso_externo=0&CSRF_TOKEN=cfdd0939cf8f5a2dd3144b507599055cda7e70c5",
+      },
+    ],
+  },
+  {
+    estado: "Rio de Janeiro",
+    locais: [
+      {
+        nome: "Parque Estadual da Pedra Selada",
+        site: "https://www.inea.rj.gov.br/biodiversidade-territorio/conheca-as-unidades-de-conservacao/parque-estadual-da-pedra-selada/",
+      },
+      { nome: "Maple Leaf Ecovillage", site: "http://mapleleafecovillage.com/" },
+      {
+        nome: "Jardim Botânico do Rio de Janeiro",
+        site: "https://www.gov.br/pt-br/servicos/obter-doacao-de-mudas-do-jardim-botanico-do-rio-de-janeiro",
+      },
+    ],
+  },
+];
+
+// Materiais relacionados (array `pags` do legado).
+const materiais = [
+  {
+    arquivo: "doc.jpg",
+    alt: "Capa do documentário “Juçara — consumo e conservação”, com letreiro claro sobre fundo preto",
+    site: "https://www.youtube.com/watch?v=FtL8dOPeu6U",
+  },
+  {
+    arquivo: "wikiaves-jacutinga.jpg",
+    alt: "Página da jacutinga no WikiAves, com foto da ave e gravação de seu canto",
+    site: "https://www.wikiaves.com.br/wiki/jacutinga",
+  },
+  {
+    arquivo: "folder.jpg",
+    alt: "Capa do informativo “Juçara — consumo, conservação e sua relação com a avifauna”, com ave sobre cacho de frutos",
+    site: "/publicacoes/files/informativo%20de%20distribui%C3%A7%C3%A3o%20-%20Ju%C3%A7ara.pdf",
+    interno: true,
+  },
+  {
+    arquivo: "colorir-jacutinga.jpg",
+    alt: "Capa do material para colorir “Vamos colorir a Jacutinga?”, com desenho de contorno da ave",
+    site: "https://wwfbr.awsassets.panda.org/downloads/encarte_iguacu_jacutinga_a4_final_pt.pdf",
+  },
+  {
+    arquivo: "news.jpg",
+    alt: "Reportagem “A contribuição do cultivo do Açaí Juçara para a nutrição e preservação ambiental no Sul do país”",
+    site: "https://midianinja.org/news/a-contribuicao-do-cultivo-do-acai-jucara-para-a-nutricao-e-preservacao-ambiental-no-sul-do-pais/",
+  },
+  {
+    arquivo: "rehab.jpg",
+    alt: "Artigo “Como as jacutingas do Parque das Aves aprendem a viver na floresta”",
+    site: "https://blog.parquedasaves.com.br/2022/08/como-as-jacutingas-do-parque-das-aves-aprendem-a-viver-na-floresta/",
+  },
+  {
+    arquivo: "cncflora.jpg",
+    alt: "Ficha de avaliação de risco de extinção de Euterpe edulis no portal do CNCFlora, classificada como Vulnerável",
+    site: "http://cncflora.jbrj.gov.br/portal/pt-br/profile/Euterpe%20edulis",
+  },
+  {
+    arquivo: "palmito-legal.jpg",
+    alt: "Capa da animação “Palmito Legal”, com ilustração de jacutinga sobre cacho de frutos de juçara",
+    site: "https://youtu.be/BORRYwKCkdA",
+  },
+  {
+    arquivo: "livro-jucara.jpg",
+    alt: "Capítulo “Receitas com polpa de juçara” do livro da juçara, com frutos ao fundo",
+    site: "/publicacoes/files/livro_jucara.pdf",
+    interno: true,
+  },
+];
+---
+
+<BaseLayout
+  title="Campanha Jacuçara — a jacutinga e a palmeira juçara"
+  description="Conheça a Campanha Jacuçara e a relação vital entre a jacutinga e a palmeira juçara na Mata Atlântica. Duas espécies ameaçadas, e o que podemos fazer por elas."
+  image="/jacucara/figs/1.jpg"
+  navVariant="overlay"
+>
+  <main class="font-montserrat text-oama-ink">
+    {/* HERO — fig 1 do legado */}
+    <section class="relative h-[300px] w-full overflow-hidden md:h-[560px]">
+      <img
+        src="/jacucara/figs/1.jpg"
+        alt="Jacutinga (Aburria jacutinga) pousada sobre um cacho de frutos de palmeira-juçara na Mata Atlântica"
+        class="absolute inset-0 h-full w-full object-cover object-top"
+        loading="eager"
+      />
+    </section>
+
+    {/* FAIXA ROXA — título e apresentação da campanha */}
+    <section class="w-full" style={`background:${roxo};`}>
+      <div class="mx-auto max-w-4xl px-6 py-16">
+        <h1 class="mb-10 text-center font-oswald text-[32px] font-bold uppercase leading-[38px] md:text-[46px] md:leading-[52px]">
+          Campanha Jacuçara
+        </h1>
+        <div class="space-y-4 text-[16px] md:text-justify leading-[26px] md:text-[18px] md:leading-[28px]">
+          <p>
+            A <strong>Campanha Jacuçara</strong> nasceu para divulgar a importância de duas espécies
+            ameaçadas de extinção: a jacutinga e a jacuçara.
+          </p>
+          <p>
+            Agora fica fácil entender o porquê do nome Jacuçara, união do nome
+            <strong>jacutinga</strong>, ave exclusiva da Mata Atlântica, e <strong>juçara</strong>,
+            uma palmeira do mesmo bioma.
+          </p>
+          <p>
+            A jacutinga <strong>se alimenta</strong> dos frutos da palmeira-juçara e, quando voa,
+            leva no seu sistema digestivo muitas sementes, que acabam se espalhando por aí.
+          </p>
+          <p>
+            Já a juçara, oferece <strong>alimento</strong> para muitas espécies de animais e é
+            essencial para a fauna da Mata Atlântica.
+          </p>
+          <p>
+            Infelizmente, essa planta tão importante está ameaçada de extinção devido ao
+            <strong> desmatamento</strong> e à <strong>extração ilegal</strong> do seu palmito, uma
+            prática que mata a árvore.
+          </p>
+          <p>
+            Esses dois fatores também <strong>ameaçam</strong> as jacutingas, que ficam sem floresta
+            e sem o seu alimento favorito!
+          </p>
+          <p>
+            A campanha é uma iniciativa do
+            <a
+              href="https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/pan/pan-aves-da-mata-atlantica"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold underline underline-offset-4 hover:opacity-80"
+            >
+              Plano de Ação Nacional para Conservação das Aves da Mata Atlântica</a>, organizado
+            coletivamente pelas seguintes organizações:
+          </p>
+        </div>
+
+        {/* Logos das organizações */}
+        <ul class="mt-10 grid grid-cols-2 items-center justify-center gap-8 sm:grid-cols-3 md:grid-cols-5">
+          {organizacoes.map((org) => (
+            <li class="flex justify-center">
+              <a
+                href={org.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-oama-ink"
+              >
+                <img
+                  src={`/jacucara/logos/${org.arquivo}`}
+                  alt={`Logo do(a) ${org.nome}`}
+                  class="h-14 w-auto max-w-[140px] object-contain md:h-16"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* Vídeo de abertura da campanha */}
+    <section class="bg-oama-cream px-6 py-12">
+      <div class="mx-auto aspect-video w-full max-w-3xl">
+        <iframe
+          class="h-full w-full rounded-md"
+          src="https://www.youtube.com/embed/4NO3bjzNFLM"
+          title="Vídeo de apresentação da Campanha Jacuçara"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    {/* ================= JUÇARA ================= */}
+    <section class="bg-white px-6 py-14">
+      <div class="mx-auto max-w-4xl space-y-4 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+        <header>
+          <h2 class="font-oswald text-[30px] font-bold uppercase leading-tight md:text-[38px]">
+            Juçara
+          </h2>
+          <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+          <h3 class="mt-4 font-oswald text-[20px] uppercase leading-snug text-oama-ink/70 md:text-[22px]">
+            Conheça a espécie, uma planta-chave da Mata Atlântica
+          </h3>
+          <p class="mt-2 italic text-oama-ink/70">
+            juçara, palmiteiro, palmito doce, içara, ripeira, ou ensarova
+          </p>
+        </header>
+
+        <p>
+          A <strong>juçara (<i>Euterpe edulis</i>)</strong>, palmeira nativa da Mata Atlântica, é
+          <strong> fonte de alimento</strong> para uma grande diversidade de animais e, por isso,
+          considerada uma <strong>espécie-chave</strong> para a preservação de matas locais.
+        </p>
+        <p>
+          Mas, se antes essa palmeira <strong>era abundante</strong> nessas terras, hoje está
+          <strong> vulnerável à extinção</strong> na natureza. Atualmente, apenas cerca de
+          <strong> 15%</strong> do remanescente de Mata Atlântica é de habitat adequado para a
+          ocorrência da espécie.
+        </p>
+        <p>
+          Além disso, a extração predatória para <strong>consumo</strong> do palmito causou um grande
+          <strong> declínio</strong> populacional da espécie.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/2.jpg"
+            alt="Infográfico “Conheça a palmeira-juçara”: taxonomia da espécie Euterpe edulis, frutos globosos roxo-escuros, estipe solitário de 5 a 15 metros, cone de raízes na base, mapa de ocorrência da Bahia ao Rio Grande do Sul e classificação Vulnerável (VU)"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          O fruto da juçara é <strong>altamente nutritivo</strong> e
+          <a
+            href="https://www.scielo.br/j/aabc/a/sD9XKD8d4xkpDRV5LjLxshR/?format=pdf&lang=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline underline-offset-4 hover:opacity-70"
+          >
+            serve de alimento para, ao menos, 58 espécies de aves e 21 espécies de mamíferos</a>.
+          Cutias, antas, catetos, esquilos e muitos outros animais se beneficiam de suas sementes ou
+          frutos.
+        </p>
+        <p>
+          Por esse motivo, a <strong>escassez</strong> dos frutos da juçara em uma floresta significa
+          <strong> menor oferta</strong> de um importante recurso alimentar para animais silvestres.
+        </p>
+        <p>
+          Dentre os animais que consomem o fruto, tucanos, jacutingas, jacus, sabiás e arapongas são
+          os principais responsáveis pela <strong>dispersão das sementes</strong>.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/3.jpg"
+            alt="Mosaico “Uma rede de interações com aves”: jacutinga, tucano-de-bico-verde, araçari, maritacas, sabiá, udu-de-coroa-azul e outras aves consumindo frutos de juçara"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          A <strong>dispersão</strong> das sementes da juçara pela fauna que consome seus frutos é
+          <strong> fundamental</strong> para a propagação da palmeira.
+        </p>
+        <p>
+          Em florestas onde <strong>aves frugívoras de grande porte</strong>, como tucanos
+          (<i>Ramphastos spp.</i>), jacus (<i>Penelope spp.</i>) e jacutingas
+          (<i>Aburria jacutinga</i>), ainda ocorrem,
+          <strong> as sementes de juçara são maiores</strong> do que em florestas onde encontramos
+          apenas aves menores como os sabiás (<i>Turdus spp.</i>).
+        </p>
+        <p>
+          Isso mostra que as sementes estão sendo selecionadas de acordo com a capacidade dos
+          dispersores locais. Consequentemente,
+          <strong> a ausência de aves de grande porte</strong> nas florestas
+          <strong> compromete</strong> a geração de novas palmeiras, que produziriam frutos maiores.
+        </p>
+
+        <h3 class="!mt-12 font-oswald text-[22px] uppercase leading-snug md:text-[26px]">
+          O consumo da juçara
+        </h3>
+
+        <p>
+          Além de sua importância ambiental, a juçara tem grande
+          <strong> relevância econômica e social</strong>.
+        </p>
+        <p>
+          É utilizada na <strong>alimentação humana</strong> (palmito, polpa dos frutos e botões
+          florais) e já foi também um recurso na <strong>construção civil</strong> (estipe como
+          caibros, ripas e mourões).
+        </p>
+
+        <div class="!my-10 aspect-video w-full">
+          <iframe
+            class="h-full w-full rounded-md"
+            src="https://www.youtube.com/embed/FtL8dOPeu6U"
+            title="Documentário “Juçara — consumo e conservação”"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <p>
+          O palmito juçara é extraído do cerne do caule da palmeira. No entanto, essa prática
+          <strong> mata a palmeira</strong>.
+        </p>
+        <p>
+          Além da palmeira juçara,
+          <strong> o palmito pode ser extraído de outras espécies de palmeiras</strong>, como, por
+          exemplo, a pupunha e o açaizeiro (ou açaí). A extração do palmito nessas outras espécies de
+          palmeiras é uma solução sustentável de consumo.
+        </p>
+        <p>
+          Isso porque, enquanto a palmeira pupunha e o açaizeiro formam touceiras, ou seja, vários
+          caules, <strong>a juçara possui tronco único.</strong>
+        </p>
+        <p>
+          Além disso, a <strong>juçara</strong> demora de <strong>8 anos a 12 anos</strong> para
+          produzir um palmito de qualidade, enquanto o da pupunha pode ser extraído 18 meses após o
+          plantio.
+        </p>
+        <p>
+          Além do corte direto de cada indivíduo ser responsável pela redução populacional da juçara,
+          a <strong>extração do palmito juçara</strong> nas matas naturais tem o efeito indireto de
+          reduzir a entrada de novos indivíduos na população local.
+        </p>
+        <p>
+          A cada indivíduo adulto derrubado da palmeira, há menos fontes de sementes para serem
+          dispersadas e, consequentemente, menor germinação de novas plântulas.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/4.jpg"
+            alt="Comparação entre a palmeira-juçara, de estipe único, e o açaizeiro, que forma touceira com vários caules"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          Uma forma de conciliar a exploração, o consumo e a conservação dessa palmeira é por meio da
+          <strong> substituição da exploração do palmito pelo fruto.</strong>
+        </p>
+        <p>
+          O beneficiamento do fruto gera uma polpa saborosa e muito nutritiva,
+          <strong> com grande potencial comercial</strong>.
+        </p>
+        <p>
+          O manejo da juçara, com enfoque nos frutos para <strong>obtenção de polpa</strong>, é uma
+          estratégia para a sua conservação, aliada ao desenvolvimento da agricultura familiar.
+        </p>
+        <p>
+          Quanto mais palmeiras na mata, melhor para os extratores do fruto, que encontram mais
+          recursos para serem coletados.
+        </p>
+        <p>
+          Para que a <strong>extração do fruto</strong> seja feita de maneira sustentável, é
+          importante que ela <strong>não seja realizada completamente</strong>, e
+          <strong> uma parcela dos frutos</strong> seja deixada para consumo e para ser dispersada
+          pelos animais silvestres.
+        </p>
+        <p>
+          Essa prática é também aliada do agricultor extrativista. A
+          <strong> dispersão da semente</strong> da juçara pela fauna aumenta a quantidade da
+          palmeira na área e, consequentemente, aumenta a quantidade de frutos que poderão ser
+          explorados para o consumo e a comercialização.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/5.jpg"
+            alt="Ilustração de palmeiras juçara em floresta com jacutinga, tucano, macaco e anta se alimentando dos frutos, ao lado de um esquema do processamento do fruto em polpa, sementes e mudas"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+          <figcaption class="mt-4 text-sm text-oama-ink/60">
+            Por Marina Vieira Souza. Ilustração
+            <a
+              href="http://cargocollective.com/patriciayamamoto/filter/Ju%25C3%25A7ara/Materiais-educativos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline underline-offset-4 hover:opacity-70"
+            >Patrícia Yamamoto</a>
+          </figcaption>
+        </figure>
+
+        {/* Onde comprar polpa */}
+        <h3 class="!mt-12 font-oswald text-[22px] uppercase leading-snug md:text-[26px]">
+          Onde comprar polpa de juçara?
+        </h3>
+        <div class="!mt-6 space-y-8">
+          {pontosDeVenda.map((grupo) => (
+            <div>
+              <h4 class="mb-3 font-oswald text-[18px] font-bold uppercase text-oama-ink/80">
+                {grupo.estado}
+              </h4>
+              <ul class="space-y-4">
+                {grupo.locais.map((local) => (
+                  <li>
+                    <p class="font-semibold">{local.nome}</p>
+                    {local.cidade && <p class="text-oama-ink/70">{local.cidade}</p>}
+                    {local.instagram && (
+                      <p>
+                        <a
+                          href={`https://instagram.com/${local.instagram.replace("@", "")}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline underline-offset-4 hover:opacity-70"
+                        >{local.instagram}</a>
+                      </p>
+                    )}
+                    {local.site && (
+                      <p>
+                        <a
+                          href={`https://${local.site}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline underline-offset-4 hover:opacity-70"
+                        >{local.site}</a>
+                      </p>
+                    )}
+                    {local.telefone && <p class="text-oama-ink/70">{local.telefone}</p>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Mudas gratuitas */}
+        <h3 class="!mt-12 font-oswald text-[22px] uppercase leading-snug md:text-[26px]">
+          Distribuição gratuita de muda de juçara para projetos de restauração
+        </h3>
+        <div class="!mt-6 space-y-6">
+          {pontosDeMuda.map((grupo) => (
+            <div>
+              <h4 class="mb-2 font-oswald text-[18px] font-bold uppercase text-oama-ink/80">
+                {grupo.estado}
+              </h4>
+              <ul class="space-y-1">
+                {grupo.locais.map((local) => (
+                  <li>
+                    <a
+                      href={local.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline underline-offset-4 hover:opacity-70"
+                    >{local.nome}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ================= JACUTINGA ================= */}
+    <section class="bg-oama-cream px-6 py-14">
+      <div class="mx-auto max-w-4xl space-y-4 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+        <header>
+          <h2 class="font-oswald text-[30px] font-bold uppercase leading-tight md:text-[38px]">
+            Jacutinga
+          </h2>
+          <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+          <h3 class="mt-4 font-oswald text-[20px] uppercase leading-snug text-oama-ink/70 md:text-[22px]">
+            Conheça a espécie de ave jardineira da Mata Atlântica
+          </h3>
+        </header>
+
+        <p>
+          Há uma espécie de ave com uma relação tão marcante com a palmeira juçara que a sua
+          sobrevivência está fortemente relacionada com a palmeira. Essa ave é a
+          <strong> jacutinga (<i>Aburria jacutinga</i>)</strong>.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/6.jpg"
+            alt="Infográfico “Conheça a jacutinga”: distribuição restrita à Mata Atlântica do Sudeste do Brasil, Argentina e Paraguai, dispersão de frutos de mais de 40 espécies arbóreas, 64 a 74 cm de altura, 1,1 a 1,4 kg, taxonomia e classificação Em Perigo (EN)"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          A jacutinga é uma <strong>ave grande</strong>: mede de 64 centímetros a 74 centímetros e
+          pesa entre 1,1 quilo e 1,4 quilo. Sua plumagem é predominantemente preta, mas com um
+          característico <strong>topete branco</strong> e pontinhas brancas nas asas. Tem também um
+          bico azulado e a <strong>barbela (pele da região do pescoço)</strong> nas cores azul e
+          vermelha.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/7.jpg"
+            alt="Infográfico “Diferenciando a jacutinga de espécies semelhantes”, comparando jacutinga, cujubi e jacupemba com fotos e características de cada uma"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          Restrita à Mata Atlântica do Sudeste do Brasil, Argentina e Paraguai, a jacutinga é uma
+          espécie em <strong>risco de extinção.</strong>
+        </p>
+        <p>
+          A falta de seu recurso favorito, os frutos da palmeira juçara, não é o único
+          <strong> desafio</strong> que esta ave enfrenta para manter suas populações estáveis. A
+          <strong> perda de habitat</strong> e a caça são identificadas como as
+          <strong> principais causas</strong> do declínio populacional dessa espécie.
+        </p>
+        <p>
+          Ela é carinhosamente apelidada de <strong>ave jardineira</strong> da floresta, pois espalha
+          as sementes de muitos frutos dos quais se alimenta.
+        </p>
+        <p>
+          São registrados pelo menos <strong>41 frutos diferentes</strong> consumidos pela jacutinga.
+          As sementes são regurgitadas ou defecadas durante e após o consumo do fruto e, com isso,
+          <strong> dispersadas</strong> por onde a jacutinga se movimenta. Ela passa a maior parte de
+          seu tempo nas partes altas das árvores emergentes, mas pode ocasionalmente descer até o
+          solo para pegar frutos caídos.
+        </p>
+      </div>
+    </section>
+
+    {/* ================= RISCO DE EXTINÇÃO ================= */}
+    <section class="bg-white px-6 py-14">
+      <div class="mx-auto max-w-4xl space-y-4 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+        <header>
+          <h2 class="font-oswald text-[28px] font-bold uppercase leading-tight md:text-[36px]">
+            O que significa estar em risco de extinção?
+          </h2>
+          <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+        </header>
+
+        <p>
+          <strong>Extinção significa deixar de existir</strong>. A extinção de uma espécie significa
+          seu desaparecimento definitivo.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/8.jpg"
+            alt="Infográfico “O que significa estar em risco de extinção?”, explicando declínio populacional, listas vermelhas da IUCN e como é feita a avaliação de risco"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+
+        <p>
+          Quando dizemos que uma espécie está <strong>em risco de extinção</strong>, isso
+          <strong> significa</strong> que as populações dessa espécies estão em
+          <strong> situação de declínio</strong>, isto é, que o número de indivíduos está reduzindo
+          ou que eles existem em um número tão pequeno na natureza, e, por isso, as chances de
+          desaparecer são maiores.
+        </p>
+        <p>
+          Apesar de relativamente comum no meio ambiente,
+          <strong> o processo de extinção está sendo intensificado pela ação humana</strong>.
+          Desmatamento, mudanças climáticas, caça ilegal e o tráfico de animais são alguns dos
+          motivos que têm acelerado o processo de extinção.
+        </p>
+        <p>
+          A velocidade deste declínio ou o número e distribuição espacial dos indivíduos da espécie é
+          que vão indicar quão alto é o risco de a espécie ser extinta, ou seja, o risco de que até o
+          último indivíduo desapareça.
+        </p>
+        <p>
+          <strong>A Lista Vermelha de Espécies Ameaçadas</strong> é, hoje, uma das principais
+          ferramentas para avaliação e indicação de risco das espécies. Método criado em 1964 pela
+          União Internacional de Conservação da Natureza e dos Recursos Naturais (IUCN, em inglês), a
+          Lista Vermelha constitui <strong>um catálogo detalhado</strong> sobre os dados de
+          conservação global das <strong>espécies de todo o mundo</strong>, amplamente utilizado por
+          vários governos e instituições para direcionar esforços de conservação.
+        </p>
+        <p>
+          A partir do levantamento de uma série de informações, inclusive com a participação da
+          sociedade, <strong>as espécies são avaliadas</strong> por organizações, cientistas e
+          especialistas que analisam os dados de ocorrência no tempo e no espaço, associado às
+          principais causas que ameaçam essas espécies.
+        </p>
+        <p>
+          Os resultados dessa avaliação indicam o risco de extinção para cada uma das espécies, que
+          podem ser classificadas em uma dentre as nove diferentes categorias:
+        </p>
+
+        <ul class="list-disc space-y-1 pl-6 text-oama-ink/80">
+          <li>Não analisada (NE), quando ainda não há avaliação da respectiva espécie;</li>
+          <li>Dados insuficientes (DD), quando não há muitas informações sobre a espécie;</li>
+          <li>Pouco preocupante (LC), quando a espécie vai muito bem, obrigada;</li>
+          <li>
+            Quase ameaçada (NT), quando há indícios de declínio ou ameaças à perpetuação da espécie
+            no horizonte;
+          </li>
+          <li>
+            Vulnerável (VU), quando a espécie apresenta alto risco de extinção, caso não haja uma
+            mudança no cenário;
+          </li>
+          <li>
+            Em perigo (EN), quando o risco de a espécie desaparecer num futuro próximo é muito alto;
+            Criticamente ameaçada
+          </li>
+          <li>
+            (CR), quando a espécie está sob risco iminente de extinção e precisa de cuidados urgentes
+            para não desaparecer;
+          </li>
+          <li>
+            Extinta na natureza (EW), quando a espécie não tem mais representantes na natureza,
+            apenas aqueles mantidos sob cuidados humanos ex situ, e, por fim,
+          </li>
+          <li>Extinta (EX), quando é confirmado que morreu até o último indivíduo da espécie.</li>
+        </ul>
+
+        <p>
+          São consideradas como <strong>espécies ameaçadas</strong> apenas aquelas classificadas como
+          VU, EN e CR.
+        </p>
+        <p>
+          A <strong>palmeira juçara</strong> está classificada como VU,
+          <strong> vulnerável à extinção</strong>, e a jacutinga como EN,
+          <strong> em perigo de extinção</strong>.
+        </p>
+
+        <figure class="!my-8">
+          <img
+            src="/jacucara/figs/9.jpg"
+            alt="Infográfico “Categorias de risco de extinção” da IUCN, de Extinta (EX) a Não avaliada (NE), com a jacutinga apontada na categoria Em Perigo (EN)"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </section>
+
+    {/* ================= O QUE ESTÁ SENDO FEITO (sanfona) ================= */}
+    <section class="bg-oama-cream px-6 py-14">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="font-oswald text-[28px] font-bold uppercase leading-tight md:text-[36px]">
+          O que está sendo feito para proteger essas espécies?
+        </h2>
+        <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+
+        <div class="mt-8 space-y-4">
+          <details class="group rounded-md border-2 border-oama-purple/40 bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-oswald text-[19px] uppercase leading-snug md:text-[22px]">
+              De volta pra casa: a reintrodução da jacutinga na natureza
+              <span class="shrink-0 text-2xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="space-y-4 border-t border-oama-purple/30 px-6 py-5 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+              <p>
+                Em 2010, considerando-se a alarmante situação de conservação da jacutinga e as
+                constantes pressões ao habitat da espécie, especialmente na região do Parque Estadual
+                da Serra do Mar (SP), a SAVE Brasil (Sociedade para a Conservação das Aves do Brasil)
+                iniciou o “Programa de Conservação de Aves Cinegéticas da Mata Atlântica:
+                Reintrodução e Monitoramento de Jacutingas (Aburria jacutinga)”. O programa foi uma
+                exigência do Instituto Chico Mendes de Conservação da Biodiversidade – ICMBio/APA
+                Mananciais do Rio Paraíba do Sul, com a finalidade de atender a parte das
+                condicionantes ambientais referentes à licença de instalação do gasoduto
+                Caraguatatuba-Taubaté (GASTAU), construído pela Petrobras.
+              </p>
+              <p>
+                A Fase 1 (2010-2013) do programa confirmou a raridade da jacutinga
+                (<i>Aburria jacutinga</i>) na Região da Serra do Mar e a necessidade de um reforço
+                populacional urgente a fim de evitar a extinção local da espécie, considerada
+                Criticamente Ameaçada (CR) de extinção, de acordo com a lista de animais ameaçados no
+                Estado de São Paulo, e Em Perigo (EN), de acordo com a lista nacional publicada em
+                dezembro de 2014.
+              </p>
+              <p>
+                No Estado do Rio de Janeiro, a espécie está extinta. Foi avistada em Itatiaia pela
+                última vez em 1978 e na Serra dos Órgãos em 1980, o que levou a extensão do programa
+                de reintrodução de jacutingas também para a Reserva Ecológica de Guapiaçu (REGUA),
+                situada a cerca de 150 km ao norte da cidade do Rio de Janeiro.
+              </p>
+              <p>
+                A fase II do programa, iniciada em 2014, visou à reintrodução e o monitoramento de
+                jacutingas na região da Serra da Mantiqueira, em São Francisco Xavier, distrito de
+                São José dos Campos (SP); na região da Serra do Mar, em áreas próximas ao Parque
+                Estadual da Serra do Mar – Núcleo Caraguatatuba/São Paulo, e no município de
+                Cachoeiras de Macacu, na Reserva Ecológica de Guapiaçu (REGUA), no Estado do Rio de
+                Janeiro. Desde 2019, as reintroduções concentraram-se em um único local – São
+                Francisco Xavier –, medida a conservação indicada pela Análise da Viabilidade
+                Populacional, utilizando o Vortex.
+              </p>
+              <p>
+                As ações do projeto envolvem testes de sanidade das aves, preparação comportamental,
+                reintrodução/soltura e monitoramento, educação e disseminação da importância da
+                conservação da jacutinga e outras aves de Mata Atlântica para a comunidade em
+                paralelo com o envolvimento dos órgãos de fiscalização ambiental nas ações de campo.
+                O apoio de zoológicos e dos criadouros conservacionistas de jacutingas, por meio do
+                fornecimento de aves para serem soltas, é fundamental para o sucesso do projeto. Além
+                disso, graças ao trabalho desenvolvido pela SAVE Brasil, a jacutinga foi elencada
+                como uma das 25 espécies prioritárias para a conservação, a partir de um acordo de
+                cooperação técnica entre a Associação de Zoológicos e Aquários do Brasil (AZAB), o
+                Ministério do Meio Ambiente e o ICMBio, para a condução do <i>studbook</i> da
+                espécie. Os studbooks são a ferramenta mais importante na gestão científica de
+                populações ex situ de animais silvestres, assegurando tamanho suficiente,
+                estabilidade demográfica e alto nível de diversidade genética. O Parque das Aves é o
+                <i> studbook keeper</i> da jacutinga.
+              </p>
+              <p>
+                O projeto realizou a primeira soltura em junho de 2016 e, até o momento, foram 50
+                jacutingas soltas na Serra da Mantiqueira, no distrito de São Francisco Xavier, seis
+                na Serra do Mar e duas na Reserva Ecológica de Guapiaçu, totalizando 58 indivíduos.
+              </p>
+              <p>
+                As aves são monitoradas por transmissores via rádio, idas a campo e/ou através da
+                participação da comunidade local, sob o incentivo da prática da observação de aves.
+              </p>
+              <p class="font-semibold">
+                O programa visa aumentar a população de jacutingas na Mata Atlântica e estabelecer um
+                protocolo de reintrodução e monitoramento que poderá ser replicado em outros locais
+                onde a espécie está localmente extinta.
+              </p>
+            </div>
+          </details>
+
+          <details class="group rounded-md border-2 border-oama-purple/40 bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-oswald text-[19px] uppercase leading-snug md:text-[22px]">
+              Jacutinga sem fronteiras: a conservação da espécie na Mata Atlântica argentina
+              <span class="shrink-0 text-2xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="space-y-4 border-t border-oama-purple/30 px-6 py-5 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+              <p>
+                O Plano Nacional de Conservação da Jacutinga na Argentina faz parte dos compromissos
+                assumidos pela Aves Argentinas, o Ministério do Meio Ambiente e Recursos Renováveis
+                ​​da Província de Misiones e o IMIBIO (Instituto Misionero de la Biodiversidad) a fim
+                de iniciar os esforços necessários para seu estudo e conservação na Mata Atlântica da
+                Argentina, com uma projeção para daqui cinco anos (2021-2025), e o objetivo de:
+                atualizar as informações relacionadas ao estado populacional da espécie; identificar
+                sítios com presença confirmada e extinções locais; aumentar o conhecimento sobre sua
+                ecologia e ameaças na Província de Misiones; fortalecer as ações de conservação in
+                situ, como o controle da caça clandestina e da fragmentação de ambientes, em toda a
+                área onde as populações de jacutinga estão presentes na Argentina; criar uma
+                estratégia ex situ para a conservação da espécie, incluindo um criadouro em
+                cativeiro, um livro de registro (<i>Studbook</i>) e protocolos de resgate e manejo; e
+                converter a jacutinga em uma imagem conhecida e identificável com a selva de
+                Misiones, ao mesmo tempo em que diferentes públicos serão alcançados para divulgar a
+                espécie, suas ameaças e as ações que a instituição realiza em busca de sua
+                conservação.
+              </p>
+              <p>
+                Para chegar a um acordo sobre um plano de ação entre as diferentes instituições
+                governamentais e não governamentais que trabalham no estudo e na conservação da
+                biodiversidade da Mata Atlântica argentina, foi organizado, em 2021, o campo de
+                trabalho "Plano para a conservação da jacutinga na Argentina: Workshop de diagnóstico
+                e consenso de trabalho", a fim de atualizar o diagnóstico da situação, análise de
+                ameaças e propostas de ações e compromissos, como a gestão de informação, educação e
+                comunicação, a gestão de populações cativas, pelas diferentes instituições e atores
+                ligados à conservação da jacutinga.
+              </p>
+            </div>
+          </details>
+
+          <details class="group rounded-md border-2 border-oama-purple/40 bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-oswald text-[19px] uppercase leading-snug md:text-[22px]">
+              Da produção ao consumo consciente: protegendo a juçara
+              <span class="shrink-0 text-2xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="space-y-4 border-t border-oama-purple/30 px-6 py-5 text-[16px] leading-[26px] md:text-[17px] md:leading-[28px]">
+              <p>
+                As ações para proteger essa espécie-chave para a Mata Atlântica acontecem em
+                múltiplas frentes, ao mesmo tempo.
+              </p>
+              <p>
+                Divulgar informações sobre a espécie, suas ameaças e formas adequadas de consumo é
+                fundamental para que a população em geral participe da preservação da espécie e
+                entenda o impacto de seu consumo – positiva ou negativamente. Para fazer essa ponte
+                de comunicação e informação com a sociedade, foram publicados diversas cartilhas,
+                vídeos e até livros de receitas online. Você encontra uma seleção desse material
+                <a href="#materiais" class="underline underline-offset-4 hover:opacity-70">aqui</a>.
+              </p>
+              <p>
+                Ações diretas para tentar aumentar o número de indivíduos de juçara presentes nas
+                matas são realizadas por meio de chuvas de sementes. A Fundação Florestal (FF),
+                instituição ligada à Secretaria de Infraestrutura e Meio Ambiente (SIMA) de São
+                Paulo,
+                <a
+                  href="https://www.infraestruturameioambiente.sp.gov.br/2021/07/lancamento-aereo-de-sementes-para-reflorestamento-de-especie-ameacada-de-extincao/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline underline-offset-4 hover:opacity-70"
+                > lançou cerca de 2 toneladas</a> de sementes de juçara sobre as matas do Parque
+                Estadual da Serra do Mar. Essa ação fez parte de um programa de longa duração para
+                promover a restauração e a conservação da palmeira juçara, e o propósito é continuar
+                espalhando as sementes da espécie.
+              </p>
+              <p>
+                A fim de regular o consumo e torná-lo sustentável, existe um grande movimento para
+                incentivar as pessoas a comercializarem e consumirem o fruto em vez do palmito da
+                juçara. O palmito da juçara pode ser substituído no cardápio pelo palmito da pupunha,
+                por exemplo. E o fruto pode ser extraído e consumido sem prejudicar a sobrevivência e
+                a manutenção da planta. Para isso é fundamental que a extração dos frutos seja feita
+                de maneira adequada, seguindo um plano de manejo em que se preservem frutos
+                suficientes para o consumo pela fauna silvestre e sementes suficientes para serem
+                dispersadas e, dessa forma, recrutar novas plântulas da juçara no local. No caso de
+                quem faz a extração do fruto em áreas naturais, é importante também devolver as
+                sementes para o local após a extração da polpa do fruto.
+              </p>
+              <p>
+                O Sul do país é palco também de importantes iniciativas que combinam preservação da
+                juçara, segurança alimentar e fonte de renda para produtores rurais. Por acreditar
+                que a produção de alimentos e a preservação ambiental podem e devem caminhar juntas,
+                o Centro Ecológico vem incentivando o cultivo da palmeira juçara em sistemas
+                agroflorestais agroecológicos há mais de duas décadas. O ponto central é promover a
+                valorização do açaí juçara e viabilizar sua cadeia produtiva, buscando demonstrar que
+                este é caminho muito mais interessante nos aspectos econômicos, ambientais e sociais,
+                promovendo o que é denominado conservação através do uso.
+              </p>
+              <p>
+                Dessa forma, as comunidades rurais passam a cultivar a juçara e a se engajar na
+                preservação da espécie. As palmeiras cultivadas se tornam matrizes produtoras de
+                frutos, formando corredores ecológicos com as áreas de mata adjacentes,
+                possibilitando o trânsito e alimentação da fauna associada. Difundindo esta ideia
+                acredita-se que teremos um efeito cascata de preservação da palmeira juçara e de
+                espécies como a Jacutinga.
+              </p>
+              <p>
+                Atualmente, com apoio de um Fundo de Adaptação Climática do Programa das Nações
+                Unidas para o Desenvolvimento (PNUD), o projeto
+                <a
+                  href="https://midianinja.org/news/a-contribuicao-do-cultivo-do-acai-jucara-para-a-nutricao-e-preservacao-ambiental-no-sul-do-pais/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline underline-offset-4 hover:opacity-70"
+                > “Combinando renda com proteção florestal”, liderado pela ONG Centro Ecológico</a>
+                oferece suporte técnico e logístico para a produção de juçara em sistemas
+                agroecológicos no litoral norte gaúcho e no sul catarinense.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    {/* Ilustração full-bleed (fig 12) */}
+    <section class="bg-white">
+      <img
+        src="/jacucara/figs/12.png"
+        alt="Ilustração de duas jacutingas: uma pousada sobre um cacho de frutos de palmeira-juçara e outra em voo, sobre fundo azul"
+        class="h-auto w-full"
+        loading="lazy"
+      />
+      <p class="mx-auto max-w-4xl px-6 pt-4 text-sm text-oama-ink/60">
+        Ilustração
+        <a
+          href="https://www.instagram.com/leo_marujo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline underline-offset-4 hover:opacity-70"
+        >Leonardo Marujo</a>
+      </p>
+    </section>
+
+    {/* ================= O QUE VOCÊ PODE FAZER ================= */}
+    <section class="bg-white px-6 py-14">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="font-oswald text-[28px] font-bold uppercase leading-tight md:text-[36px]">
+          O que você pode fazer pela conservação destas espécies?
+        </h2>
+        <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+        <img
+          src="/jacucara/figs/10.jpg"
+          alt="Lista do que você pode fazer: não comprar palmito extraído da natureza sem certificado de origem; consumir o açaí da juçara; comprar polpa de extratores que seguem o manejo sustentável; repovoar as populações de palmito-juçara; apoiar projetos de conservação das jacutingas; reivindicar aos órgãos ambientais o aumento da fiscalização; divulgar a importância da jacutinga e do palmito; e praticar observação de aves"
+          class="mt-8 h-auto w-full"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    {/* ================= MATERIAIS RELACIONADOS ================= */}
+    <section id="materiais" class="scroll-mt-24 bg-oama-cream px-6 py-14">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="font-oswald text-[28px] font-bold uppercase leading-tight md:text-[36px]">
+          Materiais Relacionados
+        </h2>
+        <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
+
+        <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {materiais.map((material) => (
+            <li>
+              <a
+                href={material.site}
+                target={material.interno ? undefined : "_blank"}
+                rel={material.interno ? undefined : "noopener noreferrer"}
+                class="block overflow-hidden rounded-md bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-oama-ink"
+              >
+                <img
+                  src={`/jacucara/pags/${material.arquivo}`}
+                  alt={material.alt}
+                  class="h-auto w-full"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* Encerramento — fig 11 (créditos da campanha) */}
+    <section class="w-full" style={`background:${roxo};`}>
+      <img
+        src="/jacucara/figs/11.jpg"
+        alt="Crédito da campanha: “A Campanha Jacuçara é uma iniciativa do PAN Aves Mata Atlântica”, organizada por OAMa, CNCFlora, Jardim Botânico do Rio de Janeiro, AZAB, Aves Argentinas, Parque das Aves, SAVE Brasil, Parque Nacional do Iguaçu, CEMAVE e ICMBio"
+        class="h-auto w-full"
+        loading="lazy"
+      />
+    </section>
+
+    <WaveDark topColor={roxo} bottomColor={azul} path1Color="#dfb553" path2Color="#1e1702" />
+  </main>
+</BaseLayout>

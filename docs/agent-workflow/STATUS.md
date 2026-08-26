@@ -93,6 +93,15 @@
     canonical, sitemap, robots). **Imagens: 440 MB → 85 MB.**
     Build: 28 páginas; 25 rotas com 0 imagens faltando.
 
+20. `/jacucara` foi **criada em 2026-08-25** como migração `Legacy-first` da página
+    PRINCIPAL do projeto Jacuçara do site antigo (`pages/jacucara/index.js`), por direção
+    direta do usuário. Não há frame no Figma para esta rota. **Não confundir** com a
+    descritiva `/programas-e-projetos/campanha-jacucara` (Figma-first), que só teve o link
+    de fecho trocado de `https://www.oama.eco.br/jacucara` para `/jacucara`. Página 100%
+    Astro, sem dependência nova (sanfona via `<details>`). Assets otimizados de 14 MB para
+    4,6 MB. Redirect de `/jacucara` removido de `vercel.json`; rota adicionada ao sitemap.
+    Ver `docs/implementation/pages/jacucara.md`.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:
