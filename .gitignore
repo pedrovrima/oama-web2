@@ -26,3 +26,4 @@ pnpm-debug.log*
 
 # logs de debug do playwright-cli
 .playwright-cli/
+.claude/worktrees/
