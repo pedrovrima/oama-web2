@@ -35,7 +35,7 @@ const ROTAS_ESTATICAS = [
 export const GET: APIRoute = async ({ site }) => {
   const origem = site?.origin ?? "https://oama.eco.br";
 
-  let posts: Array<{ slug?: string; publishedAt?: string }> = [];
+  let posts: Array<{ slug?: string; publishedAt?: string; _updatedAt?: string }> = [];
   try {
     posts = await getBlogPosts();
   } catch {
@@ -49,7 +49,7 @@ export const GET: APIRoute = async ({ site }) => {
       .filter((p) => p.slug)
       .map((p) => ({
         url: new URL(`/blog/${p.slug}`, origem).href,
-        data: p.publishedAt,
+        data: p._updatedAt ?? p.publishedAt,
       })),
   ];
 

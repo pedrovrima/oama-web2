@@ -3,12 +3,29 @@ import "../styles/global.css";
 import Nav from "../components/nav/Nav.astro";
 import Footer from "../components/sections/Footer.astro";
 
+interface Breadcrumb {
+  nome: string;
+  url: string;
+}
+
 interface Props {
   title?: string;
   /** Resumo da página para busca e para o card de compartilhamento (~150-160 caracteres). */
   description?: string;
   /** Imagem do card ao compartilhar em rede social. Caminho absoluto a partir da raiz. */
   image?: string;
+  /** Texto alternativo da imagem do card. */
+  imageAlt?: string;
+  /** "article" para posts do blog; muda o og:type e habilita as metas de artigo. */
+  type?: "website" | "article";
+  /** Data de publicação (ISO) — só usada quando type="article". */
+  publishedAt?: string;
+  /** Data de atualização (ISO) — só usada quando type="article". */
+  updatedAt?: string;
+  /** Trilha para o JSON-LD BreadcrumbList. Não inclui a home (adicionada automaticamente). */
+  breadcrumbs?: Breadcrumb[];
+  /** Pede aos buscadores para não indexar a página (páginas de apoio sem valor de busca). */
+  noindex?: boolean;
   navVariant?: "default" | "overlay";
 }
 
@@ -16,7 +33,13 @@ const {
   title = "OAMa — Observatório de Aves da Mantiqueira",
   description =
     "O Observatório de Aves da Mantiqueira é uma organização sem fins lucrativos que une pesquisa, educação e conservação das aves da Mata Atlântica.",
-  image = "/brand/logo-round.png",
+  image = "/brand/og-default.jpg",
+  imageAlt = "Ave da Mata Atlântica — Observatório de Aves da Mantiqueira",
+  type = "website",
+  publishedAt,
+  updatedAt,
+  breadcrumbs = [],
+  noindex = false,
   navVariant = "default",
 } = Astro.props;
 
@@ -26,30 +49,189 @@ const {
 const origem = Astro.site?.origin ?? "https://oama.eco.br";
 const canonica = new URL(Astro.url.pathname, origem).href;
 const imagemAbsoluta = new URL(image, origem).href;
+const ehHome = Astro.url.pathname === "/";
+
+// A imagem OG padrão tem 1200x630 (proporção recomendada pelas redes). Para
+// imagens específicas de página não conhecemos as dimensões, então as metas
+// de tamanho só saem no caso padrão.
+const imagemPadrao = image === "/brand/og-default.jpg";
+
+// Dados estruturados da organização (schema.org/NGO). Saem em todas as
+// páginas; buscadores usam para painel de conhecimento e logo nos resultados.
+const jsonLdOrganizacao = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "@id": `${origem}/#organizacao`,
+  name: "Observatório de Aves da Mantiqueira",
+  alternateName: "OAMa",
+  url: `${origem}/`,
+  logo: `${origem}/brand/logo-round.png`,
+  description:
+    "Organização sem fins lucrativos que une pesquisa, educação e conservação das aves da Mata Atlântica na Serra da Mantiqueira.",
+  areaServed: { "@type": "Place", name: "Serra da Mantiqueira, Mata Atlântica, Brasil" },
+  knowsAbout: [
+    "ornitologia",
+    "anilhamento de aves",
+    "monitoramento de avifauna",
+    "conservação da Mata Atlântica",
+    "educação ambiental",
+  ],
+  sameAs: [
+    "https://www.instagram.com/oamantiqueira",
+    "https://www.youtube.com/channel/UCzLcpYmPb1DR524wXb0CvHA",
+    "https://www.linkedin.com/company/observatorio-de-aves-da-mantiqueira",
+    "https://www.facebook.com/oamantiqueira",
+  ],
+};
+
+// WebSite só na home, como recomendado pelo Google.
+const jsonLdSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${origem}/#site`,
+  name: "OAMa — Observatório de Aves da Mantiqueira",
+  url: `${origem}/`,
+  inLanguage: "pt-BR",
+  publisher: { "@id": `${origem}/#organizacao` },
+};
+
+// Rótulos das rotas para a trilha de navegação gerada automaticamente.
+const ROTULOS: Record<string, string> = {
+  sobre: "Sobre",
+  missao: "Missão",
+  "areas-de-atuacao": "Áreas de Atuação",
+  realizacoes: "Realizações",
+  downloads: "Downloads",
+  blog: "Blog",
+  consultoria: "Consultoria",
+  cursos: "Cursos",
+  "monitoramento-de-aves": "Monitoramento de Aves",
+  "educacao-ambiental": "Educação Ambiental",
+  "capacitacao-tecnica": "Capacitação Técnica",
+  "programas-e-projetos": "Programas e Projetos",
+  "monitoramento-de-avifauna": "Monitoramento de Avifauna",
+  "treinamento-monitoramento-avifauna": "Treinamento em Monitoramento de Avifauna",
+  "acoes-pro-aves": "Ações Pró-Aves",
+  "projetos-de-pesquisa": "Projetos de Pesquisa",
+  "campanha-jacucara": "Campanha Jacuçara",
+  "fundraising-field-trip": "Fundraising Field Trip",
+  "pro-aves": "Resultados do Pró-Aves",
+  proaves: "ProAves",
+  jacucara: "Jacuçara",
+  apoie: "Apoie",
+  pix: "PIX",
+  newsletter: "Newsletter",
+};
+
+// Trilha de navegação: home + trilha informada pela página; sem prop, é
+// derivada dos segmentos da URL usando o mapa de rótulos acima.
+const segmentos = Astro.url.pathname.split("/").filter(Boolean);
+const trilha =
+  breadcrumbs.length > 0
+    ? breadcrumbs
+    : segmentos.map((seg, i) => ({
+        nome: ROTULOS[seg] ?? seg,
+        url: "/" + segmentos.slice(0, i + 1).join("/"),
+      }));
+
+const jsonLdBreadcrumbs =
+  trilha.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${origem}/` },
+          ...trilha.map((b, i) => ({
+            "@type": "ListItem",
+            position: i + 2,
+            name: b.nome,
+            item: new URL(b.url, origem).href,
+          })),
+        ],
+      }
+    : null;
 ---
 
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonica} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/brand/logo-round.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta name="theme-color" content="#e9b130" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Analytics 4 — só em produção, para não sujar as métricas no dev. -->
+    {
+      import.meta.env.PROD && (
+        <>
+          <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-78XYNN79L7"
+          />
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-78XYNN79L7");
+          </script>
+        </>
+      )
+    }
 
     <!-- Card de compartilhamento (WhatsApp, Instagram, Facebook, LinkedIn) -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:site_name" content="OAMa — Observatório de Aves da Mantiqueira" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonica} />
     <meta property="og:image" content={imagemAbsoluta} />
+    <meta property="og:image:alt" content={imageAlt} />
+    {imagemPadrao && <meta property="og:image:width" content="1200" />}
+    {imagemPadrao && <meta property="og:image:height" content="630" />}
+    {type === "article" && publishedAt && (
+      <meta property="article:published_time" content={publishedAt} />
+    )}
+    {type === "article" && updatedAt && (
+      <meta property="article:modified_time" content={updatedAt} />
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imagemAbsoluta} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <!-- Dados estruturados (schema.org) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganizacao)} />
+    {ehHome && <script type="application/ld+json" set:html={JSON.stringify(jsonLdSite)} />}
+    {jsonLdBreadcrumbs && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumbs)} />
+    )}
+    <!-- Google Analytics (gtag.js) — só no build de produção -->
+    {
+      import.meta.env.PROD && (
+        <>
+          <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-78XYNN79L7" />
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-78XYNN79L7');
+          </script>
+        </>
+      )
+    }
+    <slot name="head" />
   </head>
   <body class="bg-white text-oama-ink">
     <Nav variant={navVariant} />

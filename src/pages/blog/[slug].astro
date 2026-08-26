@@ -28,6 +28,25 @@ const imagemSocial = post.mainImage
   ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url()
   : undefined;
 
+// Dados estruturados do post (schema.org/BlogPosting) — habilita rich results
+// de artigo na busca.
+const origem = Astro.site?.origin ?? "https://oama.eco.br";
+const jsonLdPost = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title,
+  description: descricao,
+  ...(imagemSocial ? { image: imagemSocial } : {}),
+  ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+  ...(post._updatedAt ? { dateModified: post._updatedAt } : {}),
+  inLanguage: "pt-BR",
+  mainEntityOfPage: new URL(`/blog/${post.slug}`, origem).href,
+  author: post.author?.name
+    ? { "@type": "Person", name: post.author.name }
+    : { "@id": `${origem}/#organizacao` },
+  publisher: { "@id": `${origem}/#organizacao` },
+};
+
 const dataFormatada = post.publishedAt
   ? new Date(post.publishedAt).toLocaleDateString("pt-BR", {
       day: "2-digit",
@@ -37,7 +56,20 @@ const dataFormatada = post.publishedAt
   : "";
 ---
 
-<BaseLayout title={`${post.title} — Blog OAMa`} description={descricao} image={imagemSocial}>
+<BaseLayout
+  title={`${post.title} — Blog OAMa`}
+  description={descricao}
+  image={imagemSocial}
+  imageAlt={post.title}
+  type="article"
+  publishedAt={post.publishedAt}
+  updatedAt={post._updatedAt}
+  breadcrumbs={[
+    { nome: "Blog", url: "/blog" },
+    { nome: post.title, url: `/blog/${post.slug}` },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLdPost)} />
   <main class="font-montserrat text-oama-ink">
     <section class="relative h-[380px] w-full overflow-hidden md:h-[480px]">
       {

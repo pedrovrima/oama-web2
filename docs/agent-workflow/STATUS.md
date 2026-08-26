@@ -9,6 +9,7 @@
 - Backlog Linear já existe; a orquestração local continua em `docs/agent-workflow/`
 
 ## Estado operacional atual
+- **Google Analytics 4 instalado (2026-08-26):** snippet gtag (`G-78XYNN79L7`) no `<head>` de `src/layouts/BaseLayout.astro`, condicionado a `import.meta.env.PROD` — não carrega em `astro dev`. Cobre todas as páginas (layout único). Build verificado.
 - **TASK-LAUNCH-001 está em andamento (2026-07-20):** preparação para lançamento sem CMS; auditoria por abas/painéis Herdr, com Pi (`openai-pedro`) e Claude Code. Fable é proibido. Brief: `docs/implementation/pages/lancamento.md`.
 - O repo já possui uma camada de briefs em `docs/implementation/pages/`.
 - O repo já possui `AGENT.md` com regras de hardcoded vs Sanity.
@@ -101,6 +102,16 @@
     Astro, sem dependência nova (sanfona via `<details>`). Assets otimizados de 14 MB para
     4,6 MB. Redirect de `/jacucara` removido de `vercel.json`; rota adicionada ao sitemap.
     Ver `docs/implementation/pages/jacucara.md`.
+
+21. **2026-08-26 — Otimização máxima de SEO** (branch `worktree-seo`). Sobre a base
+    do lote 4: JSON-LD em todas as páginas (`NGO` com sameAs das redes; `WebSite`
+    na home; `BreadcrumbList` gerado automaticamente da URL com mapa de rótulos
+    no `BaseLayout`; `BlogPosting` nos posts com autor real do Sanity);
+    `og:type=article` + `article:published_time/modified_time` nos posts;
+    `og:image:alt`/dimensões; imagem OG padrão 1200×630 (`/brand/og-default.jpg`,
+    gerada via sips da hero-missao); `noindex` em `/newsletter`; `apple-touch-icon`,
+    `link rel=sitemap`, `initial-scale=1`; `lastmod` do sitemap usa `_updatedAt`
+    do Sanity. GA4 preservado no head.
 
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.

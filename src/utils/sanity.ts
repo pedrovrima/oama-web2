@@ -74,6 +74,7 @@ export async function getMidiaItems() {
 export const BLOG_POSTS_QUERY = defineQuery(
   `*[_type == "blog" && defined(slug.current)] | order(publishedAt desc) {
     _id,
+    _updatedAt,
     title,
     "slug": slug.current,
     publishedAt,
