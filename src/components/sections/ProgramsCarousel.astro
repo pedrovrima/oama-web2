@@ -2,23 +2,34 @@
 import { getProgramSlides, urlFor } from "../../utils/sanity";
 
 const FALLBACK = [
+  // Copy e fotos dos nós do Figma do carrossel da home (2003:1329–1333 e
+  // 2003:1344–1347). "Anilhamento Científico" saiu: não existia em fonte nenhuma.
+  {
+    title: "Capacitação Profissional",
+    subtitle:
+      "Formando profissionais conscientes e que almejam coletar dados de altíssima qualidade, com ética e segurança.",
+    image: "/midias/home/carrossel-capacitacao.jpg",
+    link: "/programas-e-projetos/treinamento-monitoramento-avifauna",
+  },
+  {
+    title: "Ações Pró-Aves",
+    subtitle: "Promovendo ações positivas para a conservação de aves silvestres.",
+    image: "/midias/home/carrossel-acoes-pro-aves.jpg",
+    link: "/programas-e-projetos/acoes-pro-aves",
+  },
   {
     title: "Monitoramento de Aves da Mantiqueira",
-    subtitle: "Desde 2018, monitoramos mais de 180 espécies na Serra da Mantiqueira com metodologia científica rigorosa.",
+    subtitle:
+      "Desde 2018, monitoramos mais de 180 espécies na Serra da Mantiqueira com metodologia científica rigorosa.",
     image: "/midias/home/aves-da-mantiqueira.jpg",
     link: "/programas-e-projetos/monitoramento-de-avifauna",
   },
   {
-    title: "Projeto Juçara",
-    subtitle: "Agricultores, observadores de aves e pesquisadores unidos pela conservação da palmeira juçara.",
+    title: "Campanha Jacuçara",
+    subtitle:
+      "Conheça duas espécies ameaçadas e exclusivas da Mata Atlântica: a jacutinga e a palmeira-juçara.",
     image: "/midias/home/jacucara.jpg",
     link: "/programas-e-projetos/campanha-jacucara",
-  },
-  {
-    title: "Anilhamento Científico",
-    subtitle: "Captura, marcação e soltura de aves para rastreamento de populações e rotas migratórias.",
-    image: "/midias/home/monitoramento-anilhamento.jpg",
-    link: "/programas-e-projetos/treinamento-monitoramento-avifauna",
   },
 ];
 
@@ -42,15 +53,19 @@ const slides = raw.length > 0
       id="programs-carousel"
       data-programs-carousel
     >
-      <div class="relative mx-auto max-w-4xl px-0 py-0 md:px-6 md:py-10 md:py-14">
+      <div class="relative mx-auto grid max-w-4xl grid-cols-1 grid-rows-1 px-0 py-0 md:px-6 md:py-10 md:py-14">
         {slides.map((slide, index) => (
           <article
             data-programs-slide
             data-active={index === 0 ? "true" : "false"}
             class:list={{
-              "transition-opacity duration-500 ease-out": true,
-              "opacity-0 absolute inset-x-0 top-0 md:inset-x-6 md:top-10 pointer-events-none":
-                index !== 0,
+              // Todos os slides ocupam a MESMA célula do grid: a altura do
+              // container é a do maior e não muda ao trocar de slide. Antes o
+              // ativo era `relative` e os demais `absolute`, e essa troca era
+              // instantânea enquanto a opacidade levava 500ms — o container
+              // colapsava nesse intervalo e a seção dava um pulo.
+              "col-start-1 row-start-1 transition-opacity duration-500 ease-out": true,
+              "opacity-0 pointer-events-none": index !== 0,
               "opacity-100 pointer-events-auto": index === 0,
             }}
             aria-hidden={index === 0 ? "false" : "true"}
@@ -143,7 +158,6 @@ const slides = raw.length > 0
         slide.classList.toggle("pointer-events-auto", isActive);
         slide.classList.toggle("opacity-0", !isActive);
         slide.classList.toggle("pointer-events-none", !isActive);
-        slide.classList.toggle("absolute", !isActive);
       });
 
       dots.forEach((dot, idx) => {
