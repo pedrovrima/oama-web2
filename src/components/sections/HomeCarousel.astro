@@ -2,18 +2,23 @@
 import { getHomeSlides, urlFor } from "../../utils/sanity";
 
 const FALLBACK = [
+  // Capas dos documentários do OAMa, exportadas dos nós do Figma
+  // (2011:1692 e 2011:1681). Cada slide leva ao vídeo no YouTube — as URLs vêm
+  // do site antigo (pages/apoie e pages/downloads), ambas conferidas: HTTP 200.
   {
     title: "Consumo e conservação da juçara",
-    subtitle: "Agricultores, observadores de aves, pesquisadores e você. Todos precisamos desta palmeira.",
-    image: "/midias/home/jacucara.jpg",
-    link: "/programas-e-projetos/campanha-jacucara",
+    subtitle:
+      "Agricultores, observadores de aves, pesquisadores e você. Todos precisamos desta palmeira.",
+    image: "/midias/home/doc-jucara.jpg",
+    link: "https://youtu.be/FtL8dOPeu6U",
     bg: "#8b75b2",
   },
   {
     title: "Monitoramento da avifauna",
-    subtitle: "Os dados coletados no presente são ferramentas para prevermos e explicarmos eventos futuros.",
-    image: "/midias/home/monitoramento.jpg",
-    link: "/programas-e-projetos/monitoramento-de-avifauna",
+    subtitle:
+      "Os dados coletados no presente são ferramentas para prevermos e explicarmos eventos futuros.",
+    image: "/midias/home/doc-monitoramento.jpg",
+    link: "https://youtu.be/OrGmxyzla5A",
     bg: "#4ca2da",
   },
 ];
