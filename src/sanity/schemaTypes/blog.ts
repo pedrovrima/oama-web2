@@ -60,7 +60,13 @@ export const blog = defineType({
             { title: "Normal", value: "normal" },
             { title: "Título 2", value: "h2" },
           ],
-          lists: [{ title: "Lista numerada", value: "number" }],
+          // "bullet" entrou com a migração dos 6 posts de 2021/2022 do site
+          // antigo, que usavam listas com marcador. O renderizador em
+          // `src/utils/portableText.ts` já sabia exibir os dois tipos.
+          lists: [
+            { title: "Lista numerada", value: "number" },
+            { title: "Lista com marcadores", value: "bullet" },
+          ],
           marks: {
             decorators: [
               { title: "Negrito", value: "strong" },
