@@ -340,7 +340,26 @@ function blocosDeMarkdown(trecho, novaChave) {
   return blocos;
 }
 
+// Erros de digitação do conteúdo original que corrigimos na importação.
+// Confirmados com o usuário em 2026-08-27. Só entram aqui erros evidentes de
+// digitação — nada de reescrever conteúdo.
+// NÃO incluir o título "Observatórios de Aves promovem": parece truncado, mas o
+// usuário confirmou que está correto.
+const CORRECOES_DE_DIGITACAO = [
+  // O parágrafo começa com "ara se tornar um filiado" — faltou o "P".
+  { de: "ara se tornar um filiado", para: "Para se tornar um filiado" },
+];
+
+export function corrigirDigitacao(texto) {
+  let saida = texto;
+  for (const { de, para } of CORRECOES_DE_DIGITACAO) {
+    saida = saida.split(de).join(para);
+  }
+  return saida;
+}
+
 export function converterCorpo(corpo, novaChave, imagens) {
+  corpo = corrigirDigitacao(corpo);
   const blocos = [];
   let i = 0;
   let acumuladoMd = "";
