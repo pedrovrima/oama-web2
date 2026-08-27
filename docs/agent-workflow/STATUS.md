@@ -9,6 +9,7 @@
 - Backlog Linear já existe; a orquestração local continua em `docs/agent-workflow/`
 
 ## Estado operacional atual
+- **Formulários "Fale Conosco" com envio real (2026-08-27, sem commit):** os forms de `/consultoria` (hub) e das 3 filhas (`ConsultoriaServico.astro`) deixaram de usar `mailto:` e passaram a fazer POST para `POST /api/contato` do mailer (`newsletter-oama`, rota nova em `app/api/contato/route.ts`, envia via SES para `contato@oama.eco.br` com Reply-To do visitante; honeypot `website`, rate limit por IP, CORS igual ao de `/api/subscribers`). Script compartilhado `src/scripts/contato.ts` (padrão de `newsletter.ts`; endpoint via `PUBLIC_CONTATO_ENDPOINT`, fallback para produção; erro exibe mailto de plano B). Botão do hub agora diz "Enviar" (Figma). QA: build 29 páginas + três estados (enviando/sucesso/erro) verificados no navegador com mock 200/500. Pendências de deploy: deploy do mailer com `CONTACT_TO_EMAIL` (opcional) e SES já configurado; reCAPTCHA é task separada (campo `captcha_token` já aceito e ignorado).
 - **Google Analytics 4 instalado (2026-08-26):** snippet gtag (`G-78XYNN79L7`) no `<head>` de `src/layouts/BaseLayout.astro`, condicionado a `import.meta.env.PROD` — não carrega em `astro dev`. Cobre todas as páginas (layout único).
 - **TASK-LAUNCH-001 está em andamento (2026-07-20):** preparação para lançamento sem CMS; auditoria por abas/painéis Herdr, com Pi (`openai-pedro`) e Claude Code. Fable é proibido. Brief: `docs/implementation/pages/lancamento.md`.
 - O repo já possui uma camada de briefs em `docs/implementation/pages/`.

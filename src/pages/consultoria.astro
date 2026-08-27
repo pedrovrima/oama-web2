@@ -206,7 +206,12 @@ const logos = [
           Preencha o formulário ou escreva para <a href="mailto:contato@oama.eco.br" class="underline underline-offset-4">contato@oama.eco.br</a>.
         </p>
 
-        <form class="mt-8 space-y-3" aria-label="Fale conosco" data-consultoria-form>
+        <form class="mt-8 space-y-3" aria-label="Fale conosco" data-contato-form data-contato-origem="Consultoria (hub)">
+          {/* Honeypot anti-spam: humanos não veem; bots preenchem e o servidor descarta. */}
+          <div class="hidden" aria-hidden="true">
+            <label for="consultoria-website">Não preencha este campo</label>
+            <input id="consultoria-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <label class="sr-only" for="consultoria-nome">Seu nome</label>
           <input
             id="consultoria-nome"
@@ -259,17 +264,17 @@ const logos = [
               type="submit"
               class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95"
             >
-              Preparar e-mail
+              Enviar
             </button>
           </div>
-          <p class="text-[14px] leading-5 text-white/90" data-consultoria-status hidden aria-live="polite"></p>
+          <p class="text-[14px] leading-5 text-white/90" data-contato-status hidden aria-live="polite"></p>
           <a
             class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
-            data-consultoria-email-link
+            data-contato-fallback
             href="mailto:contato@oama.eco.br"
             hidden
           >
-            Abrir o e-mail novamente
+            Enviar por e-mail
           </a>
         </form>
       </div>
@@ -280,42 +285,6 @@ const logos = [
 </BaseLayout>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>("[data-consultoria-form]");
-  const status = form?.querySelector<HTMLElement>("[data-consultoria-status]");
-  const emailLink = form?.querySelector<HTMLAnchorElement>("[data-consultoria-email-link]");
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const data = new FormData(form);
-    const valor = (campo: string) => String(data.get(campo) ?? "").trim();
-    const corpo = [
-      "Olá, equipe OAMa!",
-      "",
-      "Gostaria de conversar sobre uma proposta de consultoria.",
-      "",
-      `Nome: ${valor("nome")}`,
-      `Cargo / organização: ${valor("cargo") || "Não informado"}`,
-      `E-mail: ${valor("email")}`,
-      `Telefone: ${valor("telefone") || "Não informado"}`,
-      "",
-      "Necessidade:",
-      valor("mensagem"),
-    ].join("\n");
-    const mailto = `mailto:contato@oama.eco.br?subject=${encodeURIComponent("Solicitação de consultoria pelo site")}&body=${encodeURIComponent(corpo)}`;
-
-    if (emailLink && status) {
-      emailLink.href = mailto;
-      emailLink.hidden = false;
-      status.textContent = "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e confirme o envio por lá. Se nada acontecer, use o link abaixo.";
-      status.hidden = false;
-    }
-
-    window.location.href = mailto;
-  });
+  import { wireContatoForms } from "../scripts/contato";
+  wireContatoForms();
 </script>
