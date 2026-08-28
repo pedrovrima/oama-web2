@@ -106,7 +106,13 @@ const atividades = [
 
     <!-- 2) CARROSSEL DE ATIVIDADES: mídia ocupa toda a largura como no frame -->
     <section class="w-full" style="background:#dfb553;">
-        <div class="relative w-full overflow-hidden" data-carrossel>
+        {/* Largura limitada de proposito, apesar de a secao ser full-bleed.
+            Numa proporcao de 1,41 a altura acompanha a largura: em 1920px o
+            carrossel full-bleed ficava com 1362px de altura e o slide nao cabia
+            mais na tela. Com o teto de 880px a altura para em ~624px e a foto
+            continua aparecendo inteira. O fundo amarelo da secao preenche as
+            laterais. */}
+        <div class="relative mx-auto w-full max-w-[880px] overflow-hidden" data-carrossel>
           <ul
             class="carrossel-trilho flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]"
             style="-webkit-overflow-scrolling: touch;"
@@ -117,11 +123,19 @@ const atividades = [
             {
               atividades.map((a, i) => (
                 <li class="relative flex-shrink-0 w-full snap-center" data-slide={i}>
+                  {/* A galeria mistura proporcoes: 4 fotos em ~1,41 e 5 em 2,00
+                      (proaves-galeria-5..9). Com altura fixa e largura full-bleed
+                      a caixa virava 2,82:1 a 1440px e cortava metade da altura das
+                      fotos 3:2. A caixa passa a 1,41, a proporcao da maioria, com
+                      `object-contain`: nada e cortado — as 3:2 preenchem e as
+                      panoramicas aparecem inteiras, com faixa do fundo acima e
+                      abaixo. `object-position` saiu junto porque sem recorte ele
+                      nao faz nada; o "center 72%" do primeiro slide existia so
+                      para salvar o enquadramento do corte antigo. */}
                   <img
                     src={a.imagem}
                     alt={a.alt}
-                    class="h-[260px] w-full object-cover md:h-[510px]"
-                    style={`object-position:${a.posicao};`}
+                    class="w-full aspect-[1.41] object-contain"
                     loading={i === 0 ? "eager" : "lazy"}
                     decoding="async"
                   />

@@ -232,7 +232,12 @@ const tecnicas = [
               src={foto.imagem}
               alt={foto.alt}
               class:list={[
-                "h-[240px] w-full object-cover md:h-[512px]",
+                // Altura fixa com largura full-bleed fazia a proporcao variar
+                // com o tamanho da tela: a 1440px a caixa virava 2,81:1 contra
+                // 2,00:1 da foto, descartando 29% da altura. Como as 8 fotos
+                // sao todas 1023x512, fixar a proporcao em 2/1 mostra cada uma
+                // por inteiro em qualquer largura.
+                "w-full aspect-[2/1] object-cover",
                 i === 0 ? "" : "hidden",
               ]}
               data-slide={i}
