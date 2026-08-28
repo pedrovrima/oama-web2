@@ -18,6 +18,7 @@
  * Os 2 posts que já existiam no dataset não são tocados.
  */
 
+import "dotenv/config";
 import { createClient } from "@sanity/client";
 import { readFileSync, mkdirSync, writeFileSync, statSync } from "node:fs";
 import { join, extname, basename } from "node:path";
@@ -25,6 +26,8 @@ import sharp from "sharp";
 import { converterTodos, gerarSlug, DIR_PUBLIC } from "./converter-mdx.mjs";
 
 const CONFIRMAR = process.argv.includes("--confirmar");
+// O token pode vir do .env (que é gitignored) ou da variável de ambiente.
+// A variável de ambiente ganha, para dar pra sobrescrever numa execução só.
 const TOKEN = process.env.SANITY_WRITE_TOKEN;
 
 const PROJECT_ID = "1tnejkhf";
@@ -131,7 +134,14 @@ async function garantirAutor(nome) {
 // ---------------------------------------------------------------------------
 async function principal() {
   if (CONFIRMAR && !TOKEN) {
-    console.error("ERRO: --confirmar exige SANITY_WRITE_TOKEN no ambiente.");
+    console.error("ERRO: --confirmar exige um token de escrita do Sanity.\n");
+    console.error("Onde conseguir: sanity.io/manage -> projeto 1tnejkhf -> API -> Tokens");
+    console.error("Permissao necessaria: Editor\n");
+    console.error("Onde guardar (escolha um):");
+    console.error("  1. No arquivo .env deste repo (ja e gitignored):");
+    console.error("       SANITY_WRITE_TOKEN=sk...");
+    console.error("  2. So nesta execucao, sem gravar em lugar nenhum:");
+    console.error("       SANITY_WRITE_TOKEN=sk... node scripts/blog/importar-posts.mjs --confirmar");
     process.exit(1);
   }
   mkdirSync(DIR_TEMP, { recursive: true });
