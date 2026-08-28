@@ -5,7 +5,11 @@ import CardSection from "./CardSection.astro";
 // Aparições do OAMa na mídia, com título e link do documento oficial de redação
 // do site (Google Doc do cliente, seção "OAMa NA MÍDIA"). Ficam no código porque
 // o Sanity ainda não tem itens; quando tiver, os de lá têm prioridade.
-// As 3 primeiras têm arte enviada pelo OAMa; as demais ainda não.
+// As 3 primeiras têm arte enviada pelo OAMa. As duas seguintes usam a
+// thumbnail que o próprio YouTube serve por ID do vídeo
+// (img.youtube.com/vi/<ID>/maxresdefault.jpg) — é um frame do vídeo, não
+// arte de terceiro. As 4 últimas são matérias de G1 e ICMBio: a imagem é
+// deles, então o card fica sem foto até o OAMa mandar arte própria.
 const MIDIA = [
   {
     image: "/midias/home/midia/campanha-escute-as-aves.png",
@@ -26,13 +30,16 @@ const MIDIA = [
     href: "https://www.youtube.com/watch?v=sTvSLOHZduE",
   },
   {
-    image: undefined,
+    image: "/midias/home/midia/paf-refloresta-agua-carbono.jpg",
+    imageAlt:
+      "Crianças de boné e mochila sorrindo com os braços erguidos em uma trilha na mata",
     label: "Vídeo",
     title: "PAF (Re)Floresta Água e Carbono: Encontro pelas Florestas e a Água",
     href: "https://www.youtube.com/watch?v=dME4kmEfVdo",
   },
   {
-    image: undefined,
+    image: "/midias/home/midia/percepcoes-conservacao-aves.jpg",
+    imageAlt: "Vinheta de abertura do programa CNN Mais Verde",
     label: "Vídeo",
     title:
       "Percepções sobre conservação das aves e os desafios ambientais na Mata Atlântica",
