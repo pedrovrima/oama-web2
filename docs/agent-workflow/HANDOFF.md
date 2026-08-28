@@ -42,6 +42,33 @@ Cuidados que ja custaram tempo e nao devem ser redescobertos:
   Promova as imagens a `loading="eager"` via JS e espere `img.decode()`.
 - A rota `/admin/` e o Studio do Sanity; nunca atinge `networkidle`. Exclua do QA.
 
+### `npm run build` verde NAO garante deploy
+
+O `vercel.json` e validado com schema estrito pela Vercel e **o Astro nunca le
+esse arquivo** — entao erro nele passa batido no build local e derruba o deploy.
+Foi o que aconteceu nesta frente: chaves `"//"` usadas como comentario dentro de
+`headers` fizeram 4 deploys seguidos falharem com
+`Invalid vercel.json - headers[0] should NOT have additional property //`.
+JSON nao tem comentario, e `JSON.parse` aceita a chave extra sem reclamar.
+
+**Depois de mexer em `vercel.json`, rode `vercel build --prod`.** E o unico
+jeito de reproduzir a validacao antes de empurrar.
+
+### Dominio: `oama.eco.br` NAO e este projeto
+
+`oama.eco.br` serve o site antigo em Next.js (`/_next/` no HTML). Este projeto
+vive no projeto Vercel `oama-web2`, cujas URLs estao atras do Vercel
+Authentication. Nao use o dominio para validar deploy desta base: ele devolve
+404 em rota e imagem que so existem aqui, e isso **nao** e sinal de quebra.
+
+### Cuidado ao commitar com agente trabalhando na mesma arvore
+
+`git commit -a` e `git add <caminho>` pegam modificacao de arquivo ja rastreado
+mas **nao** pegam arquivo novo untracked. Nesta frente isso levou as referencias
+reescritas para `.webp` ao remoto sem os arquivos `.webp` — deploy inteiro com
+imagem quebrada. Se houver agente mexendo em imagem, confira
+`git status --porcelain | grep '^??'` antes de commitar.
+
 Pendencia herdada: **470 MB de PDFs** em `public/publicacoes/files/`, intocados
 por decisao do usuario. Nao afetam Core Web Vitals, mas dominam o peso do deploy.
 
