@@ -1,5 +1,15 @@
 # Handoff operacional — OAMa Website v2
 
+## Credenciais (leia antes de dizer que algo está bloqueado)
+
+`.env.example` na raiz lista todas as variáveis, o que cada uma faz e onde gerar.
+Os valores reais ficam em `.env` (gitignored).
+
+Build e dev rodam sem segredo nenhum. Só scripts de escrita precisam de token —
+hoje `scripts/blog/importar-posts.mjs`, que exige `SANITY_WRITE_TOKEN` e roda em
+simulação sem ele.
+
+
 ## Estado em 2026-08-20 — lote 4 (leia isto primeiro)
 
 Branch `revisao-figma-lote-1`, **11 commits, não enviados ao remoto**.

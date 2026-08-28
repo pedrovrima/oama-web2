@@ -30,6 +30,21 @@ Antes de implementar qualquer coisa, leia nesta ordem:
 7. `docs/implementation/orchestration.md`
 8. o documento específico da página/task, se existir em `docs/implementation/pages/`
 
+## Credenciais e variáveis de ambiente
+
+**`.env.example`** (versionado) lista TODAS as variáveis que o projeto usa, com o
+que cada uma faz e onde gerar. **`.env`** (gitignored, nunca versionado) guarda os
+valores reais.
+
+- Build e `astro dev` funcionam **sem nenhum segredo**: o Sanity é lido do dataset
+  público e o snapshot do Stripe está commitado.
+- Só precisam de credencial os scripts que **escrevem** em serviço externo —
+  hoje `scripts/blog/importar-posts.mjs` (precisa de `SANITY_WRITE_TOKEN`).
+- Se um script falhar por falta de credencial: **pare e avise o usuário.** Não
+  contorne, não invente valor, não desabilite a verificação.
+- **Nunca** imprima o valor de um segredo em log, relatório ou mensagem, nem
+  commite `.env`.
+
 ## Fontes de verdade
 Use esta prioridade:
 
