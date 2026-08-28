@@ -3,6 +3,8 @@
 // `data-newsletter-status`. O endpoint faz double opt-in (envia email de
 // confirmação), então o sucesso aqui significa "verifique seu email".
 
+import { getCaptchaToken, warmCaptcha } from "./captcha";
+
 const configuredEndpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT;
 const ENDPOINT =
   typeof configuredEndpoint === "string" && configuredEndpoint.trim()
@@ -22,12 +24,18 @@ function wireForm(form: HTMLFormElement) {
     status.textContent = message;
   };
 
+  warmCaptcha(form);
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const payload = Object.fromEntries(new FormData(form).entries());
     setStatus("loading", "Enviando…");
     if (button) button.disabled = true;
+
+    // Anti-bot: token do Turnstile, quando configurado (null = sem captcha).
+    const captchaToken = await getCaptchaToken(form);
+    if (captchaToken) payload.captcha_token = captchaToken;
 
     try {
       const res = await fetch(ENDPOINT, {

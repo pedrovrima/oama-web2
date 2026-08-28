@@ -4,6 +4,8 @@
 //   - um link com `data-contato-fallback` (mailto: de plano B, mostrado no erro)
 // Opcional: `data-contato-origem` no form identifica a página de origem no email.
 
+import { getCaptchaToken, warmCaptcha } from "./captcha";
+
 const configuredEndpoint = import.meta.env.PUBLIC_CONTATO_ENDPOINT;
 const ENDPOINT =
   typeof configuredEndpoint === "string" && configuredEndpoint.trim()
@@ -44,6 +46,8 @@ function wireForm(form: HTMLFormElement) {
     status.hidden = false;
   };
 
+  warmCaptcha(form);
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -63,6 +67,10 @@ function wireForm(form: HTMLFormElement) {
     setStatus("loading", "Enviando…");
     if (fallback) fallback.hidden = true;
     if (button) button.disabled = true;
+
+    // Anti-bot: token do Turnstile, quando configurado (null = sem captcha).
+    const captchaToken = await getCaptchaToken(form);
+    if (captchaToken) payload.captcha_token = captchaToken;
 
     try {
       const res = await fetch(ENDPOINT, {
