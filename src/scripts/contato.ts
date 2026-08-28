@@ -4,7 +4,8 @@
 //   - um link com `data-contato-fallback` (mailto: de plano B, mostrado no erro)
 // Opcional: `data-contato-origem` no form identifica a página de origem no email.
 
-import { getCaptchaToken, warmCaptcha } from "./captcha";
+import { getCaptchaToken, resetCaptcha, setupCaptcha } from "./captcha";
+import { iniciarEnvio, terminarEnvio } from "./botao-envio";
 
 const configuredEndpoint = import.meta.env.PUBLIC_CONTATO_ENDPOINT;
 const ENDPOINT =
@@ -46,7 +47,7 @@ function wireForm(form: HTMLFormElement) {
     status.hidden = false;
   };
 
-  warmCaptcha(form);
+  setupCaptcha(form);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -64,12 +65,13 @@ function wireForm(form: HTMLFormElement) {
       payload.origem = form.dataset.contatoOrigem;
     }
 
-    setStatus("loading", "Enviando…");
+    setStatus("", ""); // o estado de envio fica no proprio botao
+    if (status) status.hidden = true;
     if (fallback) fallback.hidden = true;
-    if (button) button.disabled = true;
+    iniciarEnvio(button);
 
     // Anti-bot: token do Turnstile, quando configurado (null = sem captcha).
-    const captchaToken = await getCaptchaToken(form);
+    const captchaToken = getCaptchaToken(form);
     if (captchaToken) payload.captcha_token = captchaToken;
 
     try {
@@ -82,19 +84,20 @@ function wireForm(form: HTMLFormElement) {
       form.reset();
       setStatus(
         "success",
-        "Mensagem enviada! Em breve a equipe do OAMa entra em contato.",
+        "Mensagem enviada. Respondemos por e-mail em breve.",
       );
     } catch {
       setStatus(
         "error",
-        `Não foi possível enviar agora. Tente novamente em instantes ou escreva direto para ${EMAIL_OAMA} usando o link abaixo.`,
+        "Não deu para enviar. Tente de novo ou use o e-mail abaixo.",
       );
       if (fallback) {
         fallback.href = montarMailto(payload);
         fallback.hidden = false;
       }
     } finally {
-      if (button) button.disabled = false;
+      terminarEnvio(button);
+      resetCaptcha(form); // token é de uso único: pede um novo
     }
   });
 }

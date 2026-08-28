@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WaveDark from "../components/sections/WaveDark.astro";
+import CaptchaSlot from "../components/CaptchaSlot.astro";
 
 const frentes = [
   {
@@ -259,15 +260,16 @@ const logos = [
             required
             class="w-full rounded-[24px] bg-oama-yellow px-5 py-4 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           ></textarea>
+          <CaptchaSlot />
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95"
+              class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Enviar
             </button>
           </div>
-          <p class="text-[14px] leading-5 text-white/90" data-contato-status hidden aria-live="polite"></p>
+          <p class="text-[13px] leading-5 text-white" data-contato-status hidden aria-live="polite"></p>
           <a
             class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
             data-contato-fallback

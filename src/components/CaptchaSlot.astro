@@ -1,0 +1,13 @@
+---
+// Espaço reservado para o widget do Cloudflare Turnstile, renderizado logo
+// acima do botão de envio do formulário.
+//
+// O bloco só existe quando PUBLIC_TURNSTILE_SITE_KEY está configurada: sem a
+// chave, nada é reservado e o formulário fica idêntico ao de antes do captcha.
+// A altura é fixada aqui, no HTML, para o widget não empurrar o conteúdo
+// quando terminar de carregar — o site está com CLS 0 e continua. O valor vem
+// de medição do widget real renderizado (71px); 72 dá a folga de 1px.
+const habilitado = Boolean(import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
+---
+
+{habilitado && <div data-captcha-slot style="min-height: 72px;"></div>}

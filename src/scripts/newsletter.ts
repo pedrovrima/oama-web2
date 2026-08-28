@@ -3,7 +3,8 @@
 // `data-newsletter-status`. O endpoint faz double opt-in (envia email de
 // confirmação), então o sucesso aqui significa "verifique seu email".
 
-import { getCaptchaToken, warmCaptcha } from "./captcha";
+import { getCaptchaToken, resetCaptcha, setupCaptcha } from "./captcha";
+import { iniciarEnvio, terminarEnvio } from "./botao-envio";
 
 const configuredEndpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT;
 const ENDPOINT =
@@ -24,17 +25,17 @@ function wireForm(form: HTMLFormElement) {
     status.textContent = message;
   };
 
-  warmCaptcha(form);
+  setupCaptcha(form);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const payload = Object.fromEntries(new FormData(form).entries());
-    setStatus("loading", "Enviando…");
-    if (button) button.disabled = true;
+    setStatus("", ""); // o estado de envio fica no proprio botao
+    iniciarEnvio(button);
 
     // Anti-bot: token do Turnstile, quando configurado (null = sem captcha).
-    const captchaToken = await getCaptchaToken(form);
+    const captchaToken = getCaptchaToken(form);
     if (captchaToken) payload.captcha_token = captchaToken;
 
     try {
@@ -47,15 +48,16 @@ function wireForm(form: HTMLFormElement) {
       form.reset();
       setStatus(
         "success",
-        "Quase lá! Enviamos um email de confirmação — confirme para concluir sua inscrição.",
+        "Quase lá: confirme no e-mail que enviamos.",
       );
     } catch {
       setStatus(
         "error",
-        "Não foi possível inscrever agora. Tente novamente em instantes.",
+        "Não deu para inscrever agora. Tente de novo em instantes.",
       );
     } finally {
-      if (button) button.disabled = false;
+      terminarEnvio(button);
+      resetCaptcha(form); // token é de uso único: pede um novo
     }
   });
 }

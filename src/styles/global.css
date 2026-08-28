@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss";
 
 /* Oswald */
 @import "@fontsource/oswald/300.css";
@@ -71,4 +70,42 @@
   --color-oama-green: #22844c;
   --color-oama-purple: #8c78ab;
   --color-oama-orange: #eb753c;
+}
+
+/* O preflight do Tailwind v4 deixa os botoes com `cursor: default`; o site
+   inteiro esperava o ponteiro de mao, entao restauramos aqui. */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Botao em envio: texto trocado pelo script + pulso suave enquanto espera. */
+@keyframes pulso-envio {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+button[data-enviando="1"] {
+  animation: pulso-envio 1.1s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  button[data-enviando="1"] {
+    animation: none;
+  }
+}
+
+/* Mensagens de status dos formularios: discretas, mas legiveis em qualquer
+   fundo (a cor vem do proprio contexto via currentColor). */
+[data-newsletter-status]:not(:empty),
+[data-contato-status]:not(:empty) {
+  border-left: 2px solid currentColor;
+  padding-left: 8px;
+  font-weight: 600;
 }

@@ -1,5 +1,6 @@
 ---
 // Footer — blue section + yellow bar
+import CaptchaSlot from "../CaptchaSlot.astro";
 ---
 
 <footer>
@@ -89,14 +90,15 @@
               class="font-montserrat text-oama-ink placeholder-oama-ink/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-full md:w-[346px]"
               style="background: #eab231; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px;"
             />
-            <button
-              type="submit"
-              class="font-montserrat font-semibold hover:brightness-95 transition w-full md:w-[123px] disabled:opacity-60"
-              style="background: #ffffff; color: #e9b130; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px;"
-            >
-              Enviar
-            </button>
           </div>
+          <CaptchaSlot />
+          <button
+            type="submit"
+            class="font-montserrat font-semibold hover:brightness-95 transition w-full md:w-[123px] disabled:opacity-60 disabled:cursor-not-allowed"
+            style="background: #ffffff; color: #e9b130; border-radius: 25px; height: 44px; padding: 0 20px; font-size: 14px;"
+          >
+            Enviar
+          </button>
           <p
             data-newsletter-status
             role="status"
