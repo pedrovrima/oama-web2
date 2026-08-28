@@ -10,6 +10,57 @@ hoje `scripts/blog/importar-posts.mjs`, que exige `SANITY_WRITE_TOKEN` e roda em
 simulação sem ele.
 
 
+## Estado em 2026-08-27 — pendencias pontuais (leia isto primeiro)
+
+Build limpo: **35 paginas**. Varredura das 35 rotas em 1440 e 390 (serial,
+com `img.decode()` antes de medir): **0 imagens quebradas, 0 overflow**.
+Auditoria estatica do `dist`: 0 links internos quebrados, 0 assets faltando,
+0 `href="#"`, 0 aspas curvas em atributo. Dos 175 links externos, todos
+respondendo.
+
+### O que entrou nesta frente
+- **/jacucara:** 4 links externos que davam 404 trocados pelo endereco oficial
+  atual (CNCFlora institucional e ficha de Euterpe edulis no ProFlora, Maple
+  Leaf, blog do Parque das Aves).
+- **Home, secao Midia:** os 2 cards de video ganharam capa vinda da thumbnail
+  que o YouTube serve por ID. Os 4 restantes sao materias de G1/ICMBio e
+  seguem sem foto de proposito — o comentario no topo de `MidiaSection.astro`
+  registra isso.
+- **Icones do Figma:** os 9 icones ilustrados de publico foram exportados e
+  centralizados em `src/data/icones-publico.ts`; usados em `/consultoria`
+  (Clientes) e no "Publico potencial" das 3 filhas, cada pagina na ordem do
+  seu proprio frame. Capacitacao tecnica passou de 4 para 6 icones.
+- **/programas-e-projetos/projetos-de-pesquisa:** os 9 projetos ganharam a
+  descricao completa do documento de redacao, dentro de `<details>` no card.
+  Componente novo `TextoRico.astro` para `**negrito**` e `*italico*`.
+- **/realizacoes:** entraram os cards **Webapp Xara** (xara.oama.eco.br) e
+  **Webapp Colisoes com Vidros** (colisoes.oama.eco.br). O documento nao dava
+  URL; os enderecos foram descobertos pelo padrao de subdominio do Wikimudas
+  e confirmados no navegador antes de virar link.
+- **Blog:** `overflow-wrap: anywhere` no corpo do post — duas paginas rolavam
+  na horizontal no celular por causa de URL crua no texto.
+- **3 links externos mortos** no resto do site resolvidos (handle do YouTube,
+  Saltator e acaijucara.com.br).
+
+### Armadilha nova confirmada
+**QA visual em paralelo mente.** Quatro subagentes varrendo o mesmo
+`python3 -m http.server` reportaram 37 imagens quebradas. Todas serviam 200
+quando testadas direto: o servidor e single-thread e engasgava, e o eval media
+`naturalWidth===0` antes da decodificacao. Use `ThreadingHTTPServer`, varra em
+**serie** e espere `img.decode()` antes de medir. Nao aceite lista de imagem
+quebrada sem conferir o HTTP do asset.
+
+### Pendencias que continuam abertas (precisam do cliente ou de decisao)
+- 4 cards de Midia e 2 da Agenda sem arte (materias de terceiros / arte do cliente).
+- Contraste do CTA azul (2,71, abaixo do minimo WCAG) — mexer muda a identidade.
+- "Apresentacoes e participacao em eventos": aparece so no indice do documento,
+  sem corpo; o conteudo hoje vive em `/downloads#academico`. Contradicao do
+  proprio documento, nao inventar.
+- Depoimentos dos trainees, secao Equipe, fotos da Estacao de Pesquisa e logos
+  de USP/UFJF/Secretaria de Turismo seguem fora por decisao do usuario ou por
+  falta de material.
+
+
 ## Estado em 2026-08-20 — lote 4 (leia isto primeiro)
 
 Branch `revisao-figma-lote-1`, **11 commits, não enviados ao remoto**.
