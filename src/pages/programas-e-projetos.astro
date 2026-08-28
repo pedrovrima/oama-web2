@@ -86,7 +86,8 @@ const programas = [
     </section>
 
 
-    <!-- Mosaico Figma: imagens quadradas sem copy visível, com chevrons de navegação. -->
+    <!-- Mosaico do Figma. Os títulos aparecem SOBRE a foto: sem eles a página é
+         só um mosaico de imagens e o visitante não sabe para onde cada card leva. -->
     <section class="bg-[#e4ba4c] px-[13px] pb-[54px] pt-4 md:px-6 md:pb-12 md:pt-9">
       <div class="mx-auto grid w-full max-w-[420px] grid-cols-1 gap-3 md:max-w-[840px] md:grid-cols-3 md:gap-[18px]">
         {
@@ -102,19 +103,17 @@ const programas = [
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                 loading="lazy"
               />
-              <svg
+              {/* Gradiente: garante contraste do título sobre qualquer foto. */}
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
                 aria-hidden="true"
-                viewBox="0 0 24 14"
-                class="pointer-events-none absolute bottom-2 left-1/2 h-3 w-5 -translate-x-1/2 drop-shadow md:bottom-3 md:h-4 md:w-6"
-                fill="none"
-                stroke="white"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m3 3 9 8 9-8" />
-              </svg>
-              <span class="sr-only">{programa.titulo}: {programa.subtitulo}</span>
+              />
+
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3 md:p-4">
+                <h2 class="font-oswald text-[20px] font-bold uppercase leading-[1.15] text-white drop-shadow-md md:text-[19px]">
+                  {programa.titulo}
+                </h2>
+              </div>
             </a>
           ))
         }
