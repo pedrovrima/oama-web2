@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { ChaveIconePublico } from "../../data/icones-publico";
 import WaveDark from "../../components/sections/WaveDark.astro";
 import ConsultoriaServico from "../../components/sections/consultoria/ConsultoriaServico.astro";
 
@@ -34,7 +35,16 @@ const publico = [
   "Empresas de consultoria ambiental.",
 ];
 
-const icones = ["book", "binoculars", "flask", "building"];
+// Ordem e desenhos conforme o cluster do frame 2620:940 do Figma, que aqui
+// traz seis ícones e não quatro.
+const icones: ChaveIconePublico[] = [
+  "estudantes-profissionais",
+  "observadores-aves",
+  "universidades-pesquisa",
+  "orgaos-publicos",
+  "sociedade-civil",
+  "empresas-consultorias",
+];
 ---
 
 <BaseLayout

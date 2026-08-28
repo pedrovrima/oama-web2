@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { ICONES_PUBLICO, type ChaveIconePublico } from "../data/icones-publico";
 import WaveDark from "../components/sections/WaveDark.astro";
 import CaptchaSlot from "../components/CaptchaSlot.astro";
 
@@ -40,16 +41,20 @@ const diferenciais = [
 ];
 
 // Categorias de clientes conforme os nós I2594:813 e I2619:* do Figma.
-const clientes = [
-  "Empresas e consultorias ambientais",
-  "Empreendimentos de impacto ambiental",
-  "Órgãos públicos e administração pública",
-  "Universidades e institutos de pesquisa",
-  "Estudantes e profissionais da área ambiental",
-  "Escolas e museus",
-  "Organizações da sociedade civil",
-  "Unidades de conservação",
-  "Observadores de aves e da natureza",
+// Cada categoria tem no Figma um ícone ilustrado próprio (nós 2619:695 a
+// 2619:703). Os desenhos e os textos alternativos vivem em
+// `src/data/icones-publico.ts` porque as filhas de consultoria reusam o mesmo
+// conjunto.
+const clientes: Array<{ texto: string; icone: ChaveIconePublico }> = [
+  { texto: "Empresas e consultorias ambientais", icone: "empresas-consultorias" },
+  { texto: "Empreendimentos de impacto ambiental", icone: "empreendimentos-impacto" },
+  { texto: "Órgãos públicos e administração pública", icone: "orgaos-publicos" },
+  { texto: "Universidades e institutos de pesquisa", icone: "universidades-pesquisa" },
+  { texto: "Estudantes e profissionais da área ambiental", icone: "estudantes-profissionais" },
+  { texto: "Escolas e museus", icone: "escolas-museus" },
+  { texto: "Organizações da sociedade civil", icone: "sociedade-civil" },
+  { texto: "Unidades de conservação", icone: "unidades-conservacao" },
+  { texto: "Observadores de aves e da natureza", icone: "observadores-aves" },
 ];
 
 
@@ -172,12 +177,15 @@ const logos = [
           {
             clientes.map((cliente) => (
               <div class="flex items-center gap-4">
-                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-oama-blue">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 12h.01M9 15h.01M15 9h.01M15 12h.01M15 15h.01" />
-                  </svg>
-                </div>
-                <p class="text-[15px] leading-6 font-medium text-oama-ink">{cliente}</p>
+                <img
+                  src={ICONES_PUBLICO[cliente.icone].src}
+                  alt={ICONES_PUBLICO[cliente.icone].alt}
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  class="h-14 w-14 shrink-0 rounded-full"
+                />
+                <p class="text-[15px] leading-6 font-medium text-oama-ink">{cliente.texto}</p>
               </div>
             ))
           }
