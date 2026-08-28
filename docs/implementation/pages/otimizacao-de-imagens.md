@@ -69,7 +69,37 @@ isso um celular de 390px baixava o mesmo arquivo de 2560px que o desktop — e
 justo na imagem de LCP da rota. Todos os 18 são full-bleed
 (`absolute inset-0 w-full`), então `100vw` está correto.
 
-### 5. Cache no `vercel.json`
+As 3 rotas filhas de `/consultoria` ficaram de fora na primeira passada porque o
+hero chega ao `ConsultoriaServico.astro` como prop (`src={heroImg}`) e o gerador
+só enxerga caminho literal na tag. O srcset dessas é montado no próprio
+componente, e a largura do fallback vem do `manifesto.json`: `educacao` é
+retrato (1440 de largura) e as outras duas são paisagem (1920) — um valor único
+chutado faria o navegador escolher o candidato errado.
+
+**Efeito medido na imagem de LCP**, aplicando a regra real de seleção do
+navegador (menor candidato ≥ largura necessária), média das 21 rotas com hero:
+
+| | antes | depois |
+|---|---|---|
+| desktop (1440px, DPR 1) | 595 KB | 189 KB (-68%) |
+| celular (390px, DPR 2) | 595 KB | 69 KB (-88%) |
+
+### 5. Lossless em gráfico chapado (`scripts/imagens/corrigir-graficos-chapados.mjs`)
+
+A primeira passada aplicou WebP **com perda em tudo**. Para fotografia está
+certo; para arte chapada com aresta dura é o oposto — gera ringing na borda e
+ainda costuma ficar *maior* que o lossless, porque compressão com perda vai mal
+com área de cor sólida.
+
+O caso extremo era o QR code do PIX: engordou de 69 KB para 119 KB, e artefato
+num QR pode impedir a leitura. Em lossless fica em **15 KB** com fidelidade
+exata. Ao todo 19 arquivos (logos da Jacuçara, ícones de público, marca, QR)
+reencodados: 204 KB a menos e sem artefato.
+
+O script reencoda a partir do **original recuperado do git**, não do WebP com
+perda — reencodar o arquivo já degradado só congelaria os artefatos.
+
+### 6. Cache no `vercel.json`
 
 - `public/`: `max-age=604800, stale-while-revalidate=2592000`. Não pode ser
   `immutable` — os arquivos não têm hash no nome, então trocar a imagem mantém o
