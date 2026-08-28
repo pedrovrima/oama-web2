@@ -2,6 +2,7 @@
 import WaveDark from "../WaveDark.astro";
 import CaptchaSlot from "../../CaptchaSlot.astro";
 import { ICONES_PUBLICO, type ChaveIconePublico } from "../../../data/icones-publico";
+import manifestoImagens from "../../../../scripts/imagens/manifesto.json";
 
 interface Colors {
   yellow: string;
@@ -36,12 +37,30 @@ const {
   colors,
 } = Astro.props;
 
+// O hero e full-bleed e chega como prop, entao o srcset nao pode ser escrito na
+// tag como nas outras rotas — e montado aqui, a partir das variantes geradas em
+// public/midias/consultoria/. Sem isso um celular de 390px baixa o arquivo
+// inteiro, justo na imagem de LCP da pagina.
+// A largura real do fallback vem do manifesto da conversao: `educacao` e
+// retrato (1440 de largura) e os outros dois sao paisagem (1920). Chutar um
+// valor unico faria o navegador escolher o candidato errado.
+const LARGURAS_HERO = [640, 960, 1280];
+const larguraOriginal =
+  manifestoImagens.find((i) => i.para === heroImg)?.novaLargura ?? 1920;
+const heroSrcset = [
+  ...LARGURAS_HERO.filter((l) => l < larguraOriginal).map(
+    (l) => `${heroImg.replace(/\.webp$/, `-${l}w.webp`)} ${l}w`,
+  ),
+  `${heroImg} ${larguraOriginal}w`,
+].join(", ");
 ---
 
 <main class="font-montserrat">
   {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
   <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
     <img
+      srcset={heroSrcset}
+      sizes="100vw"
       src={heroImg}
       alt={heroAlt}
       class="absolute inset-0 h-full w-full object-cover"
