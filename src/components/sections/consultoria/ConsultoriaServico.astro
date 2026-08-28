@@ -1,5 +1,7 @@
 ---
 import WaveDark from "../WaveDark.astro";
+import CaptchaSlot from "../../CaptchaSlot.astro";
+import { ICONES_PUBLICO, type ChaveIconePublico } from "../../../data/icones-publico";
 
 interface Colors {
   yellow: string;
@@ -17,7 +19,8 @@ interface Props {
   servicos: string[];
   diferenciais: string[];
   publico: string[];
-  icones: string[];
+  /** Chaves de `ICONES_PUBLICO`, na ordem em que o Figma as posiciona. */
+  icones: ChaveIconePublico[];
   colors: Colors;
 }
 
@@ -33,20 +36,6 @@ const {
   colors,
 } = Astro.props;
 
-// SVG de cada ícone circular do bloco "Público potencial".
-const iconPaths: Record<string, string> = {
-  building:
-    "M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01",
-  shield: "M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z",
-  flask: "M9 3h6M10 3v6L4 19a2 2 0 001.7 3h12.6A2 2 0 0020 19L14 9V3M7 15h10",
-  industry: "M3 21h18M5 21V10l5 3V10l5 3V8l6 3v10",
-  tree: "M12 3l5 5h-3v4h3l-5 6-5-6h3V8H7l5-5zM12 18v3",
-  book: "M12 6.5C10.5 5 8 4.5 5 5v13c3-.5 5.5 0 7 1.5M12 6.5C13.5 5 16 4.5 19 5v13c-3-.5-5.5 0-7 1.5M12 6.5v13",
-  binoculars:
-    "M7 4h3v3M14 4h3v3M6 7l-2 8a3 3 0 006 0l-1-8M13 7l-1 8a3 3 0 006 0l-2-8M6 7h4M14 7h4M10 11h4",
-  hand: "M8 13V5a1.5 1.5 0 013 0v6m0-6a1.5 1.5 0 013 0v6m0-4a1.5 1.5 0 013 0v6a6 6 0 01-6 6h-1a6 6 0 01-5-3l-2.5-4a1.5 1.5 0 012.5-1.7L8 13",
-  monitor: "M4 5h16v11H4zM9 20h6M12 16v4M8 10l2 2 3-4",
-};
 ---
 
 <main class="font-montserrat">
@@ -58,6 +47,8 @@ const iconPaths: Record<string, string> = {
       class="absolute inset-0 h-full w-full object-cover"
       style={heroPos ? `object-position:${heroPos};` : undefined}
       loading="eager"
+      fetchpriority="high"
+      decoding="async"
     />
   </section>
 
@@ -156,26 +147,17 @@ const iconPaths: Record<string, string> = {
           <div class="grid w-[220px] grid-cols-2 gap-4">
             {
               icones.map((ic, i) => (
-                <span
-                  class={`inline-flex h-[84px] w-[84px] items-center justify-center rounded-full text-white shadow-md ${
+                <img
+                  src={ICONES_PUBLICO[ic].src}
+                  alt={ICONES_PUBLICO[ic].alt}
+                  width="84"
+                  height="84"
+                  loading="lazy"
+                  class={`h-[84px] w-[84px] rounded-full shadow-md ${
                     i % 2 === 1 ? "translate-y-6" : ""
                   }`}
-                  style={`background:${colors.blue};`}
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-9 w-9"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d={iconPaths[ic] ?? iconPaths.building} />
-                  </svg>
-                </span>
+                  decoding="async"
+                />
               ))
             }
           </div>
@@ -214,7 +196,12 @@ const iconPaths: Record<string, string> = {
         > e solicite um orçamento personalizado.
       </p>
 
-      <form class="mt-8 max-w-2xl space-y-3" aria-label="Fale conosco" data-servico-form>
+      <form class="mt-8 max-w-2xl space-y-3" aria-label="Fale conosco" data-contato-form data-contato-origem={`Consultoria — ${titulo}`}>
+        {/* Honeypot anti-spam: humanos não veem; bots preenchem e o servidor descarta. */}
+        <div class="hidden" aria-hidden="true">
+          <label for="servico-website">Não preencha este campo</label>
+          <input id="servico-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+        </div>
         <label class="sr-only" for="servico-nome">Nome Completo</label>
         <input
           id="servico-nome"
@@ -265,29 +252,30 @@ const iconPaths: Record<string, string> = {
           required
           class="w-full rounded-[24px] px-5 py-4 font-montserrat text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none focus:ring-2 focus:ring-white"
           style={`background:${colors.yellow};`}></textarea>
+        <CaptchaSlot />
         <div class="pt-1">
           <button
             type="submit"
-            class="inline-flex items-center justify-center rounded-full bg-white px-10 py-3 font-montserrat text-[15px] font-semibold transition hover:brightness-95"
+            class="inline-flex items-center justify-center rounded-full bg-white px-10 py-3 font-montserrat text-[15px] font-semibold transition hover:brightness-95 disabled:opacity-60 disabled:cursor-not-allowed"
             style={`color:${colors.blue};`}
           >
             Enviar
           </button>
         </div>
         <p
-          class="text-[14px] leading-5 text-white"
-          data-servico-status
+          class="text-[13px] leading-5 text-white"
+          data-contato-status
           hidden
           aria-live="polite"
         >
         </p>
         <a
           class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
-          data-servico-email-link
+          data-contato-fallback
           href="mailto:contato@oama.eco.br"
           hidden
         >
-          Abrir o e-mail novamente
+          Enviar por e-mail
         </a>
       </form>
     </div>
@@ -295,46 +283,6 @@ const iconPaths: Record<string, string> = {
 </main>
 
 <script>
-  // Mesmo comportamento do formulário do hub /consultoria: não há back-end,
-  // o envio monta um mailto: e abre o cliente de e-mail do visitante.
-  const form = document.querySelector<HTMLFormElement>("[data-servico-form]");
-  const status = form?.querySelector<HTMLElement>("[data-servico-status]");
-  const emailLink = form?.querySelector<HTMLAnchorElement>(
-    "[data-servico-email-link]",
-  );
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const data = new FormData(form);
-    const valor = (campo: string) => String(data.get(campo) ?? "").trim();
-    const assunto = valor("assunto") || "Contato pelo site do OAMa";
-    const corpo = [
-      "Olá, equipe OAMa!",
-      "",
-      `Nome: ${valor("nome")}`,
-      `E-mail: ${valor("email")}`,
-      `Telefone: ${valor("telefone") || "Não informado"}`,
-      `Assunto: ${assunto}`,
-      "",
-      "Mensagem:",
-      valor("mensagem"),
-    ].join("\n");
-    const mailto = `mailto:contato@oama.eco.br?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
-
-    if (emailLink && status) {
-      emailLink.href = mailto;
-      emailLink.hidden = false;
-      status.textContent =
-        "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e confirme o envio por lá. Se nada acontecer, use o link abaixo.";
-      status.hidden = false;
-    }
-
-    window.location.href = mailto;
-  });
+  import { wireContatoForms } from "../../../scripts/contato";
+  wireContatoForms();
 </script>

@@ -1,5 +1,95 @@
 # Handoff operacional — OAMa Website v2
 
+## Credenciais (leia antes de dizer que algo está bloqueado)
+
+`.env.example` na raiz lista todas as variáveis, o que cada uma faz e onde gerar.
+Os valores reais ficam em `.env` (gitignored).
+
+Build e dev rodam sem segredo nenhum. Só scripts de escrita precisam de token —
+hoje `scripts/blog/importar-posts.mjs`, que exige `SANITY_WRITE_TOKEN` e roda em
+simulação sem ele.
+
+
+## Estado em 2026-08-28 — otimizacao de imagens (leia isto primeiro)
+
+Frente transversal, sem mudanca de conteudo ou layout. Detalhe completo em
+`docs/implementation/pages/otimizacao-de-imagens.md`.
+
+**Toda imagem de `public/` agora e `.webp`.** Se voce for adicionar uma imagem
+nova nessa pasta, converta antes — nao existe pipeline automatico para `public/`,
+so para `src/assets` via `<Image>`. Os scripts estao em `scripts/imagens/`:
+
+- `otimizar-public.mjs` — converte rasters de `public/` para WebP (aceita `--dry`).
+- `reescrever-refs.mjs` — reescreve as referencias apos a conversao.
+- `srcset-heroes.mjs` — gera variantes responsivas para heroes.
+- `verificar-links.mjs` — **rode sempre depois de mexer em imagem.** O build do
+  Astro passa mesmo com `src` apontando para arquivo que nao existe.
+
+Cuidados que ja custaram tempo e nao devem ser redescobertos:
+
+- Em `downloads.astro`, a chave `img:` e imagem e a chave vizinha `arquivo:` e
+  **PDF**. Varredura por extensao que nao separe as duas corrompe os downloads.
+- Nome de arquivo com espaco quebra `srcset`, que usa virgula como separador e
+  espaco como descritor. Todo caminho em `srcset` precisa de `encodeURI` e de
+  barra inicial (sem ela, resolve relativo a rota e quebra em pagina aninhada).
+- O QA por scroll trava: a pagina cresce conforme carrega e o laco nao termina.
+  Promova as imagens a `loading="eager"` via JS e espere `img.decode()`.
+- A rota `/admin/` e o Studio do Sanity; nunca atinge `networkidle`. Exclua do QA.
+
+Pendencia herdada: **470 MB de PDFs** em `public/publicacoes/files/`, intocados
+por decisao do usuario. Nao afetam Core Web Vitals, mas dominam o peso do deploy.
+
+## Estado em 2026-08-27 — pendencias pontuais
+
+Build limpo: **35 paginas**. Varredura das 35 rotas em 1440 e 390 (serial,
+com `img.decode()` antes de medir): **0 imagens quebradas, 0 overflow**.
+Auditoria estatica do `dist`: 0 links internos quebrados, 0 assets faltando,
+0 `href="#"`, 0 aspas curvas em atributo. Dos 175 links externos, todos
+respondendo.
+
+### O que entrou nesta frente
+- **/jacucara:** 4 links externos que davam 404 trocados pelo endereco oficial
+  atual (CNCFlora institucional e ficha de Euterpe edulis no ProFlora, Maple
+  Leaf, blog do Parque das Aves).
+- **Home, secao Midia:** os 2 cards de video ganharam capa vinda da thumbnail
+  que o YouTube serve por ID. Os 4 restantes sao materias de G1/ICMBio e
+  seguem sem foto de proposito — o comentario no topo de `MidiaSection.astro`
+  registra isso.
+- **Icones do Figma:** os 9 icones ilustrados de publico foram exportados e
+  centralizados em `src/data/icones-publico.ts`; usados em `/consultoria`
+  (Clientes) e no "Publico potencial" das 3 filhas, cada pagina na ordem do
+  seu proprio frame. Capacitacao tecnica passou de 4 para 6 icones.
+- **/programas-e-projetos/projetos-de-pesquisa:** os 9 projetos ganharam a
+  descricao completa do documento de redacao, dentro de `<details>` no card.
+  Componente novo `TextoRico.astro` para `**negrito**` e `*italico*`.
+- **/realizacoes:** entraram os cards **Webapp Xara** (xara.oama.eco.br) e
+  **Webapp Colisoes com Vidros** (colisoes.oama.eco.br). O documento nao dava
+  URL; os enderecos foram descobertos pelo padrao de subdominio do Wikimudas
+  e confirmados no navegador antes de virar link.
+- **Blog:** `overflow-wrap: anywhere` no corpo do post — duas paginas rolavam
+  na horizontal no celular por causa de URL crua no texto.
+- **3 links externos mortos** no resto do site resolvidos (handle do YouTube,
+  Saltator e acaijucara.com.br).
+
+### Armadilha nova confirmada
+**QA visual em paralelo mente.** Quatro subagentes varrendo o mesmo
+`python3 -m http.server` reportaram 37 imagens quebradas. Todas serviam 200
+quando testadas direto: o servidor e single-thread e engasgava, e o eval media
+`naturalWidth===0` antes da decodificacao. Use `ThreadingHTTPServer`, varra em
+**serie** e espere `img.decode()` antes de medir. Nao aceite lista de imagem
+quebrada sem conferir o HTTP do asset.
+
+### Pendencias que continuam abertas (precisam do cliente ou de decisao)
+- 4 cards de Midia e 2 da Agenda sem arte (materias de terceiros / arte do cliente).
+- Contraste do CTA azul (2,71, abaixo do minimo WCAG) — mexer muda a identidade.
+- "Apresentacoes e participacao em eventos": aparece so no indice do documento,
+  sem corpo; o conteudo hoje vive em `/downloads#academico`. Contradicao do
+  proprio documento, nao inventar.
+- Depoimentos dos trainees, secao Equipe, fotos da Estacao de Pesquisa e logos
+  de USP/UFJF/Secretaria de Turismo seguem fora por decisao do usuario ou por
+  falta de material.
+
+
 ## Estado em 2026-08-20 — lote 4 (leia isto primeiro)
 
 Branch `revisao-figma-lote-1`, **11 commits, não enviados ao remoto**.

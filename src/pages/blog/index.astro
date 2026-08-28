@@ -21,15 +21,19 @@ const formatarData = (iso: string | undefined) =>
 <BaseLayout
   title="Blog — OAMa"
   description="O blog de divulgação científica do OAMa: um espaço para compartilhar e aproximar a ciência de você, com textos sobre aves, pesquisa e conservação."
-  image="/midias/realizacoes/divulgacao-cientifica.jpg"
+  image="/midias/realizacoes/divulgacao-cientifica.webp"
 >
   <main class="font-montserrat text-oama-ink">
     <section class="relative h-[420px] w-full overflow-hidden md:h-[520px]">
       <img
-        src="/midias/realizacoes/divulgacao-cientifica.jpg"
+        srcset="/midias/realizacoes/divulgacao-cientifica-640w.webp 640w, /midias/realizacoes/divulgacao-cientifica-960w.webp 960w, /midias/realizacoes/divulgacao-cientifica-1280w.webp 1280w, /midias/realizacoes/divulgacao-cientifica.webp 1920w"
+        sizes="100vw"
+        src="/midias/realizacoes/divulgacao-cientifica.webp"
         alt="Divulgação científica do OAMa"
         class="absolute inset-0 h-full w-full object-cover object-[50%_18%]"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-6 pb-8 md:pb-16">
@@ -63,6 +67,7 @@ const formatarData = (iso: string | undefined) =>
                       alt={post.title}
                       class="h-[245px] w-full object-cover md:h-[280px]"
                       loading="lazy"
+                      decoding="async"
                     />
                   )}
 
@@ -89,6 +94,7 @@ const formatarData = (iso: string | undefined) =>
                             alt={`Foto de ${post.author.name}`}
                             class="h-9 w-9 rounded-full object-cover"
                             loading="lazy"
+                            decoding="async"
                           />
                         )}
                         <span class="text-[14px] font-semibold text-[#111111]">

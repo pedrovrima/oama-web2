@@ -1,0 +1,3962 @@
+[
+  {
+    "de": "/apoie/10.png",
+    "para": "/apoie/10.webp",
+    "antes": 424796,
+    "depois": 80162,
+    "dimensoes": "3375x3375",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/11.png",
+    "para": "/apoie/11.webp",
+    "antes": 408011,
+    "depois": 43986,
+    "dimensoes": "3375x3375",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/13.png",
+    "para": "/apoie/13.webp",
+    "antes": 90596,
+    "depois": 27528,
+    "dimensoes": "3375x3375",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/14.png",
+    "para": "/apoie/14.webp",
+    "antes": 2482928,
+    "depois": 287592,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/15.png",
+    "para": "/apoie/15.webp",
+    "antes": 2518431,
+    "depois": 294004,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/16.png",
+    "para": "/apoie/16.webp",
+    "antes": 2379726,
+    "depois": 335696,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/28.png",
+    "para": "/apoie/28.webp",
+    "antes": 1788549,
+    "depois": 150900,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/29.png",
+    "para": "/apoie/29.webp",
+    "antes": 1665336,
+    "depois": 249930,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/30.png",
+    "para": "/apoie/30.webp",
+    "antes": 2178079,
+    "depois": 236232,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/31.png",
+    "para": "/apoie/31.webp",
+    "antes": 2298812,
+    "depois": 185028,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/32.png",
+    "para": "/apoie/32.webp",
+    "antes": 1228872,
+    "depois": 216634,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/33.png",
+    "para": "/apoie/33.webp",
+    "antes": 1182453,
+    "depois": 227010,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/34.png",
+    "para": "/apoie/34.webp",
+    "antes": 2255647,
+    "depois": 77150,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/35.png",
+    "para": "/apoie/35.webp",
+    "antes": 3303564,
+    "depois": 260648,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/4.png",
+    "para": "/apoie/4.webp",
+    "antes": 2552355,
+    "depois": 500616,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/5.png",
+    "para": "/apoie/5.webp",
+    "antes": 2791806,
+    "depois": 237322,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/50.jpg",
+    "para": "/apoie/50.webp",
+    "antes": 289593,
+    "depois": 175726,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/51.jpg",
+    "para": "/apoie/51.webp",
+    "antes": 388345,
+    "depois": 255482,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/52.jpg",
+    "para": "/apoie/52.webp",
+    "antes": 427255,
+    "depois": 289632,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/53.jpg",
+    "para": "/apoie/53.webp",
+    "antes": 306422,
+    "depois": 171990,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/apoie/54.jpg",
+    "para": "/apoie/54.webp",
+    "antes": 603531,
+    "depois": 487176,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/apoie/55.jpg",
+    "para": "/apoie/55.webp",
+    "antes": 291639,
+    "depois": 181724,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/56.jpg",
+    "para": "/apoie/56.webp",
+    "antes": 184240,
+    "depois": 72726,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/57.jpg",
+    "para": "/apoie/57.webp",
+    "antes": 352981,
+    "depois": 236996,
+    "dimensoes": "2000x1123",
+    "novaLargura": 2000,
+    "altura": 1123
+  },
+  {
+    "de": "/apoie/58.jpg",
+    "para": "/apoie/58.webp",
+    "antes": 288349,
+    "depois": 161944,
+    "dimensoes": "2000x1177",
+    "novaLargura": 2000,
+    "altura": 1177
+  },
+  {
+    "de": "/apoie/59.jpg",
+    "para": "/apoie/59.webp",
+    "antes": 232893,
+    "depois": 183492,
+    "dimensoes": "1600x1200",
+    "novaLargura": 1600,
+    "altura": 1200
+  },
+  {
+    "de": "/apoie/60.jpg",
+    "para": "/apoie/60.webp",
+    "antes": 179203,
+    "depois": 77526,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/apoie/61.jpg",
+    "para": "/apoie/61.webp",
+    "antes": 612014,
+    "depois": 480176,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/apoie/8.png",
+    "para": "/apoie/8.webp",
+    "antes": 1861391,
+    "depois": 164492,
+    "dimensoes": "2000x2000",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/apoie/apoie.jpg",
+    "para": "/apoie/apoie.webp",
+    "antes": 581849,
+    "depois": 164718,
+    "dimensoes": "3000x2311",
+    "novaLargura": 2000,
+    "altura": 1541
+  },
+  {
+    "de": "/apoie/capa.png",
+    "para": "/apoie/capa.webp",
+    "antes": 1454184,
+    "depois": 157754,
+    "dimensoes": "1300x600",
+    "novaLargura": 1300,
+    "altura": 600
+  },
+  {
+    "de": "/apoie/grafico.png",
+    "para": "/apoie/grafico.webp",
+    "antes": 249304,
+    "depois": 37924,
+    "dimensoes": "960x710",
+    "novaLargura": 960,
+    "altura": 710
+  },
+  {
+    "de": "/brand/bird.png",
+    "para": "/brand/bird.webp",
+    "antes": 21226,
+    "depois": 9814,
+    "dimensoes": "564x564",
+    "novaLargura": 564,
+    "altura": 564
+  },
+  {
+    "de": "/brand/logo-round.png",
+    "para": "/brand/logo-round.webp",
+    "antes": 51037,
+    "depois": 15852,
+    "dimensoes": "478x478",
+    "novaLargura": 478,
+    "altura": 478
+  },
+  {
+    "de": "/home/acoes/ave.png",
+    "para": "/home/acoes/ave.webp",
+    "antes": 12521,
+    "depois": 5456,
+    "dimensoes": "312x210",
+    "novaLargura": 312,
+    "altura": 210
+  },
+  {
+    "de": "/home/acoes/calendar.png",
+    "para": "/home/acoes/calendar.webp",
+    "antes": 7616,
+    "depois": 4234,
+    "dimensoes": "201x210",
+    "novaLargura": 201,
+    "altura": 210
+  },
+  {
+    "de": "/home/acoes/panfletos.png",
+    "para": "/home/acoes/panfletos.webp",
+    "antes": 10027,
+    "depois": 4586,
+    "dimensoes": "192x210",
+    "novaLargura": 192,
+    "altura": 210
+  },
+  {
+    "de": "/home/acoes/pena.png",
+    "para": "/home/acoes/pena.webp",
+    "antes": 11778,
+    "depois": 4948,
+    "dimensoes": "186x210",
+    "novaLargura": 186,
+    "altura": 210
+  },
+  {
+    "de": "/home/acoes/pessoas.png",
+    "para": "/home/acoes/pessoas.webp",
+    "antes": 17474,
+    "depois": 8238,
+    "dimensoes": "288x210",
+    "novaLargura": 288,
+    "altura": 210
+  },
+  {
+    "de": "/home/atuacao/feather.png",
+    "para": "/home/atuacao/feather.webp",
+    "antes": 4891,
+    "depois": 3206,
+    "dimensoes": "125x125",
+    "novaLargura": 125,
+    "altura": 125
+  },
+  {
+    "de": "/home/atuacao/megafone.png",
+    "para": "/home/atuacao/megafone.webp",
+    "antes": 7117,
+    "depois": 5228,
+    "dimensoes": "125x125",
+    "novaLargura": 125,
+    "altura": 125
+  },
+  {
+    "de": "/home/atuacao/pc.png",
+    "para": "/home/atuacao/pc.webp",
+    "antes": 6502,
+    "depois": 4548,
+    "dimensoes": "125x94",
+    "novaLargura": 125,
+    "altura": 94
+  },
+  {
+    "de": "/home/card-doe-mobile.png",
+    "para": "/home/card-doe-mobile.webp",
+    "antes": 526208,
+    "depois": 32614,
+    "dimensoes": "666x502",
+    "novaLargura": 666,
+    "altura": 502
+  },
+  {
+    "de": "/home/card-doe.png",
+    "para": "/home/card-doe.webp",
+    "antes": 338631,
+    "depois": 30396,
+    "dimensoes": "479x496",
+    "novaLargura": 479,
+    "altura": 496
+  },
+  {
+    "de": "/home/ods/ODS 11.png",
+    "para": "/home/ods/ODS 11.webp",
+    "antes": 3407,
+    "depois": 1200,
+    "dimensoes": "55x55",
+    "novaLargura": 55,
+    "altura": 55
+  },
+  {
+    "de": "/home/ods/ODS 12.png",
+    "para": "/home/ods/ODS 12.webp",
+    "antes": 3473,
+    "depois": 1028,
+    "dimensoes": "55x55",
+    "novaLargura": 55,
+    "altura": 55
+  },
+  {
+    "de": "/home/ods/ODS 13.png",
+    "para": "/home/ods/ODS 13.webp",
+    "antes": 18950,
+    "depois": 4836,
+    "dimensoes": "175x175",
+    "novaLargura": 175,
+    "altura": 175
+  },
+  {
+    "de": "/home/ods/ODS 15.png",
+    "para": "/home/ods/ODS 15.webp",
+    "antes": 10031,
+    "depois": 2692,
+    "dimensoes": "175x175",
+    "novaLargura": 175,
+    "altura": 175
+  },
+  {
+    "de": "/home/ods/ODS 4.png",
+    "para": "/home/ods/ODS 4.webp",
+    "antes": 2423,
+    "depois": 928,
+    "dimensoes": "55x55",
+    "novaLargura": 55,
+    "altura": 55
+  },
+  {
+    "de": "/icones/publico/empreendimentos-impacto.png",
+    "para": "/icones/publico/empreendimentos-impacto.webp",
+    "antes": 25315,
+    "depois": 12838,
+    "dimensoes": "489x501",
+    "novaLargura": 489,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/empresas-consultorias.png",
+    "para": "/icones/publico/empresas-consultorias.webp",
+    "antes": 17572,
+    "depois": 11372,
+    "dimensoes": "489x501",
+    "novaLargura": 489,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/escolas-museus.png",
+    "para": "/icones/publico/escolas-museus.webp",
+    "antes": 14321,
+    "depois": 9358,
+    "dimensoes": "486x501",
+    "novaLargura": 486,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/estudantes-profissionais.png",
+    "para": "/icones/publico/estudantes-profissionais.webp",
+    "antes": 28319,
+    "depois": 12638,
+    "dimensoes": "483x495",
+    "novaLargura": 483,
+    "altura": 495
+  },
+  {
+    "de": "/icones/publico/observadores-aves.png",
+    "para": "/icones/publico/observadores-aves.webp",
+    "antes": 23672,
+    "depois": 11622,
+    "dimensoes": "486x501",
+    "novaLargura": 486,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/orgaos-publicos.png",
+    "para": "/icones/publico/orgaos-publicos.webp",
+    "antes": 13397,
+    "depois": 8874,
+    "dimensoes": "489x501",
+    "novaLargura": 489,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/sociedade-civil.png",
+    "para": "/icones/publico/sociedade-civil.webp",
+    "antes": 26511,
+    "depois": 12272,
+    "dimensoes": "486x501",
+    "novaLargura": 486,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/unidades-conservacao.png",
+    "para": "/icones/publico/unidades-conservacao.webp",
+    "antes": 31010,
+    "depois": 13628,
+    "dimensoes": "483x501",
+    "novaLargura": 483,
+    "altura": 501
+  },
+  {
+    "de": "/icones/publico/universidades-pesquisa.png",
+    "para": "/icones/publico/universidades-pesquisa.webp",
+    "antes": 25282,
+    "depois": 12364,
+    "dimensoes": "486x495",
+    "novaLargura": 486,
+    "altura": 495
+  },
+  {
+    "de": "/jacucara/figs/1.jpg",
+    "para": "/jacucara/figs/1.webp",
+    "antes": 494384,
+    "depois": 388884,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/10.jpg",
+    "para": "/jacucara/figs/10.webp",
+    "antes": 199245,
+    "depois": 130322,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/11.jpg",
+    "para": "/jacucara/figs/11.webp",
+    "antes": 253113,
+    "depois": 160818,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/12.png",
+    "para": "/jacucara/figs/12.webp",
+    "antes": 91092,
+    "depois": 86724,
+    "dimensoes": "2000x667",
+    "novaLargura": 2000,
+    "altura": 667
+  },
+  {
+    "de": "/jacucara/figs/2.jpg",
+    "para": "/jacucara/figs/2.webp",
+    "antes": 319881,
+    "depois": 216098,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/3.jpg",
+    "para": "/jacucara/figs/3.webp",
+    "antes": 321250,
+    "depois": 217658,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/4.jpg",
+    "para": "/jacucara/figs/4.webp",
+    "antes": 635437,
+    "depois": 566820,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/5.jpg",
+    "para": "/jacucara/figs/5.webp",
+    "antes": 344404,
+    "depois": 232788,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/6.jpg",
+    "para": "/jacucara/figs/6.webp",
+    "antes": 203016,
+    "depois": 119116,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/7.jpg",
+    "para": "/jacucara/figs/7.webp",
+    "antes": 235105,
+    "depois": 148166,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/8.jpg",
+    "para": "/jacucara/figs/8.webp",
+    "antes": 160202,
+    "depois": 84510,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/figs/9.jpg",
+    "para": "/jacucara/figs/9.webp",
+    "antes": 331564,
+    "depois": 237594,
+    "dimensoes": "2000x1000",
+    "novaLargura": 2000,
+    "altura": 1000
+  },
+  {
+    "de": "/jacucara/logos/aves-argentinas.png",
+    "para": "/jacucara/logos/aves-argentinas.webp",
+    "antes": 7778,
+    "depois": 8454,
+    "dimensoes": "383x326",
+    "novaLargura": 383,
+    "altura": 326
+  },
+  {
+    "de": "/jacucara/logos/azab.png",
+    "para": "/jacucara/logos/azab.webp",
+    "antes": 11850,
+    "depois": 18084,
+    "dimensoes": "500x199",
+    "novaLargura": 500,
+    "altura": 199
+  },
+  {
+    "de": "/jacucara/logos/cemave-icmbio.png",
+    "para": "/jacucara/logos/cemave-icmbio.webp",
+    "antes": 20830,
+    "depois": 32654,
+    "dimensoes": "500x289",
+    "novaLargura": 500,
+    "altura": 289
+  },
+  {
+    "de": "/jacucara/logos/cncflora.png",
+    "para": "/jacucara/logos/cncflora.webp",
+    "antes": 12263,
+    "depois": 19734,
+    "dimensoes": "500x100",
+    "novaLargura": 500,
+    "altura": 100
+  },
+  {
+    "de": "/jacucara/logos/jbrj.png",
+    "para": "/jacucara/logos/jbrj.webp",
+    "antes": 8703,
+    "depois": 9964,
+    "dimensoes": "500x261",
+    "novaLargura": 500,
+    "altura": 261
+  },
+  {
+    "de": "/jacucara/logos/oama.png",
+    "para": "/jacucara/logos/oama.webp",
+    "antes": 13125,
+    "depois": 11742,
+    "dimensoes": "478x478",
+    "novaLargura": 478,
+    "altura": 478
+  },
+  {
+    "de": "/jacucara/logos/pan.png",
+    "para": "/jacucara/logos/pan.webp",
+    "antes": 8760,
+    "depois": 14678,
+    "dimensoes": "500x354",
+    "novaLargura": 500,
+    "altura": 354
+  },
+  {
+    "de": "/jacucara/logos/parque-das-aves.png",
+    "para": "/jacucara/logos/parque-das-aves.webp",
+    "antes": 8334,
+    "depois": 11580,
+    "dimensoes": "500x335",
+    "novaLargura": 500,
+    "altura": 335
+  },
+  {
+    "de": "/jacucara/logos/pn-iguacu.png",
+    "para": "/jacucara/logos/pn-iguacu.webp",
+    "antes": 32206,
+    "depois": 47068,
+    "dimensoes": "472x500",
+    "novaLargura": 472,
+    "altura": 500
+  },
+  {
+    "de": "/jacucara/logos/save.png",
+    "para": "/jacucara/logos/save.webp",
+    "antes": 18018,
+    "depois": 27876,
+    "dimensoes": "436x500",
+    "novaLargura": 436,
+    "altura": 500
+  },
+  {
+    "de": "/jacucara/pags/cncflora.jpg",
+    "para": "/jacucara/pags/cncflora.webp",
+    "antes": 79236,
+    "depois": 36788,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/colorir-jacutinga.jpg",
+    "para": "/jacucara/pags/colorir-jacutinga.webp",
+    "antes": 110559,
+    "depois": 56810,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/doc.jpg",
+    "para": "/jacucara/pags/doc.webp",
+    "antes": 52731,
+    "depois": 22358,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/folder.jpg",
+    "para": "/jacucara/pags/folder.webp",
+    "antes": 162394,
+    "depois": 96486,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/livro-jucara.jpg",
+    "para": "/jacucara/pags/livro-jucara.webp",
+    "antes": 81154,
+    "depois": 54078,
+    "dimensoes": "675x675",
+    "novaLargura": 675,
+    "altura": 675
+  },
+  {
+    "de": "/jacucara/pags/news.jpg",
+    "para": "/jacucara/pags/news.webp",
+    "antes": 127513,
+    "depois": 62124,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/palmito-legal.jpg",
+    "para": "/jacucara/pags/palmito-legal.webp",
+    "antes": 168418,
+    "depois": 98942,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/rehab.jpg",
+    "para": "/jacucara/pags/rehab.webp",
+    "antes": 121255,
+    "depois": 59194,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/jacucara/pags/wikiaves-jacutinga.jpg",
+    "para": "/jacucara/pags/wikiaves-jacutinga.webp",
+    "antes": 155836,
+    "depois": 88260,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capa-areas.jpg",
+    "para": "/midias/areas-de-atuacao/capa-areas.webp",
+    "antes": 428997,
+    "depois": 85720,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capacitacao-1.jpg",
+    "para": "/midias/areas-de-atuacao/capacitacao-1.webp",
+    "antes": 587815,
+    "depois": 182304,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capacitacao-2.jpg",
+    "para": "/midias/areas-de-atuacao/capacitacao-2.webp",
+    "antes": 993984,
+    "depois": 475928,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capacitacao-3.jpg",
+    "para": "/midias/areas-de-atuacao/capacitacao-3.webp",
+    "antes": 450605,
+    "depois": 92266,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capacitacao-4.jpg",
+    "para": "/midias/areas-de-atuacao/capacitacao-4.webp",
+    "antes": 1164244,
+    "depois": 639954,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/areas-de-atuacao/capacitacao-5.jpg",
+    "para": "/midias/areas-de-atuacao/capacitacao-5.webp",
+    "antes": 561606,
+    "depois": 173120,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/comunicacao-1.jpg",
+    "para": "/midias/areas-de-atuacao/comunicacao-1.webp",
+    "antes": 793071,
+    "depois": 362594,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/comunicacao-2.jpg",
+    "para": "/midias/areas-de-atuacao/comunicacao-2.webp",
+    "antes": 712165,
+    "depois": 290482,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/comunicacao-3.jpg",
+    "para": "/midias/areas-de-atuacao/comunicacao-3.webp",
+    "antes": 560216,
+    "depois": 178050,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/comunicacao-4.jpg",
+    "para": "/midias/areas-de-atuacao/comunicacao-4.webp",
+    "antes": 720783,
+    "depois": 255084,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/areas-de-atuacao/comunicacao-5.jpg",
+    "para": "/midias/areas-de-atuacao/comunicacao-5.webp",
+    "antes": 518982,
+    "depois": 151720,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/areas-de-atuacao/pesquisa-1.jpg",
+    "para": "/midias/areas-de-atuacao/pesquisa-1.webp",
+    "antes": 843144,
+    "depois": 459800,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/areas-de-atuacao/pesquisa-2.jpg",
+    "para": "/midias/areas-de-atuacao/pesquisa-2.webp",
+    "antes": 1087341,
+    "depois": 356008,
+    "dimensoes": "2400x3394",
+    "novaLargura": 1414,
+    "altura": 2000
+  },
+  {
+    "de": "/midias/areas-de-atuacao/pesquisa-3.jpg",
+    "para": "/midias/areas-de-atuacao/pesquisa-3.webp",
+    "antes": 633282,
+    "depois": 285198,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/areas-de-atuacao/pesquisa-4.jpg",
+    "para": "/midias/areas-de-atuacao/pesquisa-4.webp",
+    "antes": 500531,
+    "depois": 183250,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/areas-de-atuacao/pesquisa-5.jpg",
+    "para": "/midias/areas-de-atuacao/pesquisa-5.webp",
+    "antes": 547512,
+    "depois": 216592,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/consultoria/capa-consultoria.jpg",
+    "para": "/midias/consultoria/capa-consultoria.webp",
+    "antes": 258021,
+    "depois": 52472,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/consultoria/capacitacao.jpg",
+    "para": "/midias/consultoria/capacitacao.webp",
+    "antes": 569352,
+    "depois": 168094,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/consultoria/educacao.jpg",
+    "para": "/midias/consultoria/educacao.webp",
+    "antes": 681610,
+    "depois": 297320,
+    "dimensoes": "1440x1920",
+    "novaLargura": 1440,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/consultoria/monitoramento.jpg",
+    "para": "/midias/consultoria/monitoramento.webp",
+    "antes": 398475,
+    "depois": 75848,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/cursos/curso-anilhamento-alicate.jpg",
+    "para": "/midias/cursos/curso-anilhamento-alicate.webp",
+    "antes": 305417,
+    "depois": 72940,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/cursos/curso-mudas-udu.jpg",
+    "para": "/midias/cursos/curso-mudas-udu.webp",
+    "antes": 455896,
+    "depois": 170948,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/cursos/curso-presencial-campo.jpg",
+    "para": "/midias/cursos/curso-presencial-campo.webp",
+    "antes": 413300,
+    "depois": 159818,
+    "dimensoes": "2400x1600",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/midias/cursos/hero-asa-verde.jpg",
+    "para": "/midias/cursos/hero-asa-verde.webp",
+    "antes": 735140,
+    "depois": 532134,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2400,
+    "altura": 1692
+  },
+  {
+    "de": "/midias/home/agenda/avistar-rio-2026.png",
+    "para": "/midias/home/agenda/avistar-rio-2026.webp",
+    "antes": 143809,
+    "depois": 16610,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/agenda/curso-pratico-beija-flores.png",
+    "para": "/midias/home/agenda/curso-pratico-beija-flores.webp",
+    "antes": 148877,
+    "depois": 8474,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/agenda/curso-pratico-passeriformes.png",
+    "para": "/midias/home/agenda/curso-pratico-passeriformes.webp",
+    "antes": 148619,
+    "depois": 10148,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/agenda/festival-aves-natureza-agulhas-negras-2026.png",
+    "para": "/midias/home/agenda/festival-aves-natureza-agulhas-negras-2026.webp",
+    "antes": 159493,
+    "depois": 22482,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/agenda/fundraising-field-trip-2026.png",
+    "para": "/midias/home/agenda/fundraising-field-trip-2026.webp",
+    "antes": 131736,
+    "depois": 14664,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/aves-da-mantiqueira.jpg",
+    "para": "/midias/home/aves-da-mantiqueira.webp",
+    "antes": 523124,
+    "depois": 149122,
+    "dimensoes": "1920x1608",
+    "novaLargura": 1920,
+    "altura": 1608
+  },
+  {
+    "de": "/midias/home/carrossel-acoes-pro-aves.jpg",
+    "para": "/midias/home/carrossel-acoes-pro-aves.webp",
+    "antes": 197238,
+    "depois": 108682,
+    "dimensoes": "1700x800",
+    "novaLargura": 1700,
+    "altura": 800
+  },
+  {
+    "de": "/midias/home/carrossel-capacitacao.jpg",
+    "para": "/midias/home/carrossel-capacitacao.webp",
+    "antes": 164771,
+    "depois": 83840,
+    "dimensoes": "1700x800",
+    "novaLargura": 1700,
+    "altura": 800
+  },
+  {
+    "de": "/midias/home/doc-jucara.jpg",
+    "para": "/midias/home/doc-jucara.webp",
+    "antes": 36630,
+    "depois": 15170,
+    "dimensoes": "1692x952",
+    "novaLargura": 1692,
+    "altura": 952
+  },
+  {
+    "de": "/midias/home/doc-monitoramento.jpg",
+    "para": "/midias/home/doc-monitoramento.webp",
+    "antes": 193135,
+    "depois": 101720,
+    "dimensoes": "1692x952",
+    "novaLargura": 1692,
+    "altura": 952
+  },
+  {
+    "de": "/midias/home/jacucara.jpg",
+    "para": "/midias/home/jacucara.webp",
+    "antes": 693580,
+    "depois": 319194,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/home/midia/campanha-escute-as-aves.png",
+    "para": "/midias/home/midia/campanha-escute-as-aves.webp",
+    "antes": 144163,
+    "depois": 16194,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/midia/colisao-aves-vidros.png",
+    "para": "/midias/home/midia/colisao-aves-vidros.webp",
+    "antes": 115200,
+    "depois": 6564,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/midia/observatorio-sexta-extincao.png",
+    "para": "/midias/home/midia/observatorio-sexta-extincao.webp",
+    "antes": 140584,
+    "depois": 18404,
+    "dimensoes": "239x236",
+    "novaLargura": 239,
+    "altura": 236
+  },
+  {
+    "de": "/midias/home/midia/paf-refloresta-agua-carbono.jpg",
+    "para": "/midias/home/midia/paf-refloresta-agua-carbono.webp",
+    "antes": 216243,
+    "depois": 82940,
+    "dimensoes": "1280x720",
+    "novaLargura": 1280,
+    "altura": 720
+  },
+  {
+    "de": "/midias/home/midia/percepcoes-conservacao-aves.jpg",
+    "para": "/midias/home/midia/percepcoes-conservacao-aves.webp",
+    "antes": 137366,
+    "depois": 41434,
+    "dimensoes": "1280x720",
+    "novaLargura": 1280,
+    "altura": 720
+  },
+  {
+    "de": "/midias/home/monitoramento-anilhamento.jpg",
+    "para": "/midias/home/monitoramento-anilhamento.webp",
+    "antes": 471196,
+    "depois": 140720,
+    "dimensoes": "1280x1920",
+    "novaLargura": 1280,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/home/monitoramento.jpg",
+    "para": "/midias/home/monitoramento.webp",
+    "antes": 503105,
+    "depois": 98280,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/missao/fechamento.jpg",
+    "para": "/midias/missao/fechamento.webp",
+    "antes": 524709,
+    "depois": 169544,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/missao/hero-missao.jpg",
+    "para": "/midias/missao/hero-missao.webp",
+    "antes": 490388,
+    "depois": 196358,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-acoes-pro-aves.jpg",
+    "para": "/midias/programas-e-projetos/card-acoes-pro-aves.webp",
+    "antes": 515371,
+    "depois": 146482,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-cursos.jpg",
+    "para": "/midias/programas-e-projetos/card-cursos.webp",
+    "antes": 764809,
+    "depois": 375978,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2000,
+    "altura": 1410
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-fft.jpg",
+    "para": "/midias/programas-e-projetos/card-fft.webp",
+    "antes": 737612,
+    "depois": 405548,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2000,
+    "altura": 1410
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-jacucara.jpg",
+    "para": "/midias/programas-e-projetos/card-jacucara.webp",
+    "antes": 933737,
+    "depois": 425982,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-monitoramento.jpg",
+    "para": "/midias/programas-e-projetos/card-monitoramento.webp",
+    "antes": 296911,
+    "depois": 112448,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2000,
+    "altura": 1410
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-projetos-pesquisa.jpg",
+    "para": "/midias/programas-e-projetos/card-projetos-pesquisa.webp",
+    "antes": 605369,
+    "depois": 237970,
+    "dimensoes": "2400x2400",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/midias/programas-e-projetos/card-treinamento.jpg",
+    "para": "/midias/programas-e-projetos/card-treinamento.webp",
+    "antes": 620112,
+    "depois": 174022,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/fft-galeria-1.jpg",
+    "para": "/midias/programas-e-projetos/fft-galeria-1.webp",
+    "antes": 627547,
+    "depois": 314734,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/fft-galeria-2.jpg",
+    "para": "/midias/programas-e-projetos/fft-galeria-2.webp",
+    "antes": 823910,
+    "depois": 479196,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/fft-galeria-3.jpg",
+    "para": "/midias/programas-e-projetos/fft-galeria-3.webp",
+    "antes": 400213,
+    "depois": 173042,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/fft-galeria-4.jpg",
+    "para": "/midias/programas-e-projetos/fft-galeria-4.webp",
+    "antes": 464468,
+    "depois": 183630,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/fft-hero.jpg",
+    "para": "/midias/programas-e-projetos/fft-hero.webp",
+    "antes": 737612,
+    "depois": 503900,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2400,
+    "altura": 1692
+  },
+  {
+    "de": "/midias/programas-e-projetos/hub-hero.jpg",
+    "para": "/midias/programas-e-projetos/hub-hero.webp",
+    "antes": 431286,
+    "depois": 102460,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/jacucara-galeria-1.jpg",
+    "para": "/midias/programas-e-projetos/jacucara-galeria-1.webp",
+    "antes": 459355,
+    "depois": 135190,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/programas-e-projetos/jacucara-galeria-2.jpg",
+    "para": "/midias/programas-e-projetos/jacucara-galeria-2.webp",
+    "antes": 730847,
+    "depois": 288372,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/jacucara-galeria-3.jpg",
+    "para": "/midias/programas-e-projetos/jacucara-galeria-3.webp",
+    "antes": 477415,
+    "depois": 137266,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/jacucara-hero.jpg",
+    "para": "/midias/programas-e-projetos/jacucara-hero.webp",
+    "antes": 933737,
+    "depois": 425982,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-areas-circulo.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-areas-circulo.webp",
+    "antes": 583530,
+    "depois": 234020,
+    "dimensoes": "1920x1687",
+    "novaLargura": 1920,
+    "altura": 1687
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-citacao-fundo.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-citacao-fundo.webp",
+    "antes": 352141,
+    "depois": 99692,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-hero-ave-amarela.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-hero-ave-amarela.webp",
+    "antes": 290630,
+    "depois": 144682,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2400,
+    "altura": 1692
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-tecnica-1.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-tecnica-1.webp",
+    "antes": 728428,
+    "depois": 289808,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-tecnica-2.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-tecnica-2.webp",
+    "antes": 523124,
+    "depois": 149122,
+    "dimensoes": "1920x1608",
+    "novaLargura": 1920,
+    "altura": 1608
+  },
+  {
+    "de": "/midias/programas-e-projetos/monitoramento-tecnica-3.jpg",
+    "para": "/midias/programas-e-projetos/monitoramento-tecnica-3.webp",
+    "antes": 501902,
+    "depois": 182498,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-1.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-1.webp",
+    "antes": 332358,
+    "depois": 160906,
+    "dimensoes": "2067x1435",
+    "novaLargura": 2000,
+    "altura": 1388
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-2.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-2.webp",
+    "antes": 773159,
+    "depois": 403378,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-3.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-3.webp",
+    "antes": 943182,
+    "depois": 612466,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-4.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-4.webp",
+    "antes": 502492,
+    "depois": 211764,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-5.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-5.webp",
+    "antes": 515194,
+    "depois": 185434,
+    "dimensoes": "2400x1800",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-6.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-6.webp",
+    "antes": 421554,
+    "depois": 191222,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-7.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-7.webp",
+    "antes": 543929,
+    "depois": 239692,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-8.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-8.webp",
+    "antes": 519213,
+    "depois": 207142,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-card-9.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-card-9.webp",
+    "antes": 947567,
+    "depois": 598018,
+    "dimensoes": "2400x1697",
+    "novaLargura": 2000,
+    "altura": 1414
+  },
+  {
+    "de": "/midias/programas-e-projetos/pesquisa-hero.jpg",
+    "para": "/midias/programas-e-projetos/pesquisa-hero.webp",
+    "antes": 605369,
+    "depois": 322284,
+    "dimensoes": "2400x2400",
+    "novaLargura": 2400,
+    "altura": 2400
+  },
+  {
+    "de": "/midias/programas-e-projetos/proaves-galeria-1.jpg",
+    "para": "/midias/programas-e-projetos/proaves-galeria-1.webp",
+    "antes": 515371,
+    "depois": 146482,
+    "dimensoes": "1920x1353",
+    "novaLargura": 1920,
+    "altura": 1353
+  },
+  {
+    "de": "/midias/programas-e-projetos/proaves-galeria-2.jpg",
+    "para": "/midias/programas-e-projetos/proaves-galeria-2.webp",
+    "antes": 415292,
+    "depois": 126606,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/programas-e-projetos/proaves-galeria-3.jpg",
+    "para": "/midias/programas-e-projetos/proaves-galeria-3.webp",
+    "antes": 374314,
+    "depois": 122542,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/proaves-galeria-4.jpg",
+    "para": "/midias/programas-e-projetos/proaves-galeria-4.webp",
+    "antes": 834175,
+    "depois": 365666,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-depoimento-fundo.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-depoimento-fundo.webp",
+    "antes": 513226,
+    "depois": 149176,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-galeria-1.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-galeria-1.webp",
+    "antes": 607068,
+    "depois": 163166,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-galeria-2.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-galeria-2.webp",
+    "antes": 504211,
+    "depois": 126428,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-galeria-3.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-galeria-3.webp",
+    "antes": 570663,
+    "depois": 199994,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-hero-beija-flor.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-hero-beija-flor.webp",
+    "antes": 558474,
+    "depois": 405838,
+    "dimensoes": "2400x1692",
+    "novaLargura": 2400,
+    "altura": 1692
+  },
+  {
+    "de": "/midias/programas-e-projetos/treinamento-intercambio.jpg",
+    "para": "/midias/programas-e-projetos/treinamento-intercambio.webp",
+    "antes": 739864,
+    "depois": 338602,
+    "dimensoes": "1920x1357",
+    "novaLargura": 1920,
+    "altura": 1357
+  },
+  {
+    "de": "/midias/realizacoes/capa-realizacoes.jpg",
+    "para": "/midias/realizacoes/capa-realizacoes.webp",
+    "antes": 777077,
+    "depois": 320496,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/realizacoes/divulgacao-cientifica.jpg",
+    "para": "/midias/realizacoes/divulgacao-cientifica.webp",
+    "antes": 424480,
+    "depois": 102994,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/realizacoes/documentarios.jpg",
+    "para": "/midias/realizacoes/documentarios.webp",
+    "antes": 429333,
+    "depois": 108430,
+    "dimensoes": "1920x1280",
+    "novaLargura": 1920,
+    "altura": 1280
+  },
+  {
+    "de": "/midias/realizacoes/downloads.jpg",
+    "para": "/midias/realizacoes/downloads.webp",
+    "antes": 529801,
+    "depois": 169936,
+    "dimensoes": "1920x1278",
+    "novaLargura": 1920,
+    "altura": 1278
+  },
+  {
+    "de": "/midias/realizacoes/textos-academicos.jpg",
+    "para": "/midias/realizacoes/textos-academicos.webp",
+    "antes": 1493147,
+    "depois": 917202,
+    "dimensoes": "1920x1279",
+    "novaLargura": 1920,
+    "altura": 1279
+  },
+  {
+    "de": "/midias/realizacoes/webapp-colisoes.jpg",
+    "para": "/midias/realizacoes/webapp-colisoes.webp",
+    "antes": 87543,
+    "depois": 39296,
+    "dimensoes": "1200x800",
+    "novaLargura": 1200,
+    "altura": 800
+  },
+  {
+    "de": "/midias/realizacoes/webapp-xara.jpg",
+    "para": "/midias/realizacoes/webapp-xara.webp",
+    "antes": 35308,
+    "depois": 17940,
+    "dimensoes": "1200x800",
+    "novaLargura": 1200,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/affonso-souza.jpg",
+    "para": "/midias/sobre/affonso-souza.webp",
+    "antes": 80321,
+    "depois": 24098,
+    "dimensoes": "640x800",
+    "novaLargura": 640,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/andreza-freitas.jpg",
+    "para": "/midias/sobre/andreza-freitas.webp",
+    "antes": 172220,
+    "depois": 79270,
+    "dimensoes": "637x800",
+    "novaLargura": 637,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/annual-report-2021.png",
+    "para": "/midias/sobre/annual-report-2021.webp",
+    "antes": 6355781,
+    "depois": 136862,
+    "dimensoes": "3900x2600",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/midias/sobre/annual-report-2022.png",
+    "para": "/midias/sobre/annual-report-2022.webp",
+    "antes": 6179762,
+    "depois": 120880,
+    "dimensoes": "3900x2600",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/midias/sobre/annual-report-2023.png",
+    "para": "/midias/sobre/annual-report-2023.webp",
+    "antes": 5995318,
+    "depois": 131564,
+    "dimensoes": "3900x2600",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/midias/sobre/annual-report-2024.png",
+    "para": "/midias/sobre/annual-report-2024.webp",
+    "antes": 6581342,
+    "depois": 128096,
+    "dimensoes": "4535x3402",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/midias/sobre/danielle-santos.jpg",
+    "para": "/midias/sobre/danielle-santos.webp",
+    "antes": 89579,
+    "depois": 32566,
+    "dimensoes": "534x800",
+    "novaLargura": 534,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/dre-2022.jpg",
+    "para": "/midias/sobre/dre-2022.webp",
+    "antes": 92091,
+    "depois": 34006,
+    "dimensoes": "565x800",
+    "novaLargura": 565,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/dre-2023.jpg",
+    "para": "/midias/sobre/dre-2023.webp",
+    "antes": 106162,
+    "depois": 37628,
+    "dimensoes": "565x800",
+    "novaLargura": 565,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/dre-2024.jpg",
+    "para": "/midias/sobre/dre-2024.webp",
+    "antes": 98175,
+    "depois": 36610,
+    "dimensoes": "566x800",
+    "novaLargura": 566,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/dre-2025.jpg",
+    "para": "/midias/sobre/dre-2025.webp",
+    "antes": 101409,
+    "depois": 38820,
+    "dimensoes": "565x798",
+    "novaLargura": 565,
+    "altura": 798
+  },
+  {
+    "de": "/midias/sobre/estatuto-social.jpg",
+    "para": "/midias/sobre/estatuto-social.webp",
+    "antes": 139785,
+    "depois": 69402,
+    "dimensoes": "565x800",
+    "novaLargura": 565,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/hero-sobre-saira-amarela.jpg",
+    "para": "/midias/sobre/hero-sobre-saira-amarela.webp",
+    "antes": 708684,
+    "depois": 734518,
+    "dimensoes": "2400x1600",
+    "novaLargura": 2400,
+    "altura": 1600
+  },
+  {
+    "de": "/midias/sobre/historia-2017.jpg",
+    "para": "/midias/sobre/historia-2017.webp",
+    "antes": 257324,
+    "depois": 83880,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2018.jpg",
+    "para": "/midias/sobre/historia-2018.webp",
+    "antes": 287077,
+    "depois": 114344,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2019.jpg",
+    "para": "/midias/sobre/historia-2019.webp",
+    "antes": 345072,
+    "depois": 158268,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2021.jpg",
+    "para": "/midias/sobre/historia-2021.webp",
+    "antes": 228011,
+    "depois": 86388,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2022.jpg",
+    "para": "/midias/sobre/historia-2022.webp",
+    "antes": 284543,
+    "depois": 113186,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2023.jpg",
+    "para": "/midias/sobre/historia-2023.webp",
+    "antes": 152185,
+    "depois": 33640,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/historia-2024.jpg",
+    "para": "/midias/sobre/historia-2024.webp",
+    "antes": 163542,
+    "depois": 51408,
+    "dimensoes": "1200x848",
+    "novaLargura": 1200,
+    "altura": 848
+  },
+  {
+    "de": "/midias/sobre/juliana-costa-villa.jpg",
+    "para": "/midias/sobre/juliana-costa-villa.webp",
+    "antes": 92513,
+    "depois": 26658,
+    "dimensoes": "600x800",
+    "novaLargura": 600,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/logo-alto-montana.png",
+    "para": "/midias/sobre/logo-alto-montana.webp",
+    "antes": 38392,
+    "depois": 8192,
+    "dimensoes": "380x224",
+    "novaLargura": 380,
+    "altura": 224
+  },
+  {
+    "de": "/midias/sobre/logo-avistar.png",
+    "para": "/midias/sobre/logo-avistar.webp",
+    "antes": 60087,
+    "depois": 23622,
+    "dimensoes": "600x110",
+    "novaLargura": 600,
+    "altura": 110
+  },
+  {
+    "de": "/midias/sobre/logo-birds-atlantic.jpg",
+    "para": "/midias/sobre/logo-birds-atlantic.webp",
+    "antes": 99084,
+    "depois": 33702,
+    "dimensoes": "773x800",
+    "novaLargura": 773,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/logo-cemave.jpg",
+    "para": "/midias/sobre/logo-cemave.webp",
+    "antes": 24025,
+    "depois": 8352,
+    "dimensoes": "292x461",
+    "novaLargura": 292,
+    "altura": 461
+  },
+  {
+    "de": "/midias/sobre/logo-icmbio.jpg",
+    "para": "/midias/sobre/logo-icmbio.webp",
+    "antes": 43207,
+    "depois": 17004,
+    "dimensoes": "376x426",
+    "novaLargura": 376,
+    "altura": 426
+  },
+  {
+    "de": "/midias/sobre/logo-kbo.png",
+    "para": "/midias/sobre/logo-kbo.webp",
+    "antes": 73849,
+    "depois": 10650,
+    "dimensoes": "263x323",
+    "novaLargura": 263,
+    "altura": 323
+  },
+  {
+    "de": "/midias/sobre/logo-lab-bio-pop.jpg",
+    "para": "/midias/sobre/logo-lab-bio-pop.webp",
+    "antes": 54366,
+    "depois": 16194,
+    "dimensoes": "800x255",
+    "novaLargura": 800,
+    "altura": 255
+  },
+  {
+    "de": "/midias/sobre/logo-laboac.jpg",
+    "para": "/midias/sobre/logo-laboac.webp",
+    "antes": 73075,
+    "depois": 22224,
+    "dimensoes": "556x784",
+    "novaLargura": 556,
+    "altura": 784
+  },
+  {
+    "de": "/midias/sobre/logo-lecave.jpg",
+    "para": "/midias/sobre/logo-lecave.webp",
+    "antes": 84032,
+    "depois": 29678,
+    "dimensoes": "776x762",
+    "novaLargura": 776,
+    "altura": 762
+  },
+  {
+    "de": "/midias/sobre/logo-liveflow.png",
+    "para": "/midias/sobre/logo-liveflow.webp",
+    "antes": 70821,
+    "depois": 11386,
+    "dimensoes": "400x400",
+    "novaLargura": 400,
+    "altura": 400
+  },
+  {
+    "de": "/midias/sobre/logo-panaves.jpg",
+    "para": "/midias/sobre/logo-panaves.webp",
+    "antes": 42367,
+    "depois": 12526,
+    "dimensoes": "800x566",
+    "novaLargura": 800,
+    "altura": 566
+  },
+  {
+    "de": "/midias/sobre/logo-pedra-selada.png",
+    "para": "/midias/sobre/logo-pedra-selada.webp",
+    "antes": 61028,
+    "depois": 22108,
+    "dimensoes": "310x327",
+    "novaLargura": 310,
+    "altura": 327
+  },
+  {
+    "de": "/midias/sobre/logo-rima.jpg",
+    "para": "/midias/sobre/logo-rima.webp",
+    "antes": 51406,
+    "depois": 16892,
+    "dimensoes": "800x230",
+    "novaLargura": 800,
+    "altura": 230
+  },
+  {
+    "de": "/midias/sobre/logo-uerj.jpg",
+    "para": "/midias/sobre/logo-uerj.webp",
+    "antes": 66187,
+    "depois": 25274,
+    "dimensoes": "552x610",
+    "novaLargura": 552,
+    "altura": 610
+  },
+  {
+    "de": "/midias/sobre/luiza-figueira.jpg",
+    "para": "/midias/sobre/luiza-figueira.webp",
+    "antes": 135318,
+    "depois": 37626,
+    "dimensoes": "640x800",
+    "novaLargura": 640,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/mariana-franciscao.jpg",
+    "para": "/midias/sobre/mariana-franciscao.webp",
+    "antes": 189103,
+    "depois": 107652,
+    "dimensoes": "800x450",
+    "novaLargura": 800,
+    "altura": 450
+  },
+  {
+    "de": "/midias/sobre/matheus-pinheiro.jpg",
+    "para": "/midias/sobre/matheus-pinheiro.webp",
+    "antes": 63645,
+    "depois": 17026,
+    "dimensoes": "800x796",
+    "novaLargura": 800,
+    "altura": 796
+  },
+  {
+    "de": "/midias/sobre/otavio-rocha.jpg",
+    "para": "/midias/sobre/otavio-rocha.webp",
+    "antes": 223344,
+    "depois": 98470,
+    "dimensoes": "800x800",
+    "novaLargura": 800,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/pedro-martins.jpg",
+    "para": "/midias/sobre/pedro-martins.webp",
+    "antes": 93998,
+    "depois": 26488,
+    "dimensoes": "533x800",
+    "novaLargura": 533,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/proaves-2023.jpg",
+    "para": "/midias/sobre/proaves-2023.webp",
+    "antes": 852741,
+    "depois": 400458,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/sobre/proaves-2024.jpg",
+    "para": "/midias/sobre/proaves-2024.webp",
+    "antes": 468514,
+    "depois": 158948,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/sobre/rachel-fidelis.jpg",
+    "para": "/midias/sobre/rachel-fidelis.webp",
+    "antes": 226037,
+    "depois": 136654,
+    "dimensoes": "600x800",
+    "novaLargura": 600,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/rafaela-vitti.jpg",
+    "para": "/midias/sobre/rafaela-vitti.webp",
+    "antes": 128936,
+    "depois": 52344,
+    "dimensoes": "600x800",
+    "novaLargura": 600,
+    "altura": 800
+  },
+  {
+    "de": "/midias/sobre/relatorio-2021.jpg",
+    "para": "/midias/sobre/relatorio-2021.webp",
+    "antes": 66595,
+    "depois": 26648,
+    "dimensoes": "800x533",
+    "novaLargura": 800,
+    "altura": 533
+  },
+  {
+    "de": "/midias/sobre/relatorio-2022.jpg",
+    "para": "/midias/sobre/relatorio-2022.webp",
+    "antes": 630496,
+    "depois": 222820,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/sobre/relatorio-2023.jpg",
+    "para": "/midias/sobre/relatorio-2023.webp",
+    "antes": 434511,
+    "depois": 104136,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/midias/sobre/relatorio-2024.jpg",
+    "para": "/midias/sobre/relatorio-2024.webp",
+    "antes": 799583,
+    "depois": 342138,
+    "dimensoes": "1357x1920",
+    "novaLargura": 1357,
+    "altura": 1920
+  },
+  {
+    "de": "/pix/qrcode-donation-oama.png",
+    "para": "/pix/qrcode-donation-oama.webp",
+    "antes": 71153,
+    "depois": 121670,
+    "dimensoes": "1034x1034",
+    "novaLargura": 1034,
+    "altura": 1034
+  },
+  {
+    "de": "/proaves/azorra/fig1.jpg",
+    "para": "/proaves/azorra/fig1.webp",
+    "antes": 95851,
+    "depois": 32006,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/azorra/fig10.jpg",
+    "para": "/proaves/azorra/fig10.webp",
+    "antes": 209812,
+    "depois": 69482,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/azorra/fig11.jpg",
+    "para": "/proaves/azorra/fig11.webp",
+    "antes": 295385,
+    "depois": 103026,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/azorra/fig12.jpg",
+    "para": "/proaves/azorra/fig12.webp",
+    "antes": 348954,
+    "depois": 127022,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/azorra/fig2.jpg",
+    "para": "/proaves/azorra/fig2.webp",
+    "antes": 598492,
+    "depois": 80262,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/azorra/fig3.jpg",
+    "para": "/proaves/azorra/fig3.webp",
+    "antes": 348985,
+    "depois": 87080,
+    "dimensoes": "1000x2500",
+    "novaLargura": 800,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/azorra/fig4.jpg",
+    "para": "/proaves/azorra/fig4.webp",
+    "antes": 128437,
+    "depois": 33198,
+    "dimensoes": "1000x666",
+    "novaLargura": 1000,
+    "altura": 666
+  },
+  {
+    "de": "/proaves/azorra/fig5.jpg",
+    "para": "/proaves/azorra/fig5.webp",
+    "antes": 336406,
+    "depois": 86314,
+    "dimensoes": "1000x2500",
+    "novaLargura": 800,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/azorra/fig6.jpg",
+    "para": "/proaves/azorra/fig6.webp",
+    "antes": 780044,
+    "depois": 127778,
+    "dimensoes": "1000x1294",
+    "novaLargura": 1000,
+    "altura": 1294
+  },
+  {
+    "de": "/proaves/azorra/fig7.jpg",
+    "para": "/proaves/azorra/fig7.webp",
+    "antes": 264643,
+    "depois": 78684,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/azorra/fig8.jpg",
+    "para": "/proaves/azorra/fig8.webp",
+    "antes": 190895,
+    "depois": 54902,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/azorra/fig9.jpg",
+    "para": "/proaves/azorra/fig9.webp",
+    "antes": 322174,
+    "depois": 147058,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/colisao/fig1.jpg",
+    "para": "/proaves/colisao/fig1.webp",
+    "antes": 167494,
+    "depois": 54856,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/colisao/fig10.jpg",
+    "para": "/proaves/colisao/fig10.webp",
+    "antes": 78248,
+    "depois": 17824,
+    "dimensoes": "1000x709",
+    "novaLargura": 1000,
+    "altura": 709
+  },
+  {
+    "de": "/proaves/colisao/fig11.jpg",
+    "para": "/proaves/colisao/fig11.webp",
+    "antes": 134402,
+    "depois": 36914,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/colisao/fig12.jpg",
+    "para": "/proaves/colisao/fig12.webp",
+    "antes": 255585,
+    "depois": 107300,
+    "dimensoes": "1000x666",
+    "novaLargura": 1000,
+    "altura": 666
+  },
+  {
+    "de": "/proaves/colisao/fig13.jpg",
+    "para": "/proaves/colisao/fig13.webp",
+    "antes": 79099,
+    "depois": 55958,
+    "dimensoes": "1000x666",
+    "novaLargura": 1000,
+    "altura": 666
+  },
+  {
+    "de": "/proaves/colisao/fig2.jpg",
+    "para": "/proaves/colisao/fig2.webp",
+    "antes": 53578,
+    "depois": 15770,
+    "dimensoes": "1000x611",
+    "novaLargura": 1000,
+    "altura": 611
+  },
+  {
+    "de": "/proaves/colisao/fig3.jpg",
+    "para": "/proaves/colisao/fig3.webp",
+    "antes": 52985,
+    "depois": 10132,
+    "dimensoes": "1000x376",
+    "novaLargura": 1000,
+    "altura": 376
+  },
+  {
+    "de": "/proaves/colisao/fig4.jpg",
+    "para": "/proaves/colisao/fig4.webp",
+    "antes": 390665,
+    "depois": 130508,
+    "dimensoes": "1000x779",
+    "novaLargura": 1000,
+    "altura": 779
+  },
+  {
+    "de": "/proaves/colisao/fig5.jpg",
+    "para": "/proaves/colisao/fig5.webp",
+    "antes": 294171,
+    "depois": 153588,
+    "dimensoes": "1000x708",
+    "novaLargura": 1000,
+    "altura": 708
+  },
+  {
+    "de": "/proaves/colisao/fig6.jpg",
+    "para": "/proaves/colisao/fig6.webp",
+    "antes": 338537,
+    "depois": 71232,
+    "dimensoes": "1000x773",
+    "novaLargura": 1000,
+    "altura": 773
+  },
+  {
+    "de": "/proaves/colisao/fig7.jpg",
+    "para": "/proaves/colisao/fig7.webp",
+    "antes": 307159,
+    "depois": 14900,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/colisao/fig8.jpg",
+    "para": "/proaves/colisao/fig8.webp",
+    "antes": 91860,
+    "depois": 29156,
+    "dimensoes": "1245x954",
+    "novaLargura": 1245,
+    "altura": 954
+  },
+  {
+    "de": "/proaves/colisao/fig9.jpg",
+    "para": "/proaves/colisao/fig9.webp",
+    "antes": 516987,
+    "depois": 40052,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/intro/fig1.jpg",
+    "para": "/proaves/intro/fig1.webp",
+    "antes": 231959,
+    "depois": 54000,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/intro/fig10.jpg",
+    "para": "/proaves/intro/fig10.webp",
+    "antes": 257790,
+    "depois": 47326,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/intro/fig11.jpg",
+    "para": "/proaves/intro/fig11.webp",
+    "antes": 224686,
+    "depois": 23698,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/intro/fig2.jpg",
+    "para": "/proaves/intro/fig2.webp",
+    "antes": 236980,
+    "depois": 88496,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/intro/fig5.jpg",
+    "para": "/proaves/intro/fig5.webp",
+    "antes": 185171,
+    "depois": 65386,
+    "dimensoes": "1000x627",
+    "novaLargura": 1000,
+    "altura": 627
+  },
+  {
+    "de": "/proaves/intro/fig6.jpg",
+    "para": "/proaves/intro/fig6.webp",
+    "antes": 110509,
+    "depois": 21662,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro/fig7.jpg",
+    "para": "/proaves/intro/fig7.webp",
+    "antes": 63018,
+    "depois": 9616,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro/fig8.jpg",
+    "para": "/proaves/intro/fig8.webp",
+    "antes": 444010,
+    "depois": 84730,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/intro/fig9.jpg",
+    "para": "/proaves/intro/fig9.webp",
+    "antes": 538930,
+    "depois": 133198,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/intro (copy)/fig1.jpg",
+    "para": "/proaves/intro (copy)/fig1.webp",
+    "antes": 95851,
+    "depois": 32006,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/intro (copy)/fig10.jpg",
+    "para": "/proaves/intro (copy)/fig10.webp",
+    "antes": 209812,
+    "depois": 69482,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig11.jpg",
+    "para": "/proaves/intro (copy)/fig11.webp",
+    "antes": 295385,
+    "depois": 103026,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig12.jpg",
+    "para": "/proaves/intro (copy)/fig12.webp",
+    "antes": 348954,
+    "depois": 127022,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig2.jpg",
+    "para": "/proaves/intro (copy)/fig2.webp",
+    "antes": 598492,
+    "depois": 80262,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/intro (copy)/fig3.jpg",
+    "para": "/proaves/intro (copy)/fig3.webp",
+    "antes": 348985,
+    "depois": 87080,
+    "dimensoes": "1000x2500",
+    "novaLargura": 800,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig4.jpg",
+    "para": "/proaves/intro (copy)/fig4.webp",
+    "antes": 128437,
+    "depois": 33198,
+    "dimensoes": "1000x666",
+    "novaLargura": 1000,
+    "altura": 666
+  },
+  {
+    "de": "/proaves/intro (copy)/fig5.jpg",
+    "para": "/proaves/intro (copy)/fig5.webp",
+    "antes": 206619,
+    "depois": 92720,
+    "dimensoes": "1000x2500",
+    "novaLargura": 800,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig6.jpg",
+    "para": "/proaves/intro (copy)/fig6.webp",
+    "antes": 780044,
+    "depois": 127778,
+    "dimensoes": "1000x1294",
+    "novaLargura": 1000,
+    "altura": 1294
+  },
+  {
+    "de": "/proaves/intro (copy)/fig7.jpg",
+    "para": "/proaves/intro (copy)/fig7.webp",
+    "antes": 264643,
+    "depois": 78684,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig8.jpg",
+    "para": "/proaves/intro (copy)/fig8.webp",
+    "antes": 190895,
+    "depois": 54902,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/intro (copy)/fig9.jpg",
+    "para": "/proaves/intro (copy)/fig9.webp",
+    "antes": 322174,
+    "depois": 147058,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/logos/batlantic.png",
+    "para": "/proaves/logos/batlantic.webp",
+    "antes": 290784,
+    "depois": 200542,
+    "dimensoes": "2140x2215",
+    "novaLargura": 1932,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/logos/crbio.png",
+    "para": "/proaves/logos/crbio.webp",
+    "antes": 117855,
+    "depois": 103776,
+    "dimensoes": "2145x2191",
+    "novaLargura": 1958,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves/logos/windowAlert.png",
+    "para": "/proaves/logos/windowAlert.webp",
+    "antes": 15884,
+    "depois": 3094,
+    "dimensoes": "325x260",
+    "novaLargura": 325,
+    "altura": 260
+  },
+  {
+    "de": "/proaves/luminosa/fig1.jpg",
+    "para": "/proaves/luminosa/fig1.webp",
+    "antes": 357120,
+    "depois": 48668,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/luminosa/fig10.jpg",
+    "para": "/proaves/luminosa/fig10.webp",
+    "antes": 187656,
+    "depois": 130978,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/luminosa/fig11.jpg",
+    "para": "/proaves/luminosa/fig11.webp",
+    "antes": 53683,
+    "depois": 15890,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/luminosa/fig12.jpg",
+    "para": "/proaves/luminosa/fig12.webp",
+    "antes": 68644,
+    "depois": 21028,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/luminosa/fig13.jpg",
+    "para": "/proaves/luminosa/fig13.webp",
+    "antes": 64863,
+    "depois": 22690,
+    "dimensoes": "1000x264",
+    "novaLargura": 1000,
+    "altura": 264
+  },
+  {
+    "de": "/proaves/luminosa/fig2.jpg",
+    "para": "/proaves/luminosa/fig2.webp",
+    "antes": 139122,
+    "depois": 67512,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/luminosa/fig3.jpg",
+    "para": "/proaves/luminosa/fig3.webp",
+    "antes": 108420,
+    "depois": 33768,
+    "dimensoes": "1000x357",
+    "novaLargura": 1000,
+    "altura": 357
+  },
+  {
+    "de": "/proaves/luminosa/fig4.jpg",
+    "para": "/proaves/luminosa/fig4.webp",
+    "antes": 241589,
+    "depois": 22464,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/luminosa/fig5.jpg",
+    "para": "/proaves/luminosa/fig5.webp",
+    "antes": 106411,
+    "depois": 31202,
+    "dimensoes": "1000x666",
+    "novaLargura": 1000,
+    "altura": 666
+  },
+  {
+    "de": "/proaves/luminosa/fig6.jpg",
+    "para": "/proaves/luminosa/fig6.webp",
+    "antes": 446553,
+    "depois": 210858,
+    "dimensoes": "1000x711",
+    "novaLargura": 1000,
+    "altura": 711
+  },
+  {
+    "de": "/proaves/luminosa/fig7.jpg",
+    "para": "/proaves/luminosa/fig7.webp",
+    "antes": 217091,
+    "depois": 110794,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/luminosa/fig8.jpg",
+    "para": "/proaves/luminosa/fig8.webp",
+    "antes": 491065,
+    "depois": 53892,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/luminosa/fig9.jpg",
+    "para": "/proaves/luminosa/fig9.webp",
+    "antes": 50548,
+    "depois": 10324,
+    "dimensoes": "1000x513",
+    "novaLargura": 1000,
+    "altura": 513
+  },
+  {
+    "de": "/proaves/pets/fig1.jpg",
+    "para": "/proaves/pets/fig1.webp",
+    "antes": 152999,
+    "depois": 52506,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/pets/fig2.jpg",
+    "para": "/proaves/pets/fig2.webp",
+    "antes": 230653,
+    "depois": 112744,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/pets/fig3.jpg",
+    "para": "/proaves/pets/fig3.webp",
+    "antes": 49509,
+    "depois": 33242,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/pets/fig4.jpg",
+    "para": "/proaves/pets/fig4.webp",
+    "antes": 90400,
+    "depois": 30456,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/pets/fig5.jpg",
+    "para": "/proaves/pets/fig5.webp",
+    "antes": 200348,
+    "depois": 75202,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/pets/fig6.jpg",
+    "para": "/proaves/pets/fig6.webp",
+    "antes": 156857,
+    "depois": 53762,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/pets/fig7.jpg",
+    "para": "/proaves/pets/fig7.webp",
+    "antes": 106308,
+    "depois": 35718,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/sonora/fig1.jpg",
+    "para": "/proaves/sonora/fig1.webp",
+    "antes": 462099,
+    "depois": 54278,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/sonora/fig2.jpg",
+    "para": "/proaves/sonora/fig2.webp",
+    "antes": 120166,
+    "depois": 40482,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/sonora/fig3.jpg",
+    "para": "/proaves/sonora/fig3.webp",
+    "antes": 228857,
+    "depois": 76746,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/sonora/fig4.jpg",
+    "para": "/proaves/sonora/fig4.webp",
+    "antes": 199207,
+    "depois": 68744,
+    "dimensoes": "1000x1000",
+    "novaLargura": 1000,
+    "altura": 1000
+  },
+  {
+    "de": "/proaves/sonora/fig5.jpg",
+    "para": "/proaves/sonora/fig5.webp",
+    "antes": 167008,
+    "depois": 57448,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/sonora/fig6.jpg",
+    "para": "/proaves/sonora/fig6.webp",
+    "antes": 114214,
+    "depois": 40854,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/sonora/fig7.jpg",
+    "para": "/proaves/sonora/fig7.webp",
+    "antes": 119365,
+    "depois": 42862,
+    "dimensoes": "1000x563",
+    "novaLargura": 1000,
+    "altura": 563
+  },
+  {
+    "de": "/proaves/trafico/fig1.jpg",
+    "para": "/proaves/trafico/fig1.webp",
+    "antes": 385910,
+    "depois": 117286,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/trafico/fig10.jpg",
+    "para": "/proaves/trafico/fig10.webp",
+    "antes": 597809,
+    "depois": 66306,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/trafico/fig11.jpg",
+    "para": "/proaves/trafico/fig11.webp",
+    "antes": 499599,
+    "depois": 19974,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/trafico/fig2.jpg",
+    "para": "/proaves/trafico/fig2.webp",
+    "antes": 387893,
+    "depois": 103636,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves/trafico/fig5.jpg",
+    "para": "/proaves/trafico/fig5.webp",
+    "antes": 391283,
+    "depois": 101992,
+    "dimensoes": "1000x919",
+    "novaLargura": 1000,
+    "altura": 919
+  },
+  {
+    "de": "/proaves/trafico/fig6.jpg",
+    "para": "/proaves/trafico/fig6.webp",
+    "antes": 314093,
+    "depois": 17480,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/trafico/fig7.jpg",
+    "para": "/proaves/trafico/fig7.webp",
+    "antes": 554732,
+    "depois": 64728,
+    "dimensoes": "1000x667",
+    "novaLargura": 1000,
+    "altura": 667
+  },
+  {
+    "de": "/proaves/trafico/fig8.jpg",
+    "para": "/proaves/trafico/fig8.webp",
+    "antes": 651674,
+    "depois": 79458,
+    "dimensoes": "1000x849",
+    "novaLargura": 1000,
+    "altura": 849
+  },
+  {
+    "de": "/proaves/trafico/fig9.jpg",
+    "para": "/proaves/trafico/fig9.webp",
+    "antes": 344779,
+    "depois": 57556,
+    "dimensoes": "1000x750",
+    "novaLargura": 1000,
+    "altura": 750
+  },
+  {
+    "de": "/proaves2/Rectangle 30.png",
+    "para": "/proaves2/Rectangle 30.webp",
+    "antes": 5961,
+    "depois": 1946,
+    "dimensoes": "98x99",
+    "novaLargura": 98,
+    "altura": 99
+  },
+  {
+    "de": "/proaves2/ap1.png",
+    "para": "/proaves2/ap1.webp",
+    "antes": 35858,
+    "depois": 12194,
+    "dimensoes": "240x240",
+    "novaLargura": 240,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/ap2.png",
+    "para": "/proaves2/ap2.webp",
+    "antes": 16336,
+    "depois": 2532,
+    "dimensoes": "300x240",
+    "novaLargura": 300,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/ap3.png",
+    "para": "/proaves2/ap3.webp",
+    "antes": 17199,
+    "depois": 8518,
+    "dimensoes": "235x240",
+    "novaLargura": 235,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/bento1.png",
+    "para": "/proaves2/bento1.webp",
+    "antes": 5320,
+    "depois": 2484,
+    "dimensoes": "210x224",
+    "novaLargura": 210,
+    "altura": 224
+  },
+  {
+    "de": "/proaves2/bento2.png",
+    "para": "/proaves2/bento2.webp",
+    "antes": 9700,
+    "depois": 4176,
+    "dimensoes": "292x276",
+    "novaLargura": 292,
+    "altura": 276
+  },
+  {
+    "de": "/proaves2/bento3.png",
+    "para": "/proaves2/bento3.webp",
+    "antes": 5222,
+    "depois": 2408,
+    "dimensoes": "236x268",
+    "novaLargura": 236,
+    "altura": 268
+  },
+  {
+    "de": "/proaves2/bento4.png",
+    "para": "/proaves2/bento4.webp",
+    "antes": 5876,
+    "depois": 2490,
+    "dimensoes": "270x300",
+    "novaLargura": 270,
+    "altura": 300
+  },
+  {
+    "de": "/proaves2/bento5.png",
+    "para": "/proaves2/bento5.webp",
+    "antes": 8929,
+    "depois": 4286,
+    "dimensoes": "292x252",
+    "novaLargura": 292,
+    "altura": 252
+  },
+  {
+    "de": "/proaves2/bento6.png",
+    "para": "/proaves2/bento6.webp",
+    "antes": 19266,
+    "depois": 8438,
+    "dimensoes": "300x300",
+    "novaLargura": 300,
+    "altura": 300
+  },
+  {
+    "de": "/proaves2/bento7.png",
+    "para": "/proaves2/bento7.webp",
+    "antes": 18920,
+    "depois": 8974,
+    "dimensoes": "548x464",
+    "novaLargura": 548,
+    "altura": 464
+  },
+  {
+    "de": "/proaves2/bento8.png",
+    "para": "/proaves2/bento8.webp",
+    "antes": 6615,
+    "depois": 2846,
+    "dimensoes": "272x216",
+    "novaLargura": 272,
+    "altura": 216
+  },
+  {
+    "de": "/proaves2/bento9.png",
+    "para": "/proaves2/bento9.webp",
+    "antes": 130404,
+    "depois": 34546,
+    "dimensoes": "540x640",
+    "novaLargura": 540,
+    "altura": 640
+  },
+  {
+    "de": "/proaves2/bg-grid-1.png",
+    "para": "/proaves2/bg-grid-1.webp",
+    "antes": 2762524,
+    "depois": 191418,
+    "dimensoes": "1561x1999",
+    "novaLargura": 1561,
+    "altura": 1999
+  },
+  {
+    "de": "/proaves2/bg-grid-2.png",
+    "para": "/proaves2/bg-grid-2.webp",
+    "antes": 1125280,
+    "depois": 38824,
+    "dimensoes": "960x1240",
+    "novaLargura": 960,
+    "altura": 1240
+  },
+  {
+    "de": "/proaves2/bg-grid-3.png",
+    "para": "/proaves2/bg-grid-3.webp",
+    "antes": 111733,
+    "depois": 13266,
+    "dimensoes": "238x310",
+    "novaLargura": 238,
+    "altura": 310
+  },
+  {
+    "de": "/proaves2/bg-grid-4.png",
+    "para": "/proaves2/bg-grid-4.webp",
+    "antes": 501126,
+    "depois": 25370,
+    "dimensoes": "720x720",
+    "novaLargura": 720,
+    "altura": 720
+  },
+  {
+    "de": "/proaves2/bg-grid.png",
+    "para": "/proaves2/bg-grid.webp",
+    "antes": 608952,
+    "depois": 89286,
+    "dimensoes": "1024x900",
+    "novaLargura": 1024,
+    "altura": 900
+  },
+  {
+    "de": "/proaves2/bg2.jpeg",
+    "para": "/proaves2/bg2.webp",
+    "antes": 479777,
+    "depois": 406084,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/proaves2/blob.png",
+    "para": "/proaves2/blob.webp",
+    "antes": 29221,
+    "depois": 14182,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/proaves2/cover_pro_aves.jpeg",
+    "para": "/proaves2/cover_pro_aves.webp",
+    "antes": 423530,
+    "depois": 286002,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/proaves2/gallery/final1.jpg",
+    "para": "/proaves2/gallery/final1.webp",
+    "antes": 310918,
+    "depois": 176096,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final10.jpg",
+    "para": "/proaves2/gallery/final10.webp",
+    "antes": 446049,
+    "depois": 321680,
+    "dimensoes": "1333x2000",
+    "novaLargura": 1333,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves2/gallery/final11.jpg",
+    "para": "/proaves2/gallery/final11.webp",
+    "antes": 453350,
+    "depois": 306222,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final2.jpg",
+    "para": "/proaves2/gallery/final2.webp",
+    "antes": 514325,
+    "depois": 372318,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final3.jpg",
+    "para": "/proaves2/gallery/final3.webp",
+    "antes": 355716,
+    "depois": 188746,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final4.jpg",
+    "para": "/proaves2/gallery/final4.webp",
+    "antes": 432775,
+    "depois": 280178,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final5.jpg",
+    "para": "/proaves2/gallery/final5.webp",
+    "antes": 366390,
+    "depois": 220544,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/proaves2/gallery/final6.jpg",
+    "para": "/proaves2/gallery/final6.webp",
+    "antes": 576862,
+    "depois": 478222,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/proaves2/gallery/final7.jpg",
+    "para": "/proaves2/gallery/final7.webp",
+    "antes": 274856,
+    "depois": 155602,
+    "dimensoes": "2000x1123",
+    "novaLargura": 2000,
+    "altura": 1123
+  },
+  {
+    "de": "/proaves2/gallery/final8.jpg",
+    "para": "/proaves2/gallery/final8.webp",
+    "antes": 683432,
+    "depois": 600828,
+    "dimensoes": "2000x1333",
+    "novaLargura": 2000,
+    "altura": 1333
+  },
+  {
+    "de": "/proaves2/gallery/final9.jpg",
+    "para": "/proaves2/gallery/final9.webp",
+    "antes": 281389,
+    "depois": 168296,
+    "dimensoes": "2000x1293",
+    "novaLargura": 2000,
+    "altura": 1293
+  },
+  {
+    "de": "/proaves2/icon-1.png",
+    "para": "/proaves2/icon-1.webp",
+    "antes": 2338,
+    "depois": 1068,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-10.png",
+    "para": "/proaves2/icon-10.webp",
+    "antes": 3079,
+    "depois": 1288,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-2.png",
+    "para": "/proaves2/icon-2.webp",
+    "antes": 2770,
+    "depois": 1140,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-3.png",
+    "para": "/proaves2/icon-3.webp",
+    "antes": 2459,
+    "depois": 1186,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-4.png",
+    "para": "/proaves2/icon-4.webp",
+    "antes": 1503,
+    "depois": 620,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-5.png",
+    "para": "/proaves2/icon-5.webp",
+    "antes": 1981,
+    "depois": 838,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-6.png",
+    "para": "/proaves2/icon-6.webp",
+    "antes": 2851,
+    "depois": 1122,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-7.png",
+    "para": "/proaves2/icon-7.webp",
+    "antes": 2246,
+    "depois": 946,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-8.png",
+    "para": "/proaves2/icon-8.webp",
+    "antes": 1678,
+    "depois": 744,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/icon-9.png",
+    "para": "/proaves2/icon-9.webp",
+    "antes": 2432,
+    "depois": 1074,
+    "dimensoes": "70x70",
+    "novaLargura": 70,
+    "altura": 70
+  },
+  {
+    "de": "/proaves2/logo-pro-aves-texto.png",
+    "para": "/proaves2/logo-pro-aves-texto.webp",
+    "antes": 365817,
+    "depois": 88114,
+    "dimensoes": "3375x3375",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves2/logo-pro-aves-texto2.png",
+    "para": "/proaves2/logo-pro-aves-texto2.webp",
+    "antes": 100246,
+    "depois": 33794,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/proaves2/logo-pro-aves-texto3.png",
+    "para": "/proaves2/logo-pro-aves-texto3.webp",
+    "antes": 100357,
+    "depois": 34264,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/proaves2/logo-pro-aves.png",
+    "para": "/proaves2/logo-pro-aves.webp",
+    "antes": 610474,
+    "depois": 64234,
+    "dimensoes": "4096x4096",
+    "novaLargura": 2000,
+    "altura": 2000
+  },
+  {
+    "de": "/proaves2/pattern.png",
+    "para": "/proaves2/pattern.webp",
+    "antes": 9238,
+    "depois": 2686,
+    "dimensoes": "612x612",
+    "novaLargura": 612,
+    "altura": 612
+  },
+  {
+    "de": "/proaves2/pattern2.png",
+    "para": "/proaves2/pattern2.webp",
+    "antes": 32086,
+    "depois": 4800,
+    "dimensoes": "612x612",
+    "novaLargura": 612,
+    "altura": 612
+  },
+  {
+    "de": "/proaves2/pattern3.png",
+    "para": "/proaves2/pattern3.webp",
+    "antes": 29611,
+    "depois": 3324,
+    "dimensoes": "612x612",
+    "novaLargura": 612,
+    "altura": 612
+  },
+  {
+    "de": "/proaves2/pattern4.png",
+    "para": "/proaves2/pattern4.webp",
+    "antes": 5961,
+    "depois": 1946,
+    "dimensoes": "98x99",
+    "novaLargura": 98,
+    "altura": 99
+  },
+  {
+    "de": "/proaves2/rel1.png",
+    "para": "/proaves2/rel1.webp",
+    "antes": 28033,
+    "depois": 15328,
+    "dimensoes": "331x240",
+    "novaLargura": 331,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/rel2.png",
+    "para": "/proaves2/rel2.webp",
+    "antes": 52170,
+    "depois": 25356,
+    "dimensoes": "700x240",
+    "novaLargura": 700,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/rel3.png",
+    "para": "/proaves2/rel3.webp",
+    "antes": 45277,
+    "depois": 21744,
+    "dimensoes": "416x240",
+    "novaLargura": 416,
+    "altura": 240
+  },
+  {
+    "de": "/proaves2/t-blue.png",
+    "para": "/proaves2/t-blue.webp",
+    "antes": 20502,
+    "depois": 9396,
+    "dimensoes": "486x486",
+    "novaLargura": 486,
+    "altura": 486
+  },
+  {
+    "de": "/proaves2/t-green.png",
+    "para": "/proaves2/t-green.webp",
+    "antes": 20772,
+    "depois": 9320,
+    "dimensoes": "472x472",
+    "novaLargura": 472,
+    "altura": 472
+  },
+  {
+    "de": "/proaves2/t-orange.png",
+    "para": "/proaves2/t-orange.webp",
+    "antes": 18569,
+    "depois": 9000,
+    "dimensoes": "439x439",
+    "novaLargura": 439,
+    "altura": 439
+  },
+  {
+    "de": "/proaves2/t-purple.png",
+    "para": "/proaves2/t-purple.webp",
+    "antes": 19260,
+    "depois": 8486,
+    "dimensoes": "400x400",
+    "novaLargura": 400,
+    "altura": 400
+  },
+  {
+    "de": "/proaves2/t-red.png",
+    "para": "/proaves2/t-red.webp",
+    "antes": 40897,
+    "depois": 21910,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/proaves2/t-yellow.png",
+    "para": "/proaves2/t-yellow.webp",
+    "antes": 19974,
+    "depois": 9766,
+    "dimensoes": "471x471",
+    "novaLargura": 471,
+    "altura": 471
+  },
+  {
+    "de": "/proaves2/tsuru-large.png",
+    "para": "/proaves2/tsuru-large.webp",
+    "antes": 309839,
+    "depois": 57380,
+    "dimensoes": "3849x3862",
+    "novaLargura": 1993,
+    "altura": 2000
+  },
+  {
+    "de": "/publicacoes/img/Capa baixaveis folder gatos x aves.png",
+    "para": "/publicacoes/img/Capa baixaveis folder gatos x aves.webp",
+    "antes": 905701,
+    "depois": 97546,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Imagem capa - folder juçara.png",
+    "para": "/publicacoes/img/Imagem capa - folder juçara.webp",
+    "antes": 2071687,
+    "depois": 241496,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Juçara consumo e conservação.png",
+    "para": "/publicacoes/img/Juçara consumo e conservação.webp",
+    "antes": 1342375,
+    "depois": 131456,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2018 lfr.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2018 lfr.webp",
+    "antes": 206669,
+    "depois": 30368,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2019 lfr.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2019 lfr.webp",
+    "antes": 436518,
+    "depois": 37044,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2019 pvm.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - Avistar 2019 pvm.webp",
+    "antes": 365237,
+    "depois": 27756,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - CBO 2019 lfr.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - CBO 2019 lfr.webp",
+    "antes": 716689,
+    "depois": 85066,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - CBO 2019 pvm.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - CBO 2019 pvm.webp",
+    "antes": 172070,
+    "depois": 25910,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - CBO 2021 lfr.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - CBO 2021 lfr.webp",
+    "antes": 364899,
+    "depois": 30744,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup apresentação OAMa - CBO 2021 pvm.png",
+    "para": "/publicacoes/img/Mockup apresentação OAMa - CBO 2021 pvm.webp",
+    "antes": 237614,
+    "depois": 26262,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/Mockup cartilha colisao.png",
+    "para": "/publicacoes/img/Mockup cartilha colisao.webp",
+    "antes": 1979068,
+    "depois": 169136,
+    "dimensoes": "2000x1499",
+    "novaLargura": 2000,
+    "altura": 1499
+  },
+  {
+    "de": "/publicacoes/img/Poster CBO2021 ahs.png",
+    "para": "/publicacoes/img/Poster CBO2021 ahs.webp",
+    "antes": 438519,
+    "depois": 86258,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/_MOCKUP_Folder_Oama_2021.jpg",
+    "para": "/publicacoes/img/_MOCKUP_Folder_Oama_2021.webp",
+    "antes": 202438,
+    "depois": 139314,
+    "dimensoes": "2000x1714",
+    "novaLargura": 2000,
+    "altura": 1714
+  },
+  {
+    "de": "/publicacoes/img/adesivo.jpg",
+    "para": "/publicacoes/img/adesivo.webp",
+    "antes": 567077,
+    "depois": 433456,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/birdF.jpg",
+    "para": "/publicacoes/img/birdF.webp",
+    "antes": 147682,
+    "depois": 124026,
+    "dimensoes": "1000x1296",
+    "novaLargura": 1000,
+    "altura": 1296
+  },
+  {
+    "de": "/publicacoes/img/cartilha_colisao.png",
+    "para": "/publicacoes/img/cartilha_colisao.webp",
+    "antes": 699823,
+    "depois": 47432,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/cartilha_pet.png",
+    "para": "/publicacoes/img/cartilha_pet.webp",
+    "antes": 658714,
+    "depois": 49522,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/colisao.jpg",
+    "para": "/publicacoes/img/colisao.webp",
+    "antes": 216553,
+    "depois": 80894,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/publicacoes/img/comedouro.jpg",
+    "para": "/publicacoes/img/comedouro.webp",
+    "antes": 223907,
+    "depois": 77878,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/publicacoes/img/engaiolamento.jpg",
+    "para": "/publicacoes/img/engaiolamento.webp",
+    "antes": 254075,
+    "depois": 95396,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/publicacoes/img/icone_guia.png",
+    "para": "/publicacoes/img/icone_guia.webp",
+    "antes": 234325,
+    "depois": 11466,
+    "dimensoes": "620x465",
+    "novaLargura": 620,
+    "altura": 465
+  },
+  {
+    "de": "/publicacoes/img/icone_jacutinga.png",
+    "para": "/publicacoes/img/icone_jacutinga.webp",
+    "antes": 235714,
+    "depois": 13056,
+    "dimensoes": "620x465",
+    "novaLargura": 620,
+    "altura": 465
+  },
+  {
+    "de": "/publicacoes/img/icone_jucara.png",
+    "para": "/publicacoes/img/icone_jucara.webp",
+    "antes": 244617,
+    "depois": 13814,
+    "dimensoes": "620x465",
+    "novaLargura": 620,
+    "altura": 465
+  },
+  {
+    "de": "/publicacoes/img/icone_pets.png",
+    "para": "/publicacoes/img/icone_pets.webp",
+    "antes": 217200,
+    "depois": 12904,
+    "dimensoes": "620x465",
+    "novaLargura": 620,
+    "altura": 465
+  },
+  {
+    "de": "/publicacoes/img/livreto_Curriculo_OAMA.jpg",
+    "para": "/publicacoes/img/livreto_Curriculo_OAMA.webp",
+    "antes": 507435,
+    "depois": 72072,
+    "dimensoes": "1400x717",
+    "novaLargura": 1400,
+    "altura": 717
+  },
+  {
+    "de": "/publicacoes/img/luminosa.jpg",
+    "para": "/publicacoes/img/luminosa.webp",
+    "antes": 189591,
+    "depois": 73476,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/publicacoes/img/mockup cartilha pets.jpg",
+    "para": "/publicacoes/img/mockup cartilha pets.webp",
+    "antes": 229790,
+    "depois": 152184,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder colisão.png",
+    "para": "/publicacoes/img/mockup folder colisão.webp",
+    "antes": 1878286,
+    "depois": 146622,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder comedouro.png",
+    "para": "/publicacoes/img/mockup folder comedouro.webp",
+    "antes": 1903695,
+    "depois": 148234,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder luminosa.png",
+    "para": "/publicacoes/img/mockup folder luminosa.webp",
+    "antes": 1797581,
+    "depois": 131764,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder pets.png",
+    "para": "/publicacoes/img/mockup folder pets.webp",
+    "antes": 1900920,
+    "depois": 157654,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder sonora.png",
+    "para": "/publicacoes/img/mockup folder sonora.webp",
+    "antes": 1830321,
+    "depois": 150270,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup folder tráfico.png",
+    "para": "/publicacoes/img/mockup folder tráfico.webp",
+    "antes": 1961333,
+    "depois": 177398,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup pró-aves 2023.png",
+    "para": "/publicacoes/img/mockup pró-aves 2023.webp",
+    "antes": 1903461,
+    "depois": 187218,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup relatório anual 2021.png",
+    "para": "/publicacoes/img/mockup relatório anual 2021.webp",
+    "antes": 1800384,
+    "depois": 144004,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup relatório anual 2022.png",
+    "para": "/publicacoes/img/mockup relatório anual 2022.webp",
+    "antes": 1706665,
+    "depois": 126620,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup relatório anual 2023.png",
+    "para": "/publicacoes/img/mockup relatório anual 2023.webp",
+    "antes": 1694281,
+    "depois": 136664,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup_annual_report_2021.png",
+    "para": "/publicacoes/img/mockup_annual_report_2021.webp",
+    "antes": 1771299,
+    "depois": 136956,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup_annual_report_2022.png",
+    "para": "/publicacoes/img/mockup_annual_report_2022.webp",
+    "antes": 1682230,
+    "depois": 121756,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup_annual_report_2023.png",
+    "para": "/publicacoes/img/mockup_annual_report_2023.webp",
+    "antes": 1675440,
+    "depois": 131380,
+    "dimensoes": "1999x1333",
+    "novaLargura": 1999,
+    "altura": 1333
+  },
+  {
+    "de": "/publicacoes/img/mockup_annual_report_2024.png",
+    "para": "/publicacoes/img/mockup_annual_report_2024.webp",
+    "antes": 1493764,
+    "depois": 128242,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup_annual_report_2025.png",
+    "para": "/publicacoes/img/mockup_annual_report_2025.webp",
+    "antes": 1110807,
+    "depois": 113032,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/mockup_livro_colorir_OAMa3.jpg",
+    "para": "/publicacoes/img/mockup_livro_colorir_OAMa3.webp",
+    "antes": 204383,
+    "depois": 150974,
+    "dimensoes": "2000x1124",
+    "novaLargura": 2000,
+    "altura": 1124
+  },
+  {
+    "de": "/publicacoes/img/portfolio.png",
+    "para": "/publicacoes/img/portfolio.webp",
+    "antes": 720616,
+    "depois": 35480,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/poster_colisao.png",
+    "para": "/publicacoes/img/poster_colisao.webp",
+    "antes": 1227580,
+    "depois": 106818,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/poster_pet.png",
+    "para": "/publicacoes/img/poster_pet.webp",
+    "antes": 1406515,
+    "depois": 107154,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/predacao.jpg",
+    "para": "/publicacoes/img/predacao.webp",
+    "antes": 222205,
+    "depois": 75528,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/publicacoes/img/pro_aves_2024.png",
+    "para": "/publicacoes/img/pro_aves_2024.webp",
+    "antes": 1435526,
+    "depois": 123972,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/pro_aves_2025.jpg",
+    "para": "/publicacoes/img/pro_aves_2025.webp",
+    "antes": 646405,
+    "depois": 104262,
+    "dimensoes": "3193x2394",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/relatorio2022.png",
+    "para": "/publicacoes/img/relatorio2022.webp",
+    "antes": 700586,
+    "depois": 46918,
+    "dimensoes": "1080x1080",
+    "novaLargura": 1080,
+    "altura": 1080
+  },
+  {
+    "de": "/publicacoes/img/relatorioAnual2023.png",
+    "para": "/publicacoes/img/relatorioAnual2023.webp",
+    "antes": 1057637,
+    "depois": 50044,
+    "dimensoes": "2000x1499",
+    "novaLargura": 2000,
+    "altura": 1499
+  },
+  {
+    "de": "/publicacoes/img/relatorioProAves2023.png",
+    "para": "/publicacoes/img/relatorioProAves2023.webp",
+    "antes": 248731,
+    "depois": 17114,
+    "dimensoes": "620x465",
+    "novaLargura": 620,
+    "altura": 465
+  },
+  {
+    "de": "/publicacoes/img/relatorio_2024.png",
+    "para": "/publicacoes/img/relatorio_2024.webp",
+    "antes": 1504942,
+    "depois": 129598,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/relatorio_2025.png",
+    "para": "/publicacoes/img/relatorio_2025.webp",
+    "antes": 1119752,
+    "depois": 113928,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/relatorio_anual_oama_2021.png",
+    "para": "/publicacoes/img/relatorio_anual_oama_2021.webp",
+    "antes": 289544,
+    "depois": 11072,
+    "dimensoes": "500x375",
+    "novaLargura": 500,
+    "altura": 375
+  },
+  {
+    "de": "/publicacoes/img/relatorio_percepcao.png",
+    "para": "/publicacoes/img/relatorio_percepcao.webp",
+    "antes": 1354199,
+    "depois": 107410,
+    "dimensoes": "2000x1500",
+    "novaLargura": 2000,
+    "altura": 1500
+  },
+  {
+    "de": "/publicacoes/img/sonora.jpg",
+    "para": "/publicacoes/img/sonora.webp",
+    "antes": 194141,
+    "depois": 70382,
+    "dimensoes": "1000x707",
+    "novaLargura": 1000,
+    "altura": 707
+  },
+  {
+    "de": "/sobre/andorinhao.png",
+    "para": "/sobre/andorinhao.webp",
+    "antes": 31055,
+    "depois": 5800,
+    "dimensoes": "184x243",
+    "novaLargura": 184,
+    "altura": 243
+  },
+  {
+    "de": "/sobre/beija-flor.png",
+    "para": "/sobre/beija-flor.webp",
+    "antes": 42859,
+    "depois": 9230,
+    "dimensoes": "299x210",
+    "novaLargura": 299,
+    "altura": 210
+  },
+  {
+    "de": "/sobre/japu.png",
+    "para": "/sobre/japu.webp",
+    "antes": 88371,
+    "depois": 12680,
+    "dimensoes": "343x300",
+    "novaLargura": 343,
+    "altura": 300
+  },
+  {
+    "de": "/treinamento-cursos/curso-foto.jpg",
+    "para": "/treinamento-cursos/curso-foto.webp",
+    "antes": 534479,
+    "depois": 54438,
+    "dimensoes": "800x534",
+    "novaLargura": 800,
+    "altura": 534
+  },
+  {
+    "de": "/treinamento-cursos/curso_muda.png",
+    "para": "/treinamento-cursos/curso_muda.webp",
+    "antes": 212650,
+    "depois": 18014,
+    "dimensoes": "400x400",
+    "novaLargura": 400,
+    "altura": 400
+  },
+  {
+    "de": "/treinamento-cursos/cursos2024.png",
+    "para": "/treinamento-cursos/cursos2024.webp",
+    "antes": 1679443,
+    "depois": 93618,
+    "dimensoes": "2000x960",
+    "novaLargura": 2000,
+    "altura": 960
+  }
+]

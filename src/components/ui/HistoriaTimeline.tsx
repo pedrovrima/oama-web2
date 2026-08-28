@@ -59,6 +59,8 @@ export default function HistoriaTimeline({ items }: { items: HistoriaItem[] }) {
                     src={item.foto}
                     alt={item.titulo}
                     className="w-full md:w-[45%] max-h-[300px] object-cover rounded-xl shrink-0"
+                    decoding="async"
+                    loading="lazy"
                   />
                 )}
                 <div className="font-montserrat text-[16px] text-white leading-relaxed">

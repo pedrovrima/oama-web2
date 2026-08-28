@@ -1,6 +1,15 @@
 ---
+import { Image } from "astro:assets";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WaveDark from "../components/sections/WaveDark.astro";
+
+// Composições circulares exportadas direto do Figma (nós 2490:385 / 384 / 386).
+// São imagens únicas com transparência: o anel, os ícones e as fotos já vêm
+// montados no arquivo, então não remontamos nada com posicionamento absoluto.
+import composicaoPesquisa from "../assets/composicao-pesquisa.png";
+import composicaoComunicacao from "../assets/composicao-comunicacao.png";
+import composicaoCapacitacao from "../assets/composicao-capacitacao.png";
 
 const colors = {
   yellow: "#dfb553",
@@ -9,37 +18,24 @@ const colors = {
   dark: "#071723",
 };
 
-const monitoringImages = [
-  "/midias/areas-de-atuacao/pesquisa-1.jpg",
-  "/midias/areas-de-atuacao/pesquisa-2.jpg",
-  "/midias/areas-de-atuacao/pesquisa-3.jpg",
-];
-
-const communicationImages = [
-  "/midias/areas-de-atuacao/comunicacao-1.jpg",
-  "/midias/areas-de-atuacao/comunicacao-2.jpg",
-  "/midias/areas-de-atuacao/comunicacao-3.jpg",
-];
-
-const trainingImages = [
-  "/midias/areas-de-atuacao/capacitacao-1.jpg",
-  "/midias/areas-de-atuacao/capacitacao-2.jpg",
-  "/midias/areas-de-atuacao/capacitacao-3.jpg",
-];
 ---
 
 <BaseLayout
   title="Áreas de Atuação — OAMa"
   description="As três frentes do OAMa: pesquisa e monitoramento da avifauna na Serra da Mantiqueira, comunicação científica e capacitações técnicas."
-  image="/midias/areas-de-atuacao/capa-areas.jpg"
+  image="/midias/areas-de-atuacao/capa-areas.webp"
 >
   <main class="font-montserrat text-[#1e1702]">
     <section class="relative h-[400px] w-full overflow-hidden md:h-[680px]">
       <img
-        src="/midias/areas-de-atuacao/capa-areas.jpg"
+        srcset="/midias/areas-de-atuacao/capa-areas-640w.webp 640w, /midias/areas-de-atuacao/capa-areas-960w.webp 960w, /midias/areas-de-atuacao/capa-areas-1280w.webp 1280w, /midias/areas-de-atuacao/capa-areas.webp 1920w"
+        sizes="100vw"
+        src="/midias/areas-de-atuacao/capa-areas.webp"
         alt="Fotografia de ave nativa da Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/10"></div>
       <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6 pb-5 md:pb-16">
@@ -65,13 +61,13 @@ const trainingImages = [
           no ambiente e no clima.
         </p>
 
-        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
-          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
-          <img src="/home/atuacao/pc.png" alt="" class="absolute bottom-5 left-0 h-14 w-14 brightness-0 invert md:bottom-16 md:left-10 md:h-20 md:w-20" loading="lazy" />
-          <img src="/home/atuacao/feather.png" alt="" class="absolute right-3 top-20 h-14 w-14 brightness-0 invert md:right-10 md:top-28 md:h-20 md:w-20" loading="lazy" />
-          <img src={monitoringImages[0]} alt="Ave azul com topete vermelho segurada por pesquisador em campo" class="absolute left-2 top-2 h-[132px] w-[132px] rounded-full object-cover md:left-24 md:h-[210px] md:w-[210px]" loading="lazy" />
-          <img src={monitoringImages[1]} alt="Trogão de dorso verde e barriga amarela segurado durante anilhamento" class="absolute right-6 top-20 h-[98px] w-[98px] rounded-full object-cover md:right-24 md:top-24 md:h-[150px] md:w-[150px]" loading="lazy" />
-          <img src={monitoringImages[2]} alt="Pesquisadora com lupa de cabeça soprando as penas de uma ave para avaliar a muda" class="absolute bottom-4 left-1/2 h-[178px] w-[178px] -translate-x-1/2 rounded-full object-cover md:bottom-4 md:h-[280px] md:w-[280px]" loading="lazy" />
+        <div class="mx-auto mt-10 max-w-[520px] md:mt-14 md:max-w-[680px]">
+          <Image
+            src={composicaoPesquisa}
+            alt="Colagem de fotos do monitoramento: ave azul com topete vermelho na mão do pesquisador, trogão durante o anilhamento e pesquisadora avaliando a muda com lupa de cabeça"
+            class="h-auto w-full"
+            loading="lazy"
+          />
         </div>
 
         <div class="mt-8 space-y-5 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
@@ -92,8 +88,10 @@ const trainingImages = [
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/pesquisa-4.jpg" alt="Ave em rede de neblina" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/pesquisa-5.jpg" alt="Pesquisador registrando aves em campo" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/pesquisa-4.webp" alt="Ave em rede de neblina" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/pesquisa-5.webp" alt="Pesquisador registrando aves em campo" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
@@ -130,13 +128,13 @@ const trainingImages = [
           quais buscamos compartilhar o conhecimento com a sociedade.
         </p>
 
-        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
-          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
-          <img src="/home/atuacao/megafone.png" alt="" class="absolute right-4 top-10 h-14 w-14 brightness-0 invert md:right-20 md:top-24 md:h-20 md:w-20" loading="lazy" />
-          <img src="/home/atuacao/pc.png" alt="" class="absolute bottom-10 left-2 h-14 w-14 brightness-0 invert md:bottom-24 md:left-10 md:h-20 md:w-20" loading="lazy" />
-          <img src={communicationImages[0]} alt="Atividade educativa com público" class="absolute left-0 top-8 h-[150px] w-[150px] rounded-full object-cover md:left-16 md:h-[250px] md:w-[250px]" loading="lazy" />
-          <img src={communicationImages[1]} alt="Criança em atividade de observação" class="absolute right-3 top-24 h-[98px] w-[98px] rounded-full object-cover md:right-20 md:top-28 md:h-[150px] md:w-[150px]" loading="lazy" />
-          <img src={communicationImages[2]} alt="Grupo em atividade de campo" class="absolute bottom-2 left-1/2 h-[150px] w-[150px] -translate-x-1/2 rounded-full object-cover md:bottom-6 md:h-[230px] md:w-[230px]" loading="lazy" />
+        <div class="mx-auto mt-10 max-w-[520px] md:mt-14 md:max-w-[680px]">
+          <Image
+            src={composicaoComunicacao}
+            alt="Colagem de fotos de comunicação científica: apresentação teatral para uma escola, criança colorindo material educativo e roda de conversa ao ar livre com estudantes"
+            class="h-auto w-full"
+            loading="lazy"
+          />
         </div>
 
         <p class="mt-8 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
@@ -156,8 +154,10 @@ const trainingImages = [
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/comunicacao-4.jpg" alt="Instalação artística de aves de papel" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/comunicacao-5.jpg" alt="Participante em oficina de desenho de aves" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/comunicacao-4.webp" alt="Instalação artística de aves de papel" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/comunicacao-5.webp" alt="Participante em oficina de desenho de aves" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
@@ -190,12 +190,13 @@ const trainingImages = [
           de aves.
         </p>
 
-        <div class="relative mx-auto mt-10 h-[330px] max-w-[520px] md:mt-14 md:h-[500px] md:max-w-[680px]" aria-hidden="true">
-          <div class="absolute left-1/2 top-10 h-[250px] w-[250px] -translate-x-1/2 rounded-full border-[28px] border-white md:top-20 md:h-[360px] md:w-[360px] md:border-[34px]"></div>
-          <img src="/home/atuacao/feather.png" alt="" class="absolute bottom-8 right-3 h-14 w-14 brightness-0 invert md:bottom-20 md:right-20 md:h-20 md:w-20" loading="lazy" />
-          <img src={trainingImages[0]} alt="Anilhamento de ave em capacitação" class="absolute left-5 top-14 h-[110px] w-[110px] rounded-full object-cover md:left-24 md:h-[150px] md:w-[150px]" loading="lazy" />
-          <img src={trainingImages[1]} alt="Participantes de curso em campo" class="absolute right-0 top-4 h-[140px] w-[140px] rounded-full object-cover md:right-20 md:h-[210px] md:w-[210px]" loading="lazy" />
-          <img src={trainingImages[2]} alt="Equipe em treinamento técnico" class="absolute bottom-6 left-1/2 h-[178px] w-[178px] -translate-x-1/2 rounded-full object-cover md:bottom-8 md:h-[280px] md:w-[280px]" loading="lazy" />
+        <div class="mx-auto mt-10 max-w-[520px] md:mt-14 md:max-w-[680px]">
+          <Image
+            src={composicaoCapacitacao}
+            alt="Colagem de fotos das capacitações: ave em posição de anilhamento, participantes analisando a asa de uma ave e turma acompanhando a tomada de dados em campo"
+            class="h-auto w-full"
+            loading="lazy"
+          />
         </div>
 
         <p class="mt-8 text-justify text-[18px] leading-[25px] md:mt-10 md:text-[18px] md:leading-[26px]">
@@ -212,8 +213,10 @@ const trainingImages = [
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/capacitacao-4.jpg" alt="Atividade técnica em área externa" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/capacitacao-5.jpg" alt="Material usado em curso técnico" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/capacitacao-4.webp" alt="Atividade técnica em área externa" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/capacitacao-5.webp" alt="Material usado em curso técnico" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">

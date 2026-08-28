@@ -7,42 +7,42 @@ const programas = [
     href: "/programas-e-projetos/monitoramento-de-avifauna",
     titulo: "Programa de Monitoramento de Avifauna da Mantiqueira",
     subtitulo: "Ciência de longo prazo para compreender e proteger as aves da Mantiqueira.",
-    imagem: "/midias/programas-e-projetos/card-monitoramento.jpg",
+    imagem: "/midias/programas-e-projetos/card-monitoramento.webp",
     alt: "Retrato aproximado de ave amarela e oliva na mão de pesquisador durante monitoramento",
   },
   {
     href: "/programas-e-projetos/treinamento-monitoramento-avifauna",
     titulo: "Programa de Treinamento em Monitoramento de Avifauna",
     subtitulo: "Formação de pessoas para pesquisa, anilhamento e trabalho de campo.",
-    imagem: "/midias/programas-e-projetos/card-treinamento.jpg",
+    imagem: "/midias/programas-e-projetos/card-treinamento.webp",
     alt: "Pesquisadora segurando beija-flor durante sessão de anilhamento do OAMa",
   },
   {
     href: "/programas-e-projetos/acoes-pro-aves",
     titulo: "Programa Ações Pró-Aves",
     subtitulo: "Comunicação, sensibilização e ciência cidadã para aproximar sociedade e aves.",
-    imagem: "/midias/programas-e-projetos/card-acoes-pro-aves.jpg",
+    imagem: "/midias/programas-e-projetos/card-acoes-pro-aves.webp",
     alt: "Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves",
   },
   {
     href: "/programas-e-projetos/projetos-de-pesquisa",
     titulo: "Projetos de Pesquisa",
     subtitulo: "Parcerias científicas que transformam dados em conhecimento para conservação.",
-    imagem: "/midias/programas-e-projetos/card-projetos-pesquisa.jpg",
+    imagem: "/midias/programas-e-projetos/card-projetos-pesquisa.webp",
     alt: "Mão segurando beija-flor com a asa e a cauda abertas para exame em campo",
   },
   {
     href: "/programas-e-projetos/fundraising-field-trip",
     titulo: "Fundraising Field Trip",
     subtitulo: "Experiências de campo que conectam conservação, território e apoio financeiro.",
-    imagem: "/midias/programas-e-projetos/card-fft.jpg",
+    imagem: "/midias/programas-e-projetos/card-fft.webp",
     alt: "Grupo caminhando por trilha rochosa entre picos durante Fundraising Field Trip",
   },
   {
     href: "/programas-e-projetos/campanha-jacucara",
     titulo: "Campanha Jacuçara",
     subtitulo: "Uma campanha pela jacutinga, pela juçara e pelas relações ecológicas da floresta.",
-    imagem: "/midias/programas-e-projetos/card-jacucara.jpg",
+    imagem: "/midias/programas-e-projetos/card-jacucara.webp",
     alt: "Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica",
   },
   {
@@ -51,30 +51,27 @@ const programas = [
     href: "/consultoria/cursos",
     titulo: "Cursos",
     subtitulo: "Formação em ornitologia, anilhamento e análise de muda, online e presencial.",
-    imagem: "/midias/programas-e-projetos/card-cursos.jpg",
+    imagem: "/midias/programas-e-projetos/card-cursos.webp",
     alt: "Asa verde de ave aberta na mão de pesquisador, mostrando o detalhe das penas",
-  },
-  {
-    href: "/programas-e-projetos/pro-aves",
-    titulo: "Resultados do Programa Pró-Aves",
-    subtitulo: "Campanhas, publicações e resultados reunidos pelo Programa Ações Pró-Aves.",
-    imagem: "/proaves2/cover_pro_aves.jpeg",
-    alt: "Capa visual do acervo de resultados do Programa Pró-Aves",
   },
 ];
 ---
 
 <BaseLayout
   description="Os programas do OAMa: monitoramento da avifauna da Mantiqueira, treinamento de anilhadores, Ações Pró-Aves, pesquisa, cursos e Campanha Jacuçara."
-  image="/midias/programas-e-projetos/hub-hero.jpg" title="Programas e Projetos — OAMa">
+  image="/midias/programas-e-projetos/hub-hero.webp" title="Programas e Projetos — OAMa">
   <main class="font-montserrat text-oama-ink">
     <!-- Hero Figma: navegação sólida, título baixo para não competir com ela. -->
     <section class="relative h-[255px] w-full overflow-hidden md:h-[580px]">
       <img
-        src="/midias/programas-e-projetos/hub-hero.jpg"
+        srcset="/midias/programas-e-projetos/hub-hero-640w.webp 640w, /midias/programas-e-projetos/hub-hero-960w.webp 960w, /midias/programas-e-projetos/hub-hero-1280w.webp 1280w, /midias/programas-e-projetos/hub-hero.webp 1920w"
+        sizes="100vw"
+        src="/midias/programas-e-projetos/hub-hero.webp"
         alt="Pesquisador do OAMa segurando ave anilhada na Mantiqueira"
         class="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/15"></div>
 
@@ -86,7 +83,8 @@ const programas = [
     </section>
 
 
-    <!-- Mosaico Figma: imagens quadradas sem copy visível, com chevrons de navegação. -->
+    <!-- Mosaico do Figma. Os títulos aparecem SOBRE a foto: sem eles a página é
+         só um mosaico de imagens e o visitante não sabe para onde cada card leva. -->
     <section class="bg-[#e4ba4c] px-[13px] pb-[54px] pt-4 md:px-6 md:pb-12 md:pt-9">
       <div class="mx-auto grid w-full max-w-[420px] grid-cols-1 gap-3 md:max-w-[840px] md:grid-cols-3 md:gap-[18px]">
         {
@@ -101,20 +99,19 @@ const programas = [
                 alt={programa.alt}
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                 loading="lazy"
+                decoding="async"
               />
-              <svg
+              {/* Gradiente: garante contraste do título sobre qualquer foto. */}
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
                 aria-hidden="true"
-                viewBox="0 0 24 14"
-                class="pointer-events-none absolute bottom-2 left-1/2 h-3 w-5 -translate-x-1/2 drop-shadow md:bottom-3 md:h-4 md:w-6"
-                fill="none"
-                stroke="white"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m3 3 9 8 9-8" />
-              </svg>
-              <span class="sr-only">{programa.titulo}: {programa.subtitulo}</span>
+              />
+
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 p-3 md:p-4">
+                <h2 class="font-oswald text-[20px] font-bold uppercase leading-[1.15] text-white drop-shadow-md md:text-[19px]">
+                  {programa.titulo}
+                </h2>
+              </div>
             </a>
           ))
         }

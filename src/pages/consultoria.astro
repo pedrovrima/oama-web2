@@ -1,24 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { ICONES_PUBLICO, type ChaveIconePublico } from "../data/icones-publico";
 import WaveDark from "../components/sections/WaveDark.astro";
+import CaptchaSlot from "../components/CaptchaSlot.astro";
 
 const frentes = [
   {
     href: "/consultoria/monitoramento-de-aves",
     titulo: "Monitoramento de Aves e Estudos de Avifauna",
-    imagem: "/midias/consultoria/monitoramento.jpg",
+    imagem: "/midias/consultoria/monitoramento.webp",
     alt: "Ave sendo medida em atividade técnica de monitoramento",
   },
   {
     href: "/consultoria/educacao-ambiental",
     titulo: "Educação Ambiental e Comunicação Científica",
-    imagem: "/midias/consultoria/educacao.jpg",
+    imagem: "/midias/consultoria/educacao.webp",
     alt: "Grupo em atividade externa de educação ambiental",
   },
   {
     href: "/consultoria/capacitacao-tecnica",
     titulo: "Capacitação Técnica e Formação Profissional em Ornitologia",
-    imagem: "/midias/consultoria/capacitacao.jpg",
+    imagem: "/midias/consultoria/capacitacao.webp",
     alt: "Pessoa em atividade de capacitação técnica com ave em mãos",
   },
 ];
@@ -39,16 +41,20 @@ const diferenciais = [
 ];
 
 // Categorias de clientes conforme os nós I2594:813 e I2619:* do Figma.
-const clientes = [
-  "Empresas e consultorias ambientais",
-  "Empreendimentos de impacto ambiental",
-  "Órgãos públicos e administração pública",
-  "Universidades e institutos de pesquisa",
-  "Estudantes e profissionais da área ambiental",
-  "Escolas e museus",
-  "Organizações da sociedade civil",
-  "Unidades de conservação",
-  "Observadores de aves e da natureza",
+// Cada categoria tem no Figma um ícone ilustrado próprio (nós 2619:695 a
+// 2619:703). Os desenhos e os textos alternativos vivem em
+// `src/data/icones-publico.ts` porque as filhas de consultoria reusam o mesmo
+// conjunto.
+const clientes: Array<{ texto: string; icone: ChaveIconePublico }> = [
+  { texto: "Empresas e consultorias ambientais", icone: "empresas-consultorias" },
+  { texto: "Empreendimentos de impacto ambiental", icone: "empreendimentos-impacto" },
+  { texto: "Órgãos públicos e administração pública", icone: "orgaos-publicos" },
+  { texto: "Universidades e institutos de pesquisa", icone: "universidades-pesquisa" },
+  { texto: "Estudantes e profissionais da área ambiental", icone: "estudantes-profissionais" },
+  { texto: "Escolas e museus", icone: "escolas-museus" },
+  { texto: "Organizações da sociedade civil", icone: "sociedade-civil" },
+  { texto: "Unidades de conservação", icone: "unidades-conservacao" },
+  { texto: "Observadores de aves e da natureza", icone: "observadores-aves" },
 ];
 
 
@@ -63,15 +69,19 @@ const logos = [
 
 <BaseLayout
   description="Serviços técnicos do OAMa em monitoramento de aves, educação ambiental, comunicação científica e formação profissional, com foco na Mata Atlântica."
-  image="/midias/consultoria/capa-consultoria.jpg" title="Consultoria — OAMa" navVariant="overlay">
+  image="/midias/consultoria/capa-consultoria.webp" title="Consultoria — OAMa" navVariant="overlay">
   <main class="font-montserrat bg-[#201700]">
     {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/consultoria/capa-consultoria.jpg"
+        srcset="/midias/consultoria/capa-consultoria-640w.webp 640w, /midias/consultoria/capa-consultoria-960w.webp 960w, /midias/consultoria/capa-consultoria-1280w.webp 1280w, /midias/consultoria/capa-consultoria.webp 1920w"
+        sizes="100vw"
+        src="/midias/consultoria/capa-consultoria.webp"
         alt="Capa da seção de consultoria do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -89,7 +99,7 @@ const logos = [
         <p class="mt-2 text-[15px] leading-6 md:text-[18px] md:leading-7">
           Juntos, multiplicando e potencializando impactos socioambientais reais.
         </p>
-        <div class="mx-auto mt-6 max-w-4xl space-y-4 text-[15px] leading-6 md:text-[17px] md:leading-7">
+        <div class="mx-auto mt-6 max-w-4xl space-y-4 text-justify text-[15px] leading-6 md:text-[17px] md:leading-7">
           {/* Texto oficial do documento de redação do cliente, aplicado verbatim.
               Correção de digitação: o documento escreve "em mais de seteis anos".
               O OAMa foi fundado em 2019, logo em 2026 são sete anos — usamos "sete". */}
@@ -134,6 +144,7 @@ const logos = [
                     alt={frente.alt}
                     class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent"></div>
                   <div class="absolute inset-x-0 bottom-0 px-4 pb-5 pt-12 text-left text-white">
@@ -171,12 +182,16 @@ const logos = [
           {
             clientes.map((cliente) => (
               <div class="flex items-center gap-4">
-                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-oama-blue">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 12h.01M9 15h.01M15 9h.01M15 12h.01M15 15h.01" />
-                  </svg>
-                </div>
-                <p class="text-[15px] leading-6 font-medium text-oama-ink">{cliente}</p>
+                <img
+                  src={ICONES_PUBLICO[cliente.icone].src}
+                  alt={ICONES_PUBLICO[cliente.icone].alt}
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  class="h-14 w-14 shrink-0 rounded-full"
+                  decoding="async"
+                />
+                <p class="text-[15px] leading-6 font-medium text-oama-ink">{cliente.texto}</p>
               </div>
             ))
           }
@@ -201,12 +216,17 @@ const logos = [
     <section class="bg-[#5ba4d9] px-6 py-12 text-white md:px-8 md:py-14">
       <div class="mx-auto max-w-4xl">
         <h2 class="font-oswald text-[28px] font-bold uppercase md:text-[34px]">Fale conosco</h2>
-        <p class="mt-3 max-w-3xl text-[15px] leading-6 md:text-[17px] md:leading-7">
+        <p class="mt-3 max-w-3xl text-justify text-[15px] leading-6 md:text-[17px] md:leading-7">
           Precisa de apoio técnico, uma proposta de serviço ou quer construir uma parceria com o OAMa?
           Preencha o formulário ou escreva para <a href="mailto:contato@oama.eco.br" class="underline underline-offset-4">contato@oama.eco.br</a>.
         </p>
 
-        <form class="mt-8 space-y-3" aria-label="Fale conosco" data-consultoria-form>
+        <form class="mt-8 space-y-3" aria-label="Fale conosco" data-contato-form data-contato-origem="Consultoria (hub)">
+          {/* Honeypot anti-spam: humanos não veem; bots preenchem e o servidor descarta. */}
+          <div class="hidden" aria-hidden="true">
+            <label for="consultoria-website">Não preencha este campo</label>
+            <input id="consultoria-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <label class="sr-only" for="consultoria-nome">Seu nome</label>
           <input
             id="consultoria-nome"
@@ -254,22 +274,23 @@ const logos = [
             required
             class="w-full rounded-[24px] bg-oama-yellow px-5 py-4 text-[15px] text-oama-ink placeholder:text-oama-ink/70 focus:outline-none"
           ></textarea>
+          <CaptchaSlot />
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95"
+              class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[15px] font-semibold text-[#5ba4d9] transition hover:brightness-95 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Preparar e-mail
+              Enviar
             </button>
           </div>
-          <p class="text-[14px] leading-5 text-white/90" data-consultoria-status hidden aria-live="polite"></p>
+          <p class="text-[13px] leading-5 text-white" data-contato-status hidden aria-live="polite"></p>
           <a
             class="inline-flex text-[14px] font-semibold text-white underline underline-offset-4"
-            data-consultoria-email-link
+            data-contato-fallback
             href="mailto:contato@oama.eco.br"
             hidden
           >
-            Abrir o e-mail novamente
+            Enviar por e-mail
           </a>
         </form>
       </div>
@@ -280,42 +301,6 @@ const logos = [
 </BaseLayout>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>("[data-consultoria-form]");
-  const status = form?.querySelector<HTMLElement>("[data-consultoria-status]");
-  const emailLink = form?.querySelector<HTMLAnchorElement>("[data-consultoria-email-link]");
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const data = new FormData(form);
-    const valor = (campo: string) => String(data.get(campo) ?? "").trim();
-    const corpo = [
-      "Olá, equipe OAMa!",
-      "",
-      "Gostaria de conversar sobre uma proposta de consultoria.",
-      "",
-      `Nome: ${valor("nome")}`,
-      `Cargo / organização: ${valor("cargo") || "Não informado"}`,
-      `E-mail: ${valor("email")}`,
-      `Telefone: ${valor("telefone") || "Não informado"}`,
-      "",
-      "Necessidade:",
-      valor("mensagem"),
-    ].join("\n");
-    const mailto = `mailto:contato@oama.eco.br?subject=${encodeURIComponent("Solicitação de consultoria pelo site")}&body=${encodeURIComponent(corpo)}`;
-
-    if (emailLink && status) {
-      emailLink.href = mailto;
-      emailLink.hidden = false;
-      status.textContent = "Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise os dados e confirme o envio por lá. Se nada acontecer, use o link abaixo.";
-      status.hidden = false;
-    }
-
-    window.location.href = mailto;
-  });
+  import { wireContatoForms } from "../scripts/contato";
+  wireContatoForms();
 </script>

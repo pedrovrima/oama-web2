@@ -1,0 +1,51 @@
+---
+// Renderiza parágrafos de prosa aceitando uma marcação mínima no fonte:
+// `**negrito**` e `*itálico*`. Existe para que textos longos vindos do
+// documento de redação do cliente fiquem legíveis no código sem precisar de
+// HTML cru dentro de `set:html` — que passaria qualquer coisa adiante sem
+// escapar. Aqui só saem `<strong>` e `<em>`.
+
+interface Props {
+  /** Um item por parágrafo. */
+  paragrafos: string[];
+  /** Classes aplicadas a cada `<p>`. */
+  class?: string;
+}
+
+const { paragrafos, class: classe = "" } = Astro.props;
+
+type Trecho = { texto: string; forte?: boolean; italico?: boolean };
+
+// Quebra em ** … ** e * … *, nessa ordem, para que ** não seja lido como dois *.
+function fatiar(texto: string): Trecho[] {
+  const trechos: Trecho[] = [];
+  const regex = /\*\*([^*]+)\*\*|\*([^*]+)\*/g;
+  let cursor = 0;
+  let m: RegExpExecArray | null;
+
+  while ((m = regex.exec(texto)) !== null) {
+    if (m.index > cursor) trechos.push({ texto: texto.slice(cursor, m.index) });
+    if (m[1] !== undefined) trechos.push({ texto: m[1], forte: true });
+    else trechos.push({ texto: m[2], italico: true });
+    cursor = m.index + m[0].length;
+  }
+  if (cursor < texto.length) trechos.push({ texto: texto.slice(cursor) });
+  return trechos;
+}
+---
+
+{
+  paragrafos.map((paragrafo) => (
+    <p class={classe}>
+      {fatiar(paragrafo).map((t) =>
+        t.forte ? (
+          <strong>{t.texto}</strong>
+        ) : t.italico ? (
+          <em>{t.texto}</em>
+        ) : (
+          t.texto
+        )
+      )}
+    </p>
+  ))
+}

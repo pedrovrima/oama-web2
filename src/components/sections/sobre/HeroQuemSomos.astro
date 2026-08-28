@@ -1,9 +1,14 @@
 <!-- Section 1: Hero -->
 <section class="relative h-[640px]">
   <img
-    src="/midias/sobre/hero-sobre-saira-amarela.jpg"
+    srcset="/midias/sobre/hero-sobre-saira-amarela-640w.webp 640w, /midias/sobre/hero-sobre-saira-amarela-960w.webp 960w, /midias/sobre/hero-sobre-saira-amarela-1280w.webp 1280w, /midias/sobre/hero-sobre-saira-amarela-1920w.webp 1920w, /midias/sobre/hero-sobre-saira-amarela.webp 2400w"
+    sizes="100vw"
+    src="/midias/sobre/hero-sobre-saira-amarela.webp"
     alt="Saíra-amarela (Stilpnia cayana) pousada em um galho com as asas semiabertas"
     class="absolute inset-0 w-full h-full object-cover"
+    decoding="async"
+    loading="eager"
+        fetchpriority="high"
   />
   <div class="absolute inset-0 bg-black/40"></div>
 

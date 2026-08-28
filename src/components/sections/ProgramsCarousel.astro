@@ -8,27 +8,27 @@ const FALLBACK = [
     title: "Capacitação Profissional",
     subtitle:
       "Formando profissionais conscientes e que almejam coletar dados de altíssima qualidade, com ética e segurança.",
-    image: "/midias/home/carrossel-capacitacao.jpg",
+    image: "/midias/home/carrossel-capacitacao.webp",
     link: "/programas-e-projetos/treinamento-monitoramento-avifauna",
   },
   {
     title: "Ações Pró-Aves",
     subtitle: "Promovendo ações positivas para a conservação de aves silvestres.",
-    image: "/midias/home/carrossel-acoes-pro-aves.jpg",
+    image: "/midias/home/carrossel-acoes-pro-aves.webp",
     link: "/programas-e-projetos/acoes-pro-aves",
   },
   {
     title: "Monitoramento de Aves da Mantiqueira",
     subtitle:
       "Desde 2018, monitoramos mais de 180 espécies na Serra da Mantiqueira com metodologia científica rigorosa.",
-    image: "/midias/home/aves-da-mantiqueira.jpg",
+    image: "/midias/home/aves-da-mantiqueira.webp",
     link: "/programas-e-projetos/monitoramento-de-avifauna",
   },
   {
     title: "Campanha Jacuçara",
     subtitle:
       "Conheça duas espécies ameaçadas e exclusivas da Mata Atlântica: a jacutinga e a palmeira-juçara.",
-    image: "/midias/home/jacucara.jpg",
+    image: "/midias/home/jacucara.webp",
     link: "/programas-e-projetos/campanha-jacucara",
   },
 ];
@@ -79,6 +79,7 @@ const slides = raw.length > 0
                 alt={slide.title}
                 loading={index === 0 ? "eager" : "lazy"}
                 class="h-[425px] w-full object-cover md:h-[400px]"
+                decoding="async"
               />
               <!-- Mobile: gradient top→bottom; Desktop: gradient bottom→top -->
               <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent md:bg-gradient-to-t md:from-black/70 md:via-black/20 md:to-transparent" />

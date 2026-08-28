@@ -17,6 +17,8 @@ const Tag = temDestino ? "a" : "div";
 const props = temDestino
   ? {
       href,
+      target: "_blank",
+      rel: "noopener noreferrer",
       class:
         "group flex flex-col overflow-hidden rounded-[20px] bg-white shadow-md hover:shadow-lg transition-shadow duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-oama-yellow",
     }
@@ -35,22 +37,24 @@ const props = temDestino
         alt={imageAlt || title}
         loading="lazy"
         class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+        decoding="async"
       />
     ) : (
       <div class="flex h-full w-full items-center justify-center bg-oama-cream px-4">
         <img
-          src="/brand/logo-round.png"
+          src="/brand/logo-round.webp"
           alt=""
           aria-hidden="true"
           loading="lazy"
           class="h-16 w-16 object-contain opacity-45"
+          decoding="async"
         />
       </div>
     )}
   </div>
 
   <!-- Text area: 172px (408 - 236) — pt 20px, pb 77px -->
-  <div class="flex flex-col gap-0 px-[23px] pt-5 pb-[77px]">
+  <div class="flex h-[172px] shrink-0 flex-col gap-0 overflow-hidden px-[23px] pt-5 pb-[77px]">
     <span class="text-base font-semibold leading-[25px] text-oama-ink font-montserrat">
       {label}
     </span>

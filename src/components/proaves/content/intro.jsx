@@ -310,7 +310,7 @@ export default function Intro() {
 
 const ImageGrid = (props) => {
   const { fig, legend, src, name } = props;
-  const image = encodeURI(`/proaves/intro (copy)/fig${fig}.jpg`);
+  const image = encodeURI(`/proaves/intro (copy)/fig${fig}.webp`);
 
   return (
     <a target='_blank' href={`/publicacoes/files/${src}`} className='mb-6'>

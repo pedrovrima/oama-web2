@@ -1,6 +1,4 @@
 ---
-import menuBg from "../../assets/index-hero.jpg";
-
 const {
   variant = "default", // "default" | "overlay"
 } = Astro.props;
@@ -43,15 +41,19 @@ const styles = isOverlay
       aria-label="Início"
     >
       <img
-        src="/brand/logo-round.png"
+        src="/brand/logo-round.webp"
         alt="OAMa"
         class="h-[50px] w-[50px] rounded-full object-cover"
+        decoding="async"
+        loading="lazy"
       />
     </a>
 
     <!-- ── DESKTOP: SVG logo, left-aligned ── -->
     <a href="/" class="hidden md:flex items-center gap-2" aria-label="Início">
-      <img src="/brand/logo-round.png" alt="OAMa" class="h-9 w-auto" />
+      <img src="/brand/logo-round.webp" alt="OAMa" class="h-9 w-auto"
+      decoding="async"
+    loading="lazy" />
     </a>
 
     <!-- ── DESKTOP nav: center ── -->
@@ -95,23 +97,37 @@ const styles = isOverlay
   </div>
 </header>
 
-<!-- ── Mobile fullscreen menu overlay ── -->
+<!-- Fundo clicável: fecha o menu ao tocar na parte da página que continua visível -->
 <div
-  id="mobile-menu"
-  class="fixed inset-0 z-50 flex flex-col transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden"
-  style={`background-image: url('${menuBg.src}'); background-size: cover; background-position: center;`}
+  id="mobile-menu-backdrop"
+  class="fixed inset-0 z-[99] hidden md:hidden"
   aria-hidden="true"
 >
-  <!-- White wash so the dark links/title stay legible over the photo -->
-  <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/55"></div>
+</div>
 
+<!--
+  ── Painel do menu mobile ──
+  No Figma (frame 2214:169) o menu é APENAS um painel branco levemente
+  transparente que desce do topo. A foto da ave e o bloco "Conservação com
+  Ciência" que aparecem no frame são a home ATRÁS do painel, não conteúdo do
+  menu — por isso o painel não tem imagem de fundo nem título próprio, e não
+  cobre a tela inteira: termina depois do "Apoie" e deixa a página aparecer.
+-->
+<div
+  id="mobile-menu"
+  class="fixed inset-x-0 top-0 z-[100] flex transform flex-col bg-white/90 backdrop-blur-sm transition-transform duration-300 ease-in-out md:hidden"
+  style="transform: translateY(-100%);"
+  aria-hidden="true"
+>
   <!-- Menu header: round logo centered, X close button right -->
-  <div class="relative flex items-center justify-between px-4 py-2" style="min-height: 66px;">
+  <div class="relative flex items-center justify-between bg-white px-4 py-2" style="min-height: 66px;">
     <a href="/" aria-label="Início" class="absolute left-1/2 -translate-x-1/2">
       <img
-        src="/brand/logo-round.png"
+        src="/brand/logo-round.webp"
         alt="OAMa"
         class="h-[50px] w-[50px] rounded-full object-cover"
+        decoding="async"
+        loading="lazy"
       />
     </a>
     <span class="flex-1" aria-hidden="true"></span>
@@ -127,7 +143,7 @@ const styles = isOverlay
   </div>
 
   <!-- Nav links: vertically stacked, left-aligned, gold/yellow (Figma) -->
-  <nav class="relative flex flex-col flex-1 justify-center items-start gap-6 px-8">
+  <nav class="relative flex flex-col items-start gap-6 px-8 pb-12 pt-8">
     {
       links.map((link) => (
         <a
@@ -147,16 +163,6 @@ const styles = isOverlay
       Apoie
     </a>
   </nav>
-
-  <!-- Bottom title block (Figma) -->
-  <div class="relative px-8 pb-12">
-    <h2 class="font-oswald font-bold uppercase leading-[1.05] text-oama-ink text-[28px]">
-      Conservação<br />com Ciência
-    </h2>
-    <p class="mt-2 max-w-[280px] text-[15px] font-montserrat text-oama-ink/80">
-      Gerando dados e engajamento para a conservação das aves da Mata Atlântica
-    </p>
-  </div>
 </div>
 
 <style>
@@ -196,22 +202,23 @@ const styles = isOverlay
   const toggle = document.getElementById("mobile-menu-toggle");
   const menu = document.getElementById("mobile-menu");
   const closeBtn = document.getElementById("mobile-menu-close");
+  const backdrop = document.getElementById("mobile-menu-backdrop");
 
   function openMenu() {
     if (!menu || !toggle) return;
-    menu.classList.remove("-translate-y-full");
-    menu.classList.add("translate-y-0");
+    menu.style.transform = "translateY(0)";
     menu.setAttribute("aria-hidden", "false");
     toggle.setAttribute("aria-expanded", "true");
+    backdrop?.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
     if (!menu || !toggle) return;
-    menu.classList.remove("translate-y-0");
-    menu.classList.add("-translate-y-full");
+    menu.style.transform = "translateY(-100%)";
     menu.setAttribute("aria-hidden", "true");
     toggle.setAttribute("aria-expanded", "false");
+    backdrop?.classList.add("hidden");
     document.body.style.overflow = "";
   }
 
@@ -221,6 +228,7 @@ const styles = isOverlay
   });
 
   closeBtn?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
 
   // Close on Escape key
   document.addEventListener("keydown", (e) => {

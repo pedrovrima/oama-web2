@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { ChaveIconePublico } from "../../data/icones-publico";
 import WaveDark from "../../components/sections/WaveDark.astro";
 import ConsultoriaServico from "../../components/sections/consultoria/ConsultoriaServico.astro";
 
@@ -34,18 +35,27 @@ const publico = [
   "Empresas de consultoria ambiental.",
 ];
 
-const icones = ["book", "binoculars", "flask", "building"];
+// Ordem e desenhos conforme o cluster do frame 2620:940 do Figma, que aqui
+// traz seis ícones e não quatro.
+const icones: ChaveIconePublico[] = [
+  "estudantes-profissionais",
+  "observadores-aves",
+  "universidades-pesquisa",
+  "orgaos-publicos",
+  "sociedade-civil",
+  "empresas-consultorias",
+];
 ---
 
 <BaseLayout
   description="Treinamento em coleta de dados, análise de muda e classificação de idade em aves, além de cursos e formação para guias de observação de aves."
-  image="/midias/consultoria/capacitacao.jpg"
+  image="/midias/consultoria/capacitacao.webp"
   title="Capacitação Técnica e Formação Profissional em Ornitologia — OAMa"
   navVariant="overlay"
 >
   <ConsultoriaServico
     titulo="Capacitação Técnica e Formação Profissional em Ornitologia"
-    heroImg="/midias/consultoria/capacitacao.jpg"
+    heroImg="/midias/consultoria/capacitacao.webp"
     heroAlt="Instrutora do OAMa orientando participante em atividade prática de anilhamento de aves"
     servicos={servicos}
     diferenciais={diferenciais}

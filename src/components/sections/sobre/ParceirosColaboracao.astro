@@ -26,17 +26,17 @@ interface Parceiro {
 // instituições na pasta de mídias do cliente.
 const parceiros: Parceiro[] = [
   // O arquivo original trazia CEMAVE e ICMBio na MESMA imagem; foi cortado ao
-  // meio e cada metade virou um logo (logo-cemave.jpg / logo-icmbio.jpg).
-  { nome: "CEMAVE / ICMBio-MMA", logo: "/midias/sobre/logo-cemave.jpg" },
-  { nome: "ICMBio / MMA", logo: "/midias/sobre/logo-icmbio.jpg" },
-  { nome: "PANAves Mata Atlântica", logo: "/midias/sobre/logo-panaves.jpg" },
-  { nome: "AVISTAR BRASIL", logo: "/midias/sobre/logo-avistar.png" },
-  { nome: "Klamath Bird Observatory", logo: "/midias/sobre/logo-kbo.png" },
-  { nome: "Pedra Selada", logo: "/midias/sobre/logo-pedra-selada.png" },
-  { nome: "Alto Montana da Serra Fina", logo: "/midias/sobre/logo-alto-montana.png" },
-  { nome: "Birds Atlantic", logo: "/midias/sobre/logo-birds-atlantic.jpg" },
+  // meio e cada metade virou um logo (logo-cemave.webp / logo-icmbio.webp).
+  { nome: "CEMAVE / ICMBio-MMA", logo: "/midias/sobre/logo-cemave.webp" },
+  { nome: "ICMBio / MMA", logo: "/midias/sobre/logo-icmbio.webp" },
+  { nome: "PANAves Mata Atlântica", logo: "/midias/sobre/logo-panaves.webp" },
+  { nome: "AVISTAR BRASIL", logo: "/midias/sobre/logo-avistar.webp" },
+  { nome: "Klamath Bird Observatory", logo: "/midias/sobre/logo-kbo.webp" },
+  { nome: "Pedra Selada", logo: "/midias/sobre/logo-pedra-selada.webp" },
+  { nome: "Alto Montana da Serra Fina", logo: "/midias/sobre/logo-alto-montana.webp" },
+  { nome: "Birds Atlantic", logo: "/midias/sobre/logo-birds-atlantic.webp" },
   { nome: "Secretaria Municipal de Turismo de Resende", logo: "" },
-  { nome: "RiMa", logo: "/midias/sobre/logo-rima.jpg" },
+  { nome: "RiMa", logo: "/midias/sobre/logo-rima.webp" },
   // Removidos por decisão do usuário (2026-08-25): de "Observatório Ecológico"
   // em diante — Simone Coimbra (é colaboradora, não parceira), ColaboraNóbrega,
   // Observatório de Aves do Butantan, Aves Noronha e Visconde de Mauá Apaixonante.
@@ -44,13 +44,13 @@ const parceiros: Parceiro[] = [
 
 // TODO: replace with Sanity query
 const colaboracaoCientifica: Parceiro[] = [
-  { nome: "Laboratório de Biologia de Populações", logo: "/midias/sobre/logo-lab-bio-pop.jpg" },
+  { nome: "Laboratório de Biologia de Populações", logo: "/midias/sobre/logo-lab-bio-pop.webp" },
   // "Lab Ornitologia" saiu e o LiVeFlow entrou no lugar (decisão do usuário).
   // Logo exportado do Figma (nó 2291:178, "laboratório interações").
-  { nome: "Laboratório LiVeFlow — USP", logo: "/midias/sobre/logo-liveflow.png" },
-  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", logo: "/midias/sobre/logo-laboac.jpg" },
-  { nome: "LECAVE", logo: "/midias/sobre/logo-lecave.jpg" },
-  { nome: "UERJ", logo: "/midias/sobre/logo-uerj.jpg" },
+  { nome: "Laboratório LiVeFlow — USP", logo: "/midias/sobre/logo-liveflow.webp" },
+  { nome: "LabOAc — Laboratório de Ornitologia e Bioacústica", logo: "/midias/sobre/logo-laboac.webp" },
+  { nome: "LECAVE", logo: "/midias/sobre/logo-lecave.webp" },
+  { nome: "UERJ", logo: "/midias/sobre/logo-uerj.webp" },
   { nome: "Laboratório de Ornitologia — UFJF", logo: "" },
   { nome: "Laboratório de Evolução e Caracteres Complexos — USP", logo: "" },
 ];
@@ -73,6 +73,8 @@ const colaboracaoCientifica: Parceiro[] = [
                 src={p.logo}
                 alt={p.nome}
                 class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                decoding="async"
+                loading="lazy"
               />
             </span>
           ) : (
@@ -97,6 +99,8 @@ const colaboracaoCientifica: Parceiro[] = [
                 src={c.logo}
                 alt={c.nome}
                 class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                decoding="async"
+                loading="lazy"
               />
             </span>
           ) : (

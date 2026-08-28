@@ -40,7 +40,12 @@ const imagemSocial = linkTree.headerImage
   : undefined;
 ---
 
-<BaseLayout title={`${linkTree.title} — OAMa`} description={descricao} image={imagemSocial}>
+<BaseLayout
+  title={`${linkTree.title} — OAMa`}
+  description={descricao}
+  image={imagemSocial}
+  semBreadcrumbs
+>
   <main class="min-h-screen bg-oama-cream font-montserrat text-oama-ink">
     <div class="mx-auto w-full max-w-[560px] px-5 py-10 md:py-14">
       <header class="mb-8 flex flex-col items-center text-center">
@@ -51,6 +56,8 @@ const imagemSocial = linkTree.headerImage
               alt={`Imagem do programa ${linkTree.title}`}
               class="mb-5 h-auto w-[190px] object-contain md:w-[220px]"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           )
         }
@@ -84,6 +91,7 @@ const imagemSocial = linkTree.headerImage
                     alt={`Ícone do link ${item.title}`}
                     class="h-[52px] w-[52px] shrink-0 rounded-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 )}
                 <span class="font-oswald text-[17px] font-medium uppercase leading-[22px] text-oama-ink md:text-[19px] md:leading-[24px]">

@@ -3,26 +3,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const odsPrincipais = [
   {
-    src: "/home/ods/ODS 13.png",
+    src: "/home/ods/ODS 13.webp",
     alt: "ODS 13 — Ação contra a mudança global do clima",
   },
   {
-    src: "/home/ods/ODS 15.png",
+    src: "/home/ods/ODS 15.webp",
     alt: "ODS 15 — Vida terrestre",
   },
 ];
 
 const odsSecundarios = [
   {
-    src: "/home/ods/ODS 4.png",
+    src: "/home/ods/ODS 4.webp",
     alt: "ODS 4 — Educação de qualidade",
   },
   {
-    src: "/home/ods/ODS 11.png",
+    src: "/home/ods/ODS 11.webp",
     alt: "ODS 11 — Cidades e comunidades sustentáveis",
   },
   {
-    src: "/home/ods/ODS 12.png",
+    src: "/home/ods/ODS 12.webp",
     alt: "ODS 12 — Consumo e produção responsáveis",
   },
 ];
@@ -31,16 +31,20 @@ const odsSecundarios = [
 <BaseLayout
   title="Missão — OAMa"
   description="A missão do OAMa e o uso do processo científico como método transversal, com os Objetivos de Desenvolvimento Sustentável que orientam seus projetos."
-  image="/midias/missao/hero-missao.jpg"
+  image="/midias/missao/hero-missao.webp"
 >
   <main class="font-montserrat bg-oama-cream">
     <!-- HERO -->
     <section class="relative h-[432px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/missao/hero-missao.jpg"
+        srcset="/midias/missao/hero-missao-640w.webp 640w, /midias/missao/hero-missao-960w.webp 960w, /midias/missao/hero-missao-1280w.webp 1280w, /midias/missao/hero-missao.webp 1920w"
+        sizes="100vw"
+        src="/midias/missao/hero-missao.webp"
         alt="Ave da Mata Atlântica — Swainsonzinho (Dacnis cayana) em galho com frutos"
         class="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6">
         <h1 class="translate-y-[3px] font-oswald text-[34px] font-bold uppercase leading-none text-white drop-shadow-md md:text-[72px]">
@@ -70,6 +74,7 @@ const odsSecundarios = [
                   alt={ods.alt}
                   class="aspect-square w-full object-cover shadow-sm"
                   loading="lazy"
+                  decoding="async"
                 />
               ))
             }
@@ -83,6 +88,7 @@ const odsSecundarios = [
                   alt={ods.alt}
                   class="h-[44px] w-[44px] object-cover md:h-[76px] md:w-[76px]"
                   loading="lazy"
+                  decoding="async"
                 />
               ))
             }
@@ -100,10 +106,11 @@ const odsSecundarios = [
     <!-- IMAGEM DE FECHAMENTO -->
     <section class="h-[540px] w-full overflow-hidden md:h-[640px]">
       <img
-        src="/midias/missao/fechamento.jpg"
+        src="/midias/missao/fechamento.webp"
         alt="Saíra-sete-cores (Tangara seledon) pousada em galho curvo — Mata Atlântica"
         class="h-full w-full object-cover object-center"
         loading="lazy"
+        decoding="async"
       />
     </section>
   </main>

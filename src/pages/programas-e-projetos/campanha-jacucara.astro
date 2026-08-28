@@ -11,15 +11,15 @@ const colors = {
 // Carrossel full-bleed entre os dois blocos de texto (frame: foto dos cachos com setas)
 const galeria = [
   {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-2.jpg",
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-2.webp",
     alt: "Cachos de frutos maduros de juçara (Euterpe edulis) em palmeira da Mata Atlântica",
   },
   {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-1.jpg",
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-1.webp",
     alt: "Palmeira juçara em fragmento de Mata Atlântica",
   },
   {
-    imagem: "/midias/programas-e-projetos/jacucara-galeria-3.jpg",
+    imagem: "/midias/programas-e-projetos/jacucara-galeria-3.webp",
     alt: "Ação de campo da Campanha Jacuçara",
   },
 ];
@@ -27,15 +27,19 @@ const galeria = [
 
 <BaseLayout
   description="Campanha do OAMa pela conservação da jacutinga e da palmeira juçara, duas espécies ameaçadas da Mata Atlântica ligadas por uma teia de relações."
-  image="/midias/programas-e-projetos/jacucara-hero.jpg" title="Campanha Jacuçara — OAMa" navVariant="overlay">
+  image="/midias/programas-e-projetos/jacucara-hero.webp" title="Campanha Jacuçara — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/programas-e-projetos/jacucara-hero.jpg"
+        srcset="/midias/programas-e-projetos/jacucara-hero-640w.webp 640w, /midias/programas-e-projetos/jacucara-hero-960w.webp 960w, /midias/programas-e-projetos/jacucara-hero-1280w.webp 1280w, /midias/programas-e-projetos/jacucara-hero.webp 1920w"
+        sizes="100vw"
+        src="/midias/programas-e-projetos/jacucara-hero.webp"
         alt="Jacutinga (Aburria jacutinga) em palmeira juçara na Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -79,6 +83,7 @@ const galeria = [
             ]}
             data-slide={i}
             loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
           />
         ))}
 

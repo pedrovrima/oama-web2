@@ -30,6 +30,7 @@ export default function Image({
         className={`absolute inset-0 h-full w-full ${fitClass} ${className}`}
         style={objectPosition ? { objectPosition } : undefined}
         {...rest}
+        decoding="async"
       />
     );
   }
@@ -44,6 +45,7 @@ export default function Image({
         loading={loading}
         className={`h-auto w-full ${fitClass} ${className}`}
         {...rest}
+        decoding="async"
       />
     );
   }
@@ -59,6 +61,7 @@ export default function Image({
         className={`max-w-none ${fitClass} ${className}`}
         style={{ width, height }}
         {...rest}
+        decoding="async"
       />
     );
   }
@@ -75,6 +78,7 @@ export default function Image({
       className={`${fitClass} ${className}`}
       style={{ maxWidth: "100%", height: "auto" }}
       {...rest}
+      decoding="async"
     />
   );
 }

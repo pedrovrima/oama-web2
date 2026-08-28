@@ -9,7 +9,11 @@
 - Backlog Linear já existe; a orquestração local continua em `docs/agent-workflow/`
 
 ## Estado operacional atual
-- **Google Analytics 4 instalado (2026-08-26):** snippet gtag (`G-78XYNN79L7`) no `<head>` de `src/layouts/BaseLayout.astro`, condicionado a `import.meta.env.PROD` — não carrega em `astro dev`. Cobre todas as páginas (layout único). Build verificado.
+- **Monitoramento de Avifauna realinhada ao frame Figma (2026-08-27):** a página `src/pages/programas-e-projetos/monitoramento-de-avifauna.astro` foi revisada frame a frame contra `2498:638` (Desktop_Monitoramento). Hero e foto de fundo da citação passaram a usar assets exportados dos nós `2501:398` e `2501:408` do Figma. O carrossel agora exibe as 8 fotos reais de aves que ficam estacionadas ao lado do frame (nós `2502:420`, `2502:465`, `2498:597`, `2498:592`, `2498:599`, `2498:600`, `2498:598`, `2498:596`), todas com `<Image>` de `astro:assets`. Título passou a branco/30px em Oswald. Introdução estruturada conforme o Figma: frase sobre objetivos integrada ao parágrafo, trecho sobre observatórios em negrito. Bullets de objetivos: círculo branco com check amarelo, 43px, alinhados à margem. Seção de citação: removidos véu preto e ícone de aspas; citação em coluna esquerda max 430px, justificada, itálico semibold; gradiente escuro mantido só à esquerda para contraste mobile. Faixa azul de tradução: justificada em 16px. Onda WaveDark entre faixa e carrossel removida. Seção "Início e áreas": conteúdo consolidado em parágrafo corrido sobre fundo amarelo; texto corrigido para "mais de 6 anos". Amarelo da página alinhado ao Figma (#dfb553). Onda final ajustada para amarelo → escuro → azul (nó `2502:452`). Pendência: frame define espaço vazio de 705px (nó `2502:449`) entre introdução e seção técnicas — conteúdo a definir; provisoriamente ocupado pelas 3 fotos de técnicas existentes.
+- **Composições circulares de /areas-de-atuacao vindas do Figma (2026-08-27):** as três colagens de fotos das seções (Pesquisa e Monitoramento, Comunicação Científica, Capacitações Técnicas) eram remontadas à mão em `src/pages/areas-de-atuacao.astro` com `position: absolute` (anel de borda + 2 ícones + 3 fotos circulares por seção) e não batiam com o design. Substituídas pelos PNGs exportados direto dos nós do Figma `2490:385` (pesquisa), `2490:384` (comunicação) e `2490:386` (capacitação), onde anel, ícones e fotos já vêm compostos. Arquivos em `src/assets/composicao-{pesquisa,comunicacao,capacitacao}.png`, renderizados com `<Image>` de `astro:assets` (build otimiza para WebP, ~160 KB cada). QA visual em 1280 e 390 px: bate com o Figma. As fotos soltas em `public/midias/areas-de-atuacao/{pesquisa,comunicacao,capacitacao}-1..3.jpg` ficaram órfãs, mas não foram removidas.
+- **Captcha Cloudflare Turnstile nos formulários (2026-08-27, sem commit):** novo `src/scripts/captcha.ts` (carregamento preguiçoso do script oficial no primeiro foco no form; widget invisível `appearance: interaction-only`, sem layout shift; fail-open sem `PUBLIC_TURNSTILE_SITE_KEY`). Integrado em `newsletter.ts` e `contato.ts` — enviam `captcha_token` no payload quando há chave. No mailer (`newsletter-oama`, sem commit): `lib/turnstile.ts` (verificação server-side no siteverify da Cloudflare, fail-open com warn sem `TURNSTILE_SECRET_KEY`) plugado em `/api/subscribers` e `/api/contato` (403 em token inválido/ausente quando a chave existe). Escolha Turnstile em vez do reCAPTCHA do Figma: sem interação do usuário e melhor privacidade (ONG). Pendente: criar conta Cloudflare Turnstile, configurar `PUBLIC_TURNSTILE_SITE_KEY` (Vercel do site) e `TURNSTILE_SECRET_KEY` (Vercel do mailer). Honeypot e rate limit continuam ativos.
+- **Formulários "Fale Conosco" com envio real (2026-08-27, sem commit):** os forms de `/consultoria` (hub) e das 3 filhas (`ConsultoriaServico.astro`) deixaram de usar `mailto:` e passaram a fazer POST para `POST /api/contato` do mailer (`newsletter-oama`, rota nova em `app/api/contato/route.ts`, envia via SES para `contato@oama.eco.br` com Reply-To do visitante; honeypot `website`, rate limit por IP, CORS igual ao de `/api/subscribers`). Script compartilhado `src/scripts/contato.ts` (padrão de `newsletter.ts`; endpoint via `PUBLIC_CONTATO_ENDPOINT`, fallback para produção; erro exibe mailto de plano B). Botão do hub agora diz "Enviar" (Figma). QA: build 29 páginas + três estados (enviando/sucesso/erro) verificados no navegador com mock 200/500. Pendências de deploy: deploy do mailer com `CONTACT_TO_EMAIL` (opcional) e SES já configurado; reCAPTCHA é task separada (campo `captcha_token` já aceito e ignorado).
+- **Google Analytics 4 instalado (2026-08-26):** snippet gtag (`G-78XYNN79L7`) no `<head>` de `src/layouts/BaseLayout.astro`, condicionado a `import.meta.env.PROD` — não carrega em `astro dev`. Cobre todas as páginas (layout único).
 - **TASK-LAUNCH-001 está em andamento (2026-07-20):** preparação para lançamento sem CMS; auditoria por abas/painéis Herdr, com Pi (`openai-pedro`) e Claude Code. Fable é proibido. Brief: `docs/implementation/pages/lancamento.md`.
 - O repo já possui uma camada de briefs em `docs/implementation/pages/`.
 - O repo já possui `AGENT.md` com regras de hardcoded vs Sanity.
@@ -111,7 +115,22 @@
     `og:image:alt`/dimensões; imagem OG padrão 1200×630 (`/brand/og-default.jpg`,
     gerada via sips da hero-missao); `noindex` em `/newsletter`; `apple-touch-icon`,
     `link rel=sitemap`, `initial-scale=1`; `lastmod` do sitemap usa `_updatedAt`
-    do Sanity. GA4 preservado no head.
+    do Sanity. GA4 preservado no head. Inclui GEO: `public/llms.txt` (índice
+    curado para agentes de IA) e `robots.txt` explicitamente aberto aos
+    crawlers de IA.
+
+22. **Otimização de imagens (2026-08-28)** — frente transversal, não mexeu em
+    conteúdo nem em layout. Os 440 rasters de `public/` eram servidos crus (Astro
+    só otimiza o que passa por `<Image>` a partir de `src/assets`): convertidos
+    para WebP q82 com cap de 2000px, 2560px em hero/capa. **207 MB → 49 MB
+    (-76%)**; maior arquivo de 6,3 MB para 896 KB. 276 referências reescritas em
+    41 arquivos. Somados: `decoding="async"` em 118 tags, `loading="lazy"` em 33,
+    `fetchpriority="high"` nos 22 heroes, `srcset` responsivo em 18 heroes
+    (640/960/1280/1920px, `sizes="100vw"`) e headers de cache no `vercel.json`.
+    Verificação: build verde em 34 páginas; 706 referências do `dist` conferidas
+    contra o disco, 0 quebradas; QA no navegador em 33 rotas a 1440 e 390,
+    0 imagens quebradas. **Os 470 MB de PDFs continuam sem tratamento**, por
+    decisão do usuário. Ver `docs/implementation/pages/otimizacao-de-imagens.md`.
 
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
+import TextoRico from "../../components/TextoRico.astro";
 
 // Paleta padrão do projeto (mesma usada em consultoria).
 const colors = {
@@ -14,18 +15,32 @@ const colors = {
 // lidos coluna a coluna de cima para baixo. O campo `tom` reproduz o padrão
 // alternado branco/escuro dos cards visto no frame.
 // `link` é opcional: só alguns projetos têm material publicado.
+//
+// `descricao` vem do documento oficial de redação do cliente, seção "PROJETOS
+// DE PESQUISA". Nomes de pessoas, instituições, laboratórios e congressos estão
+// como no documento; só foram corrigidos erros de digitação e concordância.
+// Fica dentro de um `<details>` no card porque o frame do Figma prevê a grade
+// de cards, e são de 2 a 5 parágrafos por projeto: expandir no lugar preserva o
+// layout e mantém o texto no HTML, indexável. Mesmo padrão já usado em
+// `treinamento-monitoramento-avifauna` e em `consultoria/cursos`.
 const projetos: {
   titulo: string;
   periodo: string;
   imagem: string;
   alt: string;
   tom: string;
+  descricao: string[];
   link?: string;
 }[] = [
   {
     titulo: "Pesquisa de Percepção Socioambiental - PAN Aves da Mata Atlântica",
     periodo: "2024 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-1.jpg",
+    descricao: [
+      "Com o intuito de **avaliar a efetividade das ações de educomunicação do PAN Aves da Mata Atlântica**, esta pesquisa traçou um panorama inovador e detalhado de como a população residente na área da Mata Atlântica reconhece e percebe desafios enfrentados pela conservação das aves e seus habitats, com foco nos temas dos objetivos deste PAN: perda de habitat, caça e tráfico ilegal de animais silvestres, espécies exóticas invasoras e soltura de animais na natureza.",
+      "A elaboração do estudo foi fruto de um esforço conjunto do Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio), do Centro Nacional de Pesquisa e Conservação das Aves Silvestres e do Observatório de Aves da Mantiqueira, com apoio do Parque das Aves e participação de diversos outros colaboradores do PAN. A iniciativa foi concebida como parte dos objetivos do segundo ciclo do Plano de Ação Nacional para Conservação das Aves da Mata Atlântica.",
+      "Esse estudo já resultou em um relatório geral publicado, uma pesquisa PIBIC conduzida pela aluna Karine Resende e uma apresentação no Avistar-SP, e deve ser continuado para a realização de pelo menos mais duas repetições de pesquisa — uma de meio e outra de final do ciclo do PAN Aves da Mata Atlântica — para acompanhar o efeito das ações de educomunicação neste período.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-1.webp",
     alt: "Ave de peito vermelho-vinho e asas azuis pousada em galho na Mata Atlântica",
     tom: "claro",
     // Relatório da pesquisa, publicado em public/publicacoes/files/.
@@ -34,21 +49,38 @@ const projetos: {
   {
     titulo: "Migração Altitudinal de Aves na Mantiqueira",
     periodo: "2023 - 2025",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-2.jpg",
+    descricao: [
+      "A pesquisa de mestrado de Danielle Santos, assistente de pesquisa do OAMa, é desenvolvida em parceria com o Laboratório de Biologia de Populações da UFRGS, com orientação do Dr. Gonçalo Ferraz, e tem o objetivo de **detectar movimentos sazonais de espécies de aves entre diferentes altitudes de uma região de Mata Atlântica da Serra da Mantiqueira.**",
+      "Entender se as aves realizam movimentos altitudinais de maneira previsível e cíclica (ou seja, migrações) entre áreas de reprodução e não-reprodução é crucial para identificar locais prioritários para conservação e para antecipar respostas populacionais às mudanças climáticas.",
+      "Para realizar essa missão, entre 2024 e 2025, Danielle aplicou as técnicas de captura-marcação-recaptura e gravações autônomas para coletar dados populacionais de algumas espécies de aves a 1.400 m e 2.100 m acima do nível do mar, na RPPN Alto Montana, localizada em Itamonte, MG. As coletas de dados aconteceram associadas à terceira e à quarta edições do Programa de Treinamento do OAMa.",
+      "Este projeto de pesquisa, em fase de conclusão, teve os resultados preliminares apresentados no XXIX Congresso Brasileiro de Ornitologia, e será apresentado como dissertação de mestrado de Danielle e na publicação de um artigo científico em atual desenvolvimento.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-2.webp",
     alt: "Ave azul com topete vermelho segurada em campo durante estudo de migração altitudinal",
     tom: "escuro",
   },
   {
     titulo: "Levantamento de Aves da Serra da Mantiqueira",
     periodo: "2021 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-3.jpg",
+    descricao: [
+      "Nosso diretor de projetos, Affonso Souza, vem desenvolvendo desde 2021 um estudo que busca **descrever os padrões temporais, espaciais e metodológicos dos estudos científicos e técnicos disponíveis sobre a ocorrência de aves na Mantiqueira.**",
+      "Apesar de a Mata Atlântica ser bastante estudada desde o século XIX — quando colonizadores europeus realizaram viagens de catalogação e saqueamento da biodiversidade sul-americana —, ainda temos perceptíveis lacunas espaciais de amostragem e a inexistência de panoramas gerais sobre o estado da biodiversidade em diversos grupos e ambientes. Um exemplo disso é a ausência de uma lista completa e confiável de espécies de aves da Mantiqueira.",
+      "Diante dessas ausências, e como um conhecimento de base necessário aos objetivos do OAMa, iniciamos um levantamento bibliográfico, compilando artigos científicos que apresentam dados de ocorrência de espécies da avifauna na Serra da Mantiqueira. Teses, dissertações, relatórios técnicos e trabalhos científicos antigos e raros também entram nessa busca.",
+      "Como resultado deste projeto em desenvolvimento, visamos publicar um artigo científico de revisão e uma lista atualizada e revisada de espécies de aves catalogadas para a Serra da Mantiqueira. Além disso, partes desse projeto já foram apresentadas em comunicações científicas e as informações levantadas servirão de guia para o planejamento de nossas ações de monitoramento de avifauna na região.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-3.webp",
     alt: "Ave marrom listrada pousada em ramo de araucária na Serra da Mantiqueira",
     tom: "escuro",
   },
   {
     titulo: "Dinâmicas populacionais de beija-flores",
     periodo: "2023 - 2025",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-4.jpg",
+    descricao: [
+      "O projeto de pesquisa de mestrado liderado por Natália Inácio-Almeida, ex-trainee do Programa de Treinamento do OAMa e aluna de pós-graduação no Departamento de Ecologia da USP, é uma parceria do OAMa com o Laboratório de Interações entre Vertebrados e Flores (LiVeFlow), sob orientação da Dra. Silvana Buzato.",
+      "O seu objetivo é **entender a dinâmica populacional e a proporção de machos e fêmeas de uma comunidade de beija-flores em uma floresta de altitude**. O estudo tem ênfase na ecologia do beija-flor-de-fronte-violeta (*Thalurania glaucopis*) e do rabo-branco-de-garganta-rajada (*Phaethornis eurynome*). O monitoramento das espécies de beija-flores aconteceu entre 2024 e 2025, após capacitação em anilhamento de beija-flores, da qual Natália participou na Estação de Pesquisa OAMa. Os resultados desse estudo guiarão tomadas de decisões que visem a sobrevivência dessas aves e seu papel vital como polinizadores nas Américas.",
+      "Este projeto de pesquisa, em fase de conclusão, teve resultados preliminares apresentados em um simpósio no XXIX Congresso Brasileiro de Ornitologia e será apresentado como dissertação de mestrado de Natália e na publicação de um artigo científico em atual desenvolvimento.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-4.webp",
     alt: "Beija-flor com asa e cauda abertas na mão de pesquisador durante anilhamento",
     tom: "claro",
   },
@@ -56,28 +88,49 @@ const projetos: {
     titulo:
       "Uso da corrugação de bico para auxiliar a classificação de idade de beija-flores",
     periodo: "2022 - 2025",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-5.jpg",
+    descricao: [
+      "Iniciado como um projeto de pesquisa desenvolvido com dados do monitoramento pelo trainee André Menini durante o programa de treinamento de 2022, este projeto foi assumido em 2025 pelas colaboradoras Natália Inácio-Almeida e Silvana Buzato. Neste estudo utilizamos os dados de captura das duas espécies de beija-flores mais abundantes no monitoramento do OAMa para **avaliar a detecção de corrugação de bico destas espécies como uma informação auxiliar para a identificação de classes etárias.**",
+      "Como resultado, este projeto tem um artigo em fase final de desenvolvimento para ser submetido à publicação em um jornal científico.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-5.webp",
     alt: "Detalhe da cabeça e do bico longo de beija-flor verde na mão de pesquisador",
     tom: "claro",
   },
   {
     titulo: "Variação na taxa de captura com redes de neblina",
     periodo: "2025 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-6.jpg",
+    descricao: [
+      "Rachel Fidelis, ex-trainee do Programa de Treinamento de 2024, assistente do treinamento em 2025 e atual voluntária de pesquisa do OAMa, utiliza dados do Programa de Monitoramento (2019-2025) para **avaliar se o esforço repetitivo de amostragem com redes de neblina em um mesmo local tem um efeito negativo nas taxas de captura de aves** (*net shyness*).",
+      "A técnica de anilhamento é amplamente utilizada em estudos com aves, sendo essencial conhecer potenciais vieses do método para garantir a eficiência da coleta dos dados. Atualmente, existem poucos estudos acerca de um efeito conhecido como evitação de redes de neblina (*net shyness*). Esse efeito pressupõe que as aves reconhecem as áreas onde as armadilhas e a movimentação de pesquisadores se concentram, e passam a utilizar menos esses pontos após dias seguidos de trabalho em campo.",
+      "Esse projeto trará uma ferramenta para que ornitólogos e anilhadores em campo possam planejar melhor seus delineamentos amostrais, com base em informações quantificadas e testadas. Os resultados preliminares foram apresentados como pôster no XXIX Congresso Brasileiro de Ornitologia, e o manuscrito está em fase final de desenvolvimento para ser submetido para publicação em um jornal científico.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-6.webp",
     alt: "Ave clara capturada em rede de neblina na floresta durante monitoramento",
     tom: "escuro",
   },
   {
     titulo: "Ciclo de muda e classificação de idade de Chiroxiphia caudata",
     periodo: "2019 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-7.jpg",
+    descricao: [
+      "Com base nos dados de captura-marcação-recaptura do monitoramento do OAMa desde 2018, investigamos os **padrões de trocas de penas, aspectos da plumagem e características auxiliares para classificar idade do tangará-dançarino** (*Chiroxiphia caudata*). Esse projeto de pesquisa vem sendo conduzido por Luiza Figueira, Diretora Executiva do OAMa.",
+      "Essa espécie é foco de um estudo só seu por conta da interessante variação da plumagem entre classes de idade do macho, que demora quatro ciclos completos para atingir a plumagem definitiva. Neste estudo estamos analisando as variações entre indivíduos e em um mesmo indivíduo ao longo do tempo, e avaliando a confiabilidade na categorização de classes de idade considerando tais variações.",
+      "Este projeto, em contínuo desenvolvimento pela equipe interna do OAMa, tem como objetivo produzir uma publicação em um jornal científico. Seus resultados preliminares já foram apresentados no XXVIII Congresso Brasileiro de Ornitologia, e são compartilhados na página da respectiva espécie na plataforma WikiMudas, do OAMa.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-7.webp",
     alt: "Tangará-dançador (Chiroxiphia caudata) com topete vermelho segurado em campo",
     tom: "escuro",
   },
   {
     titulo: "Aves seguidoras de frutificações de bambu",
     periodo: "2024 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-8.jpg",
+    descricao: [
+      "Andreza Freitas é ex-trainee e voluntária de divulgação científica do OAMa. Ela desenvolve sua pesquisa de doutorado no Laboratório de Ecologia de Aves e Comportamento da UERJ pelo programa de pós-graduação em Ecologia da UFRJ, sob orientação da Dra. Maria Alice Alves, e em parceria com o OAMa. Seu objetivo central é **compreender o efeito da frutificação explosiva de bambus lenhosos em espécies de aves com diferentes graus de dependência por esse recurso.**",
+      "Da perspectiva das aves especializadas em bambus da Mata Atlântica, a frutificação (que ocorre em intervalos de 3 a 120 anos) é algo imprevisível e que fortemente influencia processos fisiológicos, como a troca de penas, algo vital para esses animais.",
+      "Dentre as espécies de aves nômades ou parcialmente nômades, que utilizam das frutificações de bambu como habitat e/ou fonte de alimento, encontramos alguns exemplos ameaçados de extinção em nível nacional, como pixoxó (*Sporophila frontalis*), cigarra-verdadeira (*Sporophila falcirostris*) e pararu-espelho (*Claravis geoffroyi*).",
+      "Complementarmente, Andreza usa os dados de captura-marcação-recaptura da cigarra-bambu (*Haplospiza unicolor*) no monitoramento do OAMa para descrever os padrões de muda e plumagem para a espécie.",
+      "Este projeto de pesquisa será apresentado na tese de doutorado de Andreza e em pelo menos três artigos científicos a serem submetidos para publicação.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-8.webp",
     alt: "Ave cinzenta de bico claro segurada na mão durante estudo de aves de bambu",
     tom: "claro",
   },
@@ -85,7 +138,12 @@ const projetos: {
     titulo:
       "Colisões de aves com vidro: Enxergando soluções para uma ameaça invisível",
     periodo: "2024 - atual",
-    imagem: "/midias/programas-e-projetos/pesquisa-card-9.jpg",
+    descricao: [
+      "Novos impactos ambientais que ameaçam a biodiversidade surgem à medida que as sociedades humanas se expropriam de relações harmônicas com o meio natural e criam formas insustentáveis de existir. O uso crescente de vidros na arquitetura moderna, por exemplo, tem revelado um perigo invisível para as aves. A colisão de aves em vidraças é considerada uma das principais causas de mortalidade da avifauna na atualidade.",
+      "No Brasil, os dados disponíveis ainda não nos permitem estimar a perda de biodiversidade anual para as vidraças, enquanto poucos estudos científicos foram publicados e as iniciativas de pautar este tema na legislação ambiental seguem em ritmo lento. Em 2024, a equipe do observatório, liderada por Affonso Souza, iniciou uma pesquisa nacional de ciência cidadã para levantar dados sobre as taxas de colisão de aves em vidro e as características destes eventos. A pesquisa é associada a uma campanha para estimular que qualquer cidadão brasileiro reporte colisões de aves com vidros que venha a testemunhar, gerando dados que possam estimar o número de colisões no Brasil, as espécies envolvidas e as condições associadas.",
+      "Os resultados dessa pesquisa serão publicados em jornais científicos com objetivo de contribuir com a elaboração de políticas públicas. Resultados prévios foram apresentados durante o XXIX Congresso Brasileiro de Ornitologia, e compartilhamos relatórios periódicos de acompanhamento nas redes sociais do Observatório.",
+    ],
+    imagem: "/midias/programas-e-projetos/pesquisa-card-9.webp",
     alt: "Ave verde e amarela morta sobre jornal, registro de colisão com vidro",
     tom: "claro",
   },
@@ -94,16 +152,20 @@ const projetos: {
 
 <BaseLayout
   description="Projetos de pesquisa do OAMa sobre migração altitudinal, ciclos de muda, beija-flores e colisões com vidro, em parceria com universidades brasileiras."
-  image="/midias/programas-e-projetos/pesquisa-hero.jpg" title="Projetos de Pesquisa — OAMa" navVariant="overlay">
+  image="/midias/programas-e-projetos/pesquisa-hero.webp" title="Projetos de Pesquisa — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     {/* HERO: full-bleed com foto de fundo e título ancorado ao rodapé */}
     {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/programas-e-projetos/pesquisa-hero.jpg"
+        srcset="/midias/programas-e-projetos/pesquisa-hero-640w.webp 640w, /midias/programas-e-projetos/pesquisa-hero-960w.webp 960w, /midias/programas-e-projetos/pesquisa-hero-1280w.webp 1280w, /midias/programas-e-projetos/pesquisa-hero-1920w.webp 1920w, /midias/programas-e-projetos/pesquisa-hero.webp 2400w"
+        sizes="100vw"
+        src="/midias/programas-e-projetos/pesquisa-hero.webp"
         alt="Mão segurando ave de asas abertas durante pesquisa de campo do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -150,7 +212,7 @@ const projetos: {
     <section class="w-full pb-16" style={`background:${colors.yellow};`}>
       <div class="mx-auto max-w-5xl px-6">
         <ul
-          class="grid gap-6 sm:grid-cols-2"
+          class="grid items-start gap-6 sm:grid-cols-2"
           aria-label="Projetos de pesquisa do OAMa"
         >
           {
@@ -171,6 +233,7 @@ const projetos: {
                         alt={p.alt}
                         class="h-full w-full object-cover"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </div>
@@ -195,6 +258,25 @@ const projetos: {
                     >
                       {p.periodo}
                     </p>
+
+                    <details class="group mt-4">
+                      <summary
+                        class:list={[
+                          "cursor-pointer list-none text-[14px] font-semibold underline underline-offset-4 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-oama-yellow",
+                          escuro ? "text-white" : "text-oama-ink",
+                        ]}
+                      >
+                        <span class="group-open:hidden">Sobre o projeto ＋</span>
+                        <span class="hidden group-open:inline">Fechar −</span>
+                      </summary>
+                      <TextoRico
+                        paragrafos={p.descricao}
+                        class:list={[
+                          "mt-3 text-[14px] leading-[21px]",
+                          escuro ? "text-white/85" : "text-oama-ink/85",
+                        ]}
+                      />
+                    </details>
                   </div>
                 </li>
               );

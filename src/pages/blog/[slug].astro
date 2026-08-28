@@ -79,6 +79,8 @@ const dataFormatada = post.publishedAt
             alt={post.title}
             class="absolute inset-0 h-full w-full object-cover"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         ) : (
           <div class="absolute inset-0 bg-[#5ba4d9]" />
@@ -105,6 +107,7 @@ const dataFormatada = post.publishedAt
                   alt={`Foto de ${post.author?.name ?? "autor"}`}
                   class="h-12 w-12 rounded-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               )
             }
@@ -146,3 +149,14 @@ const dataFormatada = post.publishedAt
     />
   </main>
 </BaseLayout>
+
+<style>
+  /* Alguns posts trazem a URL crua como texto do link. Sem ponto de quebra,
+     uma URL longa empurra a pagina inteira e cria rolagem horizontal no
+     celular — media em 390px, dois posts estouravam ate 482px. `anywhere`
+     so parte a palavra quando ela sozinha nao cabe na linha, entao a prosa
+     normal continua quebrando por espaco. */
+  .blog-corpo {
+    overflow-wrap: anywhere;
+  }
+</style>

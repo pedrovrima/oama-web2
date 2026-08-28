@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { ChaveIconePublico } from "../../data/icones-publico";
 import WaveDark from "../../components/sections/WaveDark.astro";
 import ConsultoriaServico from "../../components/sections/consultoria/ConsultoriaServico.astro";
 
@@ -33,18 +34,24 @@ const publico = [
   "Unidades de conservação.",
 ];
 
-const icones = ["building", "industry", "flask", "tree"];
+// Ordem e desenhos conforme o cluster do frame 2620:831 do Figma.
+const icones: ChaveIconePublico[] = [
+  "empresas-consultorias",
+  "empreendimentos-impacto",
+  "universidades-pesquisa",
+  "unidades-conservacao",
+];
 ---
 
 <BaseLayout
   description="Inventários, monitoramento de longo prazo, diagnósticos ambientais, pareceres técnicos e gestão de dados de avifauna com metodologia padronizada."
-  image="/midias/consultoria/monitoramento.jpg"
+  image="/midias/consultoria/monitoramento.webp"
   title="Monitoramento de Aves e Estudos de Avifauna — OAMa"
   navVariant="overlay"
 >
   <ConsultoriaServico
     titulo="Monitoramento de Aves e Estudos de Avifauna"
-    heroImg="/midias/consultoria/monitoramento.jpg"
+    heroImg="/midias/consultoria/monitoramento.webp"
     heroAlt="Anilhador segurando ave silvestre durante sessão de monitoramento de campo"
     servicos={servicos}
     diferenciais={diferenciais}

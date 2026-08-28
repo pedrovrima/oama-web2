@@ -24,6 +24,8 @@ interface Props {
   updatedAt?: string;
   /** Trilha para o JSON-LD BreadcrumbList. Não inclui a home (adicionada automaticamente). */
   breadcrumbs?: Breadcrumb[];
+  /** Desliga o BreadcrumbList — para rotas cujo caminho intermediário não é página. */
+  semBreadcrumbs?: boolean;
   /** Pede aos buscadores para não indexar a página (páginas de apoio sem valor de busca). */
   noindex?: boolean;
   navVariant?: "default" | "overlay";
@@ -39,6 +41,7 @@ const {
   publishedAt,
   updatedAt,
   breadcrumbs = [],
+  semBreadcrumbs = false,
   noindex = false,
   navVariant = "default",
 } = Astro.props;
@@ -65,7 +68,7 @@ const jsonLdOrganizacao = {
   name: "Observatório de Aves da Mantiqueira",
   alternateName: "OAMa",
   url: `${origem}/`,
-  logo: `${origem}/brand/logo-round.png`,
+  logo: `${origem}/brand/logo-round.webp`,
   description:
     "Organização sem fins lucrativos que une pesquisa, educação e conservação das aves da Mata Atlântica na Serra da Mantiqueira.",
   areaServed: { "@type": "Place", name: "Serra da Mantiqueira, Mata Atlântica, Brasil" },
@@ -135,7 +138,7 @@ const trilha =
       }));
 
 const jsonLdBreadcrumbs =
-  trilha.length > 0
+  !semBreadcrumbs && trilha.length > 0
     ? {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -160,33 +163,11 @@ const jsonLdBreadcrumbs =
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonica} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/brand/logo-round.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/brand/logo-round.webp" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta name="theme-color" content="#e9b130" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- Google Analytics 4 — só em produção, para não sujar as métricas no dev. -->
-    {
-      import.meta.env.PROD && (
-        <>
-          <script
-            is:inline
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-78XYNN79L7"
-          />
-          <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-78XYNN79L7");
-          </script>
-        </>
-      )
-    }
 
     <!-- Card de compartilhamento (WhatsApp, Instagram, Facebook, LinkedIn) -->
     <meta property="og:type" content={type} />
@@ -217,6 +198,7 @@ const jsonLdBreadcrumbs =
     {jsonLdBreadcrumbs && (
       <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumbs)} />
     )}
+
     <!-- Google Analytics (gtag.js) — só no build de produção -->
     {
       import.meta.env.PROD && (
