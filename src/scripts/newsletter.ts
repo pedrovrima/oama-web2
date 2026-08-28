@@ -48,12 +48,12 @@ function wireForm(form: HTMLFormElement) {
       form.reset();
       setStatus(
         "success",
-        "Quase lá: confirme no e-mail que enviamos.",
+        "Enviamos um e-mail de confirmação. Abra e confirme para concluir sua inscrição.",
       );
     } catch {
       setStatus(
         "error",
-        "Não deu para inscrever agora. Tente de novo em instantes.",
+        "Não conseguimos concluir sua inscrição agora. Tente novamente em alguns instantes.",
       );
     } finally {
       terminarEnvio(button);

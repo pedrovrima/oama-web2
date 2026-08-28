@@ -84,12 +84,12 @@ function wireForm(form: HTMLFormElement) {
       form.reset();
       setStatus(
         "success",
-        "Mensagem enviada. Respondemos por e-mail em breve.",
+        "Recebemos sua mensagem. A equipe do OAMa responde em breve no e-mail que você informou.",
       );
     } catch {
       setStatus(
         "error",
-        "Não deu para enviar. Tente de novo ou use o e-mail abaixo.",
+        `Não conseguimos enviar sua mensagem agora. Tente novamente em instantes ou escreva direto para ${EMAIL_OAMA} no link abaixo.`,
       );
       if (fallback) {
         fallback.href = montarMailto(payload);
