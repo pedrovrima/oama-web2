@@ -4,33 +4,63 @@ import WaveDark from "../../components/sections/WaveDark.astro";
 
 const atividades = [
   {
-    imagem: "/proaves2/gallery/final1.jpg",
+    imagem: "/proaves2/gallery/final1.webp",
     alt: "Pessoa bordando uma ave durante atividade artística do Programa Ações Pró-Aves",
     legenda: "Oficinas de artes sobre aves",
     posicao: "center 72%",
   },
   {
-    imagem: "/midias/programas-e-projetos/proaves-galeria-1.jpg",
+    imagem: "/midias/programas-e-projetos/proaves-galeria-1.webp",
     alt: "Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves",
     legenda: "Teatro e atividades artísticas sobre aves",
     posicao: "center",
   },
   {
-    imagem: "/midias/programas-e-projetos/proaves-galeria-2.jpg",
+    imagem: "/midias/programas-e-projetos/proaves-galeria-2.webp",
     alt: "Crianças explorando exposição educativa sobre aves em atividade de campo do OAMa",
     legenda: "Atividades educativas com escolas e comunidades",
     posicao: "center",
   },
   {
-    imagem: "/midias/programas-e-projetos/proaves-galeria-3.jpg",
+    imagem: "/midias/programas-e-projetos/proaves-galeria-3.webp",
     alt: "Apresentação sobre colisão de aves em vidros no Congresso Brasileiro de Ornitologia",
     legenda: "Divulgação científica em eventos e congressos",
     posicao: "center",
   },
   {
-    imagem: "/midias/programas-e-projetos/proaves-galeria-4.jpg",
+    imagem: "/midias/programas-e-projetos/proaves-galeria-4.webp",
     alt: "Aplicação de marcações em vidro para prevenção de colisões de aves",
     legenda: "Ações práticas de prevenção de colisões com vidros",
+    posicao: "center",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/proaves-galeria-5.webp",
+    alt: "Participante pintando uma máscara de ave em papel machê durante oficina de artes",
+    legenda: "Oficinas de confecção de máscaras de aves",
+    posicao: "center",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/proaves-galeria-6.webp",
+    alt: "Roda de conversa entre jovens durante preparação de atividade teatral sobre aves",
+    legenda: "Preparação do grupo antes das apresentações",
+    posicao: "center",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/proaves-galeria-7.webp",
+    alt: "Gaiola gigante instalada em exposição sobre tráfico de animais silvestres",
+    legenda: "Exposições sobre tráfico e caça de animais silvestres",
+    posicao: "center",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/proaves-galeria-8.webp",
+    alt: "Educador do OAMa apresentando painéis sobre estudo de aves para estudantes sentados no chão",
+    legenda: "Visitas escolares e exposições sobre o estudo das aves",
+    posicao: "center",
+  },
+  {
+    imagem: "/midias/programas-e-projetos/proaves-galeria-9.webp",
+    alt: "Palestra sobre colisão de aves em vidros durante o Avistar",
+    legenda: "Palestras e divulgação científica em eventos",
     posicao: "center",
   },
 ];
@@ -38,22 +68,24 @@ const atividades = [
 
 <BaseLayout
   description="Programa do OAMa que aproxima sociedade e aves com oficinas de arte, teatro, atividades em escolas, divulgação científica e prevenção de colisões."
-  image="/midias/programas-e-projetos/proaves-galeria-1.jpg" title="Programa Ações Pró-Aves — OAMa" navVariant="overlay">
+  image="/midias/programas-e-projetos/proaves-galeria-1.webp" title="Programa Ações Pró-Aves — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     <!-- HERO: foto de teatro do frame, sem texto sobreposto -->
     <section class="relative h-[164px] w-full overflow-hidden md:h-[320px]">
       <img
-        src="/midias/programas-e-projetos/proaves-galeria-1.jpg"
+        src="/midias/programas-e-projetos/proaves-galeria-1.webp"
         alt="Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves"
         class="h-full w-full object-cover object-center"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
     <!-- 1) MISSÃO E SOBRE O PROGRAMA (faixa amarela) -->
     <section class="w-full" style="background:#dfb553;">
-      <div class="mx-auto max-w-5xl px-6 py-10 md:py-10">
-        <h1 class="mb-7 text-center font-oswald text-[24px] font-bold uppercase leading-[27px] text-oama-ink md:mb-7 md:text-[30px] md:leading-[34px]">
+      <div class="mx-auto max-w-5xl px-6 py-10 md:py-12">
+        <h1 class="mb-7 text-center font-oswald text-[24px] font-bold uppercase leading-[27px] text-oama-ink md:mb-10 md:text-[30px] md:leading-[34px]">
           Programa <br class="md:hidden" />Ações Pró-Aves
         </h1>
         <div class="mx-auto max-w-3xl space-y-5 text-justify font-montserrat text-[13px] leading-[19px] text-oama-ink md:text-[16px] md:leading-[24px]">
@@ -87,6 +119,7 @@ const atividades = [
                     class="h-[260px] w-full object-cover md:h-[510px]"
                     style={`object-position:${a.posicao};`}
                     loading="lazy"
+                    decoding="async"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
                   <p class="absolute bottom-0 left-0 right-0 px-5 py-4 text-white font-montserrat text-[13px] md:text-[15px] leading-[18px] md:leading-[22px] text-center">
@@ -139,7 +172,7 @@ const atividades = [
 
     <!-- 3) FECHAMENTO COM LINK -->
     <section class="w-full" style="background:#dfb553;">
-      <div class="max-w-4xl mx-auto px-6 pb-16">
+      <div class="max-w-4xl mx-auto px-6 pt-10 pb-16 md:pt-[52px]">
         <p
           class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
         >

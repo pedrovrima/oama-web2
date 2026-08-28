@@ -14,20 +14,20 @@ const cursos = [
   {
     texto:
       'No curso ONLINE Básico de Anilhamento, realizado em parceria com o Projeto Aves de Noronha (Instituto Retriz), abordamos da introdução a uma revisão aprofundada sobre a aplicação de anilhas em aves. Fundamental no monitoramento da avifauna e em pesquisas com identificação do indivíduo, o anilhamento é um método de estudo de grande importância para a conservação das espécies. E assim como qualquer atividade que implica na captura e manuseio de organismos vivos, existe um risco associado ao método. Esse risco é minimizado com o treinamento rigoroso e continuado de cada integrante da equipe de trabalho. Realizamos este curso teórico em geral uma vez por ano pela plataforma Sympla.',
-    img: "/midias/cursos/curso-anilhamento-alicate.jpg",
+    img: "/midias/cursos/curso-anilhamento-alicate.webp",
     alt: "Mãos segurando o alicate de anilhamento usado para aplicar anilhas em aves",
   },
   {
     texto:
       'No curso ONLINE de Análise de Muda e Classificação de Idade em Aves, focamos no aprendizado sobre o ciclo de muda das aves e como podemos usar esse conhecimento para a classificação de idade das aves. Introduzimos o conhecimento básico sobre as estratégias e padrões de muda e plumagem nas aves e apresentamos o método WRP para classificação de idade (ou "molt based ageing system"). Com isso, visamos promover a padronização no uso de terminologias e nomenclaturas para mudas e plumagens em aves, e expandir a prática de classificação de idade de aves com base na análise de mudas e plumagem entre os ornitólogos do Brasil.',
-    img: "/midias/cursos/curso-mudas-udu.jpg",
+    img: "/midias/cursos/curso-mudas-udu.webp",
     alt: "Instrutor abrindo a asa de um udu-de-coroa-azul para analisar a muda das penas",
   },
   {
     texto:
       "Por fim, no curso PRESENCIAL trabalhamos tanto acerca de técnicas básicas de anilhamento de aves, como sobre a análise de mudas, plumagens e dados complementares. Durante cerca de 20h de aulas teóricas e experiências supervisionadas em campo, guiamos os participantes no exercício de manipulação, de extração de aves das redes, de aplicação de anilhas e de coleta de dados em aves; além do manejo responsável de uma estação de anilhamento. E associado a isso, trazemos foco à compreensão das estratégias e padrões de mudas das aves; às terminologias e nomenclaturas para mudas e plumagens; e ao exercício de classificação de idade de aves pelo método WRP.",
     // Foto do frame do Figma, recuperada da pasta de mídias oficial do cliente.
-    img: "/midias/cursos/curso-presencial-campo.jpg",
+    img: "/midias/cursos/curso-presencial-campo.webp",
     alt: "Duas participantes do curso presencial examinando uma ave na mesa de anilhamento em campo",
   },
 ];
@@ -117,15 +117,17 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
 
 <BaseLayout
   description="Cursos do OAMa em anilhamento de aves e análise de muda: duas formações online e uma presencial, com aulas teóricas e prática supervisionada em campo."
-  image="/midias/cursos/hero-asa-verde.jpg" title="Cursos - Online e Presencial — OAMa" navVariant="overlay">
+  image="/midias/cursos/hero-asa-verde.webp" title="Cursos - Online e Presencial — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     {/* HERO: banner full-bleed apenas com a foto (título vive na faixa amarela) */}
     <section class="w-full overflow-hidden">
       <img
-        src="/midias/cursos/hero-asa-verde.jpg"
+        src="/midias/cursos/hero-asa-verde.webp"
         alt="Close da asa aberta de uma ave de plumagem esverdeada segurada por pesquisador"
         class="h-[42vh] max-h-[520px] min-h-[240px] w-full object-cover md:h-[48vw] md:max-h-[540px]"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -142,7 +144,7 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
 
         {/* Intro */}
         <p
-          class="text-center text-[16px] leading-[26px] text-oama-ink md:text-[17px] md:leading-[28px]"
+          class="text-justify text-[16px] leading-[26px] text-oama-ink md:text-[17px] md:leading-[28px]"
         >
           Nossos cursos de curta duração em anilhamento e em análise de mudas
           em aves (foco em passeriformes) são uma forma de <strong
@@ -178,6 +180,7 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
                     alt={curso.alt}
                     class="mt-6 h-[220px] w-full rounded-2xl object-cover md:h-[360px]"
                     loading="lazy"
+                    decoding="async"
                   />
                 )}
               </div>

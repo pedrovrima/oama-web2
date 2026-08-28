@@ -26,6 +26,7 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
         alt="Ave sendo solta durante atividade do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
       />
 
       <!-- Optional subtle vignette for text readability -->
@@ -64,12 +65,14 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
           >
             <div class="flex flex-col items-center md:flex-row md:items-start gap-4 mb-2">
               <img
-                src="/brand/logo-round.png"
+                src="/brand/logo-round.webp"
                 alt="Logo do OAMa"
                 class="h-[155px] md:h-[200px] w-auto shrink-0"
+                decoding="async"
+                loading="lazy"
               />
 
-              <p class="mt-2 text-[16px] leading-[24px] text-justify md:text-[18px] md:leading-[25px] md:text-left">
+              <p class="mt-2 text-[16px] leading-[24px] text-justify md:text-[18px] md:leading-[25px]">
                 <span class="font-extrabold uppercase">
                   O Observatório de Aves da Mantiqueira (OAMa)
                 </span>
@@ -92,7 +95,7 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               Clique aqui para saber mais...
             </a>
 
-            <p class="hidden md:block mt-2 text-[18px] leading-[25px]">
+            <p class="hidden md:block mt-2 text-[18px] leading-[25px] text-justify">
               Utilizamos o processo científico como método transversal em nossas
               áreas de atuação. Entendemos a ciência como uma ferramenta
               necessária e poderosa, e que deve ser utilizada com a ciência de
@@ -104,7 +107,7 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
 
           <div class="hidden md:block mt-10 mb-8">
             <H2>Missão</H2>
-            <p class="mx-auto mt-4 text-base font-semibold leading-relaxed">
+            <p class="mx-auto mt-4 text-base font-semibold leading-relaxed text-justify">
               <span class="">
                 Nossa missão é construir pontes entre ciência, sociedade e
                 natureza, por meio de educação, conscientização e pesquisa para
@@ -118,36 +121,46 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               <div>
                 <div class="grid grid-cols-7 grid-rows-3 gap-4 gap-y-2">
                   <img
-                    src="/home/ods/ODS 13.png"
+                    src="/home/ods/ODS 13.webp"
                     alt="Missão 1"
                     class="object-cover col-span-3 row-span-3 h-full w-full"
+                    decoding="async"
+                    loading="lazy"
                   />
                   <img
-                    src="/home/ods/ODS 15.png"
+                    src="/home/ods/ODS 15.webp"
                     alt="Missão 1"
                     class="object-cover col-span-3 row-span-3 h-full w-full"
+                    decoding="async"
+                    loading="lazy"
                   />
 
                   <img
-                    src="/home/ods/ODS 4.png"
+                    src="/home/ods/ODS 4.webp"
                     alt="Missão 1"
                     class="object-cover col-span-1 row-span-1 h-full w-full"
+                    decoding="async"
+                    loading="lazy"
                   />
                   <img
-                    src="/home/ods/ODS 11.png"
+                    src="/home/ods/ODS 11.webp"
                     alt="Missão 1"
                     class="object-cover col-span-1 row-span-1 h-full w-full"
+                    decoding="async"
+                    loading="lazy"
                   />
                   <img
-                    src="/home/ods/ODS 12.png"
+                    src="/home/ods/ODS 12.webp"
                     alt="Missão 1"
                     class="object-cover col-span-1 row-span-1 h-full w-full"
+                    decoding="async"
+                    loading="lazy"
                   />
                 </div>
               </div>
 
               <p
-                class="text-sm leading-relaxed md:text-base text-oama-ink font-semibold h-full"
+                class="text-sm leading-relaxed md:text-base text-oama-ink font-semibold h-full text-justify"
               >
                 Como uma instituição comprometida com a Década da ONU para a
                 Restauração de Ecossistemas (2021-2030), os programas e projetos
@@ -214,9 +227,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
           >
             <div class="flex flex-col items-center justify-center">
               <img
-                src="home/acoes/pessoas.png"
+                src="/home/acoes/pessoas.webp"
                 alt="Pessoas"
                 class="h-[70px]"
+                decoding="async"
+                loading="lazy"
               />
               <span class="text-[48px] font-extrabold font-oswald">+1500</span><p
                 class="text-oama-ink text-[14px]"
@@ -226,9 +241,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
             </div>
             <div class="flex flex-col items-center justify-center">
               <img
-                src="home/acoes/panfletos.png"
+                src="/home/acoes/panfletos.webp"
                 alt="Materiais"
                 class="h-[70px]"
+                decoding="async"
+                loading="lazy"
               />
               <span class="text-[48px] font-extrabold font-oswald">+12500</span
               ><p class="text-oama-ink text-[14px]">
@@ -236,7 +253,9 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               </p>
             </div>
             <div class="flex flex-col items-center justify-center">
-              <img src="home/acoes/pena.png" alt="Alunos" class="h-[70px]" />
+              <img src="/home/acoes/pena.webp" alt="Alunos" class="h-[70px]"
+              decoding="async"
+    loading="lazy" />
               <span class="text-[48px] font-extrabold font-oswald">+600</span><p
                 class="text-oama-ink text-[14px]"
               >
@@ -244,7 +263,9 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               </p>
             </div>
             <div class="flex flex-col items-center justify-center">
-              <img src="home/acoes/calendar.png" alt="Anos" class="h-[70px]" />
+              <img src="/home/acoes/calendar.webp" alt="Anos" class="h-[70px]"
+              decoding="async"
+    loading="lazy" />
               <span class="text-[48px] font-extrabold font-oswald">8</span><p
                 class="text-oama-ink text-[14px]"
               >
@@ -252,7 +273,9 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
               </p>
             </div>
             <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1">
-              <img src="home/acoes/ave.png" alt="Aves" class="h-[70px]" />
+              <img src="/home/acoes/ave.webp" alt="Aves" class="h-[70px]"
+              decoding="async"
+    loading="lazy" />
               <span class="text-[48px] font-extrabold font-oswald">+180</span><p
                 class="text-oama-ink text-[14px]"
               >
@@ -280,9 +303,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
         >
           <!-- Mobile: bird image full-bleed at top -->
           <img
-            src="/home/card-doe-mobile.png"
+            src="/home/card-doe-mobile.webp"
             alt="Support"
             class="block md:hidden w-full object-cover"
+            decoding="async"
+            loading="lazy"
           />
 
           <!-- Content area -->
@@ -307,9 +332,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
 
             <!-- Desktop: bird image absolute bottom-right -->
             <img
-              src="/home/card-doe.png"
+              src="/home/card-doe.webp"
               alt="Support"
               class="hidden md:block absolute right-0 bottom-0 w-[300px] h-auto"
+              decoding="async"
+              loading="lazy"
             />
           </div>
         </div>
@@ -327,9 +354,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
       <div class="max-w-4xl mx-auto px-4">
         <div class="flex flex-row items-center justify-center mb-6">
           <img
-            src="/brand/bird.png"
+            src="/brand/bird.webp"
             alt="Nossas Áreas de Atuação"
             class="w-auto h-[89px]"
+            decoding="async"
+            loading="lazy"
           />
           <h2
             class="text-2xl font-extrabold uppercase text-oama-ink font-oswald text-center mb-6"
@@ -344,9 +373,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
           >
             <div class="flex flex-col items-center justify-center gap-4">
               <img
-                src="/home/atuacao/pc.png"
+                src="/home/atuacao/pc.webp"
                 alt="Pesquisa"
                 class="w-auto h-[100px]"
+                decoding="async"
+                loading="lazy"
               />
               <h3 class="text-2xl uppercase font-oswald">Pesquisa</h3>
             </div>
@@ -368,9 +399,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
           >
             <div class="flex flex-col items-center justify-center gap-4">
               <img
-                src="/home/atuacao/megafone.png"
+                src="/home/atuacao/megafone.webp"
                 alt="Comunicação Científica"
                 class="w-auto h-[100px]"
+                decoding="async"
+                loading="lazy"
               />
               <h3 class="text-2xl uppercase font-oswald">
                 Comunicação Científica
@@ -394,9 +427,11 @@ import WaveTransition from "../components/sections/WaveTransition.astro";
           >
             <div class="flex flex-col items-center justify-center gap-4">
               <img
-                src="/home/atuacao/feather.png"
+                src="/home/atuacao/feather.webp"
                 alt="Capacitações"
                 class="w-auto h-[100px]"
+                decoding="async"
+                loading="lazy"
               />
               <h3 class="text-2xl uppercase font-oswald">Capacitações</h3>
             </div>

@@ -8,19 +8,19 @@ const frentes = [
   {
     href: "/consultoria/monitoramento-de-aves",
     titulo: "Monitoramento de Aves e Estudos de Avifauna",
-    imagem: "/midias/consultoria/monitoramento.jpg",
+    imagem: "/midias/consultoria/monitoramento.webp",
     alt: "Ave sendo medida em atividade técnica de monitoramento",
   },
   {
     href: "/consultoria/educacao-ambiental",
     titulo: "Educação Ambiental e Comunicação Científica",
-    imagem: "/midias/consultoria/educacao.jpg",
+    imagem: "/midias/consultoria/educacao.webp",
     alt: "Grupo em atividade externa de educação ambiental",
   },
   {
     href: "/consultoria/capacitacao-tecnica",
     titulo: "Capacitação Técnica e Formação Profissional em Ornitologia",
-    imagem: "/midias/consultoria/capacitacao.jpg",
+    imagem: "/midias/consultoria/capacitacao.webp",
     alt: "Pessoa em atividade de capacitação técnica com ave em mãos",
   },
 ];
@@ -69,15 +69,17 @@ const logos = [
 
 <BaseLayout
   description="Serviços técnicos do OAMa em monitoramento de aves, educação ambiental, comunicação científica e formação profissional, com foco na Mata Atlântica."
-  image="/midias/consultoria/capa-consultoria.jpg" title="Consultoria — OAMa" navVariant="overlay">
+  image="/midias/consultoria/capa-consultoria.webp" title="Consultoria — OAMa" navVariant="overlay">
   <main class="font-montserrat bg-[#201700]">
     {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/consultoria/capa-consultoria.jpg"
+        src="/midias/consultoria/capa-consultoria.webp"
         alt="Capa da seção de consultoria do OAMa"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -95,7 +97,7 @@ const logos = [
         <p class="mt-2 text-[15px] leading-6 md:text-[18px] md:leading-7">
           Juntos, multiplicando e potencializando impactos socioambientais reais.
         </p>
-        <div class="mx-auto mt-6 max-w-4xl space-y-4 text-[15px] leading-6 md:text-[17px] md:leading-7">
+        <div class="mx-auto mt-6 max-w-4xl space-y-4 text-justify text-[15px] leading-6 md:text-[17px] md:leading-7">
           {/* Texto oficial do documento de redação do cliente, aplicado verbatim.
               Correção de digitação: o documento escreve "em mais de seteis anos".
               O OAMa foi fundado em 2019, logo em 2026 são sete anos — usamos "sete". */}
@@ -140,6 +142,7 @@ const logos = [
                     alt={frente.alt}
                     class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent"></div>
                   <div class="absolute inset-x-0 bottom-0 px-4 pb-5 pt-12 text-left text-white">
@@ -184,6 +187,7 @@ const logos = [
                   height="56"
                   loading="lazy"
                   class="h-14 w-14 shrink-0 rounded-full"
+                  decoding="async"
                 />
                 <p class="text-[15px] leading-6 font-medium text-oama-ink">{cliente.texto}</p>
               </div>
@@ -210,7 +214,7 @@ const logos = [
     <section class="bg-[#5ba4d9] px-6 py-12 text-white md:px-8 md:py-14">
       <div class="mx-auto max-w-4xl">
         <h2 class="font-oswald text-[28px] font-bold uppercase md:text-[34px]">Fale conosco</h2>
-        <p class="mt-3 max-w-3xl text-[15px] leading-6 md:text-[17px] md:leading-7">
+        <p class="mt-3 max-w-3xl text-justify text-[15px] leading-6 md:text-[17px] md:leading-7">
           Precisa de apoio técnico, uma proposta de serviço ou quer construir uma parceria com o OAMa?
           Preencha o formulário ou escreva para <a href="mailto:contato@oama.eco.br" class="underline underline-offset-4">contato@oama.eco.br</a>.
         </p>
