@@ -1,51 +1,88 @@
 ---
+import { Image } from "astro:assets";
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
 
+// Fonte de verdade desta página: frame Figma `2498:638` (Desktop_Monitoramento).
+// Assets exportados dos próprios nós do frame, para não aproximar por semelhança.
+import heroMonitoramento from "../../assets/monitoramento-hero.jpg";
+import fundoCitacao from "../../assets/monitoramento-citacao.jpg";
+import carrossel1 from "../../assets/monitoramento-carrossel-1.jpg";
+import carrossel2 from "../../assets/monitoramento-carrossel-2.jpg";
+import carrossel3 from "../../assets/monitoramento-carrossel-3.jpg";
+import carrossel4 from "../../assets/monitoramento-carrossel-4.jpg";
+import carrossel5 from "../../assets/monitoramento-carrossel-5.jpg";
+import carrossel6 from "../../assets/monitoramento-carrossel-6.jpg";
+import carrossel7 from "../../assets/monitoramento-carrossel-7.jpg";
+import carrossel8 from "../../assets/monitoramento-carrossel-8.jpg";
+
+// Amarelo do frame (#dfb553), o mesmo usado em /areas-de-atuacao. Não é o
+// token `oama-yellow` (#e9b130), que é mais saturado que o do Figma.
+const amarelo = "#dfb553";
+const azul = "#5ba4d9";
+const escuro = "#1e1702";
+
 const objetivos = [
-  "Identificar e descrever a composição de avifauna e sua sazonalidade de forma representativa para a Serra da Mantiqueira.",
-  "Estimar padrões demográficos (sobrevivência, produtividade) para as espécies da Mantiqueira em diferentes áreas de ocorrência.",
-  "Avaliar a relação entre condições ambientais e climáticas com as taxas demográficas e distribuição das espécies.",
-  "Descrever a biologia e ecologia das espécies de aves na Mantiqueira.",
+  "Identificar e descrever a composição de avifauna e sua sazonalidade de forma representativa para a Serra da Mantiqueira;",
+  "Estimar padrões demográficos (sobrevivência, produtividade) para as espécies da Mantiqueira em diferentes áreas de ocorrência;",
+  "Avaliar a relação entre condições ambientais e climáticas com as taxas demográficas e distribuição das espécies;",
+  "Descrever a biologia e ecologia das espécies de aves na Mantiqueira;",
 ];
 
-// Carrossel full-bleed logo após a nota azul (frame Figma 2498:638: foto grande
-// com setas ‹ › antes do parágrafo "Iniciamos o monitoramento…").
-// Reaproveita as fotos de campo que já existem no repositório.
+// Carrossel full-bleed logo após a faixa azul. As 8 fotos são os retângulos
+// 1023x512 que ficam ao lado do frame no Figma (2502:420, 2502:465, 2498:597,
+// 2498:592, 2498:599, 2498:600, 2498:598, 2498:596), nessa ordem.
+// Descrições sem afirmar espécie — o Figma não nomeia nenhuma delas.
 const carrossel = [
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-1.jpg",
-    alt: "Pesquisadores do OAMa avaliando muda de uma ave durante sessão de anilhamento na Mantiqueira",
+    imagem: carrossel1,
+    alt: "Ave de plumagem azul-acinzentada com topete vermelho, pousada na mão de um pesquisador durante o anilhamento",
   },
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-2.jpg",
-    alt: "Saíra-de-papo-preto pousada em galho durante monitoramento de avifauna na Mantiqueira",
+    imagem: carrossel2,
+    alt: "Ave de plumagem verde com coroa alaranjada, pousada em galho na mata",
   },
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-3.jpg",
-    alt: "Trinca-ferro pousado em galho registrado durante o monitoramento na Serra da Mantiqueira",
+    imagem: carrossel3,
+    alt: "Gavião de plumagem cinza e olhos alaranjados, em close contra a vegetação",
+  },
+  {
+    imagem: carrossel4,
+    alt: "Ave de cabeça cinza e peito amarelo vivo, fotografada de perfil",
+  },
+  {
+    imagem: carrossel5,
+    alt: "Beija-flor de plumagem verde e azul iridescente, com bico longo, em voo",
+  },
+  {
+    imagem: carrossel6,
+    alt: "Ave pequena de tons oliva e asas barradas, pousada em tronco",
+  },
+  {
+    imagem: carrossel7,
+    alt: "Ave de plumagem ocre com sobrancelha branca marcada, vista de perfil",
+  },
+  {
+    imagem: carrossel8,
+    alt: "Detalhe aproximado da plumagem malhada de uma ave, com desenho de escamas claras",
   },
 ];
 
+// O frame deixa um bloco vazio de 705px (nó 2502:449, sem conteúdo) entre o
+// parágrafo "Iniciamos o monitoramento…" e o das técnicas. Enquanto o Figma não
+// define esse bloco, ele é preenchido pela faixa das três técnicas — que é
+// conteúdo já existente no site, e não uma invenção nova de layout.
 const tecnicas = [
   {
-    titulo: "Anilhamento com redes de neblina",
-    descricao:
-      "Captura padronizada com redes finas para anilhamento, biometria, registro de muda e idade, e recaptura em estudos demográficos de longo prazo.",
     imagem: "/midias/programas-e-projetos/monitoramento-tecnica-1.jpg",
     alt: "Pesquisadores do OAMa em sessão de anilhamento com redes de neblina na Mata Atlântica",
   },
   {
-    titulo: "Pontos de escuta",
-    descricao:
-      "Pontos fixos de detecção visual e acústica das aves, conduzidos em períodos padronizados, registrando riqueza, abundância e ocupação das espécies.",
     imagem: "/midias/programas-e-projetos/monitoramento-tecnica-2.jpg",
     alt: "Saltator-de-papo-cinza fotografado durante monitoramento de avifauna na Mantiqueira — foto Eduardo Schultz",
   },
   {
-    titulo: "Gravadores autônomos",
-    descricao:
-      "Gravadores programados instalados em campo que registram áudio de forma contínua, gerando dados acústicos padronizados para análises de biodiversidade.",
     imagem: "/midias/programas-e-projetos/monitoramento-tecnica-3.jpg",
     alt: "Saltator fotografado durante monitoramento de avifauna na Serra da Mantiqueira — foto BirdsAtlantic",
   },
@@ -54,66 +91,61 @@ const tecnicas = [
 
 <BaseLayout
   description="Monitoramento padronizado e de longo prazo da avifauna da Serra da Mantiqueira, com anilhamento em redes de neblina, pontos de escuta e gravadores."
-  image="/midias/programas-e-projetos/monitoramento-hero-ave-amarela.jpg" title="Programa de Monitoramento de Avifauna da Mantiqueira — OAMa" navVariant="overlay">
+  image="/midias/programas-e-projetos/monitoramento-hero-ave-amarela.jpg"
+  title="Programa de Monitoramento de Avifauna da Mantiqueira — OAMa"
+  navVariant="overlay"
+>
   <main class="font-montserrat">
-    <!-- HERO (frame: foto de altura contida, SEM título sobreposto) -->
-    <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
-      <img
-        src="/midias/programas-e-projetos/monitoramento-hero-ave-amarela.jpg"
-        alt="Close de ave de peito amarelo pousada na mão de pesquisador durante o monitoramento"
+    <!-- HERO — foto de altura contida, sem título sobreposto (frame 2501:398) -->
+    <section class="relative h-[240px] w-full overflow-hidden md:h-[420px]">
+      <Image
+        src={heroMonitoramento}
+        alt="Close de ave de peito amarelo-oliva contra fundo verde desfocado"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
     </section>
 
     <!-- 1) INTRODUÇÃO + OBJETIVOS PRINCIPAIS -->
-    <section class="bg-oama-yellow w-full">
-      <div class="max-w-4xl mx-auto px-6 py-14">
+    <section class="w-full" style={`background: ${amarelo};`}>
+      <div class="mx-auto max-w-4xl px-6 py-12 md:py-14">
         <h1
-          class="mb-10 text-center font-oswald text-[30px] font-bold uppercase leading-[36px] text-oama-ink md:text-[42px] md:leading-[48px]"
+          class="text-center font-oswald text-[24px] font-bold uppercase leading-[30px] text-white md:text-[30px] md:leading-[35px]"
         >
           Programa de Monitoramento de Avifauna da Mantiqueira
         </h1>
 
-        <div
-          class="mt-8 space-y-5 text-[18px] leading-[25px] text-oama-ink font-montserrat text-justify"
-        >
-          <p>
-            O monitoramento padronizado e de longo-prazo da avifauna na Serra
-            da Mantiqueira é uma atividade central na construção do OAMa.
-            Como um observatório de aves, o OAMa foi fundado com o objetivo
-            de estabelecer e realizar este monitoramento. Os observatórios
-            têm a missão de acompanhar um processo ou fenômeno ao longo do
-            tempo e do espaço, e os observatórios de aves fazem isso com as
-            aves e seus habitats, utilizando a avifauna como ferramenta para
-            entender e avaliar as condições e processos ambientais. Nosso
-            monitoramento é focado no acompanhamento de padrões demográficos
-            e nos efeitos das mudanças ambientais e climáticas na avifauna.
-            Mas com os dados coletados de forma padronizada e periódica,
-            aprendemos muito mais.
-          </p>
-        </div>
-
         <p
-          class="mt-10 text-center font-oswald text-[18px] md:text-[20px] font-bold uppercase text-oama-ink"
+          class="mt-9 text-left md:text-justify font-montserrat text-[18px] leading-[25px] text-oama-ink"
         >
-          Nossos objetivos principais com o monitoramento são os seguintes:
+          O monitoramento padronizado e de longo-prazo da avifauna na Serra da
+          Mantiqueira é uma atividade central na construção do OAMa. Como um
+          observatório de aves, o OAMa foi fundado com o objetivo de estabelecer
+          e realizar este monitoramento. <strong>Os observatórios têm a missão de
+          acompanhar um processo ou fenômeno ao longo do tempo e do espaço, e os
+          observatórios de aves fazem isso com as aves e seus habitats,
+          utilizando a avifauna como ferramenta para entender e avaliar as
+          condições e processos ambientais.</strong> Nosso monitoramento é focado
+          no acompanhamento de padrões demográficos e nos efeitos das mudanças
+          ambientais e climáticas na avifauna. Mas com os dados coletados de
+          forma padronizada e periódica, aprendemos muito mais. Nossos objetivos
+          principais com o monitoramento são os seguintes:
         </p>
 
-        <ul class="mt-6 max-w-2xl mx-auto space-y-4">
+        <ul class="mt-10 space-y-6">
           {
             objetivos.map((obj) => (
-              <li class="flex items-start gap-3 text-oama-ink text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] font-montserrat">
+              <li class="flex items-start gap-6">
                 <span
-                  class="flex-shrink-0 mt-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#5ba4d9] shadow-sm"
+                  class="mt-0.5 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white md:h-[43px] md:w-[43px]"
                   aria-hidden="true"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-white"
+                    class="h-5 w-5 md:h-6 md:w-6"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    stroke={amarelo}
                     stroke-width="3.5"
                   >
                     <path
@@ -123,7 +155,9 @@ const tecnicas = [
                     />
                   </svg>
                 </span>
-                <span class="text-justify">{obj}</span>
+                <span class="text-left md:text-justify font-montserrat text-[18px] leading-[25px] text-oama-ink">
+                  {obj}
+                </span>
               </li>
             ))
           }
@@ -131,86 +165,74 @@ const tecnicas = [
       </div>
     </section>
 
-    <!-- 2) CITAÇÃO sobre foto full-width + nota de tradução em faixa azul
-         (frame: o asset monitoramento-citacao-fundo.jpg estava no repo sem uso) -->
+    <!-- 2) CITAÇÃO sobre a foto da asa (nós 2501:408 / 2501:406 / 2501:407).
+         No frame a citação ocupa a coluna esquerda, sobre as penas escuras da
+         própria foto — não há véu escuro nem aspas decorativas. -->
     <section class="relative w-full overflow-hidden">
-      <img
-        src="/midias/programas-e-projetos/monitoramento-citacao-fundo.jpg"
+      <Image
+        src={fundoCitacao}
         alt=""
         class="absolute inset-0 h-full w-full object-cover"
         loading="lazy"
         aria-hidden="true"
       />
-      <div class="absolute inset-0 bg-black/55"></div>
+      <!-- Véu só na coluna do texto, para garantir contraste no mobile, onde o
+           recorte da foto não deixa as penas escuras exatamente atrás do texto. -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent md:from-black/45 md:via-black/10"
+      >
+      </div>
 
-      <div class="relative z-10 mx-auto max-w-4xl px-6 py-20 md:py-28">
-        <figure class="flex flex-col items-center justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="mb-5 h-8 w-8 text-white/70 md:h-10 md:w-10"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M9.17 6C6.31 6 4 8.31 4 11.17v6.83h6.83V11.17H7.83C7.83 9.94 8.77 9 10 9V6H9.17zm10 0c-2.86 0-5.17 2.31-5.17 5.17v6.83H20.83V11.17h-2.83c0-1.23.94-2.17 2.17-2.17V6h-0.83z"
-            />
-          </svg>
-
+      <div class="relative z-10 mx-auto max-w-4xl px-6 py-14 md:py-20">
+        <figure class="max-w-[430px]">
           <blockquote
-            class="max-w-3xl text-center font-montserrat text-[17px] italic leading-[26px] text-white md:text-[20px] md:leading-[30px]"
+            class="text-left md:text-justify font-montserrat text-[17px] font-semibold italic leading-[24px] text-white md:text-[18px]"
           >
-            "Programas de monitoramento de longo prazo da biodiversidade
-            local são essenciais para entendermos e mitigarmos os efeitos
-            das mudanças globais na biodiversidade tropical, ao mesmo tempo
-            em que promovem capacitação profissional, educação ambiental e
-            divulgação científica".
+            "Programas de monitoramento de longo prazo da biodiversidade local
+            são essenciais para entendermos e mitigarmos os efeitos das mudanças
+            globais na biodiversidade tropical, ao mesmo tempo em que promovem
+            capacitação profissional, educação ambiental e divulgação
+            científica".
           </blockquote>
 
           <figcaption
-            class="mt-5 font-montserrat text-[13px] leading-[20px] text-white/85 md:text-[15px]"
+            class="mt-5 font-montserrat text-[17px] leading-[24px] tracking-[0.04em] text-white md:text-[18px]"
           >
-            – Dr. Cagan Sekercioglu, Universidade de Utah, Estados Unidos.
+            – Dr. Cagan Sekercioglu, da Universidade de Utah, nos Estados Unidos.
           </figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- Nota de tradução em faixa azul, como no frame -->
-    <section class="w-full bg-[#5ba4d9]">
-      <div class="mx-auto max-w-4xl px-6 py-8">
+    <!-- Faixa azul com a nota de tradução (nós 2501:411 / 2501:412) -->
+    <section class="w-full" style={`background: ${azul};`}>
+      <div class="mx-auto max-w-4xl px-6 py-9">
         <p
-          class="text-center font-montserrat text-[13px] italic leading-[20px] text-white md:text-[14px] md:leading-[22px]"
+          class="text-left md:text-justify font-montserrat text-[15px] italic leading-[22px] text-white md:text-[16px] md:leading-[24px]"
         >
-          <em>Tradução livre de trecho do artigo</em> "Promoting
-          community-based bird monitoring in the tropics: Conservation,
-          research, environmental education, capacity-building, and local
-          incomes", <em>publicado em 2011 na revista</em> Biological
-          Conservation.
+          Tradução livre de trecho do artigo "Promoting community-based bird
+          monitoring in the tropics: Conservation, research, environmental
+          education, capacity-building, and local incomes", publicado em 2011 na
+          revista científica Biological Conservation.
         </p>
       </div>
     </section>
 
-    <WaveDark
-      topColor="#e9b130"
-      bottomColor="#fbf5e6"
-      path1Color="#fbf5e6"
-      path2Color="#fbf5e6"
-    />
-
-    <!-- CARROSSEL full-bleed (frame: foto grande com setas ‹ › logo após a nota azul) -->
+    <!-- CARROSSEL full-bleed, logo após a faixa azul (nó 2502:420 + setas
+         2502:422 / 2502:423). No frame não há onda entre a faixa e o carrossel. -->
     <section
       class="relative w-full overflow-hidden"
-      aria-label="Galeria do monitoramento de avifauna"
+      aria-label="Galeria de aves registradas no monitoramento"
+      aria-roledescription="carrossel"
     >
       <div class="relative" data-monitoramento-carousel>
         {
           carrossel.map((foto, i) => (
-            <img
+            <Image
               src={foto.imagem}
               alt={foto.alt}
               class:list={[
-                "h-[280px] w-full object-cover md:h-[520px]",
+                "h-[240px] w-full object-cover md:h-[512px]",
                 i === 0 ? "" : "hidden",
               ]}
               data-slide={i}
@@ -227,11 +249,11 @@ const tecnicas = [
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-9 w-9 md:h-12 md:w-12"
+            class="h-8 w-8 md:h-[30px] md:w-[30px]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2.5"
+            stroke-width="3"
             aria-hidden="true"
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -245,11 +267,11 @@ const tecnicas = [
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-9 w-9 md:h-12 md:w-12"
+            class="h-8 w-8 md:h-[30px] md:w-[30px]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2.5"
+            stroke-width="3"
             aria-hidden="true"
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -258,70 +280,24 @@ const tecnicas = [
       </div>
     </section>
 
-    <!-- 3) INÍCIO E ÁREAS AMOSTRAIS -->
-    <section class="bg-oama-cream w-full">
-      <div class="max-w-5xl mx-auto px-6 py-14">
-        <h2
-          class="text-center text-[22px] md:text-[28px] leading-[28px] md:leading-[32px] font-extrabold uppercase text-oama-ink font-oswald"
-        >
-          Início e áreas <br class="md:hidden" />amostrais
-        </h2>
-
-        <div
-          class="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] md:items-center"
-        >
-          <div
-            class="mx-auto md:mx-0 h-[220px] w-[220px] md:h-[280px] md:w-[280px] overflow-hidden rounded-full border-4 border-oama-ink shadow-md"
-          >
-            <img
-              src="/midias/programas-e-projetos/monitoramento-areas-circulo.jpg"
-              alt="Equipe do OAMa em atividade de anilhamento e monitoramento na Mantiqueira"
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-
-          <div
-            class="space-y-5 text-[18px] leading-[25px] text-oama-ink font-montserrat text-justify"
-          >
-            <p>
-              Iniciamos o monitoramento padronizado e de longo prazo da
-              avifauna na Serra da Mantiqueira em <strong>2018</strong>.
-              Desde então, realizamos amostragens em <strong>seis
-              diferentes áreas amostrais</strong> entre São Paulo, Rio de
-              Janeiro e Minas Gerais.
-            </p>
-            <p>
-              Mantemos uma área modelo fixa, com 8 anos de
-              monitoramento continuado no mesmo local. Nosso objetivo é
-              expandir nossa área de alcance e manter o acompanhamento fixo
-              em diferentes áreas da Mantiqueira.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <WaveDark
-      topColor="#fbf5e6"
-      bottomColor="#e9b130"
-      path1Color="#e9b130"
-      path2Color="#e9b130"
-    />
-
-    <!-- 4) TÉCNICAS COMPLEMENTARES — no frame é um parágrafo corrido, não cards.
-         As fotos das 3 técnicas viram uma faixa de imagens abaixo do texto. -->
-    <section class="bg-oama-yellow w-full">
-      <div class="max-w-4xl mx-auto px-6 py-14">
+    <!-- 3) INÍCIO E ÁREAS AMOSTRAIS — no frame é parágrafo corrido sobre o
+         amarelo, sem título e sem foto circular (nó 2502:427). -->
+    <section class="w-full" style={`background: ${amarelo};`}>
+      <div class="mx-auto max-w-4xl px-6 py-12 md:py-14">
         <p
-          class="text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-oama-ink font-montserrat text-justify"
+          class="text-left md:text-justify font-montserrat text-[18px] leading-[25px] tracking-[0.04em] text-oama-ink"
         >
-          Utilizamos <strong>três técnicas complementares</strong> para a
-          amostragem padrão do monitoramento: anilhamento com redes de
-          neblina, pontos de escuta e gravadores autônomos.
+          Iniciamos o monitoramento padronizado e de longo prazo da avifauna na
+          Serra da Mantiqueira em 2018. Desde então realizamos amostragens em
+          seis diferentes áreas amostrais entre São Paulo, Rio de Janeiro e
+          Minas Gerais. Mantemos uma área modelo fixa, com mais de 6 anos de
+          monitoramento continuado no mesmo local. Nosso objetivo é expandir
+          nossa área de alcance e manter o acompanhamento fixo em diferentes
+          áreas da Mantiqueira.
         </p>
       </div>
 
+      <!-- Faixa das três técnicas: ocupa o bloco que o Figma deixou vazio. -->
       <div class="grid grid-cols-1 sm:grid-cols-3">
         {
           tecnicas.map((t) => (
@@ -334,15 +310,26 @@ const tecnicas = [
           ))
         }
       </div>
+
+      <!-- 4) TÉCNICAS COMPLEMENTARES (nó 2502:451) -->
+      <div class="mx-auto max-w-4xl px-6 py-12 md:py-14">
+        <p
+          class="text-left md:text-justify font-montserrat text-[18px] leading-[25px] text-oama-ink"
+        >
+          Utilizamos três técnicas complementares para a amostragem padrão do
+          monitoramento: anilhamento com redes de neblina, pontos de escuta, e
+          gravadores autônomos.
+        </p>
+      </div>
     </section>
 
+    <!-- Onda amarelo → azul, como o nó 2502:452 -->
     <WaveDark
-      topColor="#e9b130"
-      bottomColor="#fbf5e6"
-      path1Color="#fbf5e6"
-      path2Color="#fbf5e6"
+      topColor={amarelo}
+      bottomColor={azul}
+      path1Color={escuro}
+      path2Color={azul}
     />
-
   </main>
 </BaseLayout>
 

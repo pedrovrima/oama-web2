@@ -121,3 +121,27 @@ Lista de pendência explícita: substituir todos os placeholders Unsplash por fo
 - 9 páginas geradas (`/`, `/sobre`, `/missao`, `/areas-de-atuacao`, `/programas-e-projetos`, `/programas-e-projetos/monitoramento-de-avifauna`, `/consultoria`, `/realizacoes`, `/admin`).
 - Arquivo gerado: `dist/programas-e-projetos/monitoramento-de-avifauna/index.html`.
 - Avisos de chunks >500 kB (`pane2`, `VideoPlayer`, `SanityVision`) são pré-existentes do Sanity Studio e não relacionados a esta página.
+
+## Realinhamento ao Figma (2026-08-27)
+
+**Fonte de verdade:** frame Figma `Desktop_Monitoramento` (`2498:638`).
+
+A página foi revisada e atualizada para maior fidelidade ao design:
+
+### Mudanças executadas
+
+- **Hero e foto de citação:** substituídas por assets exportados dos nós correspondentes do Figma — `src/assets/monitoramento-hero.jpg` (nó `2501:398`) e `src/assets/monitoramento-citacao.jpg` (nó `2501:408`), ambas com `<Image>` de `astro:assets`.
+- **Carrossel de técnicas:** as 3 fotos repetidas foram substituídas pelas 8 fotos reais de aves que ficam estacionadas ao lado do frame no Figma (nós `2502:420`, `2502:465`, `2498:597`, `2498:592`, `2498:599`, `2498:600`, `2498:598`, `2498:596`), em `src/assets/monitoramento-carrossel-1..8.jpg`, todas renderizadas com `<Image>` de `astro:assets`.
+- **Título da página:** cor alterada de escuro para branco; tamanho reduzido de 42px para 30px; tipografia confirmada como Oswald (matching Figma).
+- **Introdução (parágrafo principal):** frase "Nossos objetivos principais com o monitoramento são os seguintes:" integrada de volta ao final do parágrafo introdutório (estava como subtítulo separado). Trecho "Os observatórios têm a missão... processos ambientais." agora em negrito (`<strong>`), conforme Figma.
+- **Bullets de objetivos:** alterados de círculo azul com check branco para círculo branco com check amarelo; tamanho mantido em 43px; alinhamento ajustado à margem do container, matching layout do Figma.
+- **Seção de citação:** removidos véu preto a 55% e ícone decorativo de aspas (não existem no Figma). Citação repositionada para coluna esquerda (max 430px), justificada, itálico semibold. Gradiente escuro mantido apenas do lado esquerdo — desvio deliberado do Figma para garantir contraste legível no mobile, onde o recorte da foto não deixa penas escuras atrás do texto.
+- **Faixa azul de tradução (nota de crédito):** texto alterado de centralizado/13px para justificado/16px, conforme Figma.
+- **Remoção da onda WaveDark:** separador que existia entre faixa azul e carrossel removido — no Figma o carrossel vem imediatamente após a faixa.
+- **Consolidação da seção "Início e áreas amostrais":** seção creme separada (com título e foto circular) removida. Conteúdo integrado em parágrafo corrido sobre o fundo amarelo. Texto corrigido de "8 anos" para "mais de 6 anos", alinhando-se com o Figma.
+- **Cores:** amarelo da página alinhado de `oama-yellow` (#e9b130) para #dfb553, matching Figma e alinhado com `/areas-de-atuacao`.
+- **Onda final:** ajustada para gradiente amarelo → escuro → azul, conforme nó Figma `2502:452`.
+
+### Pendência importante
+
+O frame Figma (`2498:638`) contém um bloco vazio de 705px (nó `2502:449`, retângulo cinza sem conteúdo) localizado entre o parágrafo "Iniciamos o monitoramento…" e a seção de técnicas. O Figma não define que conteúdo deve ocupar esse espaço. Provisoriamente, o espaço continua preenchido pela faixa com as 3 fotos das técnicas (anilhamento, pontos de escuta, gravadores autônomos) que já existiam no site. **Requer definição do usuário/designer sobre o propósito desse bloco.**
