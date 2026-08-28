@@ -58,12 +58,22 @@ const clientes: Array<{ texto: string; icone: ChaveIconePublico }> = [
 ];
 
 
-// Renderizados como texto: não há arquivo de logo destas instituições nas mídias do cliente.
+// Logos exportados do Figma (nós 2619:716, 2619:720, 2619:721 e 2619:722),
+// convertidos para WebP lossless em `public/midias/consultoria/clientes/`.
 const logos = [
-  "AGEVAP - Associação Pró-gestão das Águas da Bacia Hidrográfica do Rio Paraíba do Sul",
-  "Casa Tlalli",
-  "Scinax Consultoria Ambiental",
-  "The Nature Conservancy",
+  {
+    nome: "AGEVAP - Associação Pró-gestão das Águas da Bacia Hidrográfica do Rio Paraíba do Sul",
+    imagem: "/midias/consultoria/clientes/agevap.webp",
+  },
+  { nome: "Casa Tlalli", imagem: "/midias/consultoria/clientes/casa-tlalli.webp" },
+  {
+    nome: "Scinax Consultoria Ambiental",
+    imagem: "/midias/consultoria/clientes/scinax.webp",
+  },
+  {
+    nome: "The Nature Conservancy",
+    imagem: "/midias/consultoria/clientes/the-nature-conservancy.webp",
+  },
 ];
 ---
 
@@ -197,13 +207,19 @@ const logos = [
           }
         </div>
 
-        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+        <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {
             logos.map((logo) => (
-              <div class="flex items-center justify-center rounded-[18px] border border-oama-ink/10 bg-white px-6 py-5 text-center shadow-sm">
-                <p class="font-oswald text-[18px] uppercase leading-tight tracking-wide text-oama-ink md:text-[20px]">
-                  {logo}
-                </p>
+              <div class="flex items-center justify-center rounded-[18px] border border-oama-ink/10 bg-white p-5 shadow-sm">
+                <img
+                  src={logo.imagem}
+                  alt={logo.nome}
+                  width="213"
+                  height="213"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-auto w-full max-w-[160px] object-contain"
+                />
               </div>
             ))
           }
