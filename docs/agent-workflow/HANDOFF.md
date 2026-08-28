@@ -21,7 +21,13 @@ so para `src/assets` via `<Image>`. Os scripts estao em `scripts/imagens/`:
 
 - `otimizar-public.mjs` — converte rasters de `public/` para WebP (aceita `--dry`).
 - `reescrever-refs.mjs` — reescreve as referencias apos a conversao.
-- `srcset-heroes.mjs` — gera variantes responsivas para heroes.
+- `srcset-heroes.mjs` — gera variantes responsivas para heroes. **So enxerga
+  caminho literal na tag**: hero que chega por prop (o caso de
+  `ConsultoriaServico.astro`) precisa montar o srcset no proprio componente.
+- `corrigir-graficos-chapados.mjs` — WebP lossless para logo, icone e QR code.
+  **Nao use WebP com perda em arte chapada**: gera ringing na aresta e costuma
+  ficar maior que o lossless. O QR do PIX foi de 69 KB para 119 KB com perda e
+  para 15 KB em lossless.
 - `verificar-links.mjs` — **rode sempre depois de mexer em imagem.** O build do
   Astro passa mesmo com `src` apontando para arquivo que nao existe.
 
