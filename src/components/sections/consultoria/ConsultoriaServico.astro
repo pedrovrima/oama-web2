@@ -47,6 +47,8 @@ const {
       class="absolute inset-0 h-full w-full object-cover"
       style={heroPos ? `object-position:${heroPos};` : undefined}
       loading="eager"
+      fetchpriority="high"
+      decoding="async"
     />
   </section>
 
@@ -154,6 +156,7 @@ const {
                   class={`h-[84px] w-[84px] rounded-full shadow-md ${
                     i % 2 === 1 ? "translate-y-6" : ""
                   }`}
+                  decoding="async"
                 />
               ))
             }

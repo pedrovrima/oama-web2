@@ -11,15 +11,15 @@ const azul = "#5ba4d9";
 
 // Organizações que organizam a campanha (array `logos` do legado, 9 entradas).
 const organizacoes = [
-  { arquivo: "azab.png", nome: "AZAB — Associação de Zoológicos e Aquários do Brasil", site: "https://www.azab.org.br/" },
-  { arquivo: "aves-argentinas.png", nome: "Aves Argentinas", site: "https://www.avesargentinas.org.ar/" },
-  { arquivo: "cncflora.png", nome: "CNCFlora — Centro Nacional de Conservação da Flora", site: "https://cncflora.jbrj.gov.br/cncflora" },
-  { arquivo: "jbrj.png", nome: "Jardim Botânico do Rio de Janeiro", site: "https://www.gov.br/jbrj/pt-br" },
-  { arquivo: "oama.png", nome: "OAMa — Observatório de Aves da Mantiqueira", site: "/" },
-  { arquivo: "parque-das-aves.png", nome: "Parque das Aves", site: "https://www.parquedasaves.com.br/" },
-  { arquivo: "save.png", nome: "SAVE Brasil", site: "http://savebrasil.org.br/" },
-  { arquivo: "pn-iguacu.png", nome: "Parque Nacional do Iguaçu", site: "https://cataratasdoiguacu.com.br/" },
-  { arquivo: "cemave-icmbio.png", nome: "CEMAVE — ICMBio", site: "https://www.gov.br/icmbio/pt-br" },
+  { arquivo: "azab.webp", nome: "AZAB — Associação de Zoológicos e Aquários do Brasil", site: "https://www.azab.org.br/" },
+  { arquivo: "aves-argentinas.webp", nome: "Aves Argentinas", site: "https://www.avesargentinas.org.ar/" },
+  { arquivo: "cncflora.webp", nome: "CNCFlora — Centro Nacional de Conservação da Flora", site: "https://cncflora.jbrj.gov.br/cncflora" },
+  { arquivo: "jbrj.webp", nome: "Jardim Botânico do Rio de Janeiro", site: "https://www.gov.br/jbrj/pt-br" },
+  { arquivo: "oama.webp", nome: "OAMa — Observatório de Aves da Mantiqueira", site: "/" },
+  { arquivo: "parque-das-aves.webp", nome: "Parque das Aves", site: "https://www.parquedasaves.com.br/" },
+  { arquivo: "save.webp", nome: "SAVE Brasil", site: "http://savebrasil.org.br/" },
+  { arquivo: "pn-iguacu.webp", nome: "Parque Nacional do Iguaçu", site: "https://cataratasdoiguacu.com.br/" },
+  { arquivo: "cemave-icmbio.webp", nome: "CEMAVE — ICMBio", site: "https://www.gov.br/icmbio/pt-br" },
 ];
 
 // Onde comprar polpa de juçara (objeto `places` do legado).
@@ -91,48 +91,48 @@ const pontosDeMuda = [
 // Materiais relacionados (array `pags` do legado).
 const materiais = [
   {
-    arquivo: "doc.jpg",
+    arquivo: "doc.webp",
     alt: "Capa do documentário “Juçara — consumo e conservação”, com letreiro claro sobre fundo preto",
     site: "https://www.youtube.com/watch?v=FtL8dOPeu6U",
   },
   {
-    arquivo: "wikiaves-jacutinga.jpg",
+    arquivo: "wikiaves-jacutinga.webp",
     alt: "Página da jacutinga no WikiAves, com foto da ave e gravação de seu canto",
     site: "https://www.wikiaves.com.br/wiki/jacutinga",
   },
   {
-    arquivo: "folder.jpg",
+    arquivo: "folder.webp",
     alt: "Capa do informativo “Juçara — consumo, conservação e sua relação com a avifauna”, com ave sobre cacho de frutos",
     site: "/publicacoes/files/informativo%20de%20distribui%C3%A7%C3%A3o%20-%20Ju%C3%A7ara.pdf",
     interno: true,
   },
   {
-    arquivo: "colorir-jacutinga.jpg",
+    arquivo: "colorir-jacutinga.webp",
     alt: "Capa do material para colorir “Vamos colorir a Jacutinga?”, com desenho de contorno da ave",
     site: "https://wwfbr.awsassets.panda.org/downloads/encarte_iguacu_jacutinga_a4_final_pt.pdf",
   },
   {
-    arquivo: "news.jpg",
+    arquivo: "news.webp",
     alt: "Reportagem “A contribuição do cultivo do Açaí Juçara para a nutrição e preservação ambiental no Sul do país”",
     site: "https://midianinja.org/news/a-contribuicao-do-cultivo-do-acai-jucara-para-a-nutricao-e-preservacao-ambiental-no-sul-do-pais/",
   },
   {
-    arquivo: "rehab.jpg",
+    arquivo: "rehab.webp",
     alt: "Artigo “Como as jacutingas do Parque das Aves aprendem a viver na floresta”",
     site: "https://www.parquedasaves.com.br/blog/como-as-jacutingas-do-parque-das-aves-aprendem-a-viver-na-floresta/",
   },
   {
-    arquivo: "cncflora.jpg",
+    arquivo: "cncflora.webp",
     alt: "Ficha de avaliação de risco de extinção de Euterpe edulis no portal do CNCFlora, classificada como Vulnerável",
     site: "https://proflora.jbrj.gov.br/html/Euterpe%20edulis_2012.html",
   },
   {
-    arquivo: "palmito-legal.jpg",
+    arquivo: "palmito-legal.webp",
     alt: "Capa da animação “Palmito Legal”, com ilustração de jacutinga sobre cacho de frutos de juçara",
     site: "https://youtu.be/BORRYwKCkdA",
   },
   {
-    arquivo: "livro-jucara.jpg",
+    arquivo: "livro-jucara.webp",
     alt: "Capítulo “Receitas com polpa de juçara” do livro da juçara, com frutos ao fundo",
     site: "/publicacoes/files/livro_jucara.pdf",
     interno: true,
@@ -143,17 +143,21 @@ const materiais = [
 <BaseLayout
   title="Campanha Jacuçara — a jacutinga e a palmeira juçara"
   description="Conheça a Campanha Jacuçara e a relação vital entre a jacutinga e a palmeira juçara na Mata Atlântica. Duas espécies ameaçadas, e o que podemos fazer por elas."
-  image="/jacucara/figs/1.jpg"
+  image="/jacucara/figs/1.webp"
   navVariant="overlay"
 >
   <main class="font-montserrat text-oama-ink">
     {/* HERO — fig 1 do legado */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[560px]">
       <img
-        src="/jacucara/figs/1.jpg"
+        srcset="/jacucara/figs/1-640w.webp 640w, /jacucara/figs/1-960w.webp 960w, /jacucara/figs/1-1280w.webp 1280w, /jacucara/figs/1-1920w.webp 1920w, /jacucara/figs/1.webp 2000w"
+        sizes="100vw"
+        src="/jacucara/figs/1.webp"
         alt="Jacutinga (Aburria jacutinga) pousada sobre um cacho de frutos de palmeira-juçara na Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover object-top"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -218,6 +222,7 @@ const materiais = [
                   alt={`Logo do(a) ${org.nome}`}
                   class="h-14 w-auto max-w-[140px] object-contain md:h-16"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
             </li>
@@ -274,10 +279,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/2.jpg"
+            src="/jacucara/figs/2.webp"
             alt="Infográfico “Conheça a palmeira-juçara”: taxonomia da espécie Euterpe edulis, frutos globosos roxo-escuros, estipe solitário de 5 a 15 metros, cone de raízes na base, mapa de ocorrência da Bahia ao Rio Grande do Sul e classificação Vulnerável (VU)"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -304,10 +310,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/3.jpg"
+            src="/jacucara/figs/3.webp"
             alt="Mosaico “Uma rede de interações com aves”: jacutinga, tucano-de-bico-verde, araçari, maritacas, sabiá, udu-de-coroa-azul e outras aves consumindo frutos de juçara"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -385,10 +392,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/4.jpg"
+            src="/jacucara/figs/4.webp"
             alt="Comparação entre a palmeira-juçara, de estipe único, e o açaizeiro, que forma touceira com vários caules"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -423,10 +431,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/5.jpg"
+            src="/jacucara/figs/5.webp"
             alt="Ilustração de palmeiras juçara em floresta com jacutinga, tucano, macaco e anta se alimentando dos frutos, ao lado de um esquema do processamento do fruto em polpa, sementes e mudas"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
           <figcaption class="mt-4 text-sm text-oama-ink/60">
             Por Marina Vieira Souza. Ilustração
@@ -531,10 +540,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/6.jpg"
+            src="/jacucara/figs/6.webp"
             alt="Infográfico “Conheça a jacutinga”: distribuição restrita à Mata Atlântica do Sudeste do Brasil, Argentina e Paraguai, dispersão de frutos de mais de 40 espécies arbóreas, 64 a 74 cm de altura, 1,1 a 1,4 kg, taxonomia e classificação Em Perigo (EN)"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -548,10 +558,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/7.jpg"
+            src="/jacucara/figs/7.webp"
             alt="Infográfico “Diferenciando a jacutinga de espécies semelhantes”, comparando jacutinga, cujubi e jacupemba com fotos e características de cada uma"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -596,10 +607,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/8.jpg"
+            src="/jacucara/figs/8.webp"
             alt="Infográfico “O que significa estar em risco de extinção?”, explicando declínio populacional, listas vermelhas da IUCN e como é feita a avaliação de risco"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -679,10 +691,11 @@ const materiais = [
 
         <figure class="!my-8">
           <img
-            src="/jacucara/figs/9.jpg"
+            src="/jacucara/figs/9.webp"
             alt="Infográfico “Categorias de risco de extinção” da IUCN, de Extinta (EX) a Não avaliada (NE), com a jacutinga apontada na categoria Em Perigo (EN)"
             class="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </figure>
       </div>
@@ -892,10 +905,11 @@ const materiais = [
     {/* Ilustração full-bleed (fig 12) */}
     <section class="bg-white">
       <img
-        src="/jacucara/figs/12.png"
+        src="/jacucara/figs/12.webp"
         alt="Ilustração de duas jacutingas: uma pousada sobre um cacho de frutos de palmeira-juçara e outra em voo, sobre fundo azul"
         class="h-auto w-full"
         loading="lazy"
+        decoding="async"
       />
       <p class="mx-auto max-w-4xl px-6 pt-4 text-sm text-oama-ink/60">
         Ilustração
@@ -916,10 +930,11 @@ const materiais = [
         </h2>
         <div class="mt-2 h-1 w-24 rounded-full bg-oama-yellow"></div>
         <img
-          src="/jacucara/figs/10.jpg"
+          src="/jacucara/figs/10.webp"
           alt="Lista do que você pode fazer: não comprar palmito extraído da natureza sem certificado de origem; consumir o açaí da juçara; comprar polpa de extratores que seguem o manejo sustentável; repovoar as populações de palmito-juçara; apoiar projetos de conservação das jacutingas; reivindicar aos órgãos ambientais o aumento da fiscalização; divulgar a importância da jacutinga e do palmito; e praticar observação de aves"
           class="mt-8 h-auto w-full"
           loading="lazy"
+          decoding="async"
         />
       </div>
     </section>
@@ -946,6 +961,7 @@ const materiais = [
                   alt={material.alt}
                   class="h-auto w-full"
                   loading="lazy"
+                  decoding="async"
                 />
               </a>
             </li>
@@ -957,10 +973,11 @@ const materiais = [
     {/* Encerramento — fig 11 (créditos da campanha) */}
     <section class="w-full" style={`background:${roxo};`}>
       <img
-        src="/jacucara/figs/11.jpg"
+        src="/jacucara/figs/11.webp"
         alt="Crédito da campanha: “A Campanha Jacuçara é uma iniciativa do PAN Aves Mata Atlântica”, organizada por OAMa, CNCFlora, Jardim Botânico do Rio de Janeiro, AZAB, Aves Argentinas, Parque das Aves, SAVE Brasil, Parque Nacional do Iguaçu, CEMAVE e ICMBio"
         class="h-auto w-full"
         loading="lazy"
+        decoding="async"
       />
     </section>
 

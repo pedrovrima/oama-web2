@@ -17,39 +17,39 @@ export interface IconePublico {
 
 export const ICONES_PUBLICO = {
   "empresas-consultorias": {
-    src: "/icones/publico/empresas-consultorias.png",
+    src: "/icones/publico/empresas-consultorias.webp",
     alt: "Prédios corporativos entre árvores",
   },
   "empreendimentos-impacto": {
-    src: "/icones/publico/empreendimentos-impacto.png",
+    src: "/icones/publico/empreendimentos-impacto.webp",
     alt: "Escavadeira de esteira em obra",
   },
   "orgaos-publicos": {
-    src: "/icones/publico/orgaos-publicos.png",
+    src: "/icones/publico/orgaos-publicos.webp",
     alt: "Prédio do Congresso Nacional",
   },
   "universidades-pesquisa": {
-    src: "/icones/publico/universidades-pesquisa.png",
+    src: "/icones/publico/universidades-pesquisa.webp",
     alt: "Monitor exibindo um frasco de laboratório e um átomo",
   },
   "estudantes-profissionais": {
-    src: "/icones/publico/estudantes-profissionais.png",
+    src: "/icones/publico/estudantes-profissionais.webp",
     alt: "Livro aberto",
   },
   "escolas-museus": {
-    src: "/icones/publico/escolas-museus.png",
+    src: "/icones/publico/escolas-museus.webp",
     alt: "Parede de museu com quadros e luzes de destaque",
   },
   "sociedade-civil": {
-    src: "/icones/publico/sociedade-civil.png",
+    src: "/icones/publico/sociedade-civil.webp",
     alt: "Mão aberta com um coração na palma",
   },
   "unidades-conservacao": {
-    src: "/icones/publico/unidades-conservacao.png",
+    src: "/icones/publico/unidades-conservacao.webp",
     alt: "Palmeira",
   },
   "observadores-aves": {
-    src: "/icones/publico/observadores-aves.png",
+    src: "/icones/publico/observadores-aves.webp",
     alt: "Binóculo",
   },
 } satisfies Record<string, IconePublico>;

@@ -24,33 +24,37 @@ interface TeamMember {
 // Mantém-se a composição e os retratos locais definidos pelo Figma; cargos sem
 // fonte no legado permanecem vazios para não inferir informação institucional.
 const equipe: TeamMember[] = [ // preservado: a seção Equipe está desativada (ver abaixo)
-  { nome: "Luiza Figueira", cargo: "Diretora Executiva", foto: "/midias/sobre/luiza-figueira.jpg", email: "luiza@oama.eco.br" },
+  { nome: "Luiza Figueira", cargo: "Diretora Executiva", foto: "/midias/sobre/luiza-figueira.webp", email: "luiza@oama.eco.br" },
   { nome: "", cargo: "", foto: "", placeholder: true },
-  { nome: "Pedro Martins", cargo: "Coordenador de dados", foto: "/midias/sobre/pedro-martins.jpg" },
-  { nome: "Affonso Souza", cargo: "Coordenador de projetos", foto: "/midias/sobre/affonso-souza.jpg", email: "asouza@oama.eco.br" },
-  { nome: "Otávio Rocha", cargo: "", foto: "/midias/sobre/otavio-rocha.jpg" },
-  { nome: "Danielle Santos", cargo: "Bióloga Colaboradora - Pesquisa e Monitoramento", foto: "/midias/sobre/danielle-santos.jpg" },
-  { nome: "Rafaella Vitti Ferneda", cargo: "Divulgação Científica", foto: "/midias/sobre/rafaela-vitti.jpg" },
-  { nome: "Andreza Oliveira", cargo: "Divulgação Científica", foto: "/midias/sobre/andreza-freitas.jpg" },
-  { nome: "Juliana Costa Villa", cargo: "", foto: "/midias/sobre/juliana-costa-villa.jpg" },
-  { nome: "Mariana Franciscão", cargo: "", foto: "/midias/sobre/mariana-franciscao.jpg" },
-  { nome: "Matheus Pinheiro", cargo: "", foto: "/midias/sobre/matheus-pinheiro.jpg" },
-  { nome: "Rachel Fidelis", cargo: "", foto: "/midias/sobre/rachel-fidelis.jpg" },
+  { nome: "Pedro Martins", cargo: "Coordenador de dados", foto: "/midias/sobre/pedro-martins.webp" },
+  { nome: "Affonso Souza", cargo: "Coordenador de projetos", foto: "/midias/sobre/affonso-souza.webp", email: "asouza@oama.eco.br" },
+  { nome: "Otávio Rocha", cargo: "", foto: "/midias/sobre/otavio-rocha.webp" },
+  { nome: "Danielle Santos", cargo: "Bióloga Colaboradora - Pesquisa e Monitoramento", foto: "/midias/sobre/danielle-santos.webp" },
+  { nome: "Rafaella Vitti Ferneda", cargo: "Divulgação Científica", foto: "/midias/sobre/rafaela-vitti.webp" },
+  { nome: "Andreza Oliveira", cargo: "Divulgação Científica", foto: "/midias/sobre/andreza-freitas.webp" },
+  { nome: "Juliana Costa Villa", cargo: "", foto: "/midias/sobre/juliana-costa-villa.webp" },
+  { nome: "Mariana Franciscão", cargo: "", foto: "/midias/sobre/mariana-franciscao.webp" },
+  { nome: "Matheus Pinheiro", cargo: "", foto: "/midias/sobre/matheus-pinheiro.webp" },
+  { nome: "Rachel Fidelis", cargo: "", foto: "/midias/sobre/rachel-fidelis.webp" },
 ];
 ---
 
 <section class="bg-[#dfb553] relative overflow-visible">
   <!-- Japu - right, overflows top and right -->
   <img
-    src="/sobre/japu.png"
+    src="/sobre/japu.webp"
     alt="Japu"
     class="absolute right-[10%] top-[40px] h-[380px] w-auto object-contain hidden md:block z-0"
+    decoding="async"
+    loading="lazy"
   />
   <!-- Andorinhão - left, overflows left -->
   <img
-    src="/sobre/andorinhao.png"
+    src="/sobre/andorinhao.webp"
     alt="Andorinhão"
     class="absolute left-[10%] top-[300px] h-[260px] w-auto object-contain hidden md:block z-0"
+    decoding="async"
+    loading="lazy"
   />
 
   <div class="max-w-2xl mx-auto px-6 pt-16 pb-10 text-center relative z-10">

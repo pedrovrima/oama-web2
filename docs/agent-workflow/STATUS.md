@@ -107,6 +107,19 @@
     4,6 MB. Redirect de `/jacucara` removido de `vercel.json`; rota adicionada ao sitemap.
     Ver `docs/implementation/pages/jacucara.md`.
 
+21. **Otimização de imagens (2026-08-28)** — frente transversal, não mexeu em
+    conteúdo nem em layout. Os 440 rasters de `public/` eram servidos crus (Astro
+    só otimiza o que passa por `<Image>` a partir de `src/assets`): convertidos
+    para WebP q82 com cap de 2000px, 2560px em hero/capa. **207 MB → 49 MB
+    (-76%)**; maior arquivo de 6,3 MB para 896 KB. 276 referências reescritas em
+    41 arquivos. Somados: `decoding="async"` em 118 tags, `loading="lazy"` em 33,
+    `fetchpriority="high"` nos 22 heroes, `srcset` responsivo em 18 heroes
+    (640/960/1280/1920px, `sizes="100vw"`) e headers de cache no `vercel.json`.
+    Verificação: build verde em 34 páginas; 706 referências do `dist` conferidas
+    contra o disco, 0 quebradas; QA no navegador em 33 rotas a 1440 e 390,
+    0 imagens quebradas. **Os 470 MB de PDFs continuam sem tratamento**, por
+    decisão do usuário. Ver `docs/implementation/pages/otimizacao-de-imagens.md`.
+
 ## Saúde do projeto
 - Build: passando no último ciclo conhecido.
 - Estrutura de documentação:

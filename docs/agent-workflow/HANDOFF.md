@@ -10,7 +10,36 @@ hoje `scripts/blog/importar-posts.mjs`, que exige `SANITY_WRITE_TOKEN` e roda em
 simulação sem ele.
 
 
-## Estado em 2026-08-27 — pendencias pontuais (leia isto primeiro)
+## Estado em 2026-08-28 — otimizacao de imagens (leia isto primeiro)
+
+Frente transversal, sem mudanca de conteudo ou layout. Detalhe completo em
+`docs/implementation/pages/otimizacao-de-imagens.md`.
+
+**Toda imagem de `public/` agora e `.webp`.** Se voce for adicionar uma imagem
+nova nessa pasta, converta antes — nao existe pipeline automatico para `public/`,
+so para `src/assets` via `<Image>`. Os scripts estao em `scripts/imagens/`:
+
+- `otimizar-public.mjs` — converte rasters de `public/` para WebP (aceita `--dry`).
+- `reescrever-refs.mjs` — reescreve as referencias apos a conversao.
+- `srcset-heroes.mjs` — gera variantes responsivas para heroes.
+- `verificar-links.mjs` — **rode sempre depois de mexer em imagem.** O build do
+  Astro passa mesmo com `src` apontando para arquivo que nao existe.
+
+Cuidados que ja custaram tempo e nao devem ser redescobertos:
+
+- Em `downloads.astro`, a chave `img:` e imagem e a chave vizinha `arquivo:` e
+  **PDF**. Varredura por extensao que nao separe as duas corrompe os downloads.
+- Nome de arquivo com espaco quebra `srcset`, que usa virgula como separador e
+  espaco como descritor. Todo caminho em `srcset` precisa de `encodeURI` e de
+  barra inicial (sem ela, resolve relativo a rota e quebra em pagina aninhada).
+- O QA por scroll trava: a pagina cresce conforme carrega e o laco nao termina.
+  Promova as imagens a `loading="eager"` via JS e espere `img.decode()`.
+- A rota `/admin/` e o Studio do Sanity; nunca atinge `networkidle`. Exclua do QA.
+
+Pendencia herdada: **470 MB de PDFs** em `public/publicacoes/files/`, intocados
+por decisao do usuario. Nao afetam Core Web Vitals, mas dominam o peso do deploy.
+
+## Estado em 2026-08-27 — pendencias pontuais
 
 Build limpo: **35 paginas**. Varredura das 35 rotas em 1440 e 390 (serial,
 com `img.decode()` antes de medir): **0 imagens quebradas, 0 overflow**.

@@ -9,7 +9,7 @@ const FALLBACK = [
     title: "Consumo e conservação da juçara",
     subtitle:
       "Agricultores, observadores de aves, pesquisadores e você. Todos precisamos desta palmeira.",
-    image: "/midias/home/doc-jucara.jpg",
+    image: "/midias/home/doc-jucara.webp",
     link: "https://youtu.be/FtL8dOPeu6U",
     bg: "#8b75b2",
   },
@@ -17,7 +17,7 @@ const FALLBACK = [
     title: "Monitoramento da avifauna",
     subtitle:
       "Os dados coletados no presente são ferramentas para prevermos e explicarmos eventos futuros.",
-    image: "/midias/home/doc-monitoramento.jpg",
+    image: "/midias/home/doc-monitoramento.webp",
     link: "https://youtu.be/OrGmxyzla5A",
     bg: "#4ca2da",
   },
@@ -94,6 +94,7 @@ const id = "home-carousel";
                   alt={slide.title}
                   loading={index === 0 ? "eager" : "lazy"}
                   class="h-full w-full rounded-[25px] object-cover shadow-xl transition duration-200 group-hover:scale-[1.01]"
+                  decoding="async"
                 />
               </a>
 

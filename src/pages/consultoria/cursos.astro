@@ -122,6 +122,8 @@ const totalCursos = cursosConcluidos.reduce((n, t) => n + t.cursos.length, 0);
     {/* HERO: banner full-bleed apenas com a foto (título vive na faixa amarela) */}
     <section class="w-full overflow-hidden">
       <img
+        srcset="/midias/cursos/hero-asa-verde-640w.webp 640w, /midias/cursos/hero-asa-verde-960w.webp 960w, /midias/cursos/hero-asa-verde-1280w.webp 1280w, /midias/cursos/hero-asa-verde-1920w.webp 1920w, /midias/cursos/hero-asa-verde.webp 2400w"
+        sizes="100vw"
         src="/midias/cursos/hero-asa-verde.webp"
         alt="Close da asa aberta de uma ave de plumagem esverdeada segurada por pesquisador"
         class="h-[42vh] max-h-[520px] min-h-[240px] w-full object-cover md:h-[48vw] md:max-h-[540px]"

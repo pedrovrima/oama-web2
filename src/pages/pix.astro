@@ -23,10 +23,14 @@ const dadosBancarios = [
     <section class="relative overflow-hidden bg-[#1a2e4a]">
       <div class="absolute inset-0 opacity-20">
         <img
-          src="/apoie/apoie.jpg"
+          srcset="/apoie/apoie-640w.webp 640w, /apoie/apoie-960w.webp 960w, /apoie/apoie-1280w.webp 1280w, /apoie/apoie-1920w.webp 1920w, /apoie/apoie.webp 2000w"
+          sizes="100vw"
+          src="/apoie/apoie.webp"
           alt=""
           class="h-full w-full object-cover"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
       <div class="relative mx-auto flex min-h-[520px] max-w-5xl flex-col justify-end px-6 pb-16 pt-32 md:min-h-[600px] md:px-10">
@@ -94,10 +98,11 @@ const dadosBancarios = [
           </p>
 
           <img
-            src="/pix/qrcode-donation-oama.png"
+            src="/pix/qrcode-donation-oama.webp"
             alt="QR code para doação via PIX ao OAMa"
             class="mx-auto mt-7 w-full max-w-[280px] rounded-2xl bg-white p-3"
             loading="eager"
+            decoding="async"
           />
 
           <div class="mt-7 rounded-2xl bg-white p-4 text-[#1a2e4a]">

@@ -4,22 +4,22 @@ import WaveDark from "../../components/sections/WaveDark.astro";
 
 const destaques = [
   {
-    imagem: "/midias/programas-e-projetos/fft-galeria-1.jpg",
+    imagem: "/midias/programas-e-projetos/fft-galeria-1.webp",
     alt: "Grupo posando junto à placa do Parque Nacional do Itatiaia, com o Pico das Agulhas Negras ao fundo",
     legenda: "Visitas guiadas a unidades de conservação como o Parque Nacional do Itatiaia",
   },
   {
-    imagem: "/midias/programas-e-projetos/fft-galeria-2.jpg",
+    imagem: "/midias/programas-e-projetos/fft-galeria-2.webp",
     alt: "Visitante sorrindo ao lado de cachoeira em trilha durante a Fundraising Field Trip",
     legenda: "Trilhas e experiências únicas na Mantiqueira",
   },
   {
-    imagem: "/midias/programas-e-projetos/fft-galeria-3.jpg",
+    imagem: "/midias/programas-e-projetos/fft-galeria-3.webp",
     alt: "Visitante observando de perto ave segurada por pesquisador do OAMa durante atividade de campo",
     legenda: "Visitantes participam das atividades de campo do OAMa",
   },
   {
-    imagem: "/midias/programas-e-projetos/fft-galeria-4.jpg",
+    imagem: "/midias/programas-e-projetos/fft-galeria-4.webp",
     alt: "Mesa posta com pratos da culinária local servidos em pousada durante a Fundraising Field Trip",
     legenda: "Gastronomia e cultura local durante a viagem",
   },
@@ -29,16 +29,20 @@ const destaques = [
 
 <BaseLayout
   description="Viagem anual de cerca de dez dias entre OAMa e Klamath Bird Observatory que une captação de recursos, turismo de conservação e educação ambiental."
-  image="/midias/programas-e-projetos/fft-hero.jpg" title="Fundraising Field Trip — OAMa" navVariant="overlay">
+  image="/midias/programas-e-projetos/fft-hero.webp" title="Fundraising Field Trip — OAMa" navVariant="overlay">
   <main class="font-montserrat">
     <!-- HERO full-bleed com overlay -->
     {/* HERO (frame: foto de altura contida, SEM título sobreposto) */}
     <section class="relative h-[300px] w-full overflow-hidden md:h-[620px]">
       <img
-        src="/midias/programas-e-projetos/fft-hero.jpg"
+        srcset="/midias/programas-e-projetos/fft-hero-640w.webp 640w, /midias/programas-e-projetos/fft-hero-960w.webp 960w, /midias/programas-e-projetos/fft-hero-1280w.webp 1280w, /midias/programas-e-projetos/fft-hero-1920w.webp 1920w, /midias/programas-e-projetos/fft-hero.webp 2400w"
+        sizes="100vw"
+        src="/midias/programas-e-projetos/fft-hero.webp"
         alt="Grupo em trilha rochosa entre picos e capim durante a Fundraising Field Trip"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </section>
 
@@ -95,6 +99,7 @@ const destaques = [
                     alt={d.alt}
                     class="h-[240px] md:h-[350px] w-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
                   <p class="absolute bottom-0 left-0 right-0 px-5 py-4 text-white font-montserrat text-[13px] md:text-[15px] leading-[18px] md:leading-[22px] text-center">

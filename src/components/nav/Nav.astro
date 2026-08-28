@@ -41,15 +41,19 @@ const styles = isOverlay
       aria-label="Início"
     >
       <img
-        src="/brand/logo-round.png"
+        src="/brand/logo-round.webp"
         alt="OAMa"
         class="h-[50px] w-[50px] rounded-full object-cover"
+        decoding="async"
+        loading="lazy"
       />
     </a>
 
     <!-- ── DESKTOP: SVG logo, left-aligned ── -->
     <a href="/" class="hidden md:flex items-center gap-2" aria-label="Início">
-      <img src="/brand/logo-round.png" alt="OAMa" class="h-9 w-auto" />
+      <img src="/brand/logo-round.webp" alt="OAMa" class="h-9 w-auto"
+      decoding="async"
+    loading="lazy" />
     </a>
 
     <!-- ── DESKTOP nav: center ── -->
@@ -119,9 +123,11 @@ const styles = isOverlay
   <div class="relative flex items-center justify-between bg-white px-4 py-2" style="min-height: 66px;">
     <a href="/" aria-label="Início" class="absolute left-1/2 -translate-x-1/2">
       <img
-        src="/brand/logo-round.png"
+        src="/brand/logo-round.webp"
         alt="OAMa"
         class="h-[50px] w-[50px] rounded-full object-cover"
+        decoding="async"
+        loading="lazy"
       />
     </a>
     <span class="flex-1" aria-hidden="true"></span>

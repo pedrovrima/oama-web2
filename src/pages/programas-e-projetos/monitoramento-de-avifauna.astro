@@ -75,15 +75,15 @@ const carrossel = [
 // conteúdo já existente no site, e não uma invenção nova de layout.
 const tecnicas = [
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-1.jpg",
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-1.webp",
     alt: "Pesquisadores do OAMa em sessão de anilhamento com redes de neblina na Mata Atlântica",
   },
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-2.jpg",
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-2.webp",
     alt: "Saltator-de-papo-cinza fotografado durante monitoramento de avifauna na Mantiqueira — foto Eduardo Schultz",
   },
   {
-    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-3.jpg",
+    imagem: "/midias/programas-e-projetos/monitoramento-tecnica-3.webp",
     alt: "Saltator fotografado durante monitoramento de avifauna na Serra da Mantiqueira — foto BirdsAtlantic",
   },
 ];
@@ -91,7 +91,7 @@ const tecnicas = [
 
 <BaseLayout
   description="Monitoramento padronizado e de longo prazo da avifauna da Serra da Mantiqueira, com anilhamento em redes de neblina, pontos de escuta e gravadores."
-  image="/midias/programas-e-projetos/monitoramento-hero-ave-amarela.jpg"
+  image="/midias/programas-e-projetos/monitoramento-hero-ave-amarela.webp"
   title="Programa de Monitoramento de Avifauna da Mantiqueira — OAMa"
   navVariant="overlay"
 >
@@ -306,6 +306,7 @@ const tecnicas = [
               alt={t.alt}
               class="h-[200px] w-full object-cover md:h-[280px]"
               loading="lazy"
+              decoding="async"
             />
           ))
         }

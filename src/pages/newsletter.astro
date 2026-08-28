@@ -6,17 +6,21 @@ import CaptchaSlot from "../components/CaptchaSlot.astro";
 <BaseLayout
   title="Newsletter — OAMa"
   description="Assine a newsletter do OAMa e seja o primeiro a saber das próximas atividades, cursos e ações de conservação das aves da Mata Atlântica."
-  image="/midias/missao/hero-missao.jpg"
+  image="/midias/missao/hero-missao.webp"
   navVariant="overlay"
 >
   <main class="font-montserrat">
     <!-- HERO full-bleed -->
     <section class="relative min-h-[60vh] w-full overflow-hidden flex items-end">
       <img
-        src="/midias/missao/hero-missao.jpg"
+        srcset="/midias/missao/hero-missao-640w.webp 640w, /midias/missao/hero-missao-960w.webp 960w, /midias/missao/hero-missao-1280w.webp 1280w, /midias/missao/hero-missao.webp 1920w"
+        sizes="100vw"
+        src="/midias/missao/hero-missao.webp"
         alt="Ave da Mata Atlântica em galho com frutos"
         class="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/35"></div>
       <div class="relative z-10 w-full max-w-5xl mx-auto px-6 pb-16">

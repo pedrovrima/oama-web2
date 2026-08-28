@@ -42,7 +42,7 @@ export function Carroussel({ figs, section }) {
               alt=""
               layout="fill"
               objectFit="contain"
-              src={encodeURI(`/proaves/${section}/fig${img.number}.jpg`)}
+              src={encodeURI(`/proaves/${section}/fig${img.number}.webp`)}
             ></Image>
             <div className="w-full flex absolute bottom-0 sm:bottom-12 justify-center">
               <p className="w-full sm:w-2/3  opacity-80 sm:opacity-5 text-white bg-gray-700 rounded-md p-2 group-hover:opacity-80 ">

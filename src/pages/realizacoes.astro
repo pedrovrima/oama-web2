@@ -7,7 +7,7 @@ const realizacoes = [
     id: "downloads",
     titulo: "Downloads",
     descricao: "Baixe livros, cartilhas, pôsteres ilustrados, adesivos anti colisão e muito mais",
-    imagem: "/midias/realizacoes/downloads.jpg",
+    imagem: "/midias/realizacoes/downloads.webp",
     alt: "Material para download do OAMa",
     href: "/downloads",
   },
@@ -15,7 +15,7 @@ const realizacoes = [
     id: "documentarios",
     titulo: "Documentários",
     descricao: "Assista às produções audiovisuais do OAMa",
-    imagem: "/midias/realizacoes/documentarios.jpg",
+    imagem: "/midias/realizacoes/documentarios.webp",
     alt: "Documentários do OAMa",
     href: "https://www.youtube.com/channel/UCzLcpYmPb1DR524wXb0CvHA",
   },
@@ -33,7 +33,7 @@ const realizacoes = [
     descricao: "Dicionário colaborativo de nomes populares de aves brasileiras",
     // Capa: a propria busca do Xara. Nao ha foto que comunique um dicionario de
     // nomes, e a interface identifica o produto sem improvisar imagem.
-    imagem: "/midias/realizacoes/webapp-xara.jpg",
+    imagem: "/midias/realizacoes/webapp-xara.webp",
     alt: "Busca do Xará mostrando nomes populares de sabiás e seus nomes científicos",
     href: "https://xara.oama.eco.br",
   },
@@ -43,7 +43,7 @@ const realizacoes = [
     descricao: "Reporte colisões de aves e contribua com a ciência cidadã",
     // Capa: a ilustracao de abertura do proprio webapp, assinada pelo OAMa e
     // pelo Acoes Pro-Aves.
-    imagem: "/midias/realizacoes/webapp-colisoes.jpg",
+    imagem: "/midias/realizacoes/webapp-colisoes.webp",
     alt: "Ilustração de ave colidindo contra uma vidraça, abertura do webapp de reportes",
     href: "https://colisoes.oama.eco.br",
   },
@@ -51,7 +51,7 @@ const realizacoes = [
     id: "divulgacao-cientifica",
     titulo: "Divulgação Científica",
     descricao: "Um blog para compartilhar e aproximar a ciência de você",
-    imagem: "/midias/realizacoes/divulgacao-cientifica.jpg",
+    imagem: "/midias/realizacoes/divulgacao-cientifica.webp",
     alt: "Divulgação científica do OAMa",
     // Blog migrado do site antigo para este repo (rota interna /blog).
     href: "/blog",
@@ -60,7 +60,7 @@ const realizacoes = [
     id: "textos-academicos",
     titulo: "Textos Acadêmicos",
     descricao: "Leia artigos e resumos científicos de pesquisas lideradas pela equipe OAMa",
-    imagem: "/midias/realizacoes/textos-academicos.jpg",
+    imagem: "/midias/realizacoes/textos-academicos.webp",
     alt: "Textos acadêmicos e artigos científicos do OAMa",
     href: "/downloads#academico",
   },
@@ -70,7 +70,7 @@ const realizacoes = [
 <BaseLayout
   title="Realizações — OAMa"
   description="Downloads, documentários, a enciclopédia Wikimudas, os webapps Xará e de reportes de colisões, o blog de divulgação científica e os textos acadêmicos do OAMa."
-  image="/midias/realizacoes/capa-realizacoes.jpg"
+  image="/midias/realizacoes/capa-realizacoes.webp"
 >
   <main class="font-montserrat text-[#1e1702]">
     {/* HERO — enquadramento mais aberto, como no frame do Figma (2581:454):
@@ -79,10 +79,14 @@ const realizacoes = [
         o object-position para 35% mostra a ave da cabeça à cauda sem corte. */}
     <section class="relative h-[520px] w-full overflow-hidden md:h-[720px]">
       <img
-        src="/midias/realizacoes/capa-realizacoes.jpg"
+        srcset="/midias/realizacoes/capa-realizacoes-640w.webp 640w, /midias/realizacoes/capa-realizacoes-960w.webp 960w, /midias/realizacoes/capa-realizacoes-1280w.webp 1280w, /midias/realizacoes/capa-realizacoes.webp 1920w"
+        sizes="100vw"
+        src="/midias/realizacoes/capa-realizacoes.webp"
         alt="Realizações do OAMa"
         class="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/10"></div>
       <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6 pb-8 md:pb-18">
@@ -112,6 +116,7 @@ const realizacoes = [
                   alt={item.alt}
                   class="h-[245px] w-full object-cover md:h-[300px]"
                   loading="lazy"
+                  decoding="async"
                 />
 
                 <div class="flex min-h-[132px] flex-col items-center justify-center px-6 py-6 text-center md:min-h-[150px]">

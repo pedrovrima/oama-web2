@@ -66,7 +66,7 @@ export default function ProAvesApp() {
             priority
             height={450}
             width={450}
-            src={'/proaves2/logo-pro-aves-texto.png'}
+            src={'/proaves2/logo-pro-aves-texto.webp'}
             alt='Pró-Aves'
           />
         </div>
@@ -78,13 +78,13 @@ export default function ProAvesApp() {
               layout='fill'
               objectFit='cover'
               className='sm:scale-x-[-1]'
-              src={'/proaves2/cover_pro_aves.jpeg'}
+              src={'/proaves2/cover_pro_aves.webp'}
               alt=''
             />
           </div>
         </div>
         <div className=' absolute -bottom-[100px] -left-[160px] opacity-40'>
-          <Image height={500} width={500} src={'/proaves2/blob.png'} alt='' />
+          <Image height={500} width={500} src={'/proaves2/blob.webp'} alt='' />
         </div>
       </div>
       <div className='relative'>
@@ -94,7 +94,7 @@ export default function ProAvesApp() {
               className="
               relative -top-[105px]
         z-[20] mx-[20px] rounded-[50px]
-        bg-[url('/proaves2/pattern3.png')] bg-[length:97px] px-[59px] pb-[30px] pt-[35px] drop-shadow-[10px_10px_rgba(148,114,35,0.5)]  lg:absolute lg:left-[90px] lg:mx-auto lg:h-[1100px] lg:w-[500px] lg:pb-0"
+        bg-[url('/proaves2/pattern3.webp')] bg-[length:97px] px-[59px] pb-[30px] pt-[35px] drop-shadow-[10px_10px_rgba(148,114,35,0.5)]  lg:absolute lg:left-[90px] lg:mx-auto lg:h-[1100px] lg:w-[500px] lg:pb-0"
             >
               <h1 className='mb-[56px] text-center font-oswald text-[30px] font-[300] text-white'>
                 TORNE SUA VIDA PRÓ-AVES
@@ -160,7 +160,7 @@ export default function ProAvesApp() {
               <div className=' relative flex h-[400px] flex-col items-center justify-center'>
                 <div className='h-full w-[3px] bg-[#CF3C3C]' />
                 <div className='relative -left-[10px] -top-[60px] '>
-                  <Image height={100} width={100} src={'/proaves2/t-red.png'} alt='' />
+                  <Image height={100} width={100} src={'/proaves2/t-red.webp'} alt='' />
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@ export default function ProAvesApp() {
                   <Image
                     height={110}
                     width={110}
-                    src={'/proaves2/t-green.png'}
+                    src={'/proaves2/t-green.webp'}
                     alt=''
                   />
                 </div>
@@ -184,7 +184,7 @@ export default function ProAvesApp() {
                   <Image
                     height={140}
                     width={140}
-                    src={'/proaves2/t-purple.png'}
+                    src={'/proaves2/t-purple.webp'}
                     alt=''
                   />
                 </div>
@@ -197,7 +197,7 @@ export default function ProAvesApp() {
                   <Image
                     height={105}
                     width={105}
-                    src={'/proaves2/t-orange.png'}
+                    src={'/proaves2/t-orange.webp'}
                     alt=''
                   />
                 </div>
@@ -210,7 +210,7 @@ export default function ProAvesApp() {
                   <Image
                     height={135}
                     width={135}
-                    src={'/proaves2/t-blue.png'}
+                    src={'/proaves2/t-blue.webp'}
                     alt=''
                   />
                 </div>
@@ -224,7 +224,7 @@ export default function ProAvesApp() {
                   <Image
                     height={135}
                     width={135}
-                    src={'/proaves2/t-yellow.png'}
+                    src={'/proaves2/t-yellow.webp'}
                     alt=''
                   />
                 </div>
@@ -237,7 +237,7 @@ export default function ProAvesApp() {
               height={400}
               width={400}
               layout='fixed'
-              src={'/proaves2/blob.png'}
+              src={'/proaves2/blob.webp'}
               alt=''
             />
           </div>
@@ -249,11 +249,11 @@ export default function ProAvesApp() {
           className=''
           priority
           quality={30}
-          src={'/proaves2/bg2.jpeg'}
+          src={'/proaves2/bg2.webp'}
           alt=''
         />
       </div>
-      <div className="relative -top-[50px] z-[50] -mb-[50px]   bg-[url('/proaves2/pattern.png')] bg-[length:97px] pt-[50px] lg:top-0 lg:mb-0 lg:rounded-none lg:pt-0">
+      <div className="relative -top-[50px] z-[50] -mb-[50px]   bg-[url('/proaves2/pattern.webp')] bg-[length:97px] pt-[50px] lg:top-0 lg:mb-0 lg:rounded-none lg:pt-0">
         <div className='mx-auto max-w-[1024px]'>
           <div className='flex items-end justify-center px-[22px] pt-[46px]'>
             <div className='hidden lg:block'>
@@ -261,7 +261,7 @@ export default function ProAvesApp() {
                 className=''
                 height={100}
                 width={100}
-                src={'/proaves2/tsuru-large.png'}
+                src={'/proaves2/tsuru-large.webp'}
                 alt=''
               />
             </div>
@@ -275,7 +275,7 @@ export default function ProAvesApp() {
               lg:block'
                 height={100}
                 width={100}
-                src={'/proaves2/tsuru-large.png'}
+                src={'/proaves2/tsuru-large.webp'}
                 alt=''
               />{' '}
             </div>
@@ -297,7 +297,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-0 top-[5px] '>
                 <Image
-                  src={'/proaves2/bento1.png'}
+                  src={'/proaves2/bento1.webp'}
                   className=''
                   height={112}
                   width={105}
@@ -315,7 +315,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute right-[20px] top-[5px] '>
                 <Image
-                  src={'/proaves2/bento2.png'}
+                  src={'/proaves2/bento2.webp'}
                   className=''
                   height={138}
                   width={146}
@@ -332,7 +332,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-[11px] top-[20px] '>
                 <Image
-                  src={'/proaves2/bento3.png'}
+                  src={'/proaves2/bento3.webp'}
                   className=''
                   height={134}
                   width={118}
@@ -349,7 +349,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  -bottom-[5px] right-[10px] '>
                 <Image
-                  src={'/proaves2/bento4.png'}
+                  src={'/proaves2/bento4.webp'}
                   className=''
                   height={150}
                   width={135}
@@ -366,7 +366,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-0 top-[5px] '>
                 <Image
-                  src={'/proaves2/bento6.png'}
+                  src={'/proaves2/bento6.webp'}
                   className=''
                   height={150}
                   width={150}
@@ -384,7 +384,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-0 top-[5px] '>
                 <Image
-                  src={'/proaves2/bento7.png'}
+                  src={'/proaves2/bento7.webp'}
                   className=''
                   height={116}
                   width={137}
@@ -404,7 +404,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-[25px] top-[25px] '>
                 <Image
-                  src={'/proaves2/bento8.png'}
+                  src={'/proaves2/bento8.webp'}
                   className=''
                   height={107}
                   width={136}
@@ -422,7 +422,7 @@ export default function ProAvesApp() {
               </p>
               <div className='absolute  right-0 top-[0px] '>
                 <Image
-                  src={'/proaves2/bento9.png'}
+                  src={'/proaves2/bento9.webp'}
                   className=''
                   height={160}
                   width={135}
@@ -435,10 +435,10 @@ export default function ProAvesApp() {
       </div>
       <div>
         <div className='relative z-[190]  rounded-b-[50px] bg-[#E9B130] lg:rounded-none '>
-          <div className="absolute  top-0 z-[2] h-full w-full bg-[url('/proaves2/bg-grid.png')]  bg-[cover] opacity-90" />
+          <div className="absolute  top-0 z-[2] h-full w-full bg-[url('/proaves2/bg-grid.webp')]  bg-[cover] opacity-90" />
           <div className=' relative z-[21] mx-auto grid max-w-[1024px] grid-cols-2 lg:grid-cols-4 lg:gap-[20px]'>
             <div className='absolute left-[502px] hidden h-[900px] w-[20px] bg-white lg:block'></div>
-            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-1.png')] bg-[cover] duration-200 hover:scale-[1.06]">
+            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-1.webp')] bg-[cover] duration-200 hover:scale-[1.06]">
               <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                 +<IncreasingNumber finalNumber={41000} />
               </p>
@@ -446,7 +446,7 @@ export default function ProAvesApp() {
                 Pessoas impactadas online
               </p>
             </div>
-            <div className="flex h-[300px] w-full flex-col items-center justify-center  bg-[url('/proaves2/bg-grid-2.png')] bg-[cover] duration-200 hover:scale-[1.06]">
+            <div className="flex h-[300px] w-full flex-col items-center justify-center  bg-[url('/proaves2/bg-grid-2.webp')] bg-[cover] duration-200 hover:scale-[1.06]">
               <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                 +<IncreasingNumber finalNumber={4000} />
               </p>
@@ -454,7 +454,7 @@ export default function ProAvesApp() {
                 Folders informativos
               </p>
             </div>
-            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-3.png')] bg-[cover] duration-200 hover:scale-[1.06]">
+            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-3.webp')] bg-[cover] duration-200 hover:scale-[1.06]">
               <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                 +<IncreasingNumber finalNumber={400} />
               </p>
@@ -462,7 +462,7 @@ export default function ProAvesApp() {
                 Guias de Aves
               </p>
             </div>
-            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-4.png')] bg-[cover]  duration-200 hover:scale-[1.06]">
+            <div className="flex h-[300px] w-full flex-col items-center justify-center bg-[url('/proaves2/bg-grid-4.webp')] bg-[cover]  duration-200 hover:scale-[1.06]">
               <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                 <IncreasingNumber finalNumber={49} />
               </p>
@@ -471,7 +471,7 @@ export default function ProAvesApp() {
               </p>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-1.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-1.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   2
@@ -482,7 +482,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-2.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-2.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   2
@@ -493,7 +493,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-3.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-3.webp'} alt='' />
               <div className='flex  w-3/4 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   2
@@ -504,7 +504,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-4.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-4.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   4
@@ -515,7 +515,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-5.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-5.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   3
@@ -530,14 +530,14 @@ export default function ProAvesApp() {
                 <Image
                   height={480}
                   width={480}
-                  src={'/proaves2/tsuru-large.png'}
+                  src={'/proaves2/tsuru-large.webp'}
                   alt=''
                 />
               </div>
             </div>
             <div className='hidden h-[200px] w-full items-center justify-center sm:h-[300px] lg:flex   '></div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-6.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-6.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   1
@@ -548,7 +548,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-7.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-7.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   19
@@ -559,7 +559,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-8.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-8.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   4
@@ -570,7 +570,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-9.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-9.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   3
@@ -581,7 +581,7 @@ export default function ProAvesApp() {
               </div>
             </div>
             <div className='flex h-[200px] w-full flex-col items-center justify-center sm:h-[300px] '>
-              <Image height={70} width={70} src={'/proaves2/icon-10.png'} alt='' />
+              <Image height={70} width={70} src={'/proaves2/icon-10.webp'} alt='' />
               <div className='flex w-1/3 items-center justify-center gap-2'>
                 <p className='font-oswald text-[48px] font-bold leading-tight text-white'>
                   14
@@ -609,7 +609,7 @@ export default function ProAvesApp() {
                 <CarouselItem className='w-full   md:basis-[45%]' key={i}>
                   <div className=' relative h-[400px] '>
                     <Image
-                      src={`/proaves2/gallery/final${i + 1}.jpg`}
+                      src={`/proaves2/gallery/final${i + 1}.webp`}
                       layout='fill'
                       objectFit='cover'
                       className='lg:rounded-2xl'
@@ -651,13 +651,13 @@ export default function ProAvesApp() {
               Realização
             </p>
             <div className='mt-4 flex items-center justify-center gap-4 px-[10px]'>
-              <Image height={60} width={82} src={'/proaves2/rel1.png'} alt='OAMa' />
+              <Image height={60} width={82} src={'/proaves2/rel1.webp'} alt='OAMa' />
               <a
                 href='https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/pan/pan-aves-da-mata-atlantica'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Image height={60} width={174} src={'/proaves2/rel2.png'} alt='PAN Aves da Mata Atlântica' />
+                <Image height={60} width={174} src={'/proaves2/rel2.webp'} alt='PAN Aves da Mata Atlântica' />
               </a>
               <a
                 href='https://www.gov.br/icmbio/pt-br/assuntos/centros-de-pesquisa/aves-silvestres'
@@ -665,7 +665,7 @@ export default function ProAvesApp() {
                 rel='noopener noreferrer'
               >
                 {' '}
-                <Image height={60} width={104} src={'/proaves2/rel3.png'} alt='CEMAVE' />
+                <Image height={60} width={104} src={'/proaves2/rel3.webp'} alt='CEMAVE' />
               </a>
             </div>
           </div>
@@ -679,10 +679,10 @@ export default function ProAvesApp() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Image height={60} width={60} src={'/proaves2/ap1.png'} alt='Birds Atlantic' />
+                <Image height={60} width={60} src={'/proaves2/ap1.webp'} alt='Birds Atlantic' />
               </a>
               <a href='https://crbio04.gov.br/' target='_blank' rel='noopener noreferrer'>
-                <Image height={60} width={60} src={'/proaves2/ap3.png'} alt='CRBio-04' />
+                <Image height={60} width={60} src={'/proaves2/ap3.webp'} alt='CRBio-04' />
               </a>
             </div>
           </div>

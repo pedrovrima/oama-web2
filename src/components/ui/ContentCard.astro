@@ -37,15 +37,17 @@ const props = temDestino
         alt={imageAlt || title}
         loading="lazy"
         class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+        decoding="async"
       />
     ) : (
       <div class="flex h-full w-full items-center justify-center bg-oama-cream px-4">
         <img
-          src="/brand/logo-round.png"
+          src="/brand/logo-round.webp"
           alt=""
           aria-hidden="true"
           loading="lazy"
           class="h-16 w-16 object-contain opacity-45"
+          decoding="async"
         />
       </div>
     )}

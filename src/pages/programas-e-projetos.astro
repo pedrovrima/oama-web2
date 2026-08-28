@@ -64,10 +64,14 @@ const programas = [
     <!-- Hero Figma: navegação sólida, título baixo para não competir com ela. -->
     <section class="relative h-[255px] w-full overflow-hidden md:h-[580px]">
       <img
+        srcset="/midias/programas-e-projetos/hub-hero-640w.webp 640w, /midias/programas-e-projetos/hub-hero-960w.webp 960w, /midias/programas-e-projetos/hub-hero-1280w.webp 1280w, /midias/programas-e-projetos/hub-hero.webp 1920w"
+        sizes="100vw"
         src="/midias/programas-e-projetos/hub-hero.webp"
         alt="Pesquisador do OAMa segurando ave anilhada na Mantiqueira"
         class="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/15"></div>
 
@@ -95,6 +99,7 @@ const programas = [
                 alt={programa.alt}
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                 loading="lazy"
+                decoding="async"
               />
               {/* Gradiente: garante contraste do título sobre qualquer foto. */}
               <div

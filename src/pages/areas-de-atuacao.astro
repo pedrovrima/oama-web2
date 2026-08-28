@@ -23,15 +23,19 @@ const colors = {
 <BaseLayout
   title="Áreas de Atuação — OAMa"
   description="As três frentes do OAMa: pesquisa e monitoramento da avifauna na Serra da Mantiqueira, comunicação científica e capacitações técnicas."
-  image="/midias/areas-de-atuacao/capa-areas.jpg"
+  image="/midias/areas-de-atuacao/capa-areas.webp"
 >
   <main class="font-montserrat text-[#1e1702]">
     <section class="relative h-[400px] w-full overflow-hidden md:h-[680px]">
       <img
-        src="/midias/areas-de-atuacao/capa-areas.jpg"
+        srcset="/midias/areas-de-atuacao/capa-areas-640w.webp 640w, /midias/areas-de-atuacao/capa-areas-960w.webp 960w, /midias/areas-de-atuacao/capa-areas-1280w.webp 1280w, /midias/areas-de-atuacao/capa-areas.webp 1920w"
+        sizes="100vw"
+        src="/midias/areas-de-atuacao/capa-areas.webp"
         alt="Fotografia de ave nativa da Mata Atlântica"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/10"></div>
       <div class="absolute inset-x-0 bottom-0 z-10 flex justify-center px-6 pb-5 md:pb-16">
@@ -84,8 +88,10 @@ const colors = {
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/pesquisa-4.jpg" alt="Ave em rede de neblina" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/pesquisa-5.jpg" alt="Pesquisador registrando aves em campo" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/pesquisa-4.webp" alt="Ave em rede de neblina" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/pesquisa-5.webp" alt="Pesquisador registrando aves em campo" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
@@ -148,8 +154,10 @@ const colors = {
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/comunicacao-4.jpg" alt="Instalação artística de aves de papel" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/comunicacao-5.jpg" alt="Participante em oficina de desenho de aves" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/comunicacao-4.webp" alt="Instalação artística de aves de papel" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/comunicacao-5.webp" alt="Participante em oficina de desenho de aves" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">
@@ -205,8 +213,10 @@ const colors = {
       </div>
 
       <div class="grid grid-cols-2">
-        <img src="/midias/areas-de-atuacao/capacitacao-4.jpg" alt="Atividade técnica em área externa" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
-        <img src="/midias/areas-de-atuacao/capacitacao-5.jpg" alt="Material usado em curso técnico" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy" />
+        <img src="/midias/areas-de-atuacao/capacitacao-4.webp" alt="Atividade técnica em área externa" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
+        <img src="/midias/areas-de-atuacao/capacitacao-5.webp" alt="Material usado em curso técnico" class="h-[210px] w-full object-cover md:h-[360px]" loading="lazy"
+    decoding="async" />
       </div>
 
       <div class="mx-auto max-w-5xl px-6 py-9 md:px-12">

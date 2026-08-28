@@ -23,16 +23,16 @@ const planos = stripeData.plans.map((plano) => ({
 }));
 
 const metodosDoacaoUnica = [
-  { name: "PIX", url: "/pix", image: "/apoie/10.png" },
+  { name: "PIX", url: "/pix", image: "/apoie/10.webp" },
   {
     name: "PayPal",
     url: "https://www.paypal.com/donate/?hosted_button_id=9HRNWTKA892WS",
-    image: "/apoie/11.png",
+    image: "/apoie/11.webp",
   },
   {
     name: "Cartão de Crédito",
     url: "https://donate.stripe.com/3csbL34ezfRfdfa144",
-    image: "/apoie/13.png",
+    image: "/apoie/13.webp",
   },
 ];
 
@@ -94,18 +94,18 @@ const projetos = [
 ];
 
 const slidesAcoes = [
-  { name: "Livro Educativo Ornitologia Pra Todo Dia", image: "/apoie/28.png" },
-  { name: "Painel utilizado na atividade Dia de Campo", image: "/apoie/29.png" },
-  { name: "Guia de Aves de Visconde de Mauá e Região", image: "/apoie/30.png" },
-  { name: "Folders do projeto Pró-Aves", image: "/apoie/31.png" },
+  { name: "Livro Educativo Ornitologia Pra Todo Dia", image: "/apoie/28.webp" },
+  { name: "Painel utilizado na atividade Dia de Campo", image: "/apoie/29.webp" },
+  { name: "Guia de Aves de Visconde de Mauá e Região", image: "/apoie/30.webp" },
+  { name: "Folders do projeto Pró-Aves", image: "/apoie/31.webp" },
   {
     name: "Livro de Colorir Espécies Ameaçadas de Extinção da Mata Atlântica",
-    image: "/apoie/32.png",
+    image: "/apoie/32.webp",
   },
-  { name: 'Folder "Tráfico e Engaiolamento" do programa Pró-Aves', image: "/apoie/33.png" },
+  { name: 'Folder "Tráfico e Engaiolamento" do programa Pró-Aves', image: "/apoie/33.webp" },
 ];
 
-// Fotos do carrossel final (51.jpg a 61.jpg, como no legado)
+// Fotos do carrossel final (51.webp a 61.webp, como no legado)
 const fotosFinais = Array.from({ length: 11 }, (_, i) => 51 + i);
 
 const isExterno = (url: string) => url.startsWith("http");
@@ -114,7 +114,7 @@ const isExterno = (url: string) => url.startsWith("http");
 <BaseLayout
   title="Apoie"
   description="Torne-se doador recorrente do OAMa ou faça uma doação única por PIX, PayPal ou cartão e ajude a manter a conservação das aves da Mata Atlântica."
-  image="/apoie/capa.png"
+  image="/apoie/capa.webp"
   navVariant="overlay"
 >
   <main class="max-w-[100vw] overflow-hidden">
@@ -123,10 +123,14 @@ const isExterno = (url: string) => url.startsWith("http");
       <div class="hero-small md:hero h-full items-center justify-items-center pt-32 md:pb-16 lg:pb-16">
         <div class="absolute top-0 h-full w-full">
           <img
-            src="/apoie/capa.png"
+            srcset="/apoie/capa-640w.webp 640w, /apoie/capa-960w.webp 960w, /apoie/capa-1280w.webp 1280w, /apoie/capa.webp 1300w"
+            sizes="100vw"
+            src="/apoie/capa.webp"
             alt="Aves da Mata Atlântica"
             class="absolute inset-0 z-40 h-full w-full object-cover object-center"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
         <div class="mx-auto flex h-full w-full items-center lg:max-w-[1024px]">
@@ -237,6 +241,7 @@ const isExterno = (url: string) => url.startsWith("http");
                           height="40"
                           class="z-40 h-10 w-10 max-w-none"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <div class="absolute left-[2rem] flex h-[3.0rem] w-28 items-center justify-center rounded-full bg-[#332139] p-2 text-center text-sm font-bold leading-none text-white group-hover:bg-[#62466B]">
@@ -250,12 +255,13 @@ const isExterno = (url: string) => url.startsWith("http");
             <div class="relative">
               <div class="absolute -right-[200px] -top-[220px] hidden w-full md:-top-[130px] md:left-[10px] md:flex">
                 <img
-                  src="/apoie/14.png"
+                  src="/apoie/14.webp"
                   alt=""
                   width="450"
                   height="450"
                   class="z-20 h-[450px] w-[450px] max-w-none"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -264,10 +270,11 @@ const isExterno = (url: string) => url.startsWith("http");
 
         <div class="relative z-[80] -mt-[50px] h-[300px] w-full md:mb-[120px] md:h-[400px] md:w-full md:rounded-lg lg:-mt-[160px] lg:mb-16 lg:w-3/5">
           <img
-            src="/apoie/35.png"
+            src="/apoie/35.webp"
             alt="Equipe do OAMa em campo"
             class="absolute inset-0 h-full w-full rounded-xl object-cover"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -277,21 +284,23 @@ const isExterno = (url: string) => url.startsWith("http");
     <div class="md:hero-path relative -top-[50px] z-0 mx-auto pb-24 md:-top-[200px] md:pb-0 lg:-top-[150px]">
       <div class="absolute top-0 h-full w-full">
         <img
-          src="/apoie/34.png"
+          src="/apoie/34.webp"
           alt=""
           class="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="relative z-20 mx-auto w-full py-24 md:max-w-screen-md md:py-48 lg:max-w-[1024px] lg:py-36">
         <div class="absolute -bottom-[60px] -right-10 z-0 md:bottom-0">
           <img
-            src="/apoie/4.png"
+            src="/apoie/4.webp"
             alt=""
             width="200"
             height="350"
             class="h-[350px] w-[200px] max-w-none"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="flex w-full flex-col lg:flex-row lg:items-center">
@@ -308,17 +317,19 @@ const isExterno = (url: string) => url.startsWith("http");
           </div>
           <div class="relative z-[70] w-full lg:h-[500px] lg:w-[600px]">
             <img
-              src="/apoie/grafico.png"
+              src="/apoie/grafico.webp"
               alt="Gráfico de custos do OAMa"
               class="h-auto w-full"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
         <div class="relative pb-36">
           <div class="absolute -top-[110px] right-[120px] flex flex-row items-center gap-[20px] sm:-left-[190px] md:-top-[120px]">
             <div class="z-50 h-[650px] w-[650px] rotate-[20deg] md:rotate-[15deg]">
-              <img src="/apoie/15.png" alt="" class="h-auto w-full" loading="lazy" />
+              <img src="/apoie/15.webp" alt="" class="h-auto w-full" loading="lazy"
+    decoding="async" />
             </div>
             <div class="absolute left-[350px] top-[240px] z-20 min-w-[500px] rounded-l-full rounded-r-full bg-[#4E7B90] py-4 pl-24 pr-24 sm:left-[350px] sm:pr-12">
               <div class="flex h-full flex-row items-center justify-center gap-4 text-white">
@@ -355,12 +366,13 @@ const isExterno = (url: string) => url.startsWith("http");
         class="absolute -top-[120px] bottom-0 left-[400px] z-50 sm:-right-[380px] sm:-top-[90px] md:-top-[210px] lg:-right-[200px]"
       >
         <img
-          src="/apoie/8.png"
+          src="/apoie/8.webp"
           alt=""
           width="600"
           height="600"
           class="h-[600px] w-[600px] max-w-none"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="z-[99] -my-[100px] flex w-full flex-col gap-8 md:flex-row md:gap-[50px] lg:gap-[150px]">
@@ -416,6 +428,7 @@ const isExterno = (url: string) => url.startsWith("http");
                             height="350"
                             class="z-[80] h-[350px] w-[350px] max-w-none"
                             loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div class="w-[300px] rounded-full bg-[#332139] px-12 py-4 text-center">
@@ -453,13 +466,15 @@ const isExterno = (url: string) => url.startsWith("http");
           style="transform: scaleX(-1); rotate: -15deg;"
           class="absolute -top-[200px] bottom-0 left-[350px] z-20 h-[600px] w-[600px] sm:-right-[400px] sm:left-auto lg:-right-[200px]"
         >
-          <img src="/apoie/5.png" alt="" class="h-auto w-full" loading="lazy" />
+          <img src="/apoie/5.webp" alt="" class="h-auto w-full" loading="lazy"
+    decoding="async" />
         </div>
         <div
           style="rotate: -5deg;"
           class="absolute -left-[550px] -top-[400px] bottom-0 right-[250px] z-0 h-[800px] w-[800px] sm:-left-[400px] lg:-left-[350px]"
         >
-          <img src="/apoie/16.png" alt="" class="h-auto w-full" loading="lazy" />
+          <img src="/apoie/16.webp" alt="" class="h-auto w-full" loading="lazy"
+    decoding="async" />
         </div>
         <div class="relative z-50 overflow-hidden" data-carousel>
           <div class="embla" data-viewport>
@@ -469,10 +484,11 @@ const isExterno = (url: string) => url.startsWith("http");
                   <div class="embla__slide flex flex-col items-center">
                     <div class="block w-screen items-center justify-center rounded-xl bg-[#332139] sm:h-[285.6px] sm:w-[500px] lg:h-[400px] lg:w-[700px]">
                       <img
-                        src={`/apoie/${numero}.jpg`}
+                        src={`/apoie/${numero}.webp`}
                         alt="Atividades do OAMa"
                         class="z-40 aspect-[7/4] h-full w-full rounded-xl object-cover"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </div>
