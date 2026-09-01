@@ -9,7 +9,6 @@ const links = [
   { href: "/programas-e-projetos", label: "Programas e Projetos" },
   { href: "/consultoria", label: "Prestação de Serviços" },
   { href: "/realizacoes", label: "Realizações" },
-  { href: "https://use.oama.eco.br", label: "Loja" },
 ];
 
 const isOverlay = variant === "overlay";
@@ -57,7 +56,7 @@ const styles = isOverlay
     </a>
 
     <!-- ── DESKTOP nav: center ── -->
-    <nav class={`hidden items-center gap-6 text-xs font-semibold md:flex ${isOverlay ? "nav-links-overlay text-white" : "text-oama-ink/80"}`}>
+    <nav class={`hidden flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px] font-semibold md:flex lg:gap-x-6 lg:text-[15px] ${isOverlay ? "nav-links-overlay text-white" : "text-oama-ink/80"}`}>
       {
         links.map((link) => (
           <a
@@ -73,7 +72,7 @@ const styles = isOverlay
     <!-- ── DESKTOP "Apoie" CTA (hidden on mobile) ── -->
     <a
       href="/apoie"
-      class="hidden md:inline-flex rounded-full bg-oama-yellow px-4 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-oama-ink shadow-sm hover:brightness-95"
+      class="hidden shrink-0 md:inline-flex rounded-full bg-oama-yellow px-4 py-2 text-[13px] font-extrabold uppercase tracking-[0.12em] text-oama-ink shadow-sm hover:brightness-95"
     >
       Apoie
     </a>

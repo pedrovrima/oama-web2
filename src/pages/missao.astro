@@ -80,13 +80,13 @@ const odsSecundarios = [
             }
           </div>
 
-          <div class="flex items-center justify-center gap-4 md:gap-5">
+          <div class="grid w-full max-w-[640px] grid-cols-3 gap-6 md:gap-8">
             {
               odsSecundarios.map((ods) => (
                 <img
                   src={ods.src}
                   alt={ods.alt}
-                  class="h-[44px] w-[44px] object-cover md:h-[76px] md:w-[76px]"
+                  class="aspect-square w-full object-cover shadow-sm"
                   loading="lazy"
                   decoding="async"
                 />

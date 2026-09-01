@@ -1,67 +1,58 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import WaveDark from "../../components/sections/WaveDark.astro";
+import CarrosselFotos from "../../components/ui/CarrosselFotos.astro";
 
 const atividades = [
   {
     imagem: "/proaves2/gallery/final1.webp",
     alt: "Pessoa bordando uma ave durante atividade artística do Programa Ações Pró-Aves",
     legenda: "Oficinas de artes sobre aves",
-    posicao: "center 72%",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-1.webp",
     alt: "Apresentação teatral com máscaras de aves em atividade educativa do Programa Ações Pró-Aves",
     legenda: "Teatro e atividades artísticas sobre aves",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-2.webp",
     alt: "Crianças explorando exposição educativa sobre aves em atividade de campo do OAMa",
     legenda: "Atividades educativas com escolas e comunidades",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-3.webp",
     alt: "Apresentação sobre colisão de aves em vidros no Congresso Brasileiro de Ornitologia",
     legenda: "Divulgação científica em eventos e congressos",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-4.webp",
     alt: "Aplicação de marcações em vidro para prevenção de colisões de aves",
     legenda: "Ações práticas de prevenção de colisões com vidros",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-5.webp",
     alt: "Participante pintando uma máscara de ave em papel machê durante oficina de artes",
     legenda: "Oficinas de confecção de máscaras de aves",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-6.webp",
     alt: "Roda de conversa entre jovens durante preparação de atividade teatral sobre aves",
     legenda: "Preparação do grupo antes das apresentações",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-7.webp",
     alt: "Gaiola gigante instalada em exposição sobre tráfico de animais silvestres",
     legenda: "Exposições sobre tráfico e caça de animais silvestres",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-8.webp",
     alt: "Educador do OAMa apresentando painéis sobre estudo de aves para estudantes sentados no chão",
     legenda: "Visitas escolares e exposições sobre o estudo das aves",
-    posicao: "center",
   },
   {
     imagem: "/midias/programas-e-projetos/proaves-galeria-9.webp",
     alt: "Palestra sobre colisão de aves em vidros durante o Avistar",
     legenda: "Palestras e divulgação científica em eventos",
-    posicao: "center",
   },
 ];
 ---
@@ -106,110 +97,10 @@ const atividades = [
 
     <!-- 2) CARROSSEL DE ATIVIDADES: mídia ocupa toda a largura como no frame -->
     <section class="w-full" style="background:#dfb553;">
-        {/* Largura limitada de proposito, apesar de a secao ser full-bleed.
-            Numa proporcao de 1,41 a altura acompanha a largura: em 1920px o
-            carrossel full-bleed ficava com 1362px de altura e o slide nao cabia
-            mais na tela. Com o teto de 880px a altura para em ~624px e a foto
-            continua aparecendo inteira. O fundo amarelo da secao preenche as
-            laterais. */}
-        <div class="relative mx-auto w-full max-w-[880px] overflow-hidden" data-carrossel>
-          <ul
-            class="carrossel-trilho flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]"
-            style="-webkit-overflow-scrolling: touch;"
-            aria-label="Galeria de atividades do Programa Ações Pró-Aves"
-            tabindex="0"
-            data-trilho
-          >
-            {
-              atividades.map((a, i) => (
-                <li class="relative flex-shrink-0 w-full snap-center" data-slide={i}>
-                  {/* A galeria mistura proporcoes: 4 fotos em ~1,41 e 5 em 2,00
-                      (proaves-galeria-5..9). Com altura fixa e largura full-bleed
-                      a caixa virava 2,82:1 a 1440px e cortava metade da altura das
-                      fotos 3:2. A caixa passa a 1,41, a proporcao da maioria, com
-                      `object-contain`: nada e cortado — as 3:2 preenchem e as
-                      panoramicas aparecem inteiras, com faixa do fundo acima e
-                      abaixo. `object-position` saiu junto porque sem recorte ele
-                      nao faz nada; o "center 72%" do primeiro slide existia so
-                      para salvar o enquadramento do corte antigo. */}
-                  <img
-                    src={a.imagem}
-                    alt={a.alt}
-                    class="w-full aspect-[1.41] object-contain"
-                    loading={i === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                  <p class="absolute bottom-0 left-0 right-0 px-5 pt-4 pb-9 text-white font-montserrat text-[13px] md:text-[15px] leading-[18px] md:leading-[22px] text-center">
-                    {a.legenda}
-                  </p>
-                </li>
-              ))
-            }
-          </ul>
-
-          <!-- Setas de navegação -->
-          <button
-            type="button"
-            data-anterior
-            aria-label="Imagem anterior"
-            class="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-oama-ink shadow-md transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oama-ink disabled:opacity-40"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </button>
-          <button
-            type="button"
-            data-proximo
-            aria-label="Próxima imagem"
-            class="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-oama-ink shadow-md transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oama-ink disabled:opacity-40"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
-
-          <!-- Indicadores -->
-          <div
-            class="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-2"
-            role="tablist"
-            aria-label="Selecionar imagem da galeria"
-          >
-            {
-              atividades.map((a, i) => (
-                <button
-                  type="button"
-                  role="tab"
-                  data-ponto={i}
-                  aria-label={`Imagem ${i + 1} de ${atividades.length}: ${a.legenda}`}
-                  aria-selected={i === 0 ? "true" : "false"}
-                  class="h-2 w-2 rounded-full bg-white/50 transition aria-selected:w-5 aria-selected:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                />
-              ))
-            }
-          </div>
-        </div>
+      <CarrosselFotos
+        fotos={atividades}
+        rotulo="Galeria de atividades do Programa Ações Pró-Aves"
+      />
     </section>
 
     <!-- 3) FECHAMENTO COM LINK -->
@@ -255,64 +146,3 @@ const atividades = [
 
   </main>
 </BaseLayout>
-
-<style>
-  /* A barra de rolagem fica escondida: a navegação é feita pelas setas e pelos pontos. */
-  .carrossel-trilho::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-
-<script>
-  const carrossel = document.querySelector<HTMLElement>("[data-carrossel]");
-  const trilho = carrossel?.querySelector<HTMLElement>("[data-trilho]");
-
-  if (carrossel && trilho) {
-    const anterior = carrossel.querySelector<HTMLButtonElement>("[data-anterior]");
-    const proximo = carrossel.querySelector<HTMLButtonElement>("[data-proximo]");
-    const pontos = Array.from(
-      carrossel.querySelectorAll<HTMLButtonElement>("[data-ponto]")
-    );
-    const total = trilho.querySelectorAll("[data-slide]").length;
-
-    const indiceAtual = () =>
-      Math.round(trilho.scrollLeft / trilho.clientWidth);
-
-    const irPara = (indice: number) => {
-      const alvo = Math.max(0, Math.min(total - 1, indice));
-      trilho.scrollTo({ left: alvo * trilho.clientWidth, behavior: "smooth" });
-    };
-
-    const sincronizar = () => {
-      const atual = indiceAtual();
-      pontos.forEach((ponto, i) =>
-        ponto.setAttribute("aria-selected", String(i === atual))
-      );
-      if (anterior) anterior.disabled = atual <= 0;
-      if (proximo) proximo.disabled = atual >= total - 1;
-    };
-
-    anterior?.addEventListener("click", () => irPara(indiceAtual() - 1));
-    proximo?.addEventListener("click", () => irPara(indiceAtual() + 1));
-    pontos.forEach((ponto, i) => ponto.addEventListener("click", () => irPara(i)));
-
-    trilho.addEventListener("keydown", (evento) => {
-      if (evento.key === "ArrowRight") {
-        evento.preventDefault();
-        irPara(indiceAtual() + 1);
-      } else if (evento.key === "ArrowLeft") {
-        evento.preventDefault();
-        irPara(indiceAtual() - 1);
-      }
-    });
-
-    let agendado = 0;
-    trilho.addEventListener("scroll", () => {
-      window.clearTimeout(agendado);
-      agendado = window.setTimeout(sincronizar, 80);
-    });
-    window.addEventListener("resize", sincronizar);
-
-    sincronizar();
-  }
-</script>
