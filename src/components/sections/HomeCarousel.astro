@@ -1,6 +1,31 @@
 ---
 import { getHomeSlides, urlFor } from "../../utils/sanity";
 
+// As capas deste carrossel vêm da thumbnail do próprio vídeo no YouTube, mas
+// só quando o vídeo tem uma versão em HD (`maxresdefault`, 1280x720). Vídeo
+// antigo só tem `sddefault` 640x480, que fica escuro e borrado esticado no
+// container 16:9 — nesse caso vale mais a capa local exportada do Figma.
+//
+// O teste é feito aqui, no build, e não no cliente: para um vídeo sem
+// `maxresdefault` o YouTube responde 404 com um placeholder cinza de 120x90 que
+// é uma imagem *válida*, então `onerror` nunca dispararia e o slide ficaria com
+// a tarja cinza.
+function idYoutube(link: string | undefined) {
+  return link?.match(/(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/)?.[1] ?? null;
+}
+
+async function thumbYoutubeHd(link: string | undefined) {
+  const id = idYoutube(link);
+  if (!id) return null;
+  const url = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+  try {
+    return (await fetch(url, { method: "HEAD" })).ok ? url : null;
+  } catch {
+    // Build sem rede: mantém a capa local.
+    return null;
+  }
+}
+
 const FALLBACK = [
   // Capas dos documentários do OAMa, exportadas dos nós do Figma
   // (2011:1692 e 2011:1681). Cada slide leva ao vídeo no YouTube — as URLs vêm
@@ -28,14 +53,23 @@ const FALLBACK = [
 const raw = await getHomeSlides();
 
 const slides = raw.length > 0
-  ? raw.map((s) => ({
-      title: s.title,
-      subtitle: s.subtitle,
-      image: urlFor(s.image).width(1200).height(500).fit("crop").auto("format").url(),
-      link: s.link ?? "#",
-      bg: s.bg,
-    }))
-  : FALLBACK;
+  ? await Promise.all(
+      raw.map(async (s) => ({
+        title: s.title,
+        subtitle: s.subtitle,
+        image:
+          (await thumbYoutubeHd(s.link)) ??
+          urlFor(s.image).width(1200).height(500).fit("crop").auto("format").url(),
+        link: s.link ?? "#",
+        bg: s.bg,
+      }))
+    )
+  : await Promise.all(
+      FALLBACK.map(async (s) => ({
+        ...s,
+        image: (await thumbYoutubeHd(s.link)) ?? s.image,
+      }))
+    );
 
 const intervalMs = 6500;
 const id = "home-carousel";
